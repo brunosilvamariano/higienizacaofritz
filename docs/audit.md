@@ -1,31 +1,30 @@
-# Auditoria técnica final — setembro de 2026
+# Auditoria técnica final — 19/09/2026
 
 ## Resultado
-
-O projeto foi revisado como site estático reutilizável. A versão de entrega não depende de gerenciador de pacotes, etapa de compilação ou servidor de aplicação. O navegador recebe diretamente `index.html`, CSS, JavaScript, fontes, imagens e demais arquivos locais.
+Projeto revisado como template reutilizável. `npm run audit` conclui com **0 erros e 0 avisos** nas verificações automatizadas implementadas. `npm run build` conclui com sucesso. Todos os arquivos JavaScript em `assets/js` passaram por `node --check`.
 
 ## Estrutura
-
-Os arquivos permanecem separados por componentes e seções. Imagens, fontes, ícones e favicons estão armazenados localmente. O projeto não cria uma segunda cópia do site para publicação: a raiz do repositório é a própria origem estática.
+Foram mantidos arquivos separados para componentes e seções, assets locais e scripts de build. `node_modules/` não faz parte da entrega; `dist/` é gerado pelo build e também não integra o pacote-fonte final.
 
 ## HTML e semântica
+O documento possui um único `<main>` e um único `<h1>`. A estrutura utiliza `header`, `nav`, `main`, `section` e `footer` conforme a função dos blocos. Foi incluído skip link para navegação por teclado. Imagens são verificadas pelo script de auditoria para presença de `alt`, e IDs duplicados são tratados como erro.
 
-O documento mantém um único `<main>` e um único `<h1>`, além de `header`, `nav`, `section` e `footer` conforme a função dos blocos. O skip link e os atributos de acessibilidade foram preservados.
+## Head
+O head contém charset, viewport, title, description, author, application-name, theme-color, color-scheme, robots/googlebot e Open Graph/Twitter básicos. Também foram adicionados `format-detection`, `referrer`, mobile web app metadata, favicon e preload do hero.
 
-## Head e SEO
-
-O head contém charset, viewport, title, description, author, application-name, theme-color, robots/googlebot, Open Graph, Twitter Card, canonical, favicon e preload do hero. A imagem social dedicada usa URL absoluta e também é referenciada pelos dados estruturados.
-
-O Schema `LocalBusiness` mantém nome, telefone, endereço, Instagram, serviços e áreas atendidas. `robots.txt` e `sitemap.xml` devem permanecer coerentes com a URL pública usada no deploy.
+Canonical, `og:url`, `og:image`, `twitter:image`, sitemap, IDs do Google e Meta **não foram inventados**, pois dependem do domínio, imagem social e contas reais de cada cliente. O procedimento correto está documentado em `docs/DEPLOYMENT.md`.
 
 ## Segurança
+Nenhuma credencial foi adicionada. A documentação de publicação cobre HTTPS, CSP, HSTS, X-Content-Type-Options, Referrer-Policy e Permissions-Policy. Esses controles pertencem à camada HTTP/hospedagem e não devem ser simulados com valores genéricos no HTML.
 
-Nenhuma credencial deve ser adicionada ao repositório. `vercel.json` configura cabeçalhos HTTP não invasivos. Políticas mais restritivas, especialmente CSP e HSTS, devem ser habilitadas somente depois de validar todas as integrações utilizadas pelo site.
+## Reutilização
+`docs/REUSE-CHECKLIST.md` contém a revisão necessária para impedir que nome, telefone, redes sociais, endereço, SEO ou dados de um cliente sejam publicados acidentalmente no projeto de outro cliente.
 
-## Publicação
-
-A Vercel deve servir o projeto diretamente da raiz, com Framework Preset `Other`, sem comando de instalação, sem comando de compilação e sem diretório de saída configurado.
+## Automação
+Novos comandos:
+- `npm run audit` — semântica estrutural e referências locais essenciais.
+- `npm run build` — gera a versão de distribuição.
+- `npm run check` — executa auditoria e build em sequência.
 
 ## Limites desta auditoria
-
-A revisão estática não substitui teste visual em navegadores e dispositivos reais, Lighthouse/axe em navegador, validação do domínio publicado, regras jurídicas específicas ou validação de IDs de plataformas de publicidade.
+A validação automatizada não substitui teste visual em navegadores/dispositivos reais, Lighthouse/axe em navegador, verificação de domínio publicado, políticas jurídicas específicas do cliente ou validação dos IDs de plataformas de anúncios. Esses itens dependem do ambiente final.
