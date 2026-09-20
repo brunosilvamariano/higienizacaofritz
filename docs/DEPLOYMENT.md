@@ -10,7 +10,7 @@ Somente após definir a URL pública, inclua:
 Não use URLs fictícias em produção.
 
 ## Analytics e anúncios
-Google Tag/Analytics, Google Ads e Meta Pixel exigem IDs reais. Não inclua placeholders que gerem requisições inválidas. Se houver rastreamento/cookies não essenciais, implemente consentimento de acordo com a operação do site e a legislação aplicável.
+Google Tag/Analytics, Google Ads e Meta Pixel exigem IDs reais. Não inclua placeholders que gerem requisições inválidas. Se houver rastreamento/cookies não essenciais, implemente consentimento de acordo com a operação do site e a legislação aplicável. O roteiro de inclusão e os eventos recomendados estão em `docs/TRACKING.md`.
 
 ## Cabeçalhos de segurança
 Configure no servidor/CDN, testando compatibilidade antes de tornar políticas restritivas:

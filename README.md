@@ -6,7 +6,7 @@ Site estático e responsivo adaptado para a Fritz Higienização e Impermeabiliz
 
 - `index.html` — documento principal e semântica da página.
 - `assets/css/main.css` — base global e utilidades.
-- `assets/css/design-system.css` — tokens compartilhados de cor, tipografia, raio, sombra, espaçamento e transições.
+- `assets/css/main.css` — tokens compartilhados de cor, tipografia, raio, sombra, espaçamento e transições.
 - `assets/css/components/` — sidebar, CTA flutuante e componentes reutilizáveis.
 - `assets/css/sections/` — um stylesheet por seção.
 - `assets/js/components/` — comportamento dos componentes.
@@ -41,7 +41,7 @@ O build é gerado em `dist/`. A pasta `dist/` não deve ser editada manualmente 
 3. Defina domínio final e então inclua `canonical`, `og:url` e uma imagem social absoluta.
 4. Configure Google Analytics/Ads, Meta Pixel e consentimento somente com IDs reais e conforme a necessidade do cliente.
 5. Revise Política de Privacidade, cookies e base legal aplicável ao tratamento de dados.
-6. Rode `npm run build` e a auditoria descrita em `docs/AUDIT.md`.
+6. Rode `npm run audit` e `npm run build`; a auditoria é descrita em `docs/audit.md`.
 7. Teste teclado, mobile, links externos, WhatsApp, formulário/contato e todos os breakpoints.
 
 ## Regras do design system
