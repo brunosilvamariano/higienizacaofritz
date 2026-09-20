@@ -1,0 +1,206 @@
+/*
+ * ============================================================
+ * SECTIONS / MARQUEE
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* Marquee: faixas editoriais contínuas, fades laterais e estados responsivos. */
+.marquee {
+  --marquee-ink: var(--color-graphite);
+  --marquee-accent: var(--color-brand);
+  --marquee-edge: rgba(250, 252, 255, 0.98);
+  position: relative;
+  z-index: 4;
+  overflow: hidden;
+  border-top: 1px solid rgba(45, 61, 94, 0.08);
+  border-bottom: 1px solid rgba(45, 61, 94, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 255, 0.96)),
+    #ffffff;
+}
+
+.marquee::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(49, 91, 234, 0.025), transparent 18%, transparent 82%, rgba(49, 91, 234, 0.025));
+}
+
+.marquee__viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee__viewport::before,
+.marquee__viewport::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  bottom: 0;
+  width: clamp(1.25rem, 3vw, 3.5rem);
+  pointer-events: none;
+}
+
+.marquee__viewport::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--marquee-edge), transparent);
+}
+
+.marquee__viewport::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--marquee-edge), transparent);
+}
+
+.marquee__viewport--manifesto {
+  padding-block: clamp(1.35rem, 2.4vw, 2.35rem) clamp(1.05rem, 1.75vw, 1.55rem);
+}
+
+.marquee__viewport--services {
+  border-top: 1px solid rgba(45, 61, 94, 0.07);
+  padding-block: clamp(0.8rem, 1.15vw, 1.05rem);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.marquee__group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: clamp(1.65rem, 2.35vw, 3.35rem);
+  padding-right: clamp(1.65rem, 2.35vw, 3.35rem);
+}
+
+.marquee__statement {
+  margin: 0;
+  color: var(--marquee-ink);
+  font-size: clamp(1.65rem, 2.25vw, 3.15rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__statement span {
+  color: var(--marquee-accent);
+}
+
+.marquee__spark {
+  position: relative;
+  width: clamp(1rem, 1.25vw, 1.35rem);
+  height: clamp(1rem, 1.25vw, 1.35rem);
+  flex: 0 0 auto;
+  transform: rotate(45deg);
+}
+
+.marquee__spark::before,
+.marquee__spark::after {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  border-radius: 999px;
+  background: var(--marquee-accent);
+  transform: translate(-50%, -50%);
+}
+
+.marquee__spark::before {
+  width: 100%;
+  height: 0.12rem;
+}
+
+.marquee__spark::after {
+  width: 0.12rem;
+  height: 100%;
+}
+
+.marquee__group--services {
+  gap: clamp(1.15rem, 1.8vw, 2.25rem);
+  padding-right: clamp(1.15rem, 1.8vw, 2.25rem);
+}
+
+.marquee__group--services span {
+  color: #58657e;
+  font-size: clamp(0.69rem, 0.66rem + 0.12vw, 0.8rem);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__group--services i {
+  width: 0.22rem;
+  height: 0.22rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(37, 87, 230, 0.78);
+}
+
+@media (max-width: 47.99rem) {
+  .marquee__viewport--manifesto {
+    padding-block: 1.35rem 1.1rem;
+  }
+
+  .marquee__viewport--services {
+    padding-block: 0.82rem;
+  }
+
+  .marquee__group {
+    gap: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  .marquee__statement {
+    font-size: clamp(1.55rem, 7.2vw, 2.15rem);
+    letter-spacing: -0.048em;
+  }
+
+  .marquee__spark {
+    width: 0.92rem;
+    height: 0.92rem;
+  }
+
+  .marquee__group--services {
+    gap: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .marquee__group--services span {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__viewport {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .marquee__viewport::before,
+  .marquee__viewport::after {
+    display: none;
+  }
+
+  .marquee__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .marquee__track {
+    transform: none;
+    will-change: auto;
+  }
+
+  .marquee__group[aria-hidden="true"],
+  .marquee__group[data-marquee-clone="generated"] {
+    display: none;
+  }
+}

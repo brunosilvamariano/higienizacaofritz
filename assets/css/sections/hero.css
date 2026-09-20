@@ -1,0 +1,1210 @@
+/*
+ * ============================================================
+ * SECTIONS / HERO
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* Hero: composição principal, CTAs, prova social e responsividade da abertura. */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 66% 8%, rgba(63, 104, 244, 0.085), transparent 30rem),
+    linear-gradient(180deg, #fbfcff 0%, var(--color-ice) 74%, #f2f6fc 100%);
+}
+
+.hero__grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100%, 104rem);
+  min-height: 100svh;
+  grid-template-columns: minmax(29rem, 1.12fr) minmax(24rem, 0.88fr);
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 2rem);
+  margin-inline: auto;
+  padding: clamp(6.25rem, 8.5vh, 8rem) clamp(1.6rem, 2.7vw, 3.75rem) clamp(2rem, 3.5vw, 4rem);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 7;
+  min-width: 0;
+  align-self: center;
+  padding-left: clamp(0rem, 0.7vw, 0.8rem);
+}
+
+.hero__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 0;
+  color: #4f5d78;
+  font-size: clamp(0.7rem, 0.67rem + 0.12vw, 0.82rem);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.hero__eyebrow span {
+  color: #8490aa;
+}
+
+.hero__title {
+  max-width: none;
+  margin: clamp(1.35rem, 1.8vw, 2rem) 0 clamp(1.2rem, 1.6vw, 1.75rem);
+  font-size: clamp(4rem, 4.6vw, 6.6rem);
+  font-weight: 800;
+  line-height: 0.91;
+  letter-spacing: -0.064em;
+}
+
+.hero__title span {
+  display: block;
+}
+
+.hero__title-accent {
+  color: var(--accent-strong);
+  white-space: nowrap;
+}
+
+.hero__lead {
+  max-width: 35rem;
+  margin: 0;
+  color: #68738a;
+  font-size: clamp(1.02rem, 0.96rem + 0.28vw, 1.3rem);
+  line-height: 1.58;
+}
+
+/* CTAs editoriais: compactos, delicados e com um único sistema de ícones. */
+.hero__actions {
+  display: grid;
+  width: min(100%, 31rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-top: clamp(1.8rem, 2.6vw, 2.7rem);
+}
+
+.hero-cta {
+  --cta-bg: #ffffff;
+  --cta-fg: #1b2741;
+  --cta-border: rgba(39, 74, 166, 0.16);
+  --cta-icon-bg: rgba(49, 91, 234, 0.08);
+  --cta-icon-fg: var(--color-brand);
+  --cta-shadow: 0 12px 28px rgba(32, 48, 86, 0.07);
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 3.55rem;
+  grid-template-columns: 2.45rem minmax(0, 1fr) 1.55rem;
+  align-items: center;
+  gap: 0.58rem;
+  padding: 0.38rem 0.72rem 0.38rem 0.4rem;
+  overflow: hidden;
+  border: 1px solid var(--cta-border);
+  border-radius: 0.78rem;
+  background: var(--cta-bg);
+  box-shadow: var(--cta-shadow);
+  color: var(--cta-fg);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: -0.018em;
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast) var(--ease),
+    border-color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease,
+    background var(--transition-fast) ease;
+}
+
+.hero-cta::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.16;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-fast) var(--ease);
+}
+
+.hero-cta__icon {
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  border-radius: 0.66rem;
+  background: var(--cta-icon-bg);
+  color: var(--cta-icon-fg);
+}
+
+.hero-cta__label {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.hero-cta__arrow {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  justify-self: end;
+  opacity: 0.72;
+  transition: transform var(--transition-fast) var(--ease), opacity var(--transition-fast) ease;
+}
+
+.hero-cta svg {
+  width: 1.08rem;
+  height: 1.08rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+}
+
+.hero-cta:hover::before {
+  transform: scaleX(1);
+}
+
+.hero-cta:hover .hero-cta__arrow {
+  opacity: 1;
+  transform: translateX(0.18rem);
+}
+
+.hero-cta:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 4px;
+}
+
+.hero-cta--primary {
+  --cta-bg: #2b57e7;
+  --cta-fg: #ffffff;
+  --cta-border: rgba(37, 87, 230, 0.92);
+  --cta-icon-bg: rgba(255, 255, 255, 0.13);
+  --cta-icon-fg: #ffffff;
+  --cta-shadow: 0 14px 30px rgba(37, 87, 230, 0.2);
+}
+
+.hero-cta--primary:hover {
+  --cta-bg: #244fd7;
+  --cta-shadow: 0 18px 34px rgba(37, 87, 230, 0.24);
+}
+
+.hero-cta--secondary {
+  --cta-bg: rgba(255, 255, 255, 0.72);
+  --cta-fg: #17223a;
+  --cta-border: rgba(54, 82, 148, 0.14);
+  --cta-icon-bg: rgba(49, 91, 234, 0.075);
+  --cta-icon-fg: var(--color-brand);
+  --cta-shadow: 0 10px 26px rgba(32, 48, 86, 0.045);
+  backdrop-filter: blur(10px);
+}
+
+.hero-cta--secondary:hover {
+  --cta-bg: #ffffff;
+  --cta-border: rgba(49, 91, 234, 0.24);
+  --cta-shadow: 0 14px 28px rgba(32, 48, 86, 0.07);
+}
+
+
+/* Prova social compacta — substitui os antigos pilares sem alterar a geometria do Hero. */
+.hero__proof {
+  position: relative;
+  display: flex;
+  width: min(100%, 35rem);
+  align-items: center;
+  gap: clamp(0.8rem, 1.5vw, 1.1rem);
+  margin-top: clamp(2rem, 3vw, 2.75rem);
+  padding-top: clamp(1.35rem, 1.8vw, 1.65rem);
+}
+
+.hero__proof::before,
+.hero__proof::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  pointer-events: none;
+}
+
+.hero__proof::before {
+  width: min(100%, 31rem);
+  background: linear-gradient(90deg, rgba(44, 58, 88, 0.12), rgba(44, 58, 88, 0.06) 75%, transparent);
+}
+
+.hero__proof::after {
+  width: 4rem;
+  background: linear-gradient(90deg, rgba(49, 91, 234, 0.72), rgba(49, 91, 234, 0.16) 78%, transparent);
+}
+
+.hero__proof-avatars {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.hero__proof-avatars img,
+.hero__proof-more {
+  width: clamp(2.35rem, 3.4vw, 2.8rem);
+  height: clamp(2.35rem, 3.4vw, 2.8rem);
+  border: 2px solid var(--color-ice);
+  border-radius: 50%;
+}
+
+.hero__proof-avatars img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 5px 13px rgba(28, 39, 64, 0.08);
+}
+
+.hero__proof-avatars > * + * {
+  margin-left: -0.62rem;
+}
+
+.hero__proof-more {
+  display: grid;
+  place-items: center;
+  background: #111827;
+  color: #ffffff;
+  font-size: 0.66rem;
+  font-weight: 780;
+  letter-spacing: -0.02em;
+  box-shadow: 0 5px 13px rgba(28, 39, 64, 0.08);
+}
+
+.hero__proof-divider {
+  width: 1px;
+  height: 2.7rem;
+  flex: 0 0 auto;
+  background: rgba(37, 52, 82, 0.14);
+}
+
+.hero__proof-google {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.72rem;
+}
+
+.hero__proof-google-icon {
+  display: block;
+  width: clamp(1.65rem, 2.5vw, 1.9rem);
+  height: auto;
+}
+
+.hero__proof-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.18rem;
+}
+
+.hero__proof-copy strong {
+  color: #172033;
+  font-size: clamp(0.82rem, 0.78rem + 0.12vw, 0.92rem);
+  font-weight: 760;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.hero__proof-rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7c879b;
+  font-size: clamp(0.69rem, 0.66rem + 0.08vw, 0.75rem);
+  font-weight: 680;
+  line-height: 1.2;
+}
+
+.hero__proof-stars {
+  color: #f4b400;
+  font-size: 0.78rem;
+  letter-spacing: 0.045em;
+  line-height: 1;
+}
+
+.hero__proof-copy small {
+  color: #8a94a7;
+  font-size: clamp(0.64rem, 0.61rem + 0.08vw, 0.7rem);
+  line-height: 1.35;
+}
+
+.hero__pillars {
+  position: relative;
+  display: grid;
+  max-width: 46rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: clamp(2.45rem, 3.1vw, 3.35rem) 0 0;
+  padding: clamp(1.55rem, 1.9vw, 1.8rem) 0 0;
+  list-style: none;
+}
+
+/* Divisor editorial entre os CTAs e os pilares — curto, leve e restrito à coluna de conteúdo. */
+.hero__pillars::before,
+.hero__pillars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  pointer-events: none;
+}
+
+.hero__pillars::before {
+  width: min(100%, 31rem);
+  background: linear-gradient(
+    90deg,
+    rgba(44, 58, 88, 0.12) 0%,
+    rgba(44, 58, 88, 0.08) 72%,
+    rgba(44, 58, 88, 0) 100%
+  );
+}
+
+.hero__pillars::after {
+  width: 4rem;
+  background: linear-gradient(
+    90deg,
+    rgba(49, 91, 234, 0.72) 0%,
+    rgba(49, 91, 234, 0.2) 76%,
+    rgba(49, 91, 234, 0) 100%
+  );
+}
+
+.hero__pillars li {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 2.1rem minmax(0, 1fr);
+  gap: 0.7rem;
+  padding: 0 1rem;
+}
+
+.hero__pillars li:first-child {
+  padding-left: 0;
+}
+
+.hero__pillars li + li {
+  border-left: 1px solid rgba(53, 66, 94, 0.12);
+}
+
+.hero__pillars svg {
+  width: 1.72rem;
+  height: 1.72rem;
+  fill: none;
+  stroke: #4164c9;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__pillars span {
+  display: grid;
+}
+
+.hero__pillars strong {
+  font-size: 0.94rem;
+  line-height: 1.25;
+}
+
+.hero__pillars small {
+  margin-top: 0.32rem;
+  color: #7c879d;
+  font-size: 0.75rem;
+  line-height: 1.42;
+}
+
+.hero__location {
+  position: absolute;
+  z-index: 8;
+  top: clamp(1.8rem, 2.6vw, 3rem);
+  right: clamp(1.7rem, 2.8vw, 3.75rem);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  color: #3e4a62;
+}
+
+.hero__location svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.12rem;
+  fill: none;
+  stroke: var(--accent-strong);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero__location span {
+  display: grid;
+}
+
+.hero__location strong {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hero__location small {
+  margin-top: 0.08rem;
+  color: #7e899f;
+  font-size: 0.69rem;
+}
+
+.hero__visual {
+  position: relative;
+  min-width: 0;
+  align-self: stretch;
+  min-height: min(76svh, 51rem);
+}
+
+.hero__portrait {
+  position: absolute;
+  z-index: 3;
+  right: 3%;
+  bottom: clamp(-3rem, -4vh, -1rem);
+  width: min(86%, 41rem);
+  max-height: 86svh;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 22px 26px rgba(37, 51, 87, 0.08));
+  transition: width var(--transition-base) var(--ease), right var(--transition-base) var(--ease);
+}
+
+.hero__shape {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero__shape--one {
+  right: 7%;
+  bottom: 10%;
+  width: min(74%, 34rem);
+  aspect-ratio: 0.92;
+  border-radius: 42% 58% 54% 46% / 42% 42% 58% 58%;
+  background: linear-gradient(145deg, #aac7ff 0%, var(--color-brand-soft) 48%, var(--color-brand-soft) 100%);
+  transform: rotate(7deg);
+  opacity: 0.92;
+}
+
+.hero__shape--two {
+  right: -1%;
+  bottom: 18%;
+  width: min(43%, 20rem);
+  aspect-ratio: 0.82;
+  border-radius: 58% 42% 48% 52% / 38% 55% 45% 62%;
+  background: linear-gradient(165deg, rgba(90, 132, 244, 0.8), rgba(132, 169, 255, 0.46));
+  transform: rotate(-15deg);
+}
+
+.hero__orbit {
+  position: absolute;
+  z-index: 0;
+  right: 9%;
+  bottom: 7%;
+  width: min(82%, 39rem);
+  aspect-ratio: 1;
+  border: 1.5px solid rgba(70, 113, 229, 0.27);
+  border-radius: 47% 53% 45% 55% / 56% 42% 58% 44%;
+  transform: rotate(18deg);
+}
+
+.hero-float {
+  position: absolute;
+  z-index: 6;
+  display: grid;
+  max-width: 13.25rem;
+  grid-template-columns: 2.55rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.78rem 0.85rem;
+  border: 1px solid rgba(77, 102, 169, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.93);
+  box-shadow: 0 14px 40px rgba(43, 57, 94, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.hero-float > span:last-child {
+  display: grid;
+  min-width: 0;
+}
+
+.hero-float strong,
+.hero-float small {
+  overflow-wrap: anywhere;
+}
+
+.hero-float strong {
+  font-size: 0.78rem;
+  line-height: 1.15;
+}
+
+.hero-float small {
+  margin-top: 0.15rem;
+  color: #939db0;
+  font-size: 0.64rem;
+  line-height: 1.2;
+}
+
+.hero-float__icon {
+  display: grid;
+  width: 2.55rem;
+  height: 2.55rem;
+  place-items: center;
+  border-radius: 0.78rem;
+  background: var(--color-brand-ice);
+  color: var(--accent-strong);
+}
+
+.hero-float__icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.45;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hero-float--visibility {
+  top: 31%;
+  left: 0;
+}
+
+.hero-float--strategy {
+  top: 48%;
+  right: 1%;
+}
+
+.hero-float--results {
+  right: 4%;
+  bottom: 20%;
+}
+
+.hero__note {
+  position: absolute;
+  z-index: 5;
+  top: 27%;
+  right: 3%;
+  margin: 0;
+  color: #4e5874;
+  font-family: var(--font-editorial);
+  font-size: clamp(1.15rem, 1.25vw, 1.55rem);
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.12;
+  transform: rotate(-8deg);
+}
+
+.hero__note::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 0.18rem;
+  margin: 0.6rem auto 0;
+  border-radius: 999px;
+  background: var(--accent-strong);
+  transform: rotate(-10deg);
+}
+
+@media (min-width: 90rem) {
+  .hero__grid {
+    grid-template-columns: minmax(35rem, 1.05fr) minmax(34rem, 0.95fr);
+  }
+
+  .app-shell[data-sidebar-state="collapsed"] .hero__portrait {
+    width: min(90%, 45rem);
+    right: 4%;
+  }
+}
+
+/* Desktop e notebooks menores: preserva as três linhas do título e mantém os cards dentro do Hero. */
+@media (max-width: 92rem) and (min-width: 64rem) {
+  .hero__grid {
+    grid-template-columns: minmax(29rem, 1.14fr) minmax(22rem, 0.86fr);
+    gap: 0.25rem;
+    padding-inline: clamp(1.25rem, 1.8vw, 2rem);
+  }
+
+  .hero__content {
+    padding-left: 0;
+  }
+
+  .hero__title {
+    font-size: clamp(3.65rem, 4.45vw, 4.7rem);
+    line-height: 0.92;
+  }
+
+  .hero__lead {
+    max-width: 32rem;
+    font-size: clamp(0.98rem, 1.2vw, 1.12rem);
+  }
+
+  .hero__actions {
+    width: min(100%, 28rem);
+    margin-top: 1.8rem;
+  }
+
+  .hero-cta {
+    min-height: 3.4rem;
+    grid-template-columns: 2.3rem minmax(0, 1fr) 1.4rem;
+    gap: 0.48rem;
+    padding-right: 0.62rem;
+    font-size: 0.82rem;
+  }
+
+  .hero-cta__icon {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .hero__pillars {
+    margin-top: 2.8rem;
+  }
+
+  .hero__pillars small {
+    display: none;
+  }
+
+  .hero__visual {
+    min-height: min(72svh, 45rem);
+  }
+
+  .hero__portrait {
+    right: 2%;
+    width: min(82%, 36rem);
+    max-height: 79svh;
+  }
+
+  .hero__shape--one {
+    right: 6%;
+    width: min(72%, 30rem);
+  }
+
+  .hero__shape--two {
+    right: 0;
+    width: min(40%, 17rem);
+  }
+
+  .hero__orbit {
+    right: 8%;
+    width: min(78%, 33rem);
+  }
+
+  .hero-float {
+    max-width: 11.5rem;
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    gap: 0.55rem;
+    padding: 0.65rem 0.7rem;
+  }
+
+  .hero-float__icon {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .hero-float strong {
+    font-size: 0.7rem;
+  }
+
+  .hero-float small {
+    font-size: 0.58rem;
+  }
+
+  .hero-float--visibility {
+    top: 31%;
+    left: 0;
+  }
+
+  .hero-float--strategy {
+    top: 48%;
+    right: 0;
+  }
+
+  .hero-float--results {
+    right: 2%;
+    bottom: 18%;
+  }
+
+  .hero__note {
+    display: none;
+  }
+}
+
+
+/* Desktop compacto: mantém a composição lado a lado sem forçar colunas mínimas que gerem overflow com a sidebar aberta. */
+@media (max-width: 78rem) and (min-width: 64rem) {
+  .hero__grid {
+    grid-template-columns: minmax(23rem, 1.25fr) minmax(14rem, 0.75fr);
+    gap: 0.5rem;
+    padding-inline: 1.25rem;
+  }
+
+  .hero__title {
+    max-width: 11ch;
+    font-size: clamp(3.05rem, 4.8vw, 3.75rem);
+    line-height: 0.94;
+  }
+
+  .hero__title-accent {
+    white-space: normal;
+  }
+
+  .hero__lead {
+    max-width: 29rem;
+    font-size: 0.96rem;
+  }
+
+  .hero__actions {
+    width: min(100%, 27rem);
+  }
+
+  .hero__pillars {
+    max-width: 31rem;
+  }
+
+  .hero__visual {
+    min-height: min(66svh, 38rem);
+  }
+
+  .hero__portrait {
+    right: -3%;
+    width: min(98%, 29rem);
+    max-height: 70svh;
+  }
+
+  .hero__shape--one {
+    right: 2%;
+    width: min(88%, 24rem);
+  }
+
+  .hero__shape--two {
+    right: -6%;
+    width: min(50%, 13rem);
+  }
+
+  .hero__orbit {
+    right: 2%;
+    width: min(92%, 25rem);
+  }
+
+  .hero-float,
+  .hero__note {
+    display: none;
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__grid {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 7rem clamp(1.2rem, 5vw, 3rem) 0;
+  }
+
+  .hero__content {
+    width: min(100%, 45rem);
+    padding-left: 0;
+  }
+
+  .hero__title {
+    max-width: 11ch;
+    font-size: clamp(3.4rem, 9vw, 5.7rem);
+  }
+
+  .hero__title-accent {
+    white-space: normal;
+  }
+
+  .hero__lead {
+    max-width: 39rem;
+  }
+
+  .hero__location {
+    top: 1.35rem;
+    right: clamp(1.1rem, 3vw, 2rem);
+  }
+
+  .hero__visual {
+    width: min(100%, 44rem);
+    min-height: clamp(31rem, 74vw, 43rem);
+    margin: 0 auto;
+  }
+
+  .hero__portrait {
+    right: 4%;
+    bottom: -2rem;
+    width: min(82%, 35rem);
+  }
+
+  .hero__shape--one {
+    right: 10%;
+    width: min(68%, 29rem);
+  }
+
+  .hero__shape--two {
+    right: 3%;
+  }
+
+  .hero__orbit {
+    right: 14%;
+    width: min(74%, 33rem);
+  }
+
+  .hero-float--visibility {
+    top: 27%;
+    left: 5%;
+  }
+
+  .hero-float--strategy {
+    top: 48%;
+    right: 4%;
+  }
+
+  .hero-float--results {
+    right: 7%;
+    bottom: 14%;
+  }
+
+  .hero__note {
+    top: 19%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .hero__location small {
+    display: none;
+  }
+
+  .hero__title {
+    width: min(100%, 27rem);
+    max-width: none;
+    font-size: clamp(2.85rem, 10.6vw, 4.45rem);
+    line-height: 0.94;
+    letter-spacing: -0.058em;
+  }
+
+  .hero__title-accent {
+    white-space: nowrap;
+  }
+
+  .hero__actions {
+    width: min(100%, 30rem);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 1.65rem;
+  }
+
+  .hero-cta {
+    min-height: 3.35rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr) 1.35rem;
+    gap: 0.42rem;
+    padding: 0.34rem 0.55rem 0.34rem 0.34rem;
+    border-radius: 0.7rem;
+    font-size: 0.79rem;
+  }
+
+  .hero-cta__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.58rem;
+  }
+
+  .hero-cta__arrow {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  .hero__pillars {
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 1.05rem;
+    width: min(100%, 30rem);
+    margin-top: 2.05rem;
+    padding-top: 1.45rem;
+  }
+
+  /* No mobile, o divisor acompanha toda a largura útil sem ganhar peso visual. */
+  .hero__pillars::before {
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(44, 58, 88, 0.1) 0%,
+      rgba(44, 58, 88, 0.065) 70%,
+      rgba(44, 58, 88, 0) 100%
+    );
+  }
+
+  .hero__pillars::after {
+    width: 3.4rem;
+    background: linear-gradient(
+      90deg,
+      rgba(49, 91, 234, 0.6) 0%,
+      rgba(49, 91, 234, 0.16) 78%,
+      rgba(49, 91, 234, 0) 100%
+    );
+  }
+
+  .hero__pillars li,
+  .hero__pillars li:first-child,
+  .hero__pillars li:nth-child(2),
+  .hero__pillars li:nth-child(odd) {
+    width: min(100%, 21rem);
+    grid-template-columns: 1.85rem minmax(0, 1fr);
+    align-items: center;
+    justify-self: start;
+    gap: 0.72rem;
+    padding: 0;
+    border: 0;
+    text-align: left;
+  }
+
+  .hero__pillars li:nth-child(2) svg,
+  .hero__pillars li:nth-child(2) span {
+    grid-column: auto;
+    grid-row: auto;
+    justify-self: auto;
+  }
+
+  .hero__pillars li + li {
+    padding-top: 0;
+    border-top: 0;
+    border-left: 0;
+  }
+
+  .hero__pillars small {
+    display: block;
+  }
+
+  .hero__visual {
+    min-height: clamp(28rem, 94vw, 35rem);
+  }
+
+  .hero-float {
+    max-width: 10.5rem;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    padding: 0.62rem 0.7rem;
+    border-radius: 0.85rem;
+  }
+
+  .hero-float__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.65rem;
+  }
+
+  .hero-float strong {
+    font-size: 0.7rem;
+  }
+
+  .hero-float small {
+    font-size: 0.59rem;
+  }
+
+  .hero-float--visibility {
+    top: 30%;
+    left: 1%;
+  }
+
+  .hero-float--strategy {
+    top: 53%;
+    right: 1%;
+  }
+
+  .hero-float--results,
+  .hero__note {
+    display: none;
+  }
+}
+
+@media (max-width: 35rem) {
+  .hero__grid {
+    padding-top: 6.4rem;
+    padding-inline: 1rem;
+  }
+
+  .hero__eyebrow {
+    gap: 0.45rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero__title {
+    width: 100%;
+    max-width: none;
+    margin-top: 1.05rem;
+    font-size: clamp(2.25rem, 10.8vw, 3.35rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+  }
+
+  .hero__lead {
+    font-size: 0.96rem;
+  }
+
+  .hero__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.48rem;
+  }
+
+  .hero-cta {
+    min-height: 3.25rem;
+    grid-template-columns: 2.05rem minmax(0, 1fr) 1.15rem;
+    gap: 0.34rem;
+    padding: 0.3rem 0.42rem 0.3rem 0.3rem;
+    font-size: clamp(0.7rem, 3.25vw, 0.78rem);
+  }
+
+  .hero-cta__icon {
+    width: 2.05rem;
+    height: 2.05rem;
+  }
+
+  .hero-cta__arrow {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .hero-cta svg {
+    width: 0.98rem;
+    height: 0.98rem;
+  }
+
+  .hero__visual {
+    min-height: 27rem;
+  }
+
+  .hero__portrait {
+    right: 0;
+    width: 90%;
+  }
+
+  .hero__shape--one {
+    right: 6%;
+    width: 80%;
+  }
+
+  .hero__shape--two {
+    right: 1%;
+    width: 50%;
+  }
+
+  .hero__orbit {
+    right: 8%;
+    width: 84%;
+  }
+
+  .hero-float--visibility {
+    top: 31%;
+  }
+
+  .hero-float--strategy {
+    top: 56%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta,
+  .hero-cta::before,
+  .hero-cta__arrow,
+  .hero__portrait {
+    transition: none;
+  }
+}
+
+/* Em celulares muito estreitos, preserva os dois CTAs lado a lado sem comprimir o texto. */
+@media (max-width: 22rem) {
+  .hero-cta {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.34rem;
+    padding-right: 0.42rem;
+    font-size: 0.68rem;
+  }
+
+  .hero-cta__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .hero-cta__arrow {
+    display: none;
+  }
+}
+
+
+@media (max-width: 47.99rem) {
+  .hero__proof {
+    width: 100%;
+    align-items: center;
+    gap: 0.68rem;
+    margin-top: 1.55rem;
+    padding-top: 1.25rem;
+  }
+
+  .hero__proof::before {
+    width: 100%;
+  }
+
+  .hero__proof-avatars img,
+  .hero__proof-more {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+
+  .hero__proof-avatars > * + * {
+    margin-left: -0.58rem;
+  }
+
+  .hero__proof-divider {
+    height: 2.4rem;
+  }
+
+  .hero__proof-google {
+    gap: 0.58rem;
+  }
+
+  .hero__proof-copy small {
+    display: none;
+  }
+}
+
+@media (max-width: 25rem) {
+  .hero__proof {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .hero__proof-divider {
+    display: none;
+  }
+
+  .hero__proof-google {
+    grid-column: 1 / -1;
+  }
+}
+
+/* WhatsApp no CTA principal: símbolo preenchido, mais legível em tamanhos compactos. */
+.hero-cta .hero-cta__whatsapp {
+  fill: currentColor;
+  stroke: none;
+  stroke-width: 0;
+}

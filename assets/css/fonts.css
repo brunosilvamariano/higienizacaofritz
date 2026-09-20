@@ -1,0 +1,44 @@
+/*
+ * ============================================================
+ * FONTS
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/*
+ * Tipografia local do projeto.
+ * Fontes web auto-hospedadas em assets/fonts/.
+ * A página não realiza requisições a Google Fonts, Fontsource ou CDN.
+ */
+@font-face {
+  font-family: "Inter Local";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/inter-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter Local";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/inter-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter Local";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../fonts/inter-latin-800-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Lora Local";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/lora-latin-700-italic.woff2") format("woff2");
+}

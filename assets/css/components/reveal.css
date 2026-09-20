@@ -1,0 +1,34 @@
+/*
+ * ============================================================
+ * REVEAL / ENTRADAS SUAVES
+ * Movimento progressivo e discreto para conteúdo em viewport.
+ * ============================================================
+ */
+
+.reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 1.15rem, 0);
+  transition:
+    opacity 620ms var(--ease),
+    transform 620ms var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-item[data-reveal="scale"] {
+  transform: translate3d(0, 0.75rem, 0) scale(0.985);
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+}

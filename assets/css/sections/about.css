@@ -1,0 +1,401 @@
+/*
+ * ============================================================
+ * SECTIONS / ABOUT
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* Sobre: composição editorial, mídia, selo e princípios estratégicos. */
+.about {
+  --about-bg: #f3f6fd;
+  --about-text: #101827;
+  --about-muted: #66738c;
+  --about-accent: var(--color-brand);
+  --about-accent-soft: var(--color-brand-ice);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  scroll-margin-top: 1rem;
+  margin: clamp(3rem, 5vw, 4.5rem) clamp(0.85rem, 1.6vw, 1.6rem) 0;
+  padding: clamp(4.75rem, 6vw, 6.75rem) clamp(1.25rem, 3vw, 3.75rem);
+  border: 1px solid rgba(28, 49, 91, 0.09);
+  border-radius: clamp(1.8rem, 2.5vw, 2.5rem);
+  box-shadow: 0 22px 64px rgba(27, 46, 86, 0.055);
+  background:
+    radial-gradient(circle at 10% 14%, rgba(49, 91, 234, 0.08), transparent 24rem),
+    linear-gradient(180deg, var(--color-ice) 0%, var(--about-bg) 100%);
+  color: var(--about-text);
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, rgba(49, 91, 234, 0.025) 0 1px, transparent 1px 5rem),
+    repeating-linear-gradient(0deg, rgba(49, 91, 234, 0.022) 0 1px, transparent 1px 5rem);
+  -webkit-mask-image: linear-gradient(90deg, #000 0, transparent 42%, transparent 58%, #000 100%);
+  mask-image: linear-gradient(90deg, #000 0, transparent 42%, transparent 58%, #000 100%);
+  pointer-events: none;
+}
+
+.about__inner {
+  width: min(100%, 94rem);
+  margin-inline: auto;
+}
+
+.about__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(31rem, 1.18fr);
+  align-items: center;
+  gap: clamp(2.2rem, 3.6vw, 4.5rem);
+}
+
+.about__media {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  height: clamp(27rem, 34vw, 33rem);
+  margin: 0;
+}
+
+.about__media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: clamp(1.5rem, 2vw, 2.25rem);
+  box-shadow:
+    0 30px 70px rgba(30, 52, 103, 0.16),
+    0 4px 14px rgba(30, 52, 103, 0.07);
+}
+
+.about__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: clamp(1.5rem, 2vw, 2.25rem);
+  background: linear-gradient(180deg, transparent 55%, rgba(6, 18, 49, 0.16) 100%);
+  pointer-events: none;
+}
+
+.about__seal {
+  position: absolute;
+  z-index: 2;
+  left: clamp(-1.15rem, -1.5vw, -0.55rem);
+  bottom: clamp(-2.35rem, -2.4vw, -1.75rem);
+  width: clamp(7.4rem, 10vw, 9.5rem);
+  aspect-ratio: 1;
+  border: 1px solid rgba(49, 91, 234, 0.14);
+  border-radius: 50%;
+  overflow: visible;
+  isolation: isolate;
+  background: rgba(248, 250, 255, 0.98);
+  box-shadow: 0 18px 45px rgba(24, 47, 96, 0.18);
+}
+
+.about__seal > svg {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  animation: aboutSealRotate 24s linear infinite;
+}
+
+.about__seal text {
+  fill: #48597a;
+  font-family: var(--font-primary);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+}
+
+.about__seal-core {
+  position: absolute;
+  z-index: 2;
+  inset: 50% auto auto 50%;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  transform: translate3d(-50%, -50%, 0);
+  border-radius: 50%;
+  backface-visibility: hidden;
+  will-change: transform;
+  background: var(--about-accent);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(49, 91, 234, 0.32);
+}
+
+.about__seal-core svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+}
+
+.about__content {
+  min-width: 0;
+}
+
+.about__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 clamp(1rem, 1.5vw, 1.4rem);
+  color: var(--about-accent);
+  font-size: clamp(0.72rem, 0.68rem + 0.1vw, 0.8rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.about__eyebrow-icon {
+  display: grid;
+  place-items: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border-radius: 0.5rem;
+  background: var(--about-accent-soft);
+}
+
+.about__eyebrow-icon svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about__eyebrow > span:last-child {
+  color: var(--color-muted);
+}
+
+.about__title {
+  max-width: 25ch;
+  margin: 0;
+  color: var(--about-text);
+  font-size: var(--section-title-size);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.about__title span {
+  display: block;
+}
+
+.about__title strong {
+  color: var(--about-accent);
+  font: inherit;
+}
+
+.about__copy {
+  max-width: 34rem;
+  margin: clamp(1.15rem, 1.7vw, 1.55rem) 0 0;
+  color: var(--about-muted);
+  font-size: clamp(0.93rem, 0.89rem + 0.13vw, 1.03rem);
+  line-height: 1.68;
+}
+
+.about__divider {
+  position: relative;
+  width: min(100%, 36rem);
+  height: 1px;
+  margin: clamp(1.35rem, 1.8vw, 1.7rem) 0 clamp(1.15rem, 1.6vw, 1.45rem);
+  overflow: hidden;
+  background: rgba(35, 61, 112, 0.11);
+}
+
+.about__divider-accent {
+  display: block;
+  width: clamp(3.25rem, 4.5vw, 4.5rem);
+  height: 100%;
+  background: linear-gradient(90deg, var(--about-accent) 0%, rgba(49, 91, 234, 0.18) 100%);
+}
+
+.about__principles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(13.5rem, 17rem));
+  justify-content: start;
+  column-gap: clamp(1.35rem, 2.2vw, 2.25rem);
+  row-gap: 1rem;
+  margin-top: 0;
+}
+
+.about__principle {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.about__principle-icon {
+  display: grid;
+  place-items: center;
+  width: 2.7rem;
+  height: 2.7rem;
+  border-radius: 50%;
+  background: var(--color-brand-ice);
+  color: var(--about-accent);
+}
+
+.about__principle-icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.about__principle h3 {
+  margin: 0 0 0.18rem;
+  color: #17233b;
+  font-size: clamp(0.88rem, 0.84rem + 0.1vw, 0.98rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.about__principle p {
+  margin: 0;
+  color: #7b879c;
+  font-size: clamp(0.76rem, 0.73rem + 0.08vw, 0.84rem);
+  line-height: 1.45;
+}
+
+.about__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: clamp(1.5rem, 2.1vw, 2rem);
+}
+
+.about__cta {
+  width: auto;
+  min-width: min(100%, 17.5rem);
+}
+
+
+@keyframes aboutSealRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1120px) {
+  .about__layout {
+    grid-template-columns: minmax(0, 0.86fr) minmax(27rem, 1.14fr);
+    gap: clamp(2.2rem, 4vw, 3.5rem);
+  }
+
+  .about__title {
+    max-width: 23ch;
+  }
+}
+
+@media (max-width: 72rem) {
+  .about {
+    margin-top: clamp(2.5rem, 6vw, 3.25rem);
+    margin-inline: clamp(0.7rem, 2vw, 1rem);
+    padding-inline: clamp(1rem, 4vw, 2rem);
+    border-radius: clamp(1.6rem, 3vw, 2rem);
+  }
+
+  .about__layout {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .about__media {
+    width: min(100%, 46rem);
+    height: clamp(21rem, 45vw, 28rem);
+    margin-inline: auto;
+  }
+
+  .about__content {
+    width: min(100%, 46rem);
+    margin-inline: auto;
+  }
+
+  .about__title {
+    max-width: 22ch;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    margin-top: 2rem;
+    margin-inline: 0.65rem;
+    padding-top: 4rem;
+    padding-bottom: 4.4rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 14px 38px rgba(27, 46, 86, 0.045);
+  }
+
+  .about__media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .about__media > img {
+    border-radius: 1.35rem;
+  }
+
+  .about__seal {
+    left: 0.65rem;
+    bottom: -2rem;
+    width: 6.65rem;
+  }
+
+  .about__title {
+    max-width: 19ch;
+    font-size: var(--section-title-size-mobile);
+    line-height: 1.025;
+  }
+
+  .about__copy {
+    font-size: 0.92rem;
+  }
+
+  .about__divider {
+    width: 100%;
+    margin: 1.3rem 0 1.15rem;
+  }
+
+  .about__divider-accent {
+    width: 3.25rem;
+  }
+
+  .about__principles {
+    grid-template-columns: 1fr;
+  }
+
+  .about__actions {
+    display: block;
+  }
+
+  .about__cta {
+    min-width: 0;
+    width: min(100%, 19rem);
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .about__seal > svg {
+    animation: none;
+  }
+}

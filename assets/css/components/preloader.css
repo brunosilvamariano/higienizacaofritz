@@ -1,0 +1,122 @@
+/*
+ * ============================================================
+ * PRELOADER / CARREGAMENTO
+ * Abertura breve da marca. Não segura artificialmente a página.
+ * ============================================================
+ */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(111, 168, 247, 0.18), transparent 30rem),
+    var(--color-ice);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 360ms var(--ease),
+    visibility 360ms var(--ease);
+}
+
+.preloader.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader__content {
+  display: grid;
+  justify-items: center;
+  gap: 0.9rem;
+}
+
+.preloader__spinner {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  display: grid;
+  place-items: center;
+}
+
+.preloader__orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(23, 105, 224, 0.12);
+  border-top-color: var(--color-brand);
+  border-right-color: var(--color-brand-soft);
+  border-radius: 50%;
+  animation: preloader-spin 900ms linear infinite;
+}
+
+.preloader__mark {
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: contain;
+  animation: preloader-mark 1.4s var(--ease) infinite alternate;
+}
+
+.preloader__brand {
+  color: var(--color-graphite);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.preloader__progress {
+  width: 5rem;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(23, 105, 224, 0.1);
+}
+
+.preloader__progress > span {
+  display: block;
+  width: 42%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--color-brand-soft), var(--color-brand));
+  animation: preloader-progress 1s var(--ease) infinite;
+}
+
+@keyframes preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-mark {
+  from {
+    transform: scale(0.96);
+    opacity: 0.82;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes preloader-progress {
+  from {
+    transform: translateX(-140%);
+  }
+
+  to {
+    transform: translateX(240%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader,
+  .preloader__orbit,
+  .preloader__mark,
+  .preloader__progress > span {
+    animation: none;
+    transition-duration: 1ms;
+  }
+}

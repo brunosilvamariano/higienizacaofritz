@@ -1,0 +1,13 @@
+{
+  "name": "fritz-higienizacao",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/server.mjs dist 4173",
+    "audit": "node scripts/audit.mjs",
+    "check": "npm run audit && npm run build"
+  }
+}

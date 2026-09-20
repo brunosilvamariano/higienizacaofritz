@@ -1,0 +1,322 @@
+/*
+ * ============================================================
+ * SECTIONS / PROCESSO
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* Processo: fluxo editorial entre serviços e resultados. */
+.processo {
+  --processo-accent:var(--color-brand);
+  --processo-text:var(--color-graphite);
+  --processo-muted:#68748b;
+  position:relative;
+  scroll-margin-top:1rem;
+  padding:clamp(5rem,7vw,7.5rem) clamp(1.25rem,3vw,3.75rem);
+  background:#fff
+}
+
+.processo__inner {
+  width:min(100%,96rem);
+  margin-inline:auto
+}
+
+.processo__header {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(15rem,.42fr);
+  align-items:end;
+  gap:clamp(2rem,4vw,5rem);
+  margin-bottom:clamp(2.5rem,4vw,4rem)
+}
+
+.processo__eyebrow {
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  width:fit-content;
+  margin:0 0 1.15rem;
+  color:var(--processo-accent);
+  font-size:clamp(.72rem,.68rem + .1vw,.8rem);
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase
+}
+
+.processo__eyebrow>span:last-child {
+  color:#98a2b5
+}
+
+.processo__title {
+  max-width:25ch;
+  margin:0;
+  color:var(--processo-text);
+  font-size:var(--section-title-size);
+  font-weight:700;
+  line-height:1.02;
+  letter-spacing:-.055em;
+  text-wrap:balance
+}
+
+.processo__title strong {
+  color:var(--processo-accent);
+  font-weight:inherit
+}
+
+/* Título em duas linhas sem <br>: a quebra é responsabilidade do layout, não do HTML. */
+.processo__title {
+  max-width: 18ch;
+}
+
+.processo__title-line {
+  display: block;
+}
+
+.processo__lead {
+  max-width:34rem;
+  margin:0 0 .3rem;
+  color:var(--processo-muted);
+  font-size:clamp(.92rem,.88rem + .12vw,1rem);
+  line-height:1.65
+}
+
+.processo__steps {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  margin:0;
+  padding:0;
+  list-style:none
+}
+
+.processo__step {
+  position:relative;
+  min-width:0;
+  padding-right:clamp(1.25rem,2.4vw,2.75rem)
+}
+
+.processo__step-head {
+  position:relative;
+  height:3.2rem;
+  margin-bottom:1.25rem
+}
+
+.processo__step-head::after {
+  content:"";
+  position:absolute;
+  z-index:0;
+  top:2.45rem;
+  left:.35rem;
+  width:calc(100% + .05rem);
+  height:1px;
+  background:rgba(15,23,42,.11)
+}
+
+.processo__step:last-child .processo__step-head::after {
+  width:0
+}
+
+.processo__number {
+  display:block;
+  color:#9aa7bd;
+  font-size:clamp(1.25rem,1.8vw,1.7rem);
+  font-weight:500;
+  letter-spacing:-.04em
+}
+
+.processo__point {
+  position:absolute;
+  z-index:1;
+  bottom:.35rem;
+  left:0;
+  width:.48rem;
+  height:.48rem;
+  border:2px solid #fff;
+  border-radius:50%;
+  background:var(--processo-accent);
+  box-shadow:0 0 0 .22rem rgba(49,91,234,.09)
+}
+
+.processo__icon {
+  display:grid;
+  width:2.75rem;
+  height:2.75rem;
+  place-items:center;
+  margin-bottom:1.15rem;
+  border:1px solid rgba(49,91,234,.1);
+  border-radius:.85rem;
+  background:rgba(49,91,234,.045);
+  color:var(--processo-accent);
+  transition:transform var(--transition-base,320ms) var(--ease,ease),background var(--transition-fast,180ms) ease
+}
+
+.processo__icon svg {
+  width:1.3rem;
+  height:1.3rem;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.55;
+  stroke-linecap:round;
+  stroke-linejoin:round
+}
+
+.processo__step h3 {
+  margin:0 0 .55rem;
+  color:var(--processo-text);
+  font-size:clamp(1.08rem,1rem + .2vw,1.25rem);
+  line-height:1.2;
+  letter-spacing:-.025em
+}
+
+.processo__step p {
+  max-width:17rem;
+  margin:0;
+  color:var(--processo-muted);
+  font-size:.94rem;
+  line-height:1.65
+}
+
+@media(hover:hover) and (pointer:fine) {
+  .processo__step:hover .processo__icon {
+    transform:translateY(-3px);
+    background:rgba(49,91,234,.075)
+  }
+}
+
+@media(max-width:64rem) {
+  .processo__header {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(15rem,.42fr);
+    align-items:end;
+    gap:clamp(2rem,4vw,5rem);
+    margin-bottom:clamp(2.5rem,4vw,4rem)
+  }
+  .processo__lead {
+    max-width:34rem;
+    margin:0 0 .3rem;
+    color:var(--processo-muted);
+    font-size:clamp(.92rem,.88rem + .12vw,1rem);
+    line-height:1.65
+  }
+  .processo__steps {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    row-gap:3rem
+  }
+  .processo__step:nth-child(2) .processo__step-head::after {
+    width:0
+  }
+}
+
+@media(max-width:40rem) {
+  .processo {
+    padding-block:4.5rem
+  }
+  .processo__header {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(15rem,.42fr);
+    align-items:end;
+    gap:clamp(2rem,4vw,5rem);
+    margin-bottom:clamp(2.5rem,4vw,4rem)
+  }
+  .processo__title {
+    max-width:25ch;
+    margin:0;
+    color:var(--processo-text);
+    font-size:var(--section-title-size);
+    font-weight:700;
+    line-height:1.02;
+    letter-spacing:-.055em;
+    text-wrap:balance
+  }
+  .processo__steps {
+    grid-template-columns:1fr;
+    gap:0
+  }
+  .processo__step {
+    display:grid;
+    grid-template-columns:3.25rem minmax(0,1fr);
+    column-gap:1rem;
+    padding:0 0 2.5rem
+  }
+  .processo__step-head {
+    grid-column:1;
+    grid-row:1/span 3;
+    height:100%;
+    margin:0
+  }
+  .processo__number {
+    font-size:1rem
+  }
+  .processo__step-head::after,.processo__step:nth-child(2) .processo__step-head::after {
+    top:2rem;
+    bottom:0;
+    left:.22rem;
+    width:1px;
+    height:auto
+  }
+  .processo__step:last-child .processo__step-head::after {
+    display:none
+  }
+  .processo__point {
+    top:1.65rem;
+    bottom:auto
+  }
+  .processo__icon {
+    grid-column:2;
+    margin:0 0 .8rem
+  }
+  .processo__step h3,.processo__step p {
+    grid-column:2
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .processo__icon {
+    transition:none
+  }
+}
+
+/* Mantém o mesmo componente de ícone usado nos títulos das demais seções. */
+.processo__eyebrow-icon {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  border-radius: 0.5rem;
+  background: var(--color-brand-ice);
+}
+
+.processo__eyebrow-icon svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Mobile: segue o fluxo tipográfico das demais seções, sem composição desktop em duas colunas. */
+@media (max-width: 48rem) {
+  .processo__header {
+    display: block;
+    margin-bottom: clamp(2.5rem, 10vw, 3.5rem);
+  }
+  .processo__title {
+    width: 100%;
+    max-width: none;
+    font-size: var(--section-title-size-mobile);
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+  .processo__title-line {
+    display: inline;
+  }
+  .processo__title-line + .processo__title-line::before {
+    content: " ";
+  }
+  .processo__lead {
+    width: 100%;
+    max-width: 36rem;
+    margin-top: 1.25rem;
+  }
+}

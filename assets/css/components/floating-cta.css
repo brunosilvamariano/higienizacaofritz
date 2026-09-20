@@ -1,0 +1,127 @@
+/*
+ * ============================================================
+ * COMPONENTS / FLOATING CTA
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* CTA flutuante do WhatsApp
+   Ícone compacto e reconhecível, oculto com o menu mobile aberto e durante a seção de contato.
+*/
+.floating-cta {
+  position: fixed;
+  z-index: 22;
+  right: max(clamp(1rem, 2vw, 1.75rem), env(safe-area-inset-right));
+  bottom: max(clamp(1rem, 2vw, 1.75rem), env(safe-area-inset-bottom));
+  display: grid;
+  width: clamp(3.45rem, 4vw, 3.85rem);
+  height: clamp(3.45rem, 4vw, 3.85rem);
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow:
+    0 12px 30px rgba(14, 114, 63, 0.2),
+    0 3px 9px rgba(14, 114, 63, 0.14);
+  text-decoration: none;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transform-origin: 50% 50%;
+  transition:
+    opacity 200ms ease,
+    transform 240ms var(--ease),
+    background-color 180ms ease,
+    box-shadow 220ms ease,
+    visibility 0s linear 0s;
+}
+
+.floating-cta::before,
+.floating-cta::after {
+  content: "";
+  position: absolute;
+  inset: -0.34rem;
+  z-index: -1;
+  border: 1px solid rgba(37, 211, 102, 0.34);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.floating-cta::after {
+  inset: -0.68rem;
+  border-color: rgba(37, 211, 102, 0.14);
+}
+
+.floating-cta__whatsapp {
+  width: 2.05rem;
+  height: 2.05rem;
+  overflow: visible;
+}
+
+.floating-cta.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(0.7rem) scale(0.84);
+  transition:
+    opacity 170ms ease,
+    transform 210ms var(--ease),
+    visibility 0s linear 210ms;
+}
+
+.floating-cta:focus-visible {
+  outline: 3px solid rgba(37, 211, 102, 0.28);
+  outline-offset: 0.5rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .floating-cta:hover {
+    background: #20c55e;
+    box-shadow:
+      0 16px 34px rgba(14, 114, 63, 0.25),
+      0 5px 12px rgba(14, 114, 63, 0.13);
+    transform: translateY(-0.16rem) scale(1.035);
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .floating-cta {
+    z-index: 24;
+    right: max(0.95rem, env(safe-area-inset-right));
+    bottom: max(0.95rem, env(safe-area-inset-bottom));
+    width: 3.45rem;
+    height: 3.45rem;
+  }
+
+  .floating-cta__whatsapp {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+
+  /* O drawer mobile sempre prevalece sobre o CTA. */
+  .app-shell.is-mobile-open .floating-cta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0.6rem) scale(0.84);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta {
+    transition: opacity 120ms ease, visibility 0s linear 0s;
+  }
+
+  .floating-cta.is-hidden,
+  .app-shell.is-mobile-open .floating-cta {
+    transform: none;
+  }
+}
+
+/* Glyph vetorial do WhatsApp: preenchimento limpo e sem dependência externa. */
+.floating-cta__whatsapp {
+  fill: currentColor;
+  stroke: none;
+}

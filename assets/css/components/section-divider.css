@@ -1,0 +1,34 @@
+/*
+ * ============================================================
+ * COMPONENTS / SECTION DIVIDER
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/*
+ * Divisores editoriais entre seções abertas.
+ * A linha fica limitada ao container e não transforma a seção em um card.
+ */
+.section-divider {
+  width: min(
+    calc(100% - (var(--page-gutter, 1.5rem) * 2)),
+    var(--content-wide, 94rem)
+  );
+  height: 1px;
+  margin: 0 auto;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(15, 23, 42, 0.07) 8%,
+    rgba(15, 23, 42, 0.07) 92%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 48rem) {
+  .section-divider {
+    width: calc(100% - 2rem);
+  }
+}
