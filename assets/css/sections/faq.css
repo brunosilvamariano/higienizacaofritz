@@ -36,20 +36,18 @@
 .faq__layout {
   display: grid;
   grid-template-columns: minmax(17rem, 0.78fr) minmax(31rem, 1.22fr);
+  grid-template-areas:
+    "intro questions";
   align-items: start;
-  gap: clamp(3rem, 6vw, 7rem);
+  column-gap: clamp(3rem, 6vw, 7rem);
+  row-gap: 0;
 }
 
 .faq__intro {
+  grid-area: intro;
   min-width: 0;
 }
 
-@media (min-width: 72.01rem) {
-  .faq__intro {
-    position: sticky;
-    top: clamp(1.5rem, 9vh, 6.5rem);
-  }
-}
 
 .faq__eyebrow {
   display: inline-flex;
@@ -114,45 +112,9 @@
 .faq__cta {
   width: min(100%, 20rem);
   margin-top: clamp(1.55rem, 2.4vw, 2.15rem);
+  align-self: start;
 }
 
-
-
-
-
-
-
-
-
-.faq__questions {
-  min-width: 0;
-}
-
-.faq__questions-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 2.3rem;
-  margin-bottom: 0.65rem;
-  padding: 0 0.4rem 0.9rem;
-  border-bottom: 1px solid var(--faq-line);
-}
-
-.faq__questions-header p,
-.faq__questions-header span {
-  margin: 0;
-  color: #7f8aa0;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.faq__questions-header strong {
-  color: var(--faq-accent);
-  font-weight: 800;
-}
 
 .faq__list {
   border-bottom: 1px solid var(--faq-line);
@@ -305,6 +267,18 @@
   }
 }
 
+
+.faq__cta--mobile {
+  display: none;
+}
+
+@media (min-width: 72.01rem) {
+  .faq__intro {
+    position: sticky;
+    top: clamp(2rem, 6vh, 4.5rem);
+  }
+}
+
 @media (max-width: 72rem) {
   .faq {
     margin-inline: clamp(0.7rem, 2vw, 1rem);
@@ -312,18 +286,35 @@
   }
 
   .faq__layout {
-    grid-template-columns: 1fr;
-    gap: clamp(3rem, 7vw, 4.5rem);
+    display: block;
   }
 
   .faq__intro,
-  .faq__questions {
+  .faq__questions,
+  .faq__cta--mobile {
     width: min(100%, 48rem);
     margin-inline: auto;
   }
 
+  .faq__intro {
+    position: static;
+  }
+
   .faq__title {
     max-width: 16ch;
+  }
+
+  .faq__questions {
+    margin-top: clamp(2.5rem, 7vw, 4rem);
+  }
+
+  .faq__cta--desktop {
+    display: none;
+  }
+
+  .faq__cta--mobile {
+    display: flex;
+    margin-top: clamp(2rem, 6vw, 3rem);
   }
 }
 
@@ -347,10 +338,6 @@
 
   .faq__cta {
     width: 100%;
-  }
-
-  .faq__questions-header {
-    padding-inline: 0;
   }
 
   .faq-item__toggle {
