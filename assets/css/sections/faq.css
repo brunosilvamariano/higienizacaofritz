@@ -336,9 +336,7 @@
     font-size: 0.92rem;
   }
 
-  .faq__cta {
-    width: 100%;
-  }
+  .faq__cta { width: min(100%, 20rem); }
 
   .faq-item__toggle {
     grid-template-columns: 2.1rem minmax(0, 1fr) 2.4rem;
@@ -365,6 +363,12 @@
     padding: 0.85rem 0.9rem;
     font-size: 0.84rem;
   }
+}
+
+/* Mesmo limite no CTA inferior e na versão ao lado das perguntas. */
+.faq__cta, .faq__cta--mobile {
+  width: min(100%, 20rem);
+  max-width: 20rem;
 }
 
 @media (max-width: 23rem) {

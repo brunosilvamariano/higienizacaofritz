@@ -6,7 +6,6 @@
  */
 
 /** Inicialização central dos módulos progressivos da página. */
-import { initPreloader } from './components/preloader.js';
 import { initReveal } from './components/reveal.js';
 import { initSidebar } from './components/sidebar.js';
 import { initFloatingCta } from './components/floating-cta.js';
@@ -17,7 +16,6 @@ import { initFaq } from './sections/faq.js';
 import { initFooter } from './sections/footer.js';
 
 function init() {
-  initPreloader();
   initReveal();
   initSidebar();
   initFloatingCta();

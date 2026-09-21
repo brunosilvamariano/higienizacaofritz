@@ -6,7 +6,6 @@
  */
 
 const GROUP_SELECTORS = [
-  '.hero__content > *',
   '.about__content > *',
   '.atendimento__header > *',
   '.atendimento__card',

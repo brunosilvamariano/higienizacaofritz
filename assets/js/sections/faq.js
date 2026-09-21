@@ -27,6 +27,7 @@ export function initFaq() {
       item.classList.toggle('is-open', isOpen);
       button?.setAttribute('aria-expanded', String(isOpen));
       answer?.setAttribute('aria-hidden', String(!isOpen));
+      if (answer) answer.inert = !isOpen;
     });
 
     if (counter) {
@@ -41,7 +42,7 @@ export function initFaq() {
   setOpen(0);
 
   toggles.forEach((toggle, index) => {
-    toggle.addEventListener('click', () => setOpen(index));
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') === 'true' ? -1 : index));
 
     toggle.addEventListener('keydown', (event) => {
       let targetIndex = null;

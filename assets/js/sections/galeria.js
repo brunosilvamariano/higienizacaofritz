@@ -16,6 +16,12 @@ export function initGaleria() {
 
   if (!stage || cards.length === 0 || !pagination) return;
 
+  section.classList.add('galeria--enhanced');
+  const status = document.createElement('p');
+  status.className = 'visually-hidden';
+  status.setAttribute('aria-live', 'polite');
+  status.setAttribute('aria-atomic', 'true');
+  pagination.after(status);
   let currentIndex = 0;
   let pointerId = null;
   let dragStartX = 0;
@@ -55,6 +61,7 @@ export function initGaleria() {
   });
 
   const render = () => {
+    const focusedCard = cards.find(card => card === document.activeElement);
     cards.forEach((card, index) => {
       const position = positionFor(relativeOffset(index));
       card.dataset.position = position;
@@ -62,6 +69,8 @@ export function initGaleria() {
       card.tabIndex = position === 'center' ? 0 : -1;
     });
 
+    if (focusedCard) cards[currentIndex].focus({ preventScroll: true });
+    status.textContent = `Resultado ${currentIndex + 1} de ${cards.length}: ${cards[currentIndex].querySelector('h3')?.textContent ?? ''}`;
     dots.forEach((dot, index) => {
       dot.setAttribute('aria-current', String(index === currentIndex));
     });
@@ -87,7 +96,7 @@ export function initGaleria() {
       stage.releasePointerCapture(event.pointerId);
     }
 
-    if (Math.abs(distance) >= dragThreshold) {
+    if (event.type === 'pointerup' && Math.abs(distance) >= dragThreshold) {
       if (distance < 0) next();
       else previous();
     }
@@ -98,7 +107,7 @@ export function initGaleria() {
   };
 
   stage.addEventListener('pointerdown', (event) => {
-    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    if (dragging || !event.isPrimary || (event.pointerType === 'mouse' && event.button !== 0)) return;
 
     pointerId = event.pointerId;
     dragStartX = event.clientX;
@@ -106,7 +115,7 @@ export function initGaleria() {
     dragging = true;
     moved = false;
 
-    stage.setPointerCapture(event.pointerId);
+
     stage.classList.add('is-dragging');
   });
 
@@ -117,11 +126,13 @@ export function initGaleria() {
 
     if (Math.abs(dragCurrentX - dragStartX) > 6) {
       moved = true;
+      if (!stage.hasPointerCapture(event.pointerId)) stage.setPointerCapture(event.pointerId);
     }
   });
 
   stage.addEventListener('pointerup', finishDrag);
   stage.addEventListener('pointercancel', finishDrag);
+  stage.addEventListener('lostpointercapture', finishDrag);
 
   cards.forEach((card, index) => {
     card.addEventListener('click', () => {
@@ -131,6 +142,7 @@ export function initGaleria() {
   });
 
   section.addEventListener('keydown', (event) => {
+    if (event.key === 'Home' || event.key === 'End') { event.preventDefault(); goTo(event.key === 'Home' ? 0 : cards.length - 1); }
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
       previous();

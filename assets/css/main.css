@@ -23,7 +23,7 @@
   --color-surface: #ffffff;
   --color-graphite: #30343b;
   --color-text: #686e78;
-  --color-muted: #9299a4;
+  --color-muted: #657080;
   --color-line: #dde3eb;
 
   /* Cores oficiais dos canais */
@@ -61,7 +61,7 @@ html {
 
 body {
   margin: 0;
-  min-width: 20rem;
+  min-width: 0;
   min-height: 100vh;
   background: var(--page-bg);
   color: var(--text-primary);
@@ -137,4 +137,14 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+:where(a, button, input, [tabindex]):focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+:where(h1, h2, h3, p) { overflow-wrap: break-word; }
+main:focus { outline: none; }
+@media (max-width: 63.99rem) { section[id] { scroll-margin-top: 4.75rem; } }
+@media print {
+ .sidebar, .mobile-menu-button, .floating-cta, .sidebar-backdrop { display: none !important; }
+ .site-main, .site-footer { width: 100%; margin-left: 0; }
+ .reveal-item { opacity: 1 !important; transform: none !important; }
 }

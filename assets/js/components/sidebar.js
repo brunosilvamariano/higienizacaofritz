@@ -15,6 +15,7 @@ export function initSidebar() {
   const desktopToggle = document.querySelector('[data-sidebar-toggle]');
   const mobileToggle = document.querySelector('[data-mobile-menu]');
   const backdrop = document.querySelector('[data-sidebar-backdrop]');
+  const background = [...shell.children].filter(el => el !== sidebar && el !== backdrop);
   const navItems = [...document.querySelectorAll('.nav-item[href^="#"]')];
   const desktopMedia = window.matchMedia(DESKTOP_QUERY);
   const collapsedOptionalItems = [...document.querySelectorAll('[data-sidebar-optional]')];
@@ -77,6 +78,10 @@ export function initSidebar() {
   const setMobileOpen = (open, { restoreFocus = false } = {}) => {
     shell.classList.toggle('is-mobile-open', open);
     document.body.style.overflow = open ? 'hidden' : '';
+    background.forEach(el => { el.inert = open && !isDesktop(); });
+    sidebar.setAttribute('role', open && !isDesktop() ? 'dialog' : 'complementary');
+    if (open && !isDesktop()) sidebar.setAttribute('aria-modal', 'true');
+    else sidebar.removeAttribute('aria-modal');
 
     if (!isDesktop()) {
       sidebar.inert = !open;
@@ -134,6 +139,12 @@ export function initSidebar() {
   backdrop?.addEventListener('click', () => setMobileOpen(false, { restoreFocus: true }));
 
   document.addEventListener('keydown', (event) => {
+    if (event.key === 'Tab' && shell.classList.contains('is-mobile-open')) {
+      const focusable = [...sidebar.querySelectorAll('a[href], button:not([disabled])')].filter(el => el.getClientRects().length && !el.closest('[inert]'));
+      const first = focusable[0], last = focusable.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+    }
     if (event.key === 'Escape' && shell.classList.contains('is-mobile-open')) {
       setMobileOpen(false, { restoreFocus: true });
       return;

@@ -73,5 +73,5 @@ createServer((request, response) => {
 
   createReadStream(filePath).pipe(response);
 }).listen(port, '127.0.0.1', () => {
-  console.log(`Nexora: http://127.0.0.1:${port}`);
+  console.log(`Fritz: http://127.0.0.1:${port}`);
 });

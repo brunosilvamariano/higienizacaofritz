@@ -1,265 +1,43 @@
-/*
- * ============================================================
- * SECTIONS / FOOTER
- * Estilos isolados deste módulo. Manter regras relacionadas
- * ao componente/seção neste arquivo para facilitar manutenção.
- * ============================================================
- */
-
-/* Footer: encerramento leve, editorial e sem caixas. */
+/* Rodapé compacto: marca, navegação e canais, com créditos agrupados. */
 .site-footer {
-  width: calc(100% - var(--sidebar-current) - (var(--sidebar-gap) * 2.6));
-  margin: clamp(1.5rem, 3vw, 2.75rem) 0 0 calc(var(--sidebar-current) + (var(--sidebar-gap) * 1.8));
-  color: var(--color-text);
-  background: #f7f7f4;
-  transition:
-    width var(--transition-base) var(--ease),
-    margin-left var(--transition-base) var(--ease);
+ width: calc(100% - var(--sidebar-current) - (var(--sidebar-gap) * 2.6));
+ margin: clamp(1.5rem, 3vw, 2.75rem) 0 0 calc(var(--sidebar-current) + (var(--sidebar-gap) * 1.8));
+ color: var(--color-text);
+ background: var(--page-bg);
+ container: footer / inline-size;
+ transition: width var(--transition-base) var(--ease), margin-left var(--transition-base) var(--ease);
 }
-
-.site-footer__inner {
-  width: 100%;
-  padding: 0 clamp(1.3rem, 3.8vw, 4.25rem) clamp(1.8rem, 3.2vw, 2.8rem);
-}
-
+.site-footer__inner { padding: 0 clamp(1.25rem, 3vw, 3.5rem) 2rem; }
 .site-footer__content {
-  display: grid;
-  grid-template-columns:
-    minmax(10rem, 1.05fr)
-    minmax(17rem, 1.35fr)
-    minmax(15rem, 1.15fr)
-    minmax(15rem, 1fr);
-  align-items: start;
-  gap: clamp(2rem, 4.4vw, 5.25rem);
-  padding-top: clamp(2rem, 3.1vw, 2.8rem);
-  border-top: 1px solid rgba(20, 28, 43, 0.11);
+ display: grid;
+ grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr) minmax(0, .7fr);
+ align-items: start;
+ gap: 2.5rem 3rem;
+ padding-top: 2.25rem;
+ border-top: 1px solid var(--color-line);
 }
-
-.site-footer__brand {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 0.62rem;
-  color: #1d2636;
-  font-size: 0.88rem;
-  font-weight: 760;
-  letter-spacing: -0.02em;
-  text-decoration: none;
+.site-footer__content > * { min-width: 0; }
+.site-footer__brand { display: inline-flex; align-items: center; gap: .65rem; font-size: .9rem; font-weight: 700; color: var(--color-graphite); text-decoration: none; padding-block: .7rem; }
+.site-footer__brand img { width: 1.75rem; height: 1.75rem; flex: 0 0 auto; }
+.site-footer__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.site-footer__social { display: grid; gap: 0; }
+.site-footer ul { list-style: none; padding: 0; margin: 0; }
+.site-footer__links a, .site-footer__social a { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .8125rem; font-weight: 700; color: var(--color-text); text-decoration: none; }
+.site-footer__legal { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .3rem 2rem; padding-top: 1.25rem; border-top: 1px solid var(--color-line); }
+.site-footer__legal p { margin: 0; grid-column: 1; font-size: .75rem; line-height: 1.6; }
+.developer-credit { grid-column: 2; grid-row: 1 / span 2; align-self: center; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem; color: var(--color-text); font-size: .75rem; text-decoration: none; }
+.developer-credit strong { font-weight: 700; }
+.developer-credit__heart { width: .85rem; height: .85rem; fill: none; stroke: var(--color-brand); stroke-width: 1.65; flex: 0 0 auto; }
+.site-footer a:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 3px; border-radius: .2rem; }
+@container footer (max-width: 48rem) {
+ .site-footer__content { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.5rem 2rem; }
+ .site-footer__brand { grid-column: 1 / -1; }
+ .site-footer__legal { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+ .developer-credit { grid-column: 1; grid-row: auto; margin-top: .65rem; }
 }
-
-.site-footer__brand img {
-  width: 1.7rem;
-  height: 1.7rem;
+@container footer (max-width: 25rem) {
+ .site-footer__content { grid-template-columns: minmax(0, 1fr); }
+ .site-footer__social { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+ .site-footer__social ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
 }
-
-.site-footer__links,
-.site-footer__social {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 3rem);
-}
-
-.site-footer__links ul,
-.site-footer__social ul {
-  display: grid;
-  align-content: start;
-  gap: 0.72rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.site-footer__links a,
-.site-footer__social a {
-  display: inline-flex;
-  width: fit-content;
-  color: #686c76;
-  font-size: 0.74rem;
-  font-weight: 680;
-  line-height: 1.35;
-  text-decoration: none;
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.site-footer__social-link--instagram {
-  color: var(--color-instagram);
-}
-
-.site-footer__social-link--whatsapp {
-  color: #1da851;
-}
-
-.site-footer__social-link--location {
-  color: var(--color-google);
-}
-
-.site-footer__legal {
-  display: grid;
-  justify-items: end;
-  gap: 0.72rem;
-  text-align: right;
-}
-
-.site-footer__legal p {
-  margin: 0;
-  color: #747883;
-  font-size: 0.68rem;
-  line-height: 1.35;
-}
-
-.site-footer__legal p + p {
-  margin-top: -0.2rem;
-}
-
-.developer-credit {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.28rem;
-  margin-top: 0.18rem;
-  color: #8a8d96;
-  font-size: 0.66rem;
-  line-height: 1.35;
-  text-decoration: none;
-  transition: color 180ms ease;
-}
-
-.developer-credit strong {
-  color: #5d6069;
-  font-weight: 760;
-  transition: color 180ms ease;
-}
-
-.developer-credit__heart {
-  width: 0.76rem;
-  height: 0.76rem;
-  flex: 0 0 auto;
-  overflow: visible;
-  fill: none;
-  stroke: #6177df;
-  stroke-width: 1.65;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transform-origin: center;
-  transition:
-    transform 240ms var(--ease),
-    fill 180ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .site-footer__links a:hover {
-    color: var(--color-brand-hover);
-    transform: translateX(0.14rem);
-  }
-
-  .site-footer__social a:hover {
-    transform: translateX(0.14rem);
-  }
-
-  .developer-credit:hover {
-    color: var(--color-text);
-  }
-
-  .developer-credit:hover strong {
-    color: var(--color-brand-hover);
-  }
-
-  .developer-credit:hover .developer-credit__heart {
-    fill: rgba(97, 119, 223, 0.12);
-    transform: scale(1.1);
-  }
-}
-
-.site-footer a:focus-visible {
-  outline: 3px solid rgba(47, 86, 215, 0.22);
-  outline-offset: 4px;
-  border-radius: 0.22rem;
-}
-
-@media (max-width: 78rem) {
-  .site-footer__content {
-    grid-template-columns: minmax(9rem, 0.8fr) 1fr 1fr;
-  }
-
-  .site-footer__legal {
-    grid-column: 1 / -1;
-    grid-template-columns: auto auto minmax(0, 1fr);
-    align-items: center;
-    justify-items: start;
-    gap: 0.8rem 1.6rem;
-    padding-top: 1.35rem;
-    text-align: left;
-  }
-
-  .site-footer__legal p + p {
-    margin-top: 0;
-  }
-
-  .developer-credit {
-    justify-self: end;
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 63.99rem) {
-  .site-footer,
-  .app-shell[data-sidebar-state="collapsed"] .site-footer {
-    width: 100%;
-    margin: clamp(1.5rem, 3vw, 2rem) 0 0;
-  }
-
-  .site-footer__inner {
-    padding-inline: clamp(1.25rem, 4vw, 2rem);
-  }
-}
-
-@media (max-width: 46rem) {
-  .site-footer__inner {
-    padding-bottom: 1.75rem;
-  }
-
-  .site-footer__content {
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem 1.5rem;
-    padding-top: 2rem;
-  }
-
-  .site-footer__brand {
-    grid-column: 1 / -1;
-  }
-
-  .site-footer__links,
-  .site-footer__social {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .site-footer__legal {
-    grid-column: 1 / -1;
-    grid-template-columns: 1fr;
-    gap: 0.45rem;
-    padding-top: 1.35rem;
-  }
-
-  .developer-credit {
-    justify-self: start;
-    margin-top: 0.35rem;
-  }
-}
-
-@media (max-width: 28rem) {
-  .site-footer__content {
-    grid-template-columns: 1fr;
-  }
-
-  .site-footer__brand,
-  .site-footer__legal {
-    grid-column: auto;
-  }
-
-  .site-footer__social {
-    padding-top: 0.25rem;
-  }
-}
+@media (max-width: 63.99rem) { .site-footer { width: 100%; margin: 1.5rem 0 0; } }

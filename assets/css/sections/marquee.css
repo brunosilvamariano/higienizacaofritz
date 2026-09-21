@@ -204,3 +204,7 @@
     display: none;
   }
 }
+
+.marquee:not(.marquee--enhanced) .marquee__viewport { overflow-x: auto; }
+.marquee:not(.marquee--enhanced) .marquee__group[aria-hidden="true"] { display: none; }
+

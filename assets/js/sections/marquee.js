@@ -85,6 +85,7 @@ export function initMarquee() {
 
   if (!manifestoViewport || !manifestoTrack || !servicesViewport || !servicesTrack) return;
 
+  root.classList.add('marquee--enhanced');
   let rows = [];
   let animationFrame = 0;
   let previousTime = 0;

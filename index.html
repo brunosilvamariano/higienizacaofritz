@@ -20,6 +20,7 @@
     <meta content="summary_large_image" name="twitter:card">
     <meta content="Fritz Higienização e Impermeabilização | Joinville e região" name="twitter:title">
     <meta content="Higienização e impermeabilização de estofados em Joinville e região. Solicite seu orçamento pelo WhatsApp." name="twitter:description">
+    <link rel="preload" href="./assets/fonts/inter-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link as="image" fetchpriority="high" href="./assets/images/hero/fritz-hero.webp" rel="preload" type="image/webp">
     <!--
       Produção: canonical, og:url, og:image, Google Tag/Google Ads e Meta Pixel
@@ -30,7 +31,6 @@
     <link href="./assets/css/components/sidebar.css" rel="stylesheet">
     <link href="./assets/css/components/section-divider.css" rel="stylesheet">
     <link href="./assets/css/components/floating-cta.css" rel="stylesheet">
-    <link href="./assets/css/components/preloader.css" rel="stylesheet">
     <link href="./assets/css/components/reveal.css" rel="stylesheet">
     <link href="./assets/css/sections/hero.css" rel="stylesheet">
     <link href="./assets/css/sections/marquee.css" rel="stylesheet">
@@ -50,9 +50,9 @@
       Content-Security-Policy, Strict-Transport-Security, Permissions-Policy
       e X-Content-Type-Options. Consulte docs/DEPLOYMENT.md.
     -->
-    <meta content="https://higienizacaofritz.vercel.app/assets/images/og-fritz.webp" name="twitter:image">
+    <meta content="https://higienizacaofritz.vercel.app/assets/images/og-fritz-social-1200x628.jpg" name="twitter:image">
     <meta content="https://higienizacaofritz.vercel.app/" property="og:url">
-    <meta content="https://higienizacaofritz.vercel.app/assets/images/og-fritz.webp" property="og:image">
+    <meta content="https://higienizacaofritz.vercel.app/assets/images/og-fritz-social-1200x628.jpg" property="og:image">
     <link href="https://higienizacaofritz.vercel.app/" rel="canonical">
     <link href="./assets/favicon/favicon.ico?v=2" rel="icon" sizes="any">
     <link href="./assets/favicon/favicon.svg?v=2" rel="icon" type="image/svg+xml">
@@ -74,7 +74,7 @@
   "@id": "https://higienizacaofritz.vercel.app/#empresa",
   "name": "Fritz Higienização e Impermeabilização",
   "url": "https://higienizacaofritz.vercel.app/",
-  "image": "https://higienizacaofritz.vercel.app/assets/images/og-fritz.webp",
+  "image": "https://higienizacaofritz.vercel.app/assets/images/og-fritz-social-1200x628.jpg",
   "telephone": "+55 47 99905-1278",
   "sameAs": [
     "https://www.instagram.com/higienizacaofritz/"
@@ -110,17 +110,6 @@
     <!-- Analytics/Google Ads/Meta Pixel: inserir somente IDs reais e, quando aplicável, após configuração de consentimento. Nenhum placeholder de rastreamento é publicado. -->
   </head>
   <body>
-    <!-- ==================== PRELOADER / CARREGAMENTO ==================== -->
-    <div class="preloader" data-preloader aria-hidden="true">
-      <div class="preloader__content">
-        <div class="preloader__spinner">
-          <span class="preloader__orbit"></span>
-          <img class="preloader__mark" src="./assets/brand/fritz-mark.png" alt="" width="42" height="42">
-        </div>
-        <span class="preloader__brand">Fritz</span>
-        <span class="preloader__progress" aria-hidden="true"><span></span></span>
-      </div>
-    </div>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <div class="app-shell" data-sidebar-state="expanded">
       <!-- ==================== SIDEBAR / NAVEGAÇÃO ==================== -->
@@ -259,7 +248,7 @@
         </svg>
       </a>
       <!-- ==================== CONTEÚDO PRINCIPAL ==================== -->
-      <main class="site-main" id="conteudo">
+      <main class="site-main" id="conteudo" tabindex="-1">
         <!-- ==================== HERO / APRESENTAÇÃO ==================== -->
         <section aria-labelledby="hero-title" class="hero" id="inicio">
           <div class="hero__location">
@@ -535,7 +524,7 @@
                 <div class="atendimento__track">
                   <article aria-label="1 de 4: Higienização de estofados" aria-roledescription="slide" class="service-card service-card--landing" role="group">
                     <div aria-hidden="true" class="service-card__media">
-                      <img alt="" decoding="async" height="900" loading="lazy" src="./assets/images/atendimento/higienizacao-estofados.webp" width="1200">
+                      <img alt="" decoding="async" height="200" loading="lazy" src="./assets/images/atendimento/higienizacao-estofados.webp" width="400">
                     </div>
                     <div class="service-card__content">
                       <span aria-hidden="true" class="service-card__number">01</span>
@@ -562,7 +551,7 @@
                   </article>
                   <article aria-label="2 de 4: Impermeabilização" aria-roledescription="slide" class="service-card service-card--site" role="group">
                     <div aria-hidden="true" class="service-card__media">
-                      <img alt="" decoding="async" height="900" loading="lazy" src="./assets/images/atendimento/impermeabilizacao.webp" width="1200">
+                      <img alt="" decoding="async" height="200" loading="lazy" src="./assets/images/atendimento/impermeabilizacao.webp" width="400">
                     </div>
                     <div class="service-card__content">
                       <span aria-hidden="true" class="service-card__number">02</span>
@@ -587,9 +576,9 @@
                       </div>
                     </div>
                   </article>
-                  <article aria-label="3 de 4: Sofás e poltronas" aria-roledescription="slide" class="service-card service-card--identity" role="group">
+                  <article aria-label="3 de 4: Estofados e Camas" aria-roledescription="slide" class="service-card service-card--identity" role="group">
                     <div aria-hidden="true" class="service-card__media">
-                      <img alt="" decoding="async" height="900" loading="lazy" src="./assets/images/atendimento/camas.webp" width="1200">
+                      <img alt="" decoding="async" height="200" loading="lazy" src="./assets/images/atendimento/camas.webp" width="400">
                     </div>
                     <div class="service-card__content">
                       <span aria-hidden="true" class="service-card__number">03</span>
@@ -602,7 +591,7 @@
                           <li>Poltronas</li>
                           <li>Conforto</li>
                         </ul>
-                        <a aria-label="Solicitar orçamento sobre Sofás e poltronas pelo WhatsApp" class="service-card__cta" href="https://wa.me/5547999051278?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20sof%C3%A1s%20e%20poltronas." rel="noopener noreferrer" target="_blank">
+                        <a aria-label="Solicitar orçamento sobre Estofados e Camas pelo WhatsApp" class="service-card__cta" href="https://wa.me/5547999051278?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20sof%C3%A1s%20e%20poltronas." rel="noopener noreferrer" target="_blank">
                           <span aria-hidden="true" class="service-card__cta-icon">
                             <svg aria-hidden="true" viewbox="0 0 24 24">
                               <path d="M5 12h14"></path>
@@ -751,7 +740,7 @@
               <p class="galeria__lead">Registros do trabalho da Fritz durante o cuidado profissional com estofados.</p>
             </header>
 
-            <div class="results-stage" aria-roledescription="carrossel" aria-label="Resultados da Fritz">
+            <div class="results-stage" role="region" aria-roledescription="carrossel" aria-label="Resultados da Fritz">
 
               <div class="results-track" data-results-track>
                 <article class="result-card" data-result-card data-result-index="0">
@@ -1032,7 +1021,7 @@
                 </span>
                 <span>
                   <strong>Atendimento personalizado</strong>
-                  <small>Estratégia, design e desenvolvimento</small>
+                  <small>Higienização e impermeabilização</small>
                 </span>
               </div>
               <div class="contact-meta">

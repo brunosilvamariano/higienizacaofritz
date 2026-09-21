@@ -2,6 +2,14 @@
 
 Site estático e responsivo adaptado para a Fritz Higienização e Impermeabilização, preservando a arquitetura reutilizável da base. O projeto foi organizado para funcionar sem CDN: fontes, imagens e identidade visual ficam locais.
 
+## Revisão de 21/09/2026
+
+**Ajustes visuais posteriores:** veja `docs/AJUSTES-VISUAIS.md` para a rodada solicitada a partir das capturas de tela: foto maior, composição em uma coluna quando necessário, novo rodapé, links rápidos compactos e CTA do FAQ limitado.
+
+Veja `docs/AUDITORIA-2026-09-21.md` para os problemas confirmados, melhorias e testes. O idioma, a identidade visual e a estrutura HTML/CSS/JavaScript foram preservados.
+
+A build reúne 15 folhas de estilo em um CSS com hash de conteúdo. A configuração Vercel usa `dist/`. Para outra hospedagem estática, publique o conteúdo dessa pasta.
+
 ## Estrutura
 
 - `index.html` — documento principal e semântica da página.
