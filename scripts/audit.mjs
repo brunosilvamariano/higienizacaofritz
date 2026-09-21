@@ -15,7 +15,7 @@ if(!/<html[^>]+lang="pt-BR"/i.test(html)) warnings.push('Confirme lang="pt-BR".'
 if(!/<meta[^>]+name="description"/i.test(html)) errors.push("Meta description ausente.");
 if(!/<meta[^>]+name="viewport"/i.test(html)) errors.push("Viewport ausente.");
 if(!/class="skip-link"/i.test(html)) warnings.push("Skip link ausente.");
-if(!/<link(?=[^>]*\brel="canonical")(?=[^>]*\bhref="https:\/\/www\.higienizacaofritz\.com\.br\/?")[^>]*>/i.test(html)) errors.push("Canonical absoluto ausente ou incorreto.");
+if(!/<link(?=[^>]*\brel="canonical")(?=[^>]*\bhref="https:\/\/higienizacaofritz\.vercel\.app\/?")[^>]*>/i.test(html)) errors.push("Canonical absoluto ausente ou incorreto.");
 if(!/<meta(?=[^>]*\bproperty="og:image")(?=[^>]*\bcontent="https:\/\/)[^>]*>/i.test(html)) errors.push("Open Graph image absoluta ausente.");
 if(!/<meta(?=[^>]*\bname="twitter:card")(?=[^>]*\bcontent="summary_large_image")[^>]*>/i.test(html)) warnings.push("Twitter card de imagem ampla ausente.");
 assertFile('robots.txt');

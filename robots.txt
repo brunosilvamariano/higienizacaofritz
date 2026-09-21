@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.higienizacaofritz.com.br/sitemap.xml
+Sitemap: https://higienizacaofritz.vercel.app/sitemap.xml
