@@ -120,3 +120,9 @@
     transition-duration: 1ms;
   }
 }
+
+/* Oculto sem JavaScript; nunca captura toques ou impede a navegação. */
+.preloader[hidden] { display: none; }
+.preloader { pointer-events: none; animation: preloader-failsafe 1ms step-end 2200ms forwards; }
+@keyframes preloader-failsafe { to { opacity: 0; visibility: hidden; } }
+@media (prefers-reduced-motion: reduce), print { .preloader { display: none; } }

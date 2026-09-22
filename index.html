@@ -28,6 +28,7 @@
     -->
     <link href="./assets/css/fonts.css" rel="stylesheet">
     <link href="./assets/css/main.css" rel="stylesheet">
+    <link href="./assets/css/components/preloader.css" rel="stylesheet">
     <link href="./assets/css/components/sidebar.css" rel="stylesheet">
     <link href="./assets/css/components/section-divider.css" rel="stylesheet">
     <link href="./assets/css/components/floating-cta.css" rel="stylesheet">
@@ -111,6 +112,16 @@
     <!-- Analytics/Google Ads/Meta Pixel: inserir somente IDs reais e, quando aplicável, após configuração de consentimento. Nenhum placeholder de rastreamento é publicado. -->
   </head>
   <body>
+    <div class="preloader" data-preloader hidden aria-hidden="true">
+      <div class="preloader__content">
+        <div class="preloader__spinner">
+          <span class="preloader__orbit"></span>
+          <img class="preloader__mark" src="./assets/favicon/favicon.svg" width="42" height="42" alt="">
+        </div>
+        <span class="preloader__brand">Fritz Higienização</span>
+      </div>
+    </div>
+    <script src="./assets/js/components/preloader.js"></script>
     <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
     <div class="app-shell" data-sidebar-state="expanded">
       <!-- ==================== SIDEBAR / NAVEGAÇÃO ==================== -->
@@ -745,27 +756,27 @@
 
               <div class="results-track" data-results-track>
                 <article class="result-card" data-result-card data-result-index="0">
-                  <div class="result-card__media"><img src="./assets/images/galeria/fritz-processo-1.webp" alt="Profissional da Fritz durante atendimento de higienização de estofado" width="1200" height="900" loading="lazy" decoding="async"></div>
+                  <div class="result-card__media"><img src="./assets/images/resultados/higienizacao.jpg" alt="Ilustração de higienização de sofá com extratora" width="1024" height="1536" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
                   <div class="result-card__topline"><span>01</span><span>Higienização</span></div>
                   <div class="result-card__content"><span class="result-card__badge">Cuidado Fritz</span><h3>Higienização profissional</h3><p>Cuidado aplicado ao estofado com atenção durante cada etapa do serviço.</p></div>
                 </article>
                 <article class="result-card" data-result-card data-result-index="1">
-                  <div class="result-card__media"><img src="./assets/images/atendimento/higienizacao-estofados.webp" alt="Detalhe ilustrativo de tecido estofado" width="400" height="200" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
+                  <div class="result-card__media"><img src="./assets/images/resultados/cadeira.jpg" alt="Ilustração de cadeira com assento e encosto estofados" width="1024" height="1536" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
                   <div class="result-card__topline"><span>02</span><span>Detalhes</span></div>
                   <div class="result-card__content"><span class="result-card__badge">Atenção ao tecido</span><h3>Cuidado em cada etapa</h3><p>Processo realizado com atenção às características do tecido e do estofado.</p></div>
                 </article>
                 <article class="result-card" data-result-card data-result-index="2">
-                  <div class="result-card__media"><img src="./assets/images/galeria/fritz-processo-3.webp" alt="Processo profissional de higienização realizado pela Fritz" width="1200" height="900" loading="lazy" decoding="async"></div>
+                  <div class="result-card__media"><img src="./assets/images/resultados/execucao.jpg" alt="Ilustração de limpeza cuidadosa da costura de um estofado" width="1024" height="1536" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
                   <div class="result-card__topline"><span>03</span><span>Processo</span></div>
-                  <div class="result-card__content"><span class="result-card__badge">Atendimento profissional</span><h3>Execução cuidadosa</h3><p>Um registro do processo profissional realizado pela Fritz em Joinville.</p></div>
+                  <div class="result-card__content"><span class="result-card__badge">Atendimento profissional</span><h3>Execução cuidadosa</h3><p>Atenção às costuras e aos detalhes durante o cuidado com o tecido.</p></div>
                 </article>
                 <article class="result-card" data-result-card data-result-index="3">
-                  <div class="result-card__media"><img src="./assets/images/atendimento/camas.webp" alt="Imagem ilustrativa de colchão e cabeceira estofada" width="400" height="200" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
+                  <div class="result-card__media"><img src="./assets/images/resultados/cama.jpg" alt="Ilustração de cama com colchão e cabeceira estofada" width="1024" height="1536" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
                   <div class="result-card__topline"><span>04</span><span>Estofados</span></div>
                   <div class="result-card__content"><span class="result-card__badge">Cuidado profissional</span><h3>Atenção ao estofado</h3><p>Detalhes do atendimento e do cuidado aplicado durante o serviço.</p></div>
                 </article>
                 <article class="result-card" data-result-card data-result-index="4">
-                  <div class="result-card__media"><img src="./assets/images/atendimento/impermeabilizacao.webp" alt="Imagem ilustrativa de gotas sobre tecido protegido" width="400" height="200" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
+                  <div class="result-card__media"><img src="./assets/images/resultados/protecao.jpg" alt="Ilustração de gotas de água sobre tecido protegido" width="1024" height="1536" loading="lazy" decoding="async"><span class="result-card__illustration">Imagem ilustrativa</span></div>
                   <div class="result-card__topline"><span>05</span><span>Proteção</span></div>
                   <div class="result-card__content"><span class="result-card__badge">Higienização e impermeabilização</span><h3>Proteção do tecido</h3><p>Impermeabilização para ajudar a proteger o tecido contra a absorção de líquidos.</p></div>
                 </article>

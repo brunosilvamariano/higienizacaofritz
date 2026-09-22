@@ -1,45 +1,34 @@
-/**
- * ============================================================
- * PRELOADER
- * Remove a abertura assim que a página estiver pronta.
- * ============================================================
- */
-
-export function initPreloader() {
-  const preloader = document.querySelector('[data-preloader]');
-
-  if (!preloader) {
-    return;
-  }
-
+/** Abertura independente dos outros módulos, sem espera mínima artificial. */
+(() => {
+  const loader = document.querySelector('[data-preloader]');
+  if (!loader || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   let dismissed = false;
-  const startedAt = performance.now();
-  const minimumVisibleTime = 1200;
-
+  let fallback;
   const dismiss = () => {
-    if (dismissed) {
-      return;
-    }
-
+    if (dismissed) return;
     dismissed = true;
-
-    const elapsed = performance.now() - startedAt;
-    const remaining = Math.max(0, minimumVisibleTime - elapsed);
-
-    window.setTimeout(() => {
-      preloader.classList.add('is-leaving');
-
-      window.setTimeout(() => {
-        preloader.remove();
-      }, 420);
-    }, remaining);
+    clearTimeout(fallback);
+    loader.classList.add('is-leaving');
+    setTimeout(() => loader.remove(), 380);
+    window.removeEventListener('pageshow', onPageShow);
+    window.removeEventListener('keydown', dismiss);
+    window.removeEventListener('pointerdown', dismiss);
   };
+  const onPageShow = event => { if (event.persisted) dismiss(); };
+  loader.hidden = false;
+  fallback = setTimeout(dismiss, 1800);
+  window.addEventListener('pageshow', onPageShow);
+  window.addEventListener('keydown', dismiss, {once:true});
+  window.addEventListener('pointerdown', dismiss, {once:true});
+  const ready = () => {
+    const hero = document.querySelector('#inicio .hero__portrait');
+    if (!hero || hero.complete) dismiss();
+    else {
+      hero.addEventListener('load', dismiss, {once:true});
+      hero.addEventListener('error', dismiss, {once:true});
+    }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready, {once:true});
+  else ready();
+})();
 
-  if (document.readyState === 'complete') {
-    window.requestAnimationFrame(dismiss);
-  } else {
-    window.addEventListener('load', dismiss, { once: true });
-  }
-
-  window.setTimeout(dismiss, 2500);
-}
