@@ -474,3 +474,6 @@
  .galeria { margin-top: 2rem; padding-block: 2.75rem; }
  .galeria__header { margin-bottom: 2rem; }
 }
+
+.results-stage img { -webkit-user-drag: none; user-select: none; }
+.results-stage { touch-action: pan-y pinch-zoom; }

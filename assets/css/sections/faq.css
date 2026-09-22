@@ -389,3 +389,12 @@
 @media (max-width: 48rem) {
  .faq { margin-top: 2rem; padding-block: 3rem; }
 }
+
+/* Remove a coluna numérica vazia e alinha perguntas ao texto introdutório. */
+.faq-item__number { display: none; }
+.faq-item__toggle { grid-template-columns: minmax(0, 1fr) 2.75rem; padding-inline: 0; }
+.faq-item__answer p { margin-left: 0; }
+@media (max-width: 48rem) {
+ .faq-item__toggle { grid-template-columns: minmax(0, 1fr) 2.35rem; }
+ .faq-item__answer p { margin-inline: 0; }
+}

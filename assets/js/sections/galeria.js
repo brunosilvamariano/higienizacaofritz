@@ -25,6 +25,8 @@ export function initGaleria() {
   let currentIndex = 0;
   let pointerId = null;
   let dragStartX = 0;
+  let dragStartY = 0;
+  let horizontal = false;
   let dragCurrentX = 0;
   let dragging = false;
   let moved = false;
@@ -87,7 +89,7 @@ export function initGaleria() {
   const finishDrag = (event) => {
     if (!dragging || event.pointerId !== pointerId) return;
 
-    const distance = dragCurrentX - dragStartX;
+    const distance = event.type === 'pointerup' ? event.clientX - dragStartX : dragCurrentX - dragStartX;
     dragging = false;
     pointerId = null;
     stage.classList.remove('is-dragging');
@@ -96,7 +98,7 @@ export function initGaleria() {
       stage.releasePointerCapture(event.pointerId);
     }
 
-    if (event.type === 'pointerup' && Math.abs(distance) >= dragThreshold) {
+    if (event.type === 'pointerup' && horizontal && Math.abs(distance) >= dragThreshold) {
       if (distance < 0) next();
       else previous();
     }
@@ -111,11 +113,14 @@ export function initGaleria() {
 
     pointerId = event.pointerId;
     dragStartX = event.clientX;
+    dragStartY = event.clientY;
+    horizontal = false;
     dragCurrentX = event.clientX;
     dragging = true;
     moved = false;
 
 
+    stage.setPointerCapture(event.pointerId);
     stage.classList.add('is-dragging');
   });
 
@@ -124,15 +129,23 @@ export function initGaleria() {
 
     dragCurrentX = event.clientX;
 
-    if (Math.abs(dragCurrentX - dragStartX) > 6) {
+    const dx = Math.abs(dragCurrentX - dragStartX);
+    const dy = Math.abs(event.clientY - dragStartY);
+    if (dx > 8 && dx > dy) {
+      horizontal = true;
       moved = true;
-      if (!stage.hasPointerCapture(event.pointerId)) stage.setPointerCapture(event.pointerId);
     }
   });
 
   stage.addEventListener('pointerup', finishDrag);
   stage.addEventListener('pointercancel', finishDrag);
-  stage.addEventListener('lostpointercapture', finishDrag);
+  // A captura implícita de toque pode sair da imagem e propagar este evento.
+  // Somente a perda de captura do próprio stage encerra o gesto.
+  stage.addEventListener('lostpointercapture', event => {
+    if (event.target === stage) finishDrag(event);
+  });
+  stage.addEventListener('dragstart', event => event.preventDefault());
+  stage.querySelectorAll('img').forEach(image => { image.draggable = false; });
 
   cards.forEach((card, index) => {
     card.addEventListener('click', () => {
@@ -142,6 +155,7 @@ export function initGaleria() {
   });
 
   section.addEventListener('keydown', (event) => {
+    if (event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === 'Home' || event.key === 'End') { event.preventDefault(); goTo(event.key === 'Home' ? 0 : cards.length - 1); }
     if (event.key === 'ArrowLeft') {
       event.preventDefault();

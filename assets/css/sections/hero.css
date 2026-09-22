@@ -1245,3 +1245,7 @@
  .hero-cta { font-size: 0.875rem; min-height: 3.25rem; grid-template-columns: 2.3rem minmax(0, 1fr) 1.4rem; padding: .45rem .75rem .45rem .45rem; }
  .hero-cta__arrow { display: grid; }
 }
+
+@media (max-width: 30rem) {
+ .hero__actions { width: min(92%, 20rem); max-width: 20rem; }
+}

@@ -596,3 +596,7 @@
 @container (max-width: 60rem) { .contact__body { grid-template-columns: 1fr; } .contact__intro { display: block; } .contact__lead { margin-top: 1.35rem; } .contact__primary { margin-top: 2rem; } }
 @media (max-width: 72rem) { .contact__body { grid-template-columns: 1fr; } }
 
+
+@media (max-width: 48rem) {
+ .contact__meta { display: none; }
+}
