@@ -1,6 +1,0 @@
-node_modules/
-.vite/
-.DS_Store
-Thumbs.db
-.vercel/
-dist/
