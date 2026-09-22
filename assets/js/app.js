@@ -1,3 +1,4 @@
+import { initTestimonials } from './sections/depoimentos.js';
 /**
  * ============================================================
  * APP
@@ -24,6 +25,7 @@ function init() {
   initGaleria();
   initFaq();
   initFooter();
+  initTestimonials();
 }
 
 if (document.readyState === 'loading') {
