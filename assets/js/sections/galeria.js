@@ -56,7 +56,7 @@ export function initGaleria() {
     const button = document.createElement('button');
     button.className = 'results-dot';
     button.type = 'button';
-    button.setAttribute('aria-label', `Exibir resultado ${index + 1}`);
+    button.setAttribute('aria-label', `Exibir cuidado ${index + 1}`);
     button.addEventListener('click', () => goTo(index));
     pagination.append(button);
     return button;
@@ -72,7 +72,7 @@ export function initGaleria() {
     });
 
     if (focusedCard) cards[currentIndex].focus({ preventScroll: true });
-    status.textContent = `Resultado ${currentIndex + 1} de ${cards.length}: ${cards[currentIndex].querySelector('h3')?.textContent ?? ''}`;
+    status.textContent = `Cuidado ${currentIndex + 1} de ${cards.length}: ${cards[currentIndex].querySelector('h3')?.textContent ?? ''}`;
     dots.forEach((dot, index) => {
       dot.setAttribute('aria-current', String(index === currentIndex));
     });

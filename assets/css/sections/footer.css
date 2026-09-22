@@ -127,3 +127,14 @@
  .site-footer .site-footer__social ul { gap: .75rem; }
  .site-footer .site-footer__social a { width: 3.25rem; height: 3.25rem; }
 }
+
+/* Mobile: mantém a coluna e os alvos de toque, reduzindo os intervalos. */
+@media (max-width: 48rem) {
+ .site-footer__content { gap: 1.15rem; padding-top: 1.1rem; }
+ .site-footer__links, .site-footer__links ul { gap: 0; }
+ .site-footer__links a { min-height: 2.75rem; }
+ .site-footer .site-footer__social { padding-top: 1rem; }
+ .site-footer__legal { padding-top: 1rem; gap: .35rem; }
+ .site-footer__inner { padding-bottom: 5.5rem; }
+ .developer-credit { margin-top: .35rem; }
+}
