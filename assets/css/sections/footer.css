@@ -35,9 +35,19 @@
  .site-footer__legal { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
  .developer-credit { grid-column: 1; grid-row: auto; margin-top: .65rem; }
 }
-@container footer (max-width: 25rem) {
- .site-footer__content { grid-template-columns: minmax(0, 1fr); }
- .site-footer__social { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
- .site-footer__social ul { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+@media (max-width: 48rem) {
+ .site-footer__inner { padding: 0 1.5rem 6.5rem; }
+ .site-footer__content { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+ .site-footer__links, .site-footer__social { display: flex; flex-direction: column; gap: .5rem; }
+ .site-footer__links ul, .site-footer__social ul { display: flex; flex-direction: column; gap: .5rem; }
+ .site-footer__links a, .site-footer__social a { min-height: 3rem; font-size: .9375rem; }
+ .site-footer__social { border-top: 1px solid var(--color-line); padding-top: 1.5rem; }
+ .site-footer__legal { gap: .6rem; padding-top: 1.5rem; }
+ .developer-credit { line-height: 1.8; }
 }
 @media (max-width: 63.99rem) { .site-footer { width: 100%; margin: 1.5rem 0 0; } }
+
+/* Reserva espaço para o atalho sem cobrir os créditos no desktop. */
+@media (min-width: 48.01rem) {
+ .site-footer__legal { padding-right: 4.5rem; }
+}

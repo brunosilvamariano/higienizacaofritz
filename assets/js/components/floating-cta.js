@@ -1,77 +1,42 @@
-/**
- * ============================================================
- * COMPONENTS / FLOATING CTA
- * Responsabilidades e interações deste módulo.
- * ============================================================
- */
-
-/** Sincroniza a visibilidade e a acessibilidade do CTA flutuante. */
-const MOBILE_QUERY = '(max-width: 63.99rem)';
-
+/** Alterna os atalhos conforme a seção visível e o estado do menu. */
 export function initFloatingCta() {
   const cta = document.querySelector('[data-floating-cta]');
-  const contact = document.querySelector('#contato');
+  const topLink = document.querySelector('[data-back-to-top]');
   const shell = document.querySelector('.app-shell');
-
-  if (!cta || !contact || !shell) return;
-
-  const mobileMedia = window.matchMedia(MOBILE_QUERY);
-  let contactVisible = false;
-
-  const syncVisibility = () => {
-    const mobileMenuOpen = mobileMedia.matches && shell.classList.contains('is-mobile-open');
-    const shouldHide = contactVisible || mobileMenuOpen;
-
-    cta.classList.toggle('is-hidden', shouldHide);
-    cta.setAttribute('aria-hidden', String(shouldHide));
-
-    if (shouldHide) {
-      cta.setAttribute('tabindex', '-1');
-    } else {
-      cta.removeAttribute('tabindex');
-    }
+  const regions = [...document.querySelectorAll('#contato, .site-footer')];
+  if (!cta || !topLink || !shell || !regions.length) return;
+  const mobile = window.matchMedia('(max-width: 63.99rem)');
+  const sync = () => {
+    const atEnd = regions.some(region => {
+      const rect = region.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    });
+    const menuOpen = mobile.matches && shell.classList.contains('is-mobile-open');
+    const hideCta = atEnd || menuOpen;
+    cta.classList.toggle('is-hidden', hideCta);
+    cta.setAttribute('aria-hidden', String(hideCta));
+    if (hideCta) cta.setAttribute('tabindex', '-1');
+    else cta.removeAttribute('tabindex');
+    topLink.hidden = !atEnd || menuOpen;
   };
-
-  const updateContactVisibility = () => {
-    const rect = contact.getBoundingClientRect();
-    contactVisible = rect.top < window.innerHeight && rect.bottom > 0;
-    syncVisibility();
-  };
-
-  updateContactVisibility();
-
   if ('IntersectionObserver' in window) {
-    const contactObserver = new IntersectionObserver(
-      ([entry]) => {
-        contactVisible = entry.isIntersecting;
-        syncVisibility();
-      },
-      {
-        root: null,
-        threshold: 0,
-      },
-    );
-
-    contactObserver.observe(contact);
+    const observer = new IntersectionObserver(sync, { threshold: 0 });
+    regions.forEach(region => observer.observe(region));
   } else {
-    window.addEventListener('scroll', updateContactVisibility, { passive: true });
-    window.addEventListener('resize', updateContactVisibility);
+    window.addEventListener('scroll', sync, { passive: true });
   }
-
-  const shellObserver = new MutationObserver((mutations) => {
-    const classChanged = mutations.some(
-      (mutation) => mutation.type === 'attributes' && mutation.attributeName === 'class',
-    );
-
-    if (classChanged) syncVisibility();
+  window.addEventListener('resize', sync, { passive: true });
+  window.addEventListener('pageshow', sync);
+  new MutationObserver(sync).observe(shell, { attributes: true, attributeFilter: ['class'] });
+  mobile.addEventListener('change', sync);
+  topLink.addEventListener('click', event => {
+    event.preventDefault();
+    const title = document.querySelector('#hero-title');
+    if (title) {
+      title.setAttribute('tabindex', '-1');
+      title.focus({ preventScroll: true });
+    }
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
   });
-
-  shellObserver.observe(shell, {
-    attributes: true,
-    attributeFilter: ['class'],
-  });
-
-  mobileMedia.addEventListener('change', syncVisibility);
-
-  syncVisibility();
+  sync();
 }

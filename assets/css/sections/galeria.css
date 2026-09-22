@@ -469,3 +469,8 @@
 .galeria:not(.galeria--enhanced) .result-card { position: relative; inset: auto; width: 100%; transform: none; opacity: 1; pointer-events: auto; }
 .galeria:not(.galeria--enhanced) .result-card__content p, .galeria:not(.galeria--enhanced) .result-card__badge { opacity: 1; }
 
+
+@media (max-width: 48rem) {
+ .galeria { margin-top: 2rem; padding-block: 2.75rem; }
+ .galeria__header { margin-bottom: 2rem; }
+}

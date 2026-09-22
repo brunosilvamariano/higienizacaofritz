@@ -125,3 +125,25 @@
   fill: currentColor;
   stroke: none;
 }
+
+/* Retorno ao início ocupa o lugar do WhatsApp no contato e no rodapé. */
+.back-to-top {
+ position: fixed;
+ z-index: 24;
+ right: max(1rem, env(safe-area-inset-right));
+ bottom: max(1rem, env(safe-area-inset-bottom));
+ display: grid;
+ place-items: center;
+ width: 3.5rem;
+ height: 3.5rem;
+ border-radius: 50%;
+ background: var(--color-brand);
+ color: #fff;
+ border: 1px solid rgba(255,255,255,.5);
+ box-shadow: 0 8px 24px rgba(20,50,110,.22);
+ text-decoration: none;
+}
+.back-to-top[hidden] { display: none; }
+.back-to-top svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.back-to-top:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+@media (hover: hover) { .back-to-top:hover { background: #174bb3; } }
