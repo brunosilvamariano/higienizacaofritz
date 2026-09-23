@@ -11,9 +11,24 @@
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 66% 8%, rgba(63, 104, 244, 0.085), transparent 30rem),
-    linear-gradient(180deg, #fbfcff 0%, var(--color-ice) 74%, #f2f6fc 100%);
+  isolation: isolate;
+  background: linear-gradient(180deg, #fbfcff 0%, var(--color-ice) 74%, #f2f6fc 100%);
+}
+
+/*
+ * Contraste do Hero inspirado em uma faixa editorial curva. O azul fica
+ * concentrado no lado direito e o próprio radial é recortado por um único
+ * path Bézier amplo, criando uma transição contínua em vez de um blob solto.
+ */
+.hero__radial-wave {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  right: -2%;
+  width: min(67vw, 76rem);
+  height: 100%;
+  pointer-events: none;
+  opacity: 1;
 }
 
 .hero__grid {
@@ -483,45 +498,6 @@
   transition: width var(--transition-base) var(--ease), right var(--transition-base) var(--ease);
 }
 
-.hero__shape {
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero__shape--one {
-  right: 7%;
-  bottom: 10%;
-  width: min(74%, 34rem);
-  aspect-ratio: 0.92;
-  border-radius: 42% 58% 54% 46% / 42% 42% 58% 58%;
-  background: linear-gradient(145deg, #aac7ff 0%, var(--color-brand-soft) 48%, var(--color-brand-soft) 100%);
-  transform: rotate(7deg);
-  opacity: 0.92;
-}
-
-.hero__shape--two {
-  right: -1%;
-  bottom: 18%;
-  width: min(43%, 20rem);
-  aspect-ratio: 0.82;
-  border-radius: 58% 42% 48% 52% / 38% 55% 45% 62%;
-  background: linear-gradient(165deg, rgba(90, 132, 244, 0.8), rgba(132, 169, 255, 0.46));
-  transform: rotate(-15deg);
-}
-
-.hero__orbit {
-  position: absolute;
-  z-index: 0;
-  right: 9%;
-  bottom: 7%;
-  width: min(82%, 39rem);
-  aspect-ratio: 1;
-  border: 1.5px solid rgba(70, 113, 229, 0.27);
-  border-radius: 47% 53% 45% 55% / 56% 42% 58% 44%;
-  transform: rotate(18deg);
-}
-
 .hero-float {
   position: absolute;
   z-index: 6;
@@ -690,20 +666,6 @@
     max-height: 79svh;
   }
 
-  .hero__shape--one {
-    right: 6%;
-    width: min(72%, 30rem);
-  }
-
-  .hero__shape--two {
-    right: 0;
-    width: min(40%, 17rem);
-  }
-
-  .hero__orbit {
-    right: 8%;
-    width: min(78%, 33rem);
-  }
 
   .hero-float {
     max-width: 11.5rem;
@@ -787,20 +749,6 @@
     max-height: 70svh;
   }
 
-  .hero__shape--one {
-    right: 2%;
-    width: min(88%, 24rem);
-  }
-
-  .hero__shape--two {
-    right: -6%;
-    width: min(50%, 13rem);
-  }
-
-  .hero__orbit {
-    right: 2%;
-    width: min(92%, 25rem);
-  }
 
   .hero-float,
   .hero__note {
@@ -811,6 +759,15 @@
 @media (max-width: 63.99rem) {
   .hero {
     min-height: auto;
+    background: linear-gradient(180deg, #fbfcff 0%, var(--color-ice) 74%, #f2f6fc 100%);
+  }
+
+  .hero__radial-wave {
+    top: 40%;
+    right: -24%;
+    width: min(120vw, 52rem);
+    height: 60%;
+    opacity: 0.92;
   }
 
   .hero__grid {
@@ -855,19 +812,6 @@
     width: min(82%, 35rem);
   }
 
-  .hero__shape--one {
-    right: 10%;
-    width: min(68%, 29rem);
-  }
-
-  .hero__shape--two {
-    right: 3%;
-  }
-
-  .hero__orbit {
-    right: 14%;
-    width: min(74%, 33rem);
-  }
 
   .hero-float--visibility {
     top: 27%;
@@ -1098,20 +1042,6 @@
     width: 90%;
   }
 
-  .hero__shape--one {
-    right: 6%;
-    width: 80%;
-  }
-
-  .hero__shape--two {
-    right: 1%;
-    width: 50%;
-  }
-
-  .hero__orbit {
-    right: 8%;
-    width: 84%;
-  }
 
   .hero-float--visibility {
     top: 31%;
@@ -1128,6 +1058,16 @@
   .hero-cta__arrow,
   .hero__portrait {
     transition: none;
+  }
+}
+
+@media (max-width: 40rem) {
+  .hero__radial-wave {
+    top: 46%;
+    right: -52%;
+    width: 150vw;
+    height: 54%;
+    opacity: 0.82;
   }
 }
 
@@ -1210,42 +1150,109 @@
 }
 
 /* O título acompanha a largura real da coluna, inclusive com o menu recolhido. */
-.hero { container: masthead / inline-size; }
-.hero__grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(1.5rem, 3vw, 3.5rem); }
-.hero__content { container-type: inline-size; }
-.hero__title { max-width: 100%; font-size: clamp(1.8rem, 5vw, 5.7rem); line-height: 1.03; }
-@supports (font-size: 1cqi) { .hero__title { font-size: clamp(1.8rem, 11.5cqi, 5.7rem); } }
-.hero__title-accent { white-space: normal; overflow-wrap: anywhere; }
-.hero-cta__label { white-space: normal; line-height: 1.35; }
-/* A foto cabe nas duas dimensões da coluna, inclusive durante a transição do menu. */
-.app-shell .hero .hero__portrait {
- position: absolute;
- inset: 0;
- width: 100%;
- height: 100%;
- max-height: 100%;
- object-fit: contain;
- object-position: center bottom;
-}
-.hero__visual { min-height: min(72svh, 46rem); }
-/* A composição segue o espaço disponível depois da sidebar, não só a tela. */
-@container masthead (max-width: 56rem) {
- .hero__grid { grid-template-columns: minmax(0, 1fr); min-height: auto; padding: 7rem clamp(1.2rem, 4cqi, 3rem) 0; gap: 3rem; }
- .hero__content { width: 100%; padding-left: 0; }
- .hero__title { width: 100%; }
- .hero__actions { width: min(100%, 32rem); }
- .hero__visual { width: min(100%, 36rem); min-height: 0; margin: 0 auto; align-self: auto; }
- .app-shell .hero .hero__portrait { position: relative; inset: auto; display: block; width: min(92%, 32rem); height: auto; max-height: none; margin: 0 auto; }
- .hero__shape--one { width: 80%; right: 10%; bottom: 8%; }
- .hero__shape--two { width: 48%; right: 1%; bottom: 16%; }
- .hero__orbit { width: 88%; right: 6%; bottom: 5%; }
-}
-@media (max-width: 30rem) {
- .hero__actions { grid-template-columns: 1fr; max-width: 23rem; }
- .hero-cta { font-size: 0.875rem; min-height: 3.25rem; grid-template-columns: 2.3rem minmax(0, 1fr) 1.4rem; padding: .45rem .75rem .45rem .45rem; }
- .hero-cta__arrow { display: grid; }
+.hero {
+  container: masthead / inline-size;
 }
 
+.hero__grid {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+}
+
+.hero__content {
+  container-type: inline-size;
+}
+
+.hero__title {
+  max-width: 100%;
+  font-size: clamp(1.8rem, 5vw, 5.7rem);
+  line-height: 1.03;
+}
+
+@supports (font-size: 1cqi) {
+  .hero__title {
+    font-size: clamp(1.8rem, 11.5cqi, 5.7rem);
+  }
+}
+
+.hero__title-accent {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.hero-cta__label {
+  white-space: normal;
+  line-height: 1.35;
+}
+
+/* A foto cabe nas duas dimensões da coluna, inclusive durante a transição do menu. */
+.app-shell .hero .hero__portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.hero__visual {
+  min-height: min(72svh, 46rem);
+}
+/* A composição segue o espaço disponível depois da sidebar, não só a tela. */
+@container masthead (max-width: 56rem) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    gap: 3rem;
+    padding: 7rem clamp(1.2rem, 4cqi, 3rem) 0;
+  }
+
+  .hero__content {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .hero__title {
+    width: 100%;
+  }
+
+  .hero__actions {
+    width: min(100%, 32rem);
+  }
+
+  .hero__visual {
+    width: min(100%, 36rem);
+    min-height: 0;
+    align-self: auto;
+    margin: 0 auto;
+  }
+
+  .app-shell .hero .hero__portrait {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: min(92%, 32rem);
+    height: auto;
+    max-height: none;
+    margin: 0 auto;
+  }
+}
 @media (max-width: 30rem) {
- .hero__actions { width: min(92%, 20rem); max-width: 20rem; }
+  .hero__actions {
+    width: min(92%, 20rem);
+    max-width: 20rem;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cta {
+    min-height: 3.25rem;
+    grid-template-columns: 2.3rem minmax(0, 1fr) 1.4rem;
+    padding: 0.45rem 0.75rem 0.45rem 0.45rem;
+    font-size: 0.875rem;
+  }
+
+  .hero-cta__arrow {
+    display: grid;
+  }
 }

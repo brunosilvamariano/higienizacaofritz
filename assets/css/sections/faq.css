@@ -90,7 +90,7 @@
   margin: 0;
   color: var(--faq-text);
   font-size: var(--section-title-size);
-  font-weight: 800;
+  font-weight: var(--section-title-weight);
   line-height: 1.01;
   letter-spacing: -0.06em;
   text-wrap: balance;
@@ -328,8 +328,9 @@
   }
 
   .faq__title {
-    max-width: 14ch;
+    max-width: 100%;
     font-size: var(--section-title-size-mobile);
+    text-wrap: wrap;
   }
 
   .faq__lead {

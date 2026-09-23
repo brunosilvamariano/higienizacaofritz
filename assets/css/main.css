@@ -12,6 +12,8 @@
   --font-editorial: "Lora Local", Georgia, serif;
   --section-title-size: clamp(2rem, 2.65vw, 3.15rem);
   --section-title-size-mobile: clamp(1.8rem, 8.2vw, 2.35rem);
+  --section-title-weight: 700;
+  --section-title-measure-mobile: 19ch;
   color-scheme: light;
 
   /* Identidade Fritz */

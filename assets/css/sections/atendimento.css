@@ -89,7 +89,7 @@
   margin: 0;
   color: var(--services-text);
   font-size: var(--section-title-size);
-  font-weight: 800;
+  font-weight: var(--section-title-weight);
   line-height: 1.02;
   letter-spacing: -0.055em;
   text-wrap: balance;
@@ -529,8 +529,9 @@
   }
 
   .atendimento__title {
-    max-width: 18ch;
+    max-width: 100%;
     font-size: var(--section-title-size-mobile);
+    text-wrap: wrap;
   }
 
   .atendimento__lead {

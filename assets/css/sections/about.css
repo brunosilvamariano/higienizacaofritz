@@ -186,7 +186,7 @@
   margin: 0;
   color: var(--about-text);
   font-size: var(--section-title-size);
-  font-weight: 800;
+  font-weight: var(--section-title-weight);
   letter-spacing: -0.055em;
   line-height: 1.02;
   text-wrap: balance;
@@ -361,7 +361,7 @@
   }
 
   .about__title {
-    max-width: 19ch;
+    max-width: var(--section-title-measure-mobile);
     font-size: var(--section-title-size-mobile);
     line-height: 1.025;
   }
