@@ -32,7 +32,7 @@ export function Services() {
           </div>
         </header>
         <div className="atendimento__rail">
-          <div aria-describedby="atendimento-scroll-help" aria-label="Atendimentos disponíveis" aria-roledescription="carrossel" className="atendimento__viewport" data-services-viewport="" id="atendimento-viewport" role="region" tabIndex="0">
+          <div aria-describedby="atendimento-scroll-help" aria-label="Atendimentos disponíveis" aria-roledescription="carrossel" className="atendimento__viewport" data-services-viewport="" id="atendimento-viewport" role="region" tabIndex={0}>
             <p className="visually-hidden" id="atendimento-scroll-help">
               Deslize horizontalmente, arraste com o mouse ou use a barra de rolagem para explorar os atendimentos.
             </p>

@@ -68,7 +68,7 @@ export function Testimonials() {
           </a>
         </div>
         <div className="testimonials__carousel">
-          <div className="testimonials__cards" id="reviews-track" role="region" aria-label="Avaliações de clientes, deslize ou use as setas do teclado" tabIndex="0">
+          <div className="testimonials__cards" id="reviews-track" role="region" aria-label="Avaliações de clientes, deslize ou use as setas do teclado" tabIndex={0}>
             <figure className="testimonial" aria-label="Avaliação 1 de 8, Camila Rosa Gomes">
               <figcaption className="testimonial__header">
                 <span className="testimonial__portrait">
@@ -330,7 +330,7 @@ export function Testimonials() {
             <button type="button" data-review-prev="" aria-label="Avaliações anteriores" aria-controls="reviews-track">
               ←
             </button>
-            <div className="testimonials__progress" data-review-progress="" role="progressbar" aria-label="Progresso das avaliações" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div className="testimonials__progress" data-review-progress="" role="progressbar" aria-label="Progresso das avaliações" aria-valuemin={0} aria-valuemax={100} aria-valuenow={0}>
               <span className="testimonials__progress-fill" data-review-progress-fill=""></span>
             </div>
             <button type="button" data-review-next="" aria-label="Próximas avaliações" aria-controls="reviews-track">
