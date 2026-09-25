@@ -1,13 +1,13 @@
-import { BackToTop } from "@/components/BackToTop";
-import { ClientRuntime } from "@/components/ClientRuntime";
-import { FloatingCta } from "@/components/FloatingCta";
-import { MobileMenuButton } from "@/components/MobileMenuButton";
-import { Preloader } from "@/components/Preloader";
-import { PreloaderRuntime } from "@/components/PreloaderRuntime";
-import { SectionDivider } from "@/components/SectionDivider";
-import { Sidebar } from "@/components/Sidebar";
-import { SidebarBackdrop } from "@/components/SidebarBackdrop";
-import { SiteFooter } from "@/components/SiteFooter";
+import { BackToTop } from "@/components/layout/BackToTop";
+import { InteractionRuntime } from "@/components/runtime/InteractionRuntime";
+import { FloatingCta } from "@/components/layout/FloatingCta";
+import { MobileMenuButton } from "@/components/layout/MobileMenuButton";
+import { Preloader } from "@/components/layout/Preloader";
+import { PreloaderRuntime } from "@/components/runtime/PreloaderRuntime";
+import { SectionDivider } from "@/components/ui/SectionDivider";
+import { Sidebar } from "@/components/layout/Sidebar";
+import { SidebarBackdrop } from "@/components/layout/SidebarBackdrop";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Hero } from "@/components/sections/Hero";
 import { Marquee } from "@/components/sections/Marquee";
 import { About } from "@/components/sections/About";
@@ -50,7 +50,7 @@ export default function HomePage() {
         <SiteFooter />
       </div>
       <BackToTop />
-      <ClientRuntime />
+      <InteractionRuntime />
     </>
   );
 }

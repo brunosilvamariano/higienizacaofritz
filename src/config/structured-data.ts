@@ -1,111 +1,108 @@
-import { SITE_URL } from "./site";
+import { COMPANY } from "./company";
+import { SEO } from "./seo";
+import { FAQ_ITEMS } from "@/content/faq";
+import { SERVICES } from "@/content/services";
+
+const areaServed = COMPANY.serviceAreas.map((name) => ({
+  "@type": "City",
+  name,
+  containedInPlace: {
+    "@type": "State",
+    name: "Santa Catarina",
+  },
+}));
 
 export const structuredData = {
   "@context": "https://schema.org",
-  "@type": [
-    "LocalBusiness",
-    "HomeAndConstructionBusiness"
-  ],
-  "@id": `${SITE_URL}/#empresa`,
-  "name": "Fritz Higienização e Impermeabilização",
-  "url": `${SITE_URL}/`,
-  "image": `${SITE_URL}/assets/images/og-fritz-social-1200x628.jpg`,
-  "telephone": "+55 47 99905-1278",
-  "sameAs": [
-    "https://www.instagram.com/higienizacaofritz/"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "R. Octacílio José de Souza, 25",
-    "addressLocality": "Joinville",
-    "addressRegion": "SC",
-    "postalCode": "89230-435",
-    "addressCountry": "BR"
-  },
-  "areaServed": [
+  "@graph": [
     {
-      "@type": "City",
-      "name": "Joinville",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Itapoá",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "São Francisco do Sul",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Balneário Camboriú",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Balneário Piçarras",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Balneário Barra do Sul",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    },
-    {
-      "@type": "City",
-      "name": "Barra Velha",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "SC",
-        "addressCountry": "BR"
-      }
-    }
-  ],
-  "description": "Higienização e impermeabilização de sofás, cadeiras, colchões e outros estofados em Joinville e região.",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Serviços Fritz",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Higienização de estofados"
-        }
+      "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+      "@id": `${SEO.siteUrl}/#empresa`,
+      name: COMPANY.name,
+      alternateName: COMPANY.shortName,
+      url: `${SEO.siteUrl}/`,
+      description: SEO.description,
+      image: [
+        `${SEO.siteUrl}${SEO.socialImage}`,
+        `${SEO.siteUrl}${SEO.primaryImage}`,
+      ],
+      logo: {
+        "@type": "ImageObject",
+        url: `${SEO.siteUrl}/assets/brand/fritz-mark.png`,
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Impermeabilização de estofados"
-        }
-      }
-    ]
-  }
+      telephone: COMPANY.contact.phoneE164,
+      sameAs: [COMPANY.contact.instagramUrl],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: COMPANY.address.streetAddress,
+        addressLocality: COMPANY.address.city,
+        addressRegion: COMPANY.address.state,
+        postalCode: COMPANY.address.postalCode,
+        addressCountry: COMPANY.address.country,
+      },
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: COMPANY.reviews.rating,
+        reviewCount: COMPANY.reviews.count,
+        bestRating: 5,
+        worstRating: 1,
+      },
+      areaServed,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Serviços de higienização e impermeabilização",
+        itemListElement: SERVICES.slice(0, 2).map((service) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            "@id": `${SEO.siteUrl}/#${service.id}`,
+            name: service.schemaName,
+            description: service.schemaDescription,
+            provider: { "@id": `${SEO.siteUrl}/#empresa` },
+            areaServed,
+          },
+        })),
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SEO.siteUrl}/#website`,
+      url: `${SEO.siteUrl}/`,
+      name: COMPANY.name,
+      description: SEO.description,
+      inLanguage: SEO.language,
+      publisher: { "@id": `${SEO.siteUrl}/#empresa` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SEO.siteUrl}/#webpage`,
+      url: `${SEO.siteUrl}/`,
+      name: SEO.title,
+      description: SEO.description,
+      isPartOf: { "@id": `${SEO.siteUrl}/#website` },
+      about: { "@id": `${SEO.siteUrl}/#empresa` },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${SEO.siteUrl}${SEO.socialImage}`,
+        width: SEO.socialImageWidth,
+        height: SEO.socialImageHeight,
+      },
+      inLanguage: SEO.language,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SEO.siteUrl}/#faq`,
+      url: `${SEO.siteUrl}/#faq`,
+      mainEntity: FAQ_ITEMS.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+      isPartOf: { "@id": `${SEO.siteUrl}/#webpage` },
+      inLanguage: SEO.language,
+    },
+  ],
 };

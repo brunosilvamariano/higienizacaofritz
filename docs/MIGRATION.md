@@ -1,39 +1,20 @@
-# Migração técnica — Fritz Higienização
+# Histórico de migração
 
-## O que mudou
+O projeto original era uma landing page em HTML, CSS e JavaScript. A migração foi feita para Next.js + TypeScript preservando o design e os comportamentos existentes.
 
-- A página monolítica `index.html` foi dividida em componentes React/Next.js por seção.
-- O projeto usa App Router com TypeScript para a estrutura principal.
-- O CSS continua modular por componente e seção, agora carregado pelo pipeline do Next.js.
-- As interações existentes foram preservadas em módulos de navegador dentro de `src/client`.
-- SEO foi migrado para a Metadata API do Next.js.
-- Schema.org foi centralizado em `src/config/structured-data.ts`.
-- `robots.txt` e `sitemap.xml` agora são gerados pelo Next.js.
-- Cabeçalhos de segurança saíram do `vercel.json` estático e foram para `next.config.ts`.
-- A URL canônica está centralizada em `src/config/site.ts`.
-- Assets antigos que não eram usados pela página foram removidos da nova versão.
+## Etapas concluídas
 
-## O que foi preservado
+- App Router e TypeScript `strict`.
+- Seções separadas em componentes React.
+- SEO migrado para Metadata API, `robots.ts`, `sitemap.ts` e Schema.org.
+- CSS preservado e reorganizado em tokens, base, componentes e seções.
+- Interações antigas convertidas de JavaScript para TypeScript.
+- Dados repetidos removidos dos componentes e centralizados em `config`/`content`.
+- WhatsApp, Instagram, Google Maps, cidades e prova social centralizados.
+- FAQ e serviços passam a alimentar também o Schema, evitando duas fontes de verdade.
 
-- Estrutura visual e classes CSS.
-- Sidebar desktop/mobile.
-- Botões flutuantes.
-- Marquee.
-- Carrossel de atendimentos.
-- Resultados.
-- Depoimentos.
-- FAQ.
-- Preloader.
-- Fontes locais.
-- Favicon, Open Graph e Schema local.
-- URLs de WhatsApp, Instagram, Google Maps e avaliações.
+## Deploy
 
-## Deploy na Vercel
+Na Vercel use o preset Next.js e não configure `Output Directory` manualmente.
 
-A Vercel deve detectar `Next.js` automaticamente. Não configure `Output Directory` manualmente.
-
-Build command padrão: `npm run build`.
-
-## Domínio
-
-O arquivo recebido estava usando `https://higienizacaofritz.vercel.app` como URL canônica. Isso foi preservado e centralizado em `src/config/site.ts` para evitar alterar o SEO sem autorização. Quando o domínio definitivo estiver ativo, altere apenas `SITE_URL`.
+A URL canônica atual está em `src/config/seo.ts`. Quando o domínio definitivo for ativado, altere `siteUrl` nesse arquivo.

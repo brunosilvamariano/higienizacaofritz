@@ -1,6 +1,12 @@
 import type { MetadataRoute } from "next";
-import { SITE_URL } from "@/config/site";
+import { SEO } from "@/config/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: `${SITE_URL}/` }];
+  return [
+    {
+      url: `${SEO.siteUrl}/`,
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+  ];
 }

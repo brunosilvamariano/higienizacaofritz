@@ -1,15 +1,17 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/config/site";
+import { COMPANY } from "@/config/company";
+import { SEO } from "@/config/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL),
-  title: SITE_TITLE,
-  description: SITE_DESCRIPTION,
-  applicationName: "Fritz Higienização",
-  authors: [{ name: "Bruno Mariano" }],
-  generator: "Desenvolvido por Bruno Mariano",
+  metadataBase: new URL(SEO.siteUrl),
+  title: SEO.title,
+  description: SEO.description,
+  applicationName: COMPANY.shortName,
+  publisher: COMPANY.name,
+  generator: "Next.js",
+  category: SEO.category,
   referrer: "strict-origin-when-cross-origin",
   robots: {
     index: true,
@@ -25,23 +27,25 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "pt_BR",
-    siteName: SITE_NAME,
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
+    locale: SEO.locale,
+    siteName: COMPANY.name,
+    title: SEO.title,
+    description: SEO.description,
     url: "/",
-    images: [{
-      url: "/assets/images/og-fritz-social-1200x628.jpg",
-      width: 1200,
-      height: 628,
-      alt: SITE_NAME,
-    }],
+    images: [
+      {
+        url: SEO.socialImage,
+        width: SEO.socialImageWidth,
+        height: SEO.socialImageHeight,
+        alt: COMPANY.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: SITE_TITLE,
-    description: SITE_DESCRIPTION,
-    images: ["/assets/images/og-fritz-social-1200x628.jpg"],
+    title: SEO.title,
+    description: SEO.description,
+    images: [SEO.socialImage],
   },
   icons: {
     icon: [
@@ -55,7 +59,7 @@ export const metadata: Metadata = {
   manifest: "/assets/favicon/site.webmanifest?v=2",
   appleWebApp: {
     capable: true,
-    title: "Fritz Higienização",
+    title: COMPANY.shortName,
     statusBarStyle: "default",
   },
   formatDetection: { telephone: false },
@@ -70,7 +74,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html lang={SEO.language}>
       <head>
         <link
           rel="preload"
@@ -81,7 +85,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         />
         <link
           rel="preload"
-          href="/assets/images/hero/fritz-hero.webp"
+          href={SEO.primaryImage}
           as="image"
           type="image/webp"
           fetchPriority="high"

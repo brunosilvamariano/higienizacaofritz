@@ -1,0 +1,107 @@
+/*
+ * ============================================================
+ * MAIN
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* Base global: tokens, reset mínimo, utilitários e preferências de acessibilidade. */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 0;
+  min-height: 100vh;
+  background: var(--page-bg);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.5;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.65rem 0.9rem;
+  border-radius: 0.65rem;
+  background: #ffffff;
+  color: #111827;
+  transform: translateY(-160%);
+  transition: transform var(--transition-fast) var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.section-anchor {
+  display: block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Exceção técnica: !important garante que preferências de movimento reduzido prevaleçam sobre transições de componentes carregadas depois. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+:where(a, button, input, [tabindex]):focus-visible { outline: 3px solid var(--color-brand); outline-offset: 4px; }
+:where(h1, h2, h3, p) { overflow-wrap: break-word; }
+main:focus { outline: none; }
+@media (max-width: 63.99rem) { section[id] { scroll-margin-top: 4.75rem; } }
+@media print {
+ .sidebar, .mobile-menu-button, .floating-cta, .sidebar-backdrop { display: none !important; }
+ .site-main, .site-footer { width: 100%; margin-left: 0; }
+ .reveal-item { opacity: 1 !important; transform: none !important; }
+}

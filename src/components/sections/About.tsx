@@ -1,10 +1,13 @@
+import { COMPANY } from "@/config/company";
+import { createWhatsappUrl, WHATSAPP_MESSAGES } from "@/lib/whatsapp";
+
 export function About() {
   return (
     <section aria-labelledby="about-title" className="about" id="sobre">
       <div className="about__inner">
         <div className="about__layout">
           <figure className="about__media">
-            <img alt="Profissional da Fritz realizando higienização de estofado" decoding="async" height="500" loading="lazy" src="/assets/images/about/fritz-atendimento.webp" width="500" />
+            <img alt={`Profissional da ${COMPANY.brandName} realizando higienização de estofado`} decoding="async" height="500" loading="lazy" src="/assets/images/about/fritz-atendimento.webp" width="500" />
             <div aria-hidden="true" className="about__seal">
               <svg aria-hidden="true" viewBox="0 0 120 120">
                 <defs>
@@ -36,14 +39,14 @@ export function About() {
             <h2 className="about__title" id="about-title">
               Cuidado técnico para
               <span>
-                renovar e
+                renovar e{" "}
                 <strong>
                   proteger.
                 </strong>
               </span>
             </h2>
             <p className="about__copy">
-              A Fritz atua com higienização e impermeabilização de estofados, unindo cuidado no atendimento e atenção em cada etapa do serviço.
+              {COMPANY.brandName} atua com higienização e impermeabilização de estofados, unindo cuidado no atendimento e atenção em cada etapa do serviço.
             </p>
             <div aria-hidden="true" className="about__divider">
               <span className="about__divider-accent"></span>
@@ -83,7 +86,7 @@ export function About() {
               </div>
             </div>
             <div aria-label="Ações sobre nossa abordagem" className="about__actions">
-              <a className="hero-cta hero-cta--primary about__cta" href="https://wa.me/5547999051278?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Fritz." rel="noopener noreferrer" target="_blank">
+              <a className="hero-cta hero-cta--primary about__cta" href={createWhatsappUrl(WHATSAPP_MESSAGES.about)} rel="noopener noreferrer" target="_blank">
                 <span aria-hidden="true" className="hero-cta__icon">
                   <svg aria-hidden="true" viewBox="0 0 24 24">
                     <path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.6Z"></path>

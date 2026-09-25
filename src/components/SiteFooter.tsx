@@ -103,7 +103,7 @@ export function SiteFooter() {
                 <path d="M20.8 4.7a5.5 5.5 0 0 0-7.8 0L12 5.8l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.5a5.5 5.5 0 0 0 0-7.8Z"></path>
               </svg>
               <span>
-                por
+                por{" "}
                 <strong>
                   Bruno Mariano
                 </strong>

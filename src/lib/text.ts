@@ -1,0 +1,5 @@
+export function formatPortugueseList(items: readonly string[]): string {
+  if (items.length === 0) return "";
+  if (items.length === 1) return items[0];
+  return `${items.slice(0, -1).join(", ")} e ${items.at(-1)}`;
+}

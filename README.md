@@ -1,6 +1,16 @@
-# Fritz Higienização — Next.js
+# Fritz Higienização — Next.js + TypeScript
 
-Migração da landing page original (HTML/CSS/JS) para **Next.js + TypeScript (App Router)**, preservando o design e os comportamentos existentes.
+Landing page institucional da Fritz, organizada como uma base profissional e reutilizável para manutenção e adaptação a outros clientes.
+
+## Stack
+
+- Next.js 16 (App Router)
+- React 19
+- TypeScript em modo `strict`
+- CSS local, sem framework visual
+- Assets e fontes locais
+- CI no GitHub Actions para typecheck e build
+- Configuração de formatação compartilhada (`.editorconfig` + `.prettierrc.json`)
 
 ## Comandos
 
@@ -9,23 +19,51 @@ npm install
 npm run dev
 npm run typecheck
 npm run build
+npm run check
 npm start
 ```
 
-## Estrutura
+## Estrutura principal
 
-- `src/app`: rotas, metadata, robots e sitemap
-- `src/components`: componentes estruturais
-- `src/components/sections`: seções da landing page
-- `src/client`: interações de navegador preservadas e modularizadas
-- `src/styles`: CSS organizado por componentes e seções
-- `src/config`: dados centrais de SEO/site e Schema.org
-- `public/assets`: imagens, ícones, favicon e fontes locais
+```text
+src/
+├── app/              # rota, metadata, robots e sitemap
+├── components/
+│   ├── layout/       # sidebar, footer, preloader e CTAs globais
+│   ├── runtime/      # inicialização de interações client-side
+│   ├── sections/     # seções da landing page
+│   └── ui/           # componentes visuais compartilhados
+├── config/           # empresa, SEO e dados estruturados
+├── content/          # serviços, avaliações, FAQ, resultados e navegação
+├── interactions/     # comportamentos de navegador em TypeScript
+├── lib/              # helpers reutilizáveis
+├── styles/           # tokens, base, componentes e seções
+└── types/            # contratos TypeScript do conteúdo
+```
 
-## URL do site
+## Onde alterar dados da empresa
 
-A URL canônica está centralizada em `src/config/site.ts`. Quando o domínio definitivo estiver ativo, basta alterar `SITE_URL` uma única vez.
+- Identidade, telefone, Instagram, endereço, Maps, cidades e nota do Google: `src/config/company.ts`
+- URL canônica, title, description e imagem social: `src/config/seo.ts`
+- Serviços: `src/content/services.ts`
+- Avaliações: `src/content/reviews.ts`
+- FAQ: `src/content/faq.ts`
+- Resultados: `src/content/results.ts`
+- Processo: `src/content/process.ts`
+- Navegação: `src/content/navigation.ts`
+- Cores e identidade visual: `src/styles/tokens.css`
+- Imagens, fontes e favicon: `public/assets/`
+
+## Qualidade
+
+O workflow `.github/workflows/quality.yml` executa `npm ci`, `npm run typecheck` e `npm run build` em pushes e pull requests para `main`.
 
 ## Vercel
 
-O projeto é detectado automaticamente como Next.js. Não é necessário definir `outputDirectory` manualmente.
+Use o preset **Next.js** e deixe os overrides de Build Command e Output Directory desativados. A Vercel detecta a saída do Next automaticamente.
+
+## Documentação
+
+- `docs/ARCHITECTURE.md`: decisões e responsabilidades de cada camada.
+- `docs/ADAPTATION.md`: checklist para transformar esta base em outro site.
+- `docs/MIGRATION.md`: histórico da migração do HTML/CSS/JS original.

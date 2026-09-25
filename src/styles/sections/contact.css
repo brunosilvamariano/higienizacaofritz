@@ -1,0 +1,602 @@
+/*
+ * ============================================================
+ * SECTIONS / CONTATO
+ * Estilos isolados deste módulo. Manter regras relacionadas
+ * ao componente/seção neste arquivo para facilitar manutenção.
+ * ============================================================
+ */
+
+/* Contato: composição escura, CTA principal, canais e informações de atendimento. */
+.contact {
+  --contact-text: #f8fbff;
+  --contact-muted: rgba(238, 245, 255, 0.72);
+  --contact-line: rgba(238, 245, 255, 0.15);
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  scroll-margin-top: 1rem;
+  margin: clamp(3rem, 5vw, 5rem) clamp(0.65rem, 1.4vw, 1.35rem) clamp(0.65rem, 1.4vw, 1.35rem);
+  border: 1px solid rgba(111, 168, 247, 0.22);
+  border-radius: clamp(1.9rem, 3vw, 3rem);
+  background:
+    radial-gradient(circle at 84% 12%, rgba(111, 168, 247, 0.55) 0, rgba(23, 105, 224, 0.2) 24%, transparent 48%),
+    radial-gradient(circle at 12% 92%, rgba(238, 245, 255, 0.16) 0, rgba(111, 168, 247, 0.12) 25%, transparent 48%),
+    radial-gradient(circle at 48% 115%, rgba(23, 105, 224, 0.34) 0, transparent 44%),
+    linear-gradient(132deg, #102c52 0%, #124a8c 46%, #1769e0 100%);
+  color: var(--contact-text);
+  box-shadow:
+    0 30px 90px rgba(16, 44, 82, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+
+.contact::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, transparent 0 50%, rgba(255, 255, 255, 0.018) 50% 50.06%, transparent 50.06%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 16rem);
+  pointer-events: none;
+}
+
+.contact__shell {
+  width: min(100%, 94rem);
+  margin-inline: auto;
+  padding: clamp(3.25rem, 5.5vw, 5.5rem) clamp(1.25rem, 4.5vw, 5rem) clamp(2rem, 3vw, 3.2rem);
+}
+
+.contact__topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding-bottom: clamp(1.45rem, 2vw, 2rem);
+  border-bottom: 1px solid var(--contact-line);
+}
+
+.contact__eyebrow,
+.contact__location {
+  margin: 0;
+  font-size: clamp(0.67rem, 0.64rem + 0.08vw, 0.76rem);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.72rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.contact__eyebrow-icon {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(101, 126, 255, 0.2);
+  border-radius: 0.5rem;
+  background: rgba(90, 114, 255, 0.13);
+  color: #a9ccff;
+}
+
+.contact__eyebrow-icon svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact__eyebrow-index {
+  color: rgba(255, 255, 255, 0.48);
+}
+
+.contact__location {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact__body {
+  display: grid;
+  grid-template-columns: minmax(19rem, 0.86fr) minmax(31rem, 1.14fr);
+  gap: clamp(3rem, 7vw, 8rem);
+  padding: clamp(4rem, 7vw, 7rem) 0 clamp(4rem, 6vw, 6.25rem);
+}
+
+.contact__intro {
+  align-self: start;
+}
+
+.contact__title {
+  max-width: 17ch;
+  margin: 0;
+  color: var(--contact-text);
+  font-size: var(--section-title-size);
+  font-weight: var(--section-title-weight);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.contact__title strong {
+  color: var(--color-brand-soft);
+  font: inherit;
+}
+
+.contact__lead {
+  max-width: 34rem;
+  margin: clamp(1.5rem, 2.2vw, 2rem) 0 0;
+  color: var(--contact-muted);
+  font-size: clamp(0.92rem, 0.88rem + 0.13vw, 1.04rem);
+  line-height: 1.72;
+}
+
+.contact__primary {
+  display: inline-grid;
+  grid-template-columns: 4.35rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+  margin-top: clamp(2.15rem, 3.6vw, 3.3rem);
+  color: var(--contact-text);
+  text-decoration: none;
+}
+
+.contact__primary-icon {
+  display: grid;
+  width: 4.35rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 0.7rem solid rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  background: var(--color-whatsapp);
+  box-shadow: 0 14px 35px rgba(45, 70, 194, 0.22);
+  transition:
+    transform 320ms var(--ease),
+    background-color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.contact__primary-icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 320ms var(--ease);
+}
+
+.contact__primary-copy {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.contact__primary-copy strong {
+  font-size: clamp(1.16rem, 1.06rem + 0.32vw, 1.45rem);
+  font-weight: 740;
+  letter-spacing: -0.035em;
+}
+
+.contact__primary-copy small {
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.contact__primary:focus-visible {
+  outline: 3px solid rgba(120, 144, 255, 0.38);
+  outline-offset: 0.45rem;
+  border-radius: 0.65rem;
+}
+
+
+.contact__links {
+  align-self: center;
+  border-top: 1px solid var(--contact-line);
+}
+
+.contact-link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) 3rem;
+  align-items: center;
+  gap: clamp(0.9rem, 1.5vw, 1.5rem);
+  min-height: clamp(6.35rem, 7.4vw, 7.6rem);
+  padding: 1.2rem 0.25rem;
+  border-bottom: 1px solid var(--contact-line);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    padding 300ms var(--ease),
+    background-color 260ms ease;
+}
+
+.contact-link::before {
+  content: "";
+  position: absolute;
+  inset: 0 -1.4rem;
+  z-index: -1;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0);
+  transition: background-color 260ms ease;
+}
+
+.contact-link--whatsapp .contact-link__index,
+.contact-link--whatsapp .contact-link__arrow {
+  color: var(--color-whatsapp);
+}
+
+.contact-link--instagram .contact-link__index,
+.contact-link--instagram .contact-link__arrow {
+  color: #ff6b8a;
+}
+
+.contact-link--location .contact-link__index,
+.contact-link--location .contact-link__arrow {
+  color: #8fc0ff;
+}
+
+.contact-link__index {
+  align-self: start;
+  padding-top: 0.55rem;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.contact-link__content {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-link__content strong {
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(1.55rem, 2.15vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.contact-link__content small {
+  justify-self: end;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: clamp(0.72rem, 0.69rem + 0.08vw, 0.79rem);
+  line-height: 1.4;
+}
+
+.contact-link__arrow {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  justify-self: end;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.82);
+  transition:
+    transform 320ms var(--ease),
+    background-color 240ms ease,
+    color 240ms ease;
+}
+
+.contact-link__arrow svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-link:focus-visible {
+  outline: 3px solid rgba(120, 144, 255, 0.34);
+  outline-offset: 0.25rem;
+  border-radius: 1rem;
+}
+
+.contact__meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--contact-line);
+  padding-top: clamp(1.6rem, 2.6vw, 2.4rem);
+}
+
+.contact-meta {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 0.35rem clamp(1rem, 2vw, 2.2rem);
+  border-left: 1px solid var(--contact-line);
+}
+
+.contact-meta:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.contact-meta:last-child {
+  padding-right: 0;
+}
+
+.contact-meta__icon {
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.contact-meta__icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.contact-meta__icon--dot::before {
+  content: "";
+  width: 0.56rem;
+  height: 0.56rem;
+  border: 0.35rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  background: var(--color-brand-soft);
+}
+
+.contact-meta strong,
+.contact-meta small {
+  display: block;
+}
+
+.contact-meta strong {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.contact-meta small {
+  margin-top: 0.38rem;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact__primary:hover .contact__primary-icon {
+    transform: scale(1.07);
+    background: #20bd5a;
+    box-shadow: 0 18px 42px rgba(52, 77, 210, 0.3);
+  }
+
+  .contact__primary:hover .contact__primary-icon svg {
+    transform: translate(0.11rem, -0.11rem);
+  }
+
+  .contact-link:hover::before {
+    background: rgba(255, 255, 255, 0.035);
+  }
+
+  .contact-link:hover {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .contact-link:hover .contact-link__arrow {
+    transform: translate(0.18rem, -0.18rem);
+    background: rgba(120, 144, 255, 0.12);
+    color: #c7ddff;
+  }
+}
+
+@media (max-width: 72rem) {
+  .contact__body {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .contact__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 0.7fr);
+    grid-template-areas:
+      "title lead"
+      "title cta";
+    gap: 1.5rem 3rem;
+    align-items: end;
+  }
+
+  .contact__title {
+    grid-area: title;
+    max-width: 15ch;
+  }
+
+  .contact__lead {
+    grid-area: lead;
+    margin-top: 0;
+  }
+
+  .contact__primary {
+    grid-area: cta;
+    margin-top: 0;
+  }
+
+  .contact-link {
+    min-height: 6.75rem;
+  }
+
+  .contact-link__content strong {
+    font-size: clamp(1.55rem, 3.4vw, 2.3rem);
+  }
+}
+
+@media (max-width: 52rem) {
+  .contact__shell {
+    padding-inline: clamp(1.1rem, 4vw, 2rem);
+  }
+
+  .contact__intro {
+    display: block;
+  }
+
+  .contact__title {
+    max-width: 15ch;
+  }
+
+  .contact__lead {
+    margin-top: 1.35rem;
+  }
+
+  .contact__primary {
+    margin-top: 2rem;
+  }
+
+  .contact__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-meta,
+  .contact-meta:first-child,
+  .contact-meta:last-child {
+    padding: 1.1rem 0;
+    border-left: 0;
+    border-top: 1px solid var(--contact-line);
+  }
+
+  .contact-meta:first-child {
+    border-top: 0;
+  }
+}
+
+@media (max-width: 42rem) {
+  .contact {
+    margin-top: 2rem;
+    margin-inline: 0.5rem;
+    border-radius: 1.65rem;
+  }
+
+  .contact__shell {
+    padding: 2.5rem 1.1rem 1.5rem;
+  }
+
+  .contact__topline {
+    align-items: flex-start;
+  }
+
+  .contact__location {
+    font-size: 0.6rem;
+    text-align: right;
+  }
+
+  .contact__body {
+    gap: 3.4rem;
+    padding-block: 3.2rem 3.75rem;
+  }
+
+  .contact__title {
+    max-width: 14ch;
+    font-size: var(--section-title-size-mobile);
+  }
+
+  .contact__lead {
+    font-size: 0.92rem;
+  }
+
+  .contact__primary {
+    grid-template-columns: 3.8rem minmax(0, 1fr);
+    gap: 0.85rem;
+  }
+
+  .contact__primary-icon {
+    width: 3.8rem;
+    border-width: 0.58rem;
+  }
+
+  .contact-link {
+    grid-template-columns: 1.55rem minmax(0, 1fr) 2.4rem;
+    gap: 0.65rem;
+    min-height: 6.1rem;
+    padding-block: 1rem;
+  }
+
+  .contact-link::before {
+    inset-inline: -0.6rem;
+  }
+
+  .contact-link__content {
+    gap: 0.58rem;
+  }
+
+  .contact-link__content strong {
+    font-size: clamp(1.4rem, 6.7vw, 1.95rem);
+  }
+
+  .contact-link__content small {
+    justify-self: start;
+    font-size: 0.68rem;
+  }
+
+  .contact-link__arrow {
+    width: 2.3rem;
+    height: 2.3rem;
+  }
+}
+
+@media (max-width: 23rem) {
+  .contact__shell {
+    padding-inline: 0.9rem;
+  }
+
+  .contact__eyebrow {
+    gap: 0.5rem;
+    font-size: 0.61rem;
+  }
+
+  .contact__eyebrow-icon {
+    width: 1.45rem;
+    height: 1.45rem;
+  }
+
+  .contact-link {
+    grid-template-columns: 1.35rem minmax(0, 1fr) 2rem;
+  }
+
+  .contact-link__content strong {
+    font-size: 1.75rem;
+  }
+}
+
+.contact { container-type: inline-size; }
+.contact__body { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(2rem, 4vw, 4rem); }
+.contact__body > *, .contact-link__content { min-width: 0; }
+.contact-link__content small { overflow-wrap: anywhere; }
+.contact__location, .contact-meta small, .contact-link__content small { color: #dceaff; }
+.contact__title strong { color: #b8d5ff; }
+.contact :where(a, button):focus-visible { outline: 3px solid #fff; }
+@container (max-width: 60rem) { .contact__body { grid-template-columns: 1fr; } .contact__intro { display: block; } .contact__lead { margin-top: 1.35rem; } .contact__primary { margin-top: 2rem; } }
+@media (max-width: 72rem) { .contact__body { grid-template-columns: 1fr; } }
+
+
+@media (max-width: 48rem) {
+ .contact__meta { display: none; }
+}
