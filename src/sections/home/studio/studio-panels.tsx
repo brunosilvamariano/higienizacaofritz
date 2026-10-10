@@ -7,7 +7,7 @@ import {
   useReducedMotion,
 } from 'framer-motion';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { timeline } from '@/content/ariyana-demo';
+import { studioContent } from './studio.content';
 import { projects } from '@/content/projects';
 export function StudioPanels() {
   const track = useRef<HTMLDivElement>(null);
@@ -51,11 +51,11 @@ export function StudioPanels() {
           className="studio-strip tw:flex"
           style={{ x: reduced ? 0 : x }}
         >
-          {timeline.map((item, index) => (
+          {studioContent.items.map((item, index) => (
             <article
               className="studio-card"
-              key={item.year}
-              aria-label={`${item.year} — ${item.title}`}
+              key={item.id}
+              aria-label={`${item.id} — ${item.title}`}
             >
               <div className="studio-card-heading">
                 <span
@@ -65,7 +65,7 @@ export function StudioPanels() {
                   {item.title}
                 </span>
                 <span className="studio-card-number" aria-hidden="true">
-                  {item.year}
+                  {item.id}
                 </span>
               </div>
               <p>{item.text}</p>

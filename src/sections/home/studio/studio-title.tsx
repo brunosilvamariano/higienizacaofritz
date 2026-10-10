@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
-const text =
-  'Um estúdio criativo que dá forma a tudo que acontece no seu espaço.';
+import { studioContent } from './studio.content';
+const text = studioContent.title;
 const words = text.split(' ').map((word, index) => ({ word, index }));
 
 export function StudioTitle() {

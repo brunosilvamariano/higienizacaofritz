@@ -1,6 +1,7 @@
 export const heroContent = {
-  eyebrow: 'Móveis sob medida',
+  eyebrow: 'Móveis planejados',
   title: ['Seu espaço,', 'no seu', 'traço.'],
-  description: 'Entre o desenho e a matéria, um lugar que é seu.',
-  cta: 'Conversar sobre meu projeto',
+  description:
+    'Móveis planejados para aproveitar seu espaço e acompanhar seu jeito de viver.',
+  cta: 'Solicitar orçamento',
 } as const;

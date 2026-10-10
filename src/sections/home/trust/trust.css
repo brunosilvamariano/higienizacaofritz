@@ -225,3 +225,18 @@
     animation: none;
   }
 }
+
+.trust-logo {
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+}
+.trust-logo svg {
+  width: clamp(36px, 4vw, 64px);
+  height: auto;
+  flex: none;
+}
+.trust-logo span {
+  font-size: clamp(12px, 1vw, 18px);
+  line-height: 1.25;
+}

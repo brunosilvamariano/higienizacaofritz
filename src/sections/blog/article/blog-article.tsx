@@ -39,26 +39,15 @@ export function BlogArticle({
       </div>
       <div className="blog-richtext">
         <DemoNote>
-          Resumo demonstrativo do artigo da referência Ariyana. Imagens da
-          coleção Traço.
+          Imagens de estudos conceituais para inspirar seu planejamento.
         </DemoNote>
-        <h2 data-title-anim="">Um olhar sobre a criação</h2>
+        <h2 data-title-anim="">Por onde começar</h2>
         <p data-text-anim="">{article.summary}</p>
-        <h2 data-title-anim="">Qualidade e intenção</h2>
-        <p data-text-anim="">
-          A referência discute um trabalho criativo atento ao contexto, à
-          identidade e à experiência das pessoas. A apresentação visual une
-          tipografia marcante, composição e movimento.
-        </p>
-        <blockquote>
-          Criar uma experiência começa por compreender quem vai usá-la.
-        </blockquote>
-        <h2 data-title-anim="">Dentro do tema</h2>
-        <p data-text-anim="">
-          Este resumo ocupa a estrutura editorial do artigo para demonstrar a
-          composição da página. O texto definitivo da Traço poderá ser incluído
-          nesta mesma estrutura.
-        </p>
+        <h2 data-title-anim="">{article.sections[0].title}</h2>
+        <p data-text-anim="">{article.sections[0].text}</p>
+        <blockquote>{article.highlight}</blockquote>
+        <h2 data-title-anim="">{article.sections[1].title}</h2>
+        <p data-text-anim="">{article.sections[1].text}</p>
         <div className="blog-article-secondary">
           <ResponsiveImage
             {...projects[index].images.detalhe}
@@ -66,12 +55,8 @@ export function BlogArticle({
             sizes="70vw"
           />
         </div>
-        <h2 data-title-anim="">Ideias que ganham forma</h2>
-        <p data-text-anim="">
-          O objetivo da demonstração é mostrar como título, imagens, texto e
-          destaques convivem na leitura, mantendo a linguagem visual da
-          referência.
-        </p>
+        <h2 data-title-anim="">{article.sections[2].title}</h2>
+        <p data-text-anim="">{article.sections[2].text}</p>
       </div>
     </article>
   );

@@ -9,11 +9,11 @@ export function BlogListing() {
   return (
     <section
       className="blog-listing section"
-      aria-label="Artigos demonstrativos"
+      aria-label="Artigos sobre móveis planejados"
     >
       <DemoNote>
-        Artigos da referência Ariyana apresentados em português como resumos
-        demonstrativos.
+        Ideias para planejar seus ambientes, organizar a rotina e entender as
+        escolhas do seu projeto.
       </DemoNote>
       {articles.map((article, index) => (
         <article key={article.slug} className="blog-row">
@@ -32,7 +32,7 @@ export function BlogListing() {
                   <h2 data-title-anim="">{article.title}</h2>
                 </Link>
                 <Link className="pill-link" href={`/blog/${article.slug}`}>
-                  <HoverLabel variant="v2">Saiba mais</HoverLabel>
+                  <HoverLabel variant="v2">Ler artigo</HoverLabel>
                 </Link>
               </div>
             </div>

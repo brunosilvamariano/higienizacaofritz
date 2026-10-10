@@ -4,7 +4,9 @@ import { PageOpening } from '@/components/layout/page-opening/page-opening';
 import { BlogListing } from '@/sections/blog/listing/blog-listing';
 import { Contact } from '@/sections/home/contact/contact';
 export const metadata: Metadata = {
-  title: 'Blog — Traço',
+  title: 'Ideias sobre móveis planejados — Traço',
+  description:
+    'Leia sobre cozinhas, quartos, espaços compactos e como avaliar um orçamento de móveis planejados.',
   alternates: { canonical: '/blog' },
 };
 export default function BlogPage() {
@@ -16,8 +18,8 @@ export default function BlogPage() {
     >
       <BlogOpeningMotion />
       <PageOpening
-        caption="Leia nossos artigos"
-        title="Ideias e perspectivas para criar novas experiências."
+        caption="Ideias para sua casa"
+        title="Inspiração e escolhas para o seu espaço."
       />
       <div
         className="reference-divider blog-opening-divider"

@@ -33,7 +33,11 @@ export function Hero() {
       <div className="hero-background" aria-hidden="true">
         <ResponsiveImage {...heroSlides[0].images} alt="" eager sizes="100vw" />
       </div>
-      <h1 id="hero-title" className="hero-wordmark" aria-label="Traço Studio">
+      <h1
+        id="hero-title"
+        className="hero-wordmark"
+        aria-label="Traço Móveis Planejados"
+      >
         <EntranceText text="TRAÇO STUDIO" />
       </h1>
       <div className="hero-content tw:relative tw:flex">
@@ -61,9 +65,9 @@ export function Hero() {
         <div className="hero-stat">
           <span aria-hidden="true">✳</span>
           <div>
-            <strong>$200M+</strong>
-            <p>Captados por clientes</p>
-            <small>Demonstração do Ariyana</small>
+            <strong>Sob medida</strong>
+            <p>Para o seu jeito de viver</p>
+            <small>Cozinhas, quartos, salas e mais</small>
           </div>
         </div>
       </div>

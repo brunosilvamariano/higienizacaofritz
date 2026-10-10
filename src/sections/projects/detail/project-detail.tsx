@@ -55,7 +55,7 @@ export function ProjectDetail({
         />
       </div>
       <section className="project-story section">
-        <h2 data-title-anim="">Por que este olhar</h2>
+        <h2 data-title-anim="">Pensado para o dia a dia</h2>
         <div>
           <p className="project-lead" data-text-anim="">
             {project.introduction}
@@ -84,19 +84,19 @@ export function ProjectDetail({
       </section>
       <section className="project-overview section">
         <div>
-          <h2 data-title-anim="">Visão do projeto</h2>
+          <h2 data-title-anim="">O que orienta o planejamento</h2>
           <p data-text-anim="">{project.description}</p>
           <DemoNote>
-            Métricas abaixo são demonstrações do projeto da referência Ariyana,
-            sem relação com resultados da Traço.
+            Quatro aspectos para considerar no seu projeto. Este ambiente é um
+            estudo conceitual de móveis planejados.
           </DemoNote>
         </div>
         <div className="project-overview-stats">
           {[
-            { value: '120%', label: 'Aumento de visitas orgânicas' },
-            { value: '165%', label: 'Aumento da conversão' },
-            { value: '230%', label: 'Aumento de visitas orgânicas' },
-            { value: '125%', label: 'Aumento de visitas orgânicas' },
+            { value: '01', label: 'Layout e aproveitamento do espaço' },
+            { value: '02', label: 'Organização e divisões internas' },
+            { value: '03', label: 'Materiais e acabamentos' },
+            { value: '04', label: 'Circulação e conforto no uso' },
           ].map((item) => (
             <div key={item.value}>
               <strong className="project-counter">
@@ -124,7 +124,7 @@ export function ProjectDetail({
                       </span>
                     </span>
                   ))}
-                <span aria-hidden="true">%</span>
+                <span aria-hidden="true">{''}</span>
               </strong>
               <p>{item.label}</p>
             </div>
@@ -151,7 +151,7 @@ export function ProjectDetail({
       </section>
       <section className="project-result section">
         <div>
-          <h2 data-title-anim="">O resultado</h2>
+          <h2 data-title-anim="">A composição do ambiente</h2>
           <p data-text-anim="">{project.description}</p>
           <Link className="pill-link" href={projectPath(next)}>
             <HoverLabel variant="v2">{`Próximo projeto: ${next.title}`}</HoverLabel>

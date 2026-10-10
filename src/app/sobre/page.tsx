@@ -8,8 +8,7 @@ import {
   AboutAwards,
   AboutLife,
 } from '@/sections/about/details/about-details';
-import { Trust } from '@/sections/home/trust/trust';
-import { Leaders } from '@/sections/home/leaders/leaders';
+
 import { Contact } from '@/sections/home/contact/contact';
 import { siteMetadata } from '@/config/metadata';
 
@@ -45,8 +44,7 @@ export default function AboutPage() {
       <AboutStats />
       <WhyChoose />
       <AboutTeam />
-      <Trust />
-      <Leaders />
+
       <AboutAwards />
       <div
         className="reference-divider reference-divider-awards"

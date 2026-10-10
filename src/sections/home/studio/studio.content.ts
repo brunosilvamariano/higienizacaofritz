@@ -1,25 +1,42 @@
 export const studioContent = {
-  title: 'Um olhar atento ao seu jeito de viver.',
+  title:
+    'Móveis planejados que unem organização, conforto e o seu jeito de viver.',
   items: [
     {
-      id: 'olhar',
-      title: 'Nosso olhar',
-      text: 'Enxergar o espaço como um todo. Luz, proporção e marcenaria em uma mesma composição.',
+      id: '01',
+      title: 'Cozinhas',
+      color: '#ff8f64',
+      text: 'Armários e gavetas pensados para utensílios, eletrodomésticos e a rotina de preparo. Mais organização, com espaço para circular.',
     },
     {
-      id: 'rotina',
-      title: 'Sua rotina',
-      text: 'O que você guarda, os momentos que compartilha, o tempo para descansar. Tudo começa no seu jeito de viver.',
+      id: '02',
+      title: 'Espaços compactos',
+      color: '#dca8ff',
+      text: 'Soluções que aproveitam paredes e cantos, respeitam a abertura das portas e deixam o essencial ao alcance.',
     },
     {
-      id: 'materia',
-      title: 'A matéria',
-      text: 'Madeira, pedra e texturas naturais. Materiais que conversam entre si e convidam ao toque.',
+      id: '03',
+      title: 'Dormitórios',
+      color: '#a5efb0',
+      text: 'Roupeiros, cabeceiras e mesas de apoio planejados para guardar suas peças e preservar o conforto do quarto.',
     },
     {
-      id: 'detalhe',
-      title: 'Cada detalhe',
-      text: 'Nos encontros, nos encaixes e nos acabamentos, o cuidado que transforma uma ideia em espaço.',
+      id: '04',
+      title: 'Salas',
+      color: '#8bd9ff',
+      text: 'Painéis, racks e estantes que acomodam equipamentos, livros e objetos, com uma composição integrada à casa.',
+    },
+    {
+      id: '05',
+      title: 'Banheiros',
+      color: '#ffcf69',
+      text: 'Gabinetes e nichos que organizam os itens de uso diário. Instalações e condições de umidade orientam as escolhas.',
+    },
+    {
+      id: '06',
+      title: 'Home office',
+      color: '#ff9fc9',
+      text: 'Bancadas e armazenamento para trabalhar em casa, considerando equipamentos, passagem de cabos e espaço para a cadeira.',
     },
   ],
 } as const;

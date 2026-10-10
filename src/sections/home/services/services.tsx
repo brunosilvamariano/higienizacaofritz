@@ -3,46 +3,9 @@ import { TitleReveal } from '@/animations/title-reveal';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { projects } from '@/content/projects';
 import { DemoNote } from '@/components/ui/demo-note';
+import { servicesContent } from './services.content';
 import './services.css';
-const services = [
-  {
-    title: 'Design gráfico',
-    tags: [
-      'Banners',
-      'Identidade de marca',
-      'Ilustração',
-      'Logotipos',
-      'Pôsteres',
-      'Embalagens',
-    ],
-  },
-  {
-    title: 'Design UI/UX',
-    tags: [
-      'Interface',
-      'Experiência do usuário',
-      'Aplicativos',
-      'Sistema de design',
-      'SaaS',
-      'Produtos',
-    ],
-  },
-  {
-    title: 'Desenvolvimento web',
-    tags: ['WordPress', 'HTML', 'Webflow', 'Framer', 'Shopify', 'Shopware'],
-  },
-  {
-    title: 'Marketing digital',
-    tags: [
-      'SEO',
-      'Conteúdo',
-      'Redes sociais',
-      'Google Ads',
-      'Meta Ads',
-      'Otimização',
-    ],
-  },
-];
+const services = servicesContent.items;
 export function Services() {
   return (
     <section
@@ -52,23 +15,20 @@ export function Services() {
       tabIndex={-1}
     >
       <div className="reference-heading">
-        <TitleReveal id="services-title" text="Soluções especializadas" />
+        <TitleReveal id="services-title" text={servicesContent.title} />
         <span className="reference-badge" data-floating-badge="">
-          Serviço cinco estrelas
+          Do projeto à montagem
         </span>
-        <DemoNote>
-          Serviços demonstrativos do Ariyana; não são a oferta comercial da
-          Traço.
-        </DemoNote>
+        <DemoNote>{servicesContent.introduction}</DemoNote>
       </div>
       <div className="services-list">
         {services.map((item, index) => (
           <article key={item.title} className="service-row tw:flex">
             <div className="service-copy">
               <h3 data-title-anim="">{item.title}</h3>
-              <p data-text-anim="">Serviços incluídos:</p>
+              <p data-text-anim="">{item.text}</p>
               <div className="service-tags">
-                {item.tags.map((tag) => (
+                {item.features.map((tag) => (
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
@@ -82,7 +42,7 @@ export function Services() {
                 alt={`${projects[index].category} — estudo conceitual`}
                 sizes="(min-width:768px) 40vw,100vw"
               />
-              <small>Vídeo aguardando envio</small>
+              <small>Inspiração de móveis planejados</small>
             </div>
           </article>
         ))}
@@ -106,9 +66,9 @@ export function ServicesOpening() {
           Experiência <em>da</em> Traço
         </p>
         <h1>
-          <span data-service-title-text="">Descubra a criatividade</span>
+          <span data-service-title-text="">Móveis planejados</span>
           <br />
-          <span data-service-title-text="">e nossa </span>
+          <span data-service-title-text="">para o seu </span>
           <span className="service-opening-photo">
             <ResponsiveImage
               {...projects[1].images.detalhe}
@@ -118,7 +78,7 @@ export function ServicesOpening() {
               sizes="150px"
             />
           </span>{' '}
-          <span data-service-title-text="">experiência</span>
+          <span data-service-title-text="">dia a dia</span>
         </h1>
         <a
           className="service-opening-down"

@@ -1,85 +1,44 @@
-import Image from 'next/image';
 import { projects } from '@/content/projects';
-import { demoTeam, demoStats, demoWhy } from '@/content/ariyana-demo.team';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { DemoNote } from '@/components/ui/demo-note';
 import { AboutMotion } from './about-motion';
 import './about-details.css';
 export { AboutMotion };
-function counterColumns(number: string) {
-  let digit = 0;
-  return Array.from(number, (char, position) => ({
-    id: `${number}:${position}`,
-    char,
-    digit: /\d/.test(char) ? digit++ : -1,
-  }));
-}
-const counterSteps = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 export function AboutStats() {
   return (
-    <section
-      className="about-stats section"
-      aria-label="Métricas demonstrativas"
-    >
+    <section className="about-stats section" aria-label="Elementos do projeto">
       <div className="about-stats-grid">
         <div className="about-stats-photo">
           <ResponsiveImage
             {...projects[5].images.capa}
-            alt={`${projects[5].category} — estudo conceitual`}
+            alt="Ambiente de trabalho com móveis planejados"
             sizes="45vw"
           />
         </div>
         {[
-          { number: '20+', text: 'Especialistas para atender você' },
-          { number: '90M+', text: 'Negócios apoiados em captação de recursos' },
-          { number: '100+', text: 'Clientes satisfeitos' },
-          { number: '4,9', text: 'Avaliação dos clientes' },
-        ].map((item, index) => (
-          <article className="about-stats-card" key={item.number}>
-            <p>{item.text}</p>
-            <strong className="about-counter">
-              <span className="tw:sr-only">{item.number}</span>
-              {counterColumns(item.number).map(({ char, digit, id }) =>
-                /\d/.test(char) ? (
-                  <span
-                    className={
-                      digit % 2
-                        ? 'counter-column counter-bottom'
-                        : 'counter-column counter-top'
-                    }
-                    key={id}
-                    aria-hidden="true"
-                  >
-                    {counterSteps.map((step) => (
-                      <span key={step}>
-                        {digit % 2
-                          ? step === 9
-                            ? char
-                            : step
-                          : step === 0
-                            ? char
-                            : step}
-                      </span>
-                    ))}
-                  </span>
-                ) : (
-                  <span className="counter-suffix" key={id} aria-hidden="true">
-                    {char}
-                  </span>
-                ),
-              )}
-            </strong>
-            <Image
-              src={demoStats[index]}
-              alt=""
-              className="about-stats-decoration"
-              width={150}
-              height={150}
-            />
+          {
+            title: 'Planejamento',
+            text: 'Começa pelo espaço e pela sua rotina.',
+          },
+          {
+            title: 'Materiais',
+            text: 'Texturas e acabamentos compõem o ambiente.',
+          },
+          {
+            title: 'Função',
+            text: 'Organização e circulação orientam as escolhas.',
+          },
+          {
+            title: 'Detalhes',
+            text: 'Proporções, iluminação e uso em cada composição.',
+          },
+        ].map((item) => (
+          <article className="about-stats-card" key={item.title}>
+            <h2 data-title-anim="">{item.title}</h2>
+            <p data-text-anim="">{item.text}</p>
           </article>
         ))}
       </div>
-      <DemoNote />
     </section>
   );
 }
@@ -88,37 +47,28 @@ export function WhyChoose() {
     <section className="about-why section" aria-labelledby="why-title">
       <div className="about-why-heading">
         <h2 id="why-title" data-title-anim="">
-          Por que nos escolher
+          Seu espaço, seu jeito
         </h2>
         <div>
-          <h3 data-title-anim="">Somos os melhores</h3>
+          <h3 data-title-anim="">Móveis planejados</h3>
           <p data-text-anim="">
-            A referência apresenta um estúdio que une estratégia, marca e
-            criação para apoiar empreendedores e empresas.
+            Planejar um ambiente é pensar em como você vive: o que precisa
+            guardar, como se movimenta e quais materiais fazem sentido no seu
+            espaço.
           </p>
         </div>
       </div>
-      <DemoNote>
-        Prazos demonstrativos do Ariyana, sem compromisso comercial da Traço.
-      </DemoNote>
       <div className="about-why-track">
         <div className="about-why-stage">
           <div className="about-why-items">
             {[
-              { title: 'Respondemos em', value: '24 horas' },
-              { title: 'Proposta em', value: '7 dias' },
-              { title: 'Fechamos em', value: '60 dias' },
-            ].map((item, index) => (
+              { title: 'Entender', value: 'Sua rotina' },
+              { title: 'Planejar', value: 'Seu espaço' },
+              { title: 'Compor', value: 'Os detalhes' },
+            ].map((item) => (
               <article className="about-why-card" key={item.title}>
                 <span>{item.title}</span>
                 <h3>{item.value}</h3>
-                <Image
-                  src={demoWhy[index]}
-                  alt=""
-                  className="about-why-decoration"
-                  width={400}
-                  height={400}
-                />
               </article>
             ))}
           </div>
@@ -132,29 +82,24 @@ export function AboutTeam() {
     <section className="about-team section" aria-labelledby="team-title">
       <div className="reference-heading">
         <h2 id="team-title" data-title-anim="">
-          Especialistas
+          Ambientes
         </h2>
         <span className="reference-badge" data-floating-badge="">
-          20 integrantes
+          Para viver
         </span>
-        <DemoNote>Equipe demonstrativa do Ariyana.</DemoNote>
       </div>
       <div className="about-team-track">
         <div className="about-team-stage">
           <div className="about-team-grid">
-            {[
-              { name: 'Alex Newman', role: 'Cofundador e designer principal' },
-              { name: 'Leslie Alexander', role: 'Coordenadora de marketing' },
-              { name: 'Savannah Nguyen', role: 'Designer web' },
-              { name: 'Albert Flores', role: 'Assistente de desenvolvimento' },
-            ].map((item, index) => (
-              <article key={item.name}>
-                <Image
-                  src={demoTeam[index]}
-                  alt={`Retrato da equipe demonstrativa: ${item.name}`}
+            {projects.slice(0, 4).map((project) => (
+              <article key={project.slug}>
+                <ResponsiveImage
+                  {...project.images.capa}
+                  alt={`Composição de ${project.category.toLowerCase()} com móveis planejados`}
+                  sizes="(max-width: 767px) 90vw, 25vw"
                 />
-                <h3>{item.name}</h3>
-                <p>{item.role}</p>
+                <h3>{project.category}</h3>
+                <p>{project.introduction}</p>
               </article>
             ))}
           </div>
@@ -168,33 +113,44 @@ export function AboutAwards() {
     <section className="about-awards section" aria-labelledby="awards-title">
       <div className="reference-heading">
         <h2 id="awards-title" data-title-anim="">
-          Prêmios e troféus
+          Cada detalhe conta
         </h2>
         <span className="reference-badge" data-floating-badge="">
-          Serviço cinco estrelas
+          Forma e função
         </span>
-        <DemoNote />
       </div>
       <div>
         {[
           {
-            name: 'Pixelry',
-            text: '3× agência criativa do dia',
-            status: 'Vencedor',
+            title: 'Proporção',
+            text: 'Móveis em relação ao espaço disponível',
+            detail: 'Composição',
           },
-          { name: 'Designova', text: '5× menção honrosa', status: 'Menção' },
           {
-            name: 'Creatixly',
-            text: '2× design da semana',
-            status: 'Vencedor',
+            title: 'Organização',
+            text: 'Lugar para os objetos do dia a dia',
+            detail: 'Uso',
           },
-          { name: 'Formatic', text: '8× design do dia', status: 'Vencedor' },
-          { name: 'Visualyn', text: '1× agência do ano', status: 'Premiado' },
+          {
+            title: 'Materiais',
+            text: 'Texturas e acabamentos em conjunto',
+            detail: 'Escolhas',
+          },
+          {
+            title: 'Iluminação',
+            text: 'Luz que valoriza o ambiente e suas funções',
+            detail: 'Atmosfera',
+          },
+          {
+            title: 'Circulação',
+            text: 'Espaço para se mover com conforto',
+            detail: 'Planejamento',
+          },
         ].map((item) => (
-          <article key={item.name} className="about-award-row">
-            <strong>{item.name}</strong>
+          <article key={item.title} className="about-award-row">
+            <strong>{item.title}</strong>
             <span>{item.text}</span>
-            <strong>{item.status}</strong>
+            <strong>{item.detail}</strong>
           </article>
         ))}
       </div>
@@ -206,10 +162,11 @@ export function AboutLife() {
     <section className="about-life section" aria-labelledby="life-title">
       <div className="reference-heading">
         <h2 id="life-title" data-title-anim="">
-          Vida no estúdio
+          Madeira, luz e proporção
         </h2>
         <p data-text-anim="">
-          Acompanhamos você do primeiro passo ao que vem depois.
+          Explore composições de móveis planejados para diferentes espaços da
+          casa.
         </p>
       </div>
       <div className="about-life-images" data-slide-cards="">
@@ -217,7 +174,7 @@ export function AboutLife() {
           <div key={project.slug} data-slide-card="">
             <ResponsiveImage
               {...project.images.angulo}
-              alt={`${project.category} — ${project.title}`}
+              alt={`${project.category} — composição de móveis planejados`}
               sizes="30vw"
             />
           </div>

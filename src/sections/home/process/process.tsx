@@ -29,12 +29,12 @@ export function Process() {
       tabIndex={-1}
     >
       <div className="process-heading">
-        <TitleReveal id="process-title" text="Avaliar, implementar e operar" />
+        <TitleReveal id="process-title" text="Da ideia ao móvel instalado" />
         <p data-text-anim="">
-          Acompanhamos você do primeiro passo ao que vem depois.
+          Entenda as etapas de um projeto de móveis planejados.
         </p>
         <small className="demo-note">
-          Demonstração — processo da referência Ariyana
+          Etapas de planejamento de móveis sob medida.
         </small>
       </div>
       <div className="process-grid tw:grid">

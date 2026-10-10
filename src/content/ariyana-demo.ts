@@ -38,23 +38,23 @@ export const timeline = [
 ] as const;
 export const testimonials = [
   {
-    name: 'Jerome Bell',
-    role: 'Coordenador de marketing',
-    text: 'A equipe Brand Apart foi essencial na renovação da marca Robert. Agradecemos a atenção, as ideias e o cuidado ao longo do processo.',
+    name: 'Aproveitar o espaço',
+    role: 'Layout e circulação',
+    text: 'Um ambiente bem planejado considera as medidas dos móveis, a abertura de portas e o espaço para circular. Cada escolha deve facilitar o uso da casa.',
   },
   {
-    name: 'Luis Hamilton',
-    role: 'Designer de UI/UX',
-    text: 'O trabalho conjunto no projeto Robert trouxe uma contribuição valiosa. Foi uma parceria próxima, com boas soluções e disposição para construir os próximos passos.',
+    name: 'Organizar a rotina',
+    role: 'Divisões internas',
+    text: 'Gavetas, prateleiras e nichos fazem mais sentido quando partem do que você precisa guardar. O planejamento começa pelos seus hábitos e objetos.',
   },
   {
-    name: 'Jenifer Catherin',
-    role: 'Redatora de conteúdo',
-    text: 'A visão estratégica da Brand Apart ajudou a dar uma nova direção à marca. A participação da equipe fez diferença em cada etapa.',
+    name: 'Escolher os acabamentos',
+    role: 'Cores, texturas e ferragens',
+    text: 'O acabamento participa da aparência e do uso dos móveis. Avalie amostras e especificações para escolher uma composição que combine com seu ambiente.',
   },
   {
-    name: 'Daniel Danzo',
-    role: 'Editor de vídeo',
-    text: 'Criatividade e dedicação marcaram o projeto de renovação da marca. A experiência da equipe contribuiu para transformar as ideias em uma identidade consistente.',
+    name: 'Alinhar o projeto',
+    role: 'Proposta e execução',
+    text: 'Antes de aprovar, confira medidas, materiais, itens incluídos e prazo previsto. Uma proposta clara ajuda a entender o que será produzido e instalado.',
   },
 ] as const;

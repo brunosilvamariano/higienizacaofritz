@@ -10,7 +10,7 @@ export function Contact() {
       tabIndex={-1}
     >
       <h2 id="contact-title" className="contact-accessible">
-        Vamos criar juntos
+        Vamos planejar seu espaço
       </h2>
       {[false, true].map((stroke) => (
         <div
@@ -21,7 +21,7 @@ export function Contact() {
         >
           <div>
             {[0, 1].map((n) => (
-              <span key={n}>Vamos nos conectar e trabalhar juntos</span>
+              <span key={n}>Seu próximo ambiente começa aqui</span>
             ))}
           </div>
         </div>
@@ -33,7 +33,7 @@ export function Contact() {
           <span className="contact-button-gap" />
         </span>
         <span className="contact-button-text">
-          <HoverLabel variant="cta">Vamos conversar</HoverLabel>
+          <HoverLabel variant="cta">Solicitar orçamento</HoverLabel>
         </span>
         <span className="contact-button-icon" aria-hidden="true">
           →

@@ -11,11 +11,11 @@ export function ProjectGallery() {
       <ProjectOpeningMotion />
       <PageOpening
         id="collection-title"
-        caption="Histórico dos projetos"
-        title="Nosso olhar criativo define o que construímos."
+        caption="Inspiração para o seu espaço"
+        title="Móveis planejados para cada jeito de morar."
       >
         <Link className="pill-link" href="/contato">
-          <HoverLabel variant="primary">Vamos conversar</HoverLabel>
+          <HoverLabel variant="primary">Conversar sobre meu projeto</HoverLabel>
         </Link>
       </PageOpening>
       <div className="project-ticker" aria-hidden="true">
@@ -41,7 +41,7 @@ export function ProjectGallery() {
       >
         <div className="reference-heading">
           <h2 id="collection-heading" data-title-anim="">
-            Nossos novos projetos
+            Ambientes para inspirar
           </h2>
           <span className="reference-badge" data-floating-badge="">
             Espaços sob medida

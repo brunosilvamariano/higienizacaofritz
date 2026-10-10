@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 
-/** Ariyana About IX3: t-610354a5, t-3e2a02dc, t-ce39731a, t-36c4dd99. */
+/** Entradas de texto e movimentos dos cards da página Sobre. */
 export function AboutMotion() {
   useEffect(() => {
     let disposed = false;

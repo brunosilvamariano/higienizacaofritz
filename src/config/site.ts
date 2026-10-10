@@ -19,6 +19,6 @@ export const site = {
   url: url.origin,
   title: 'Traço — Móveis planejados | Seu espaço. Seu traço.',
   description:
-    'Cozinhas, dormitórios, salas e outros ambientes sob medida. Conheça a Traço, um conceito de marca em móveis planejados para o seu jeito de viver.',
+    'Móveis planejados para cozinhas, quartos, salas, banheiros e home office. Explore ideias para aproveitar seu espaço e converse sobre seu projeto com a Traço.',
   indexable: process.env.SITE_INDEXABLE === 'true',
 };

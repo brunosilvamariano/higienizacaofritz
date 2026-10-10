@@ -9,7 +9,7 @@ export function Newsletter() {
   }
   return (
     <div className="footer-newsletter">
-      <h2>Receba novidades</h2>
+      <h2>Inspire seu próximo ambiente</h2>
       <form onSubmit={submit}>
         <label className="tw:sr-only" htmlFor="newsletter-email">
           E-mail
@@ -22,13 +22,18 @@ export function Newsletter() {
           required
         />
         <button type="submit">
-          <HoverLabel>Inscrever-se</HoverLabel>
+          <HoverLabel>Quero novidades</HoverLabel>
         </button>
       </form>
       <small className="demo-note">
-        Formulário demonstrativo; não envia seus dados.
+        Cadastro ilustrativo. O recebimento de novidades ainda não está
+        disponível.
       </small>
-      {complete && <p role="status">Inscrição de demonstração validada.</p>}
+      {complete && (
+        <p role="status">
+          Validação concluída. Este formulário ainda não realiza inscrições.
+        </p>
+      )}
     </div>
   );
 }

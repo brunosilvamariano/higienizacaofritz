@@ -4,7 +4,9 @@ import { Services, ServicesOpening } from '@/sections/home/services/services';
 import { Testimonials } from '@/sections/home/testimonials/testimonials';
 import { Contact } from '@/sections/home/contact/contact';
 export const metadata: Metadata = {
-  title: 'Serviços — Traço',
+  title: 'Soluções em móveis planejados — Traço',
+  description:
+    'Conheça as etapas dos móveis planejados: layout, materiais, organização interna, produção e montagem.',
   alternates: { canonical: '/servicos' },
 };
 export default function ServicesPage() {

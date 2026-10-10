@@ -105,17 +105,17 @@ export function Leaders() {
         </div>
       </motion.div>
       <div className="leaders-copy">
-        <span className="leaders-badge">400+ grandes marcas</span>
+        <span className="leaders-badge">Cada ambiente, uma possibilidade</span>
         <h2 id="leaders-title">
-          Escolhido por
+          Seu jeito de
           <br />
-          <span>líderes</span>
+          <span>morar</span>
         </h2>
         <Link href="/sobre" className="pill-link">
-          <HoverLabel variant="primary">Saiba mais</HoverLabel>
+          <HoverLabel variant="primary">Conheça a Traço</HoverLabel>
         </Link>
       </div>
-      <DemoNote>Quantidade demonstrativa do Ariyana; fotos da Traço.</DemoNote>
+      <DemoNote>Imagens de estudos conceituais de móveis planejados.</DemoNote>
     </section>
   );
 }

@@ -49,10 +49,10 @@ export function Footer() {
               <HoverLabel>Blog</HoverLabel>
             </Link>
             <Link href="/blog/conversa-com-a-fwa">
-              <HoverLabel>Artigo</HoverLabel>
+              <HoverLabel>Planeje sua cozinha</HoverLabel>
             </Link>
             <Link href="/projetos/cozinha-encontro">
-              <HoverLabel>Detalhe do projeto</HoverLabel>
+              <HoverLabel>Inspiração de cozinha</HoverLabel>
             </Link>
           </nav>
           <div className="footer-information">

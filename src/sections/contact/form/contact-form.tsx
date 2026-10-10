@@ -53,7 +53,7 @@ export function ContactForm() {
             setDraftUrl('');
           }}
         >
-          Diga olá
+          Tire suas dúvidas
         </button>
         <button
           id="tab-quote"
@@ -140,7 +140,11 @@ export function ContactForm() {
             )}
             <label className="contact-message">
               Mensagem*
-              <textarea name="message" placeholder="Conte sua ideia" required />
+              <textarea
+                name="message"
+                placeholder="Conte quais ambientes deseja planejar, sua cidade e o que precisa. Se tiver medidas ou referências, mencione também."
+                required
+              />
             </label>
           </div>
           <div className="contact-form-submit">

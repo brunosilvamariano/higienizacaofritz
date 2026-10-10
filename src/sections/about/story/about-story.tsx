@@ -23,13 +23,15 @@ export function AboutStory() {
         </Reveal>
         <Reveal className="about-story-copy">
           <p>
-            Uma bancada que aproxima. Um armário que organiza. Uma textura que
-            acolhe. O olhar da Traço reúne marcenaria, luz e proporção para
-            pensar o espaço como um todo.
+            O ponto de partida é entender como você usa a casa: o que precisa
+            guardar, onde prepara suas refeições e como divide os momentos de
+            trabalho e descanso. O planejamento conecta essas necessidades ao
+            espaço disponível.
           </p>
           <p>
-            Da primeira ideia aos encontros entre madeira e pedra, o cuidado
-            está nas escolhas que dão sentido ao morar.
+            Layout, divisões internas e acabamentos devem funcionar em conjunto.
+            O olhar da Traço é unir organização e conforto em móveis que façam
+            sentido para o seu jeito de viver.
           </p>
           <WhatsAppLink context="o olhar da Traço e um projeto para meu espaço">
             Conversar com a Traço

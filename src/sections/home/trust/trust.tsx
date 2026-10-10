@@ -1,47 +1,51 @@
-import Image from 'next/image';
-import { DemoNote } from '@/components/ui/demo-note';
-import { demoLogos } from '@/content/ariyana-demo.images';
+import { EnvironmentIcon } from './environment-icon';
+const environments = [
+  { kind: 'cozinha', label: 'Cozinhas' },
+  { kind: 'quarto', label: 'Quartos' },
+  { kind: 'sala', label: 'Salas' },
+  { kind: 'banheiro', label: 'Banheiros' },
+  { kind: 'escritorio', label: 'Home office' },
+  { kind: 'armario', label: 'Armários' },
+] as const;
 import './trust.css';
 export function Trust() {
   return (
     <section
       className="trust"
       id="marcas"
-      aria-label="Marcas e depoimento demonstrativos"
+      aria-label="Ambientes com móveis planejados"
     >
       <div className="trust-grid">
         <div className="trust-ticker" aria-hidden="true">
           <div>
             {[0, 1, 2].map((n) => (
               <span key={n}>
-                Escolhido por quem inova <i>✳</i>
+                Seu espaço, bem pensado <i>✳</i>
               </span>
             ))}
           </div>
         </div>
         <div className="trust-quote">
           <blockquote data-text-anim="">
-            “Ágeis no suporte, fáceis de trabalhar e totalmente dedicados a
-            lançar nosso site no prazo e dentro do orçamento.”
+            Mais espaço para o que faz parte da sua vida. Móveis que organizam,
+            acolhem e acompanham sua rotina.
           </blockquote>
           <p>
-            <strong>Robert Kenedy</strong>
+            <strong>O olhar da Traço</strong>
             <br />
-            Responsável por crescimento na Walton
+            Planejamento para o seu jeito de morar
           </p>
         </div>
-        {demoLogos.map((logo, index) => (
-          <div className={`trust-logo trust-logo-${index}`} key={logo.src}>
-            <Image
-              src={logo}
-              alt={`Marca demonstrativa do Ariyana ${index + 1}`}
-              width={120}
-              height={100}
-            />
+        {environments.map((environment, index) => (
+          <div
+            className={`trust-logo trust-logo-${index}`}
+            key={environment.kind}
+          >
+            <EnvironmentIcon kind={environment.kind} />
+            <span>{environment.label}</span>
           </div>
         ))}
       </div>
-      <DemoNote />
     </section>
   );
 }
