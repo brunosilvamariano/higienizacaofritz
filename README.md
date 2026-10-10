@@ -6,7 +6,7 @@
 
 Uma experiência digital inspirada na arquitetura, na luz e na materialidade dos ambientes sob medida.
 
-[Conheça o site](https://tracomoveisplanejados.vercel.app) · [Explore a interface](#interface) · [Execute localmente](#executar-localmente) · [Documentação](#documentação)
+[Conheça o site](https://tracomoveisplanejaveis.vercel.app) · [Explore a interface](#interface) · [Execute localmente](#executar-localmente) · [Documentação](#documentação)
 
 **Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Framer Motion**
 
@@ -120,7 +120,7 @@ não é enviado pelo repositório.
 
 | Variável                               | Finalidade                                                                                            |
 | -------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `SITE_URL`                             | Origem pública HTTPS, sem caminhos ou parâmetros. Padrão: `https://tracomoveisplanejados.vercel.app`. |
+| `SITE_URL`                             | Origem pública HTTPS, sem caminhos ou parâmetros. Padrão: `https://tracomoveisplanejaveis.vercel.app`. |
 | `SITE_INDEXABLE`                       | `false` no conceito de portfólio; `true` somente após aprovação para indexação.                       |
 | `GOOGLE_SITE_VERIFICATION`             | Código de verificação do domínio no Google, quando utilizado.                                         |
 | `META_DOMAIN_VERIFICATION`             | Código de verificação do domínio na Meta, quando utilizado.                                           |

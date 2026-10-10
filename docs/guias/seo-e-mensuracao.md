@@ -26,7 +26,7 @@ tests/unit/tracking.test.cjs    # Verificações locais, sem enviar eventos reai
 
 ## Estado atual
 
-URL oficial informada: https://tracomoveisplanejados.vercel.app.
+URL oficial informada: https://tracomoveisplanejaveis.vercel.app.
 O site continua conceitual, com `noindex, follow`. Isso é intencional; imagem social e anúncios não exigem indexação orgânica. Não foram adicionadas avaliações, endereço comercial, credenciais ou dados estruturados de uma empresa inexistente.
 
 Metadados são renderizados pelo servidor. A imagem de compartilhamento é o JPEG fornecido pelo usuário, em 1200 × 630, mantido sem alterações em `src/assets/images/shared/social/traco-compartilhamento.jpg`. É importado como módulo nos metadados e servido pelo próprio site com nome versionado pelo build. Open Graph e Twitter usam o mesmo arquivo. A página usa Plus Jakarta Sans local.

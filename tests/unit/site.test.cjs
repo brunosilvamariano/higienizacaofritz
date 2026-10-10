@@ -7,7 +7,7 @@ const load = (env) =>
 
 test('sem SITE_URL usa a origem padrão e não indexa', () => {
   const site = load({});
-  assert.match(site.url, /^https:\/\/[^/]+$/);
+  assert.equal(site.url, 'https://tracomoveisplanejaveis.vercel.app');
   assert.equal(site.indexable, false);
 });
 
