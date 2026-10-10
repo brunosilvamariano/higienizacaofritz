@@ -1,0 +1,213 @@
+/* Somente cores da Home; geometria, tipografia e movimento preservados. */
+.home-palette .hero-background {
+  background: var(--ink);
+}
+.home-palette .hero-background::after {
+  background: #0f172a44;
+}
+.home-palette :is(.studio-card-heading::after, .process-marker) {
+  background: var(--brand);
+}
+.home-palette .studio-card > p {
+  border-top-color: var(--line);
+}
+.home-palette .studio-card-tag {
+  color: var(--ink);
+}
+.home-palette .process {
+  background: var(--mist);
+}
+.home-palette :is(.process-heading > p, .process-description p) {
+  color: var(--muted);
+}
+.home-palette .process-grid::before {
+  border-top-color: var(--blue-panel-strong);
+}
+.home-palette .process-card {
+  background: var(--white);
+}
+.home-palette .process-toggle {
+  background: var(--brand);
+  color: var(--white);
+}
+.home-palette .process-item[data-open='true'] h3 {
+  color: var(--brand);
+}
+.home-palette :is(.environments, .services) .reference-badge {
+  background: var(--brand);
+  color: var(--white);
+}
+.home-palette .environment-panel {
+  background: var(--mist);
+  --button-surface: var(--mist);
+}
+.home-palette .environment-panel:nth-child(2) {
+  background: var(--sand);
+  --button-surface: var(--sand);
+}
+.home-palette .environment-panel:nth-child(3) {
+  background: var(--blue-soft);
+  --button-surface: var(--blue-soft);
+}
+.home-palette .environment-panel:nth-child(4) {
+  background: var(--blue-gray);
+  --button-surface: var(--blue-gray);
+}
+.home-palette .environment-photo {
+  background: var(--blue-panel);
+}
+.home-palette .environment-panel:nth-child(2) .environment-photo {
+  background: var(--sand-panel);
+}
+.home-palette .environment-panel:nth-child(3) .environment-photo {
+  background: var(--blue-panel-strong);
+}
+.home-palette .environment-panel:nth-child(4) .environment-photo {
+  background: var(--blue-gray-panel);
+}
+.home-palette .trust {
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(to right, #bfd4ff12 1px, transparent 1px),
+    linear-gradient(to bottom, #bfd4ff12 1px, transparent 1px);
+}
+.home-palette :is(.trust-ticker, .trust-quote, .trust-logo) {
+  background: #0f172acc;
+  border-color: var(--line-on-dark);
+}
+.home-palette :is(.services, .service-row) {
+  background: var(--sand);
+}
+.home-palette .service-row {
+  border-top-color: var(--line);
+}
+.home-palette .service-tags span {
+  background: var(--paper);
+}
+.home-palette .leaders-copy h2 span {
+  background-image: linear-gradient(var(--brand), var(--ink));
+}
+.home-palette .leaders-badge {
+  background: var(--blue-panel-strong);
+}
+.home-palette :is(.leaders-copy .pill-link, .pill-link) {
+  border-color: var(--ink);
+}
+.home-palette .pill-link:has(.hover-label-primary) {
+  background: var(--brand);
+  color: var(--white);
+  border-color: var(--brand);
+}
+.home-palette .pill-link:has(.hover-label-primary):is(:hover, :focus-visible) {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.home-palette .testimonial-card {
+  background: var(--mist);
+}
+.home-palette .testimonial-card:nth-child(even) {
+  background: var(--brand);
+  color: var(--white);
+}
+.home-palette .testimonial-stars {
+  color: var(--brand);
+}
+.home-palette .testimonial-card:nth-child(even) .testimonial-stars {
+  color: var(--blue-panel-strong);
+}
+.home-palette .contact-marquee[data-stroke='true'] span {
+  -webkit-text-stroke-color: var(--ink);
+}
+.home-palette .contact-button {
+  background: var(--brand);
+  color: var(--white);
+  border-color: var(--brand);
+}
+.home-palette .contact-button:is(:hover, :focus-visible) {
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+.home-palette .contact-button-icon {
+  background: var(--paper);
+  color: var(--brand);
+}
+.home-palette .contact-button-gap {
+  background: var(--paper);
+}
+.home-palette :is(.showreel h2, .showreel-track[data-reduced='true'] h2) {
+  color: var(--ink);
+}
+.home-palette .showreel-control {
+  background: var(--sand);
+  color: var(--ink);
+}
+.home-palette .showreel-error {
+  background: #0f172aaa;
+}
+.home-palette :is(.showreel-prev, .showreel-next) {
+  color: var(--ink);
+}
+body:has(.home-palette)
+  :is(
+    .site-footer,
+    .mobile-dialog,
+    .mobile-menu-faq,
+    .page-transition,
+    .page-transition-border i
+  ) {
+  background: var(--ink);
+}
+body:has(.home-palette)
+  :is(.footer-links a, .footer-links button, .footer-contact p) {
+  color: var(--on-dark-muted);
+}
+body:has(.home-palette) .footer-links a:hover {
+  color: var(--white);
+}
+body:has(.home-palette) .footer-newsletter input {
+  background: color-mix(in srgb, var(--ink) 90%, var(--brand));
+  border-color: var(--line-on-dark);
+}
+body:has(.home-palette) .footer-newsletter input::placeholder {
+  color: var(--on-dark-muted);
+}
+body:has(.home-palette) .footer-newsletter input:focus {
+  outline-color: var(--blue-panel-strong);
+}
+body:has(.home-palette) .footer-newsletter button {
+  background: var(--brand);
+  color: var(--white);
+}
+body:has(.home-palette) .footer-wordmark {
+  background-image: linear-gradient(var(--white), var(--ink) 80%);
+}
+body:has(.home-palette) .mobile-menu-top > p {
+  background-image: linear-gradient(var(--white) 32%, var(--ink) 90%);
+}
+body:has(.home-palette) .mobile-menu-top > span {
+  background: var(--blue-panel-strong);
+  color: var(--ink);
+}
+body:has(.home-palette) .mobile-links a {
+  color: var(--on-dark-muted);
+}
+body:has(.home-palette) .mobile-links a::before {
+  background: var(--brand);
+}
+body:has(.home-palette) .floating-top {
+  background: var(--brand);
+}
+body:has(.home-palette) .floating-top:hover {
+  background: var(--ink);
+}
+body:has(.home-palette) .reference-divider {
+  background: var(--paper);
+}
+body:has(.home-palette) .reference-divider-linen {
+  color: var(--sand);
+}
+body:has(.home-palette) .reference-divider-footer {
+  color: var(--ink);
+}

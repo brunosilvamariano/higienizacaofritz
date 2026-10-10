@@ -15,7 +15,7 @@ type Destination = {
   restoreScroll?: number;
 };
 type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
-const preloaderLetters = Array.from('//TRAÇO').map((letter, index) => ({
+const preloaderLetters = Array.from('FRITZ').map((letter, index) => ({
   letter,
   id: `preloader-${index}`,
   delay: `${0.05 + (index * 0.4) / 6}s`,
@@ -260,6 +260,9 @@ export function PageTransition() {
             <span style={{ animationDelay: delay }}>{letter}</span>
           </span>
         ))}
+        <small className="preloader-brand-subtitle">
+          Higienização e impermeabilização
+        </small>
       </span>
       <span className="page-transition-border" aria-hidden="true">
         {[0, 1, 2, 3, 4].map((i) => (

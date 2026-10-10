@@ -1,3 +1,4 @@
+import '@/sections/home/home-colors.css';
 import { Contact } from '@/sections/home/contact/contact';
 import { Hero } from '@/sections/home/hero/hero';
 import { Environments } from '@/sections/home/environments/environments';
@@ -13,7 +14,7 @@ export default function Home() {
   return (
     <main
       id="conteudo"
-      className="page-content tw:relative tw:bg-paper"
+      className="page-content home-palette tw:relative tw:bg-paper"
       tabIndex={-1}
     >
       <Hero />

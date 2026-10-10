@@ -34,7 +34,7 @@ export function Testimonials() {
     >
       <div className="reference-heading">
         <TitleReveal id="testimonials-title" text="Avaliações no Google" />
-        <p className="review-profile-name">Traço Móveis Planejados</p>
+        <p className="review-profile-name">Fritz — Higienização e impermeabilização</p>
       </div>
       <div className="review-summary">
         <a

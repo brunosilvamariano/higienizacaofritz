@@ -105,7 +105,7 @@ export function Showreel({
       tabIndex={-1}
       className={`showreel ${variant === 'services' ? 'service-page-video' : ''}`}
       id={variant === 'services' ? 'apresentacao-servicos' : 'reel'}
-      aria-label={variant === 'services' ? 'Apresentação da Traço' : undefined}
+      aria-label={variant === 'services' ? 'Apresentação da Fritz' : undefined}
       aria-labelledby={variant === 'services' ? undefined : 'showreel-title'}
     >
       <div className="showreel-track" ref={track} data-reduced={!!reduced}>
@@ -153,7 +153,7 @@ export function Showreel({
                 muted
                 loop
                 playsInline
-                aria-label="Vídeo de apresentação enviado para a Traço"
+                aria-label="Vídeo de apresentação enviado para a Fritz"
                 onPlay={() => setPlaying(true)}
                 onPause={() => setPlaying(false)}
                 onError={() => setError(true)}

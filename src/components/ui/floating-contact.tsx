@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { contact } from '@/config/contact';
+import { whatsappUrl } from '@/config/contact';
 import './floating-contact.css';
 
 export function FloatingContact() {
@@ -40,15 +40,13 @@ export function FloatingContact() {
       window.removeEventListener('resize', schedule);
     };
   }, [pathname]);
-  const message =
-    'Olá! Gostaria de solicitar um orçamento para móveis planejados.';
   return (
     <>
       <a
         className="floating-contact"
         data-visible={visible}
         tabIndex={visible ? 0 : -1}
-        href={`https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(message)}`}
+        href={whatsappUrl()}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Solicitar orçamento pelo WhatsApp (abre em nova aba)"

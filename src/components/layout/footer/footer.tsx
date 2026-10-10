@@ -17,7 +17,7 @@ export function Footer() {
           <div className="footer-contact">
             <h2>Contato</h2>
             <p>
-              Traço Móveis Planejados
+              Fritz — Higienização e impermeabilização
               <br />
               Espaços pensados para viver.
             </p>
@@ -57,7 +57,13 @@ export function Footer() {
           </nav>
           <div className="footer-information">
             <h2>Informações</h2>
-            <p className="footer-instagram">
+            <a
+              className="footer-instagram"
+              href={contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram da Fritz — abrir em nova aba"
+            >
               <span className="footer-instagram-icon" aria-hidden="true">
                 <svg
                   aria-hidden="true"
@@ -77,8 +83,8 @@ export function Footer() {
                   />
                 </svg>
               </span>
-              Instagram da Traço
-            </p>
+              Instagram da Fritz
+            </a>
             <p>
               Ver perfil no{' '}
               <span className="footer-google">
@@ -102,10 +108,13 @@ export function Footer() {
 
       <div className="footer-bottom">
         <Link className="footer-wordmark" href="/">
-          {'//TRAÇO'}
+          {'FRITZ'}
+          <small className="footer-brand-subtitle">
+            Higienização e impermeabilização
+          </small>
         </Link>
         <div className="footer-credits">
-          <p>© {new Date().getFullYear()} Traço. Conceito demonstrativo.</p>
+          <p>© {new Date().getFullYear()} Fritz. Conceito demonstrativo.</p>
           <a
             href={developer.website}
             target="_blank"

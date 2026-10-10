@@ -10,7 +10,7 @@ test('link sem contexto usa a mensagem geral', () => {
   assert.ok(url.startsWith(`https://wa.me/${contact.whatsappNumber}?text=`));
   assert.equal(
     text(url),
-    'Olá! Conheci a Traço pelo site e gostaria de conversar sobre meu espaço.',
+    'Olá, equipe Fritz! Vim pelo site e gostaria de solicitar um orçamento para higienização ou impermeabilização. Posso enviar fotos do estofado e informar meu bairro e cidade?',
   );
 });
 
@@ -20,7 +20,7 @@ test('contexto entra na mensagem e é codificado na URL', () => {
   assert.equal(url.includes('&'), false);
   assert.equal(
     text(url),
-    'Olá! Conheci a Traço pelo site e gostaria de conversar sobre cozinhas & salas.',
+    'Olá! Conheci a Fritz pelo site e gostaria de conversar sobre cozinhas & salas.',
   );
 });
 
@@ -43,10 +43,10 @@ test('orçamento envia todas as escolhas e preserva acentos e quebras de linha',
     data.set(key, value);
   });
   const url = new URL(contactFormUrl(data, 'quote'));
-  assert.equal(url.pathname, '/5547991597258');
+  assert.equal(url.pathname, '/5547999051278');
   assert.equal(
     text(url),
-    'Olá! Gostaria de solicitar um orçamento à Traço.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nEmpresa: Casa & Lar\nTipo de projeto: Cozinha\nOrçamento: De R$ 10 a 30 mil\nMensagem: Armários & ilha\nCarvalho',
+    'Olá! Gostaria de solicitar um orçamento à Fritz.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nEmpresa: Casa & Lar\nTipo de projeto: Cozinha\nOrçamento: De R$ 10 a 30 mil\nMensagem: Armários & ilha\nCarvalho',
   );
 });
 test('contato geral omite campos vazios e escolhas exclusivas de orçamento', () => {
@@ -57,6 +57,6 @@ test('contato geral omite campos vazios e escolhas exclusivas de orçamento', ()
   data.set('company', '  ');
   assert.equal(
     text(contactFormUrl(data, 'hello')),
-    'Olá! Gostaria de conversar com a Traço.\n\nNome: Ana\nMensagem: Olá',
+    'Olá! Gostaria de conversar com a Fritz.\n\nNome: Ana\nMensagem: Olá',
   );
 });

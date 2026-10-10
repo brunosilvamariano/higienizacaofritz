@@ -1,7 +1,7 @@
 export const heroContent = {
-  eyebrow: 'Móveis planejados',
-  title: ['Seu espaço,', 'no seu', 'traço.'],
+  eyebrow: 'Higienização de estofados',
+  title: ['Limpeza de', 'estofados.'],
   description:
-    'Móveis planejados para aproveitar seu espaço e acompanhar seu jeito de viver.',
+    'Higienização e impermeabilização de sofás e estofados com a Fritz. Solicite seu orçamento.',
   cta: 'Solicitar orçamento',
 } as const;

@@ -73,8 +73,13 @@ export function MobileNavigation() {
       >
         <div className="mobile-menu-inner">
           <div className="mobile-menu-top">
-            <p id="mobile-menu-title">Traço Studio</p>
-            <span>Seu espaço, no seu traço.</span>
+            <p id="mobile-menu-title">
+              Fritz
+              <small className="menu-brand-subtitle">
+                Higienização e impermeabilização
+              </small>
+            </p>
+            <span>Higienização e impermeabilização</span>
           </div>
           <nav className="mobile-links" aria-label="Menu completo">
             {navigation.map((item) => (

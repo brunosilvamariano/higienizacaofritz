@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     'Explore seis estudos conceituais de móveis planejados: cozinhas, quarto, sala, banheiro e escritório em carvalho e travertino.',
   alternates: { canonical: '/projetos' },
   openGraph: {
-    title: 'Coleção de ambientes — Traço',
+    title: 'Coleção de ambientes — Fritz',
     description:
       'Madeira, luz e proporção em seis estudos conceituais de marcenaria.',
     url: '/projetos',

@@ -6,7 +6,7 @@ export function AboutOpening() {
   return (
     <PageOpening
       id="about-title"
-      caption="Por dentro da Traço"
+      caption="Por dentro da Fritz"
       title={
         <>
           <span data-about-title-text="">Móveis planejados que dão forma </span>

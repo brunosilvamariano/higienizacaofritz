@@ -29,12 +29,13 @@ export function Process() {
       tabIndex={-1}
     >
       <div className="process-heading">
-        <TitleReveal id="process-title" text="Da ideia ao móvel instalado" />
+        <TitleReveal id="process-title" text="Do orçamento ao cuidado final" />
         <p data-text-anim="">
-          Entenda as etapas de um projeto de móveis planejados.
+          Saiba como solicitar higienização ou impermeabilização de estofados
+          com a Fritz.
         </p>
         <small className="demo-note">
-          Etapas de planejamento de móveis sob medida.
+          Envie fotos e sua localização para começar.
         </small>
       </div>
       <div className="process-grid tw:grid">

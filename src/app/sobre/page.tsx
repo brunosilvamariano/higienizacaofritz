@@ -13,22 +13,22 @@ import { Contact } from '@/sections/home/contact/contact';
 import { siteMetadata } from '@/config/metadata';
 
 export const metadata: Metadata = {
-  title: 'Sobre a Traço',
+  title: 'Sobre a Fritz',
   description:
-    'Madeira, luz e proporção. Conheça o olhar da Traço para os móveis planejados e os espaços de viver.',
+    'Madeira, luz e proporção. Conheça o olhar da Fritz para os móveis planejados e os espaços de viver.',
   alternates: { canonical: '/sobre' },
   openGraph: {
     ...siteMetadata.openGraph,
-    title: 'Sobre a Traço',
+    title: 'Sobre a Fritz',
     description:
-      'Madeira, luz e proporção. Conheça o olhar da Traço para os espaços de viver.',
+      'Madeira, luz e proporção. Conheça o olhar da Fritz para os espaços de viver.',
     url: '/sobre',
   },
   twitter: {
     ...siteMetadata.twitter,
-    title: 'Sobre a Traço',
+    title: 'Sobre a Fritz',
     description:
-      'Madeira, luz e proporção. Conheça o olhar da Traço para os espaços de viver.',
+      'Madeira, luz e proporção. Conheça o olhar da Fritz para os espaços de viver.',
   },
 };
 

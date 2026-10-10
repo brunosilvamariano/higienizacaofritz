@@ -4,6 +4,7 @@ import { ResponsiveImage } from '@/components/media/responsive-image';
 import { projects } from '@/content/projects';
 import { DemoNote } from '@/components/ui/demo-note';
 import { servicesContent } from './services.content';
+import { serviceItemImages } from './services.images';
 import './services.css';
 const services = servicesContent.items;
 export function Services() {
@@ -17,12 +18,12 @@ export function Services() {
       <div className="reference-heading">
         <TitleReveal id="services-title" text={servicesContent.title} />
         <span className="reference-badge" data-floating-badge="">
-          Do projeto à montagem
+          Higienização e proteção
         </span>
         <DemoNote>{servicesContent.introduction}</DemoNote>
       </div>
       <div className="services-list">
-        {services.map((item, index) => (
+        {services.map((item) => (
           <article key={item.title} className="service-row tw:flex">
             <div className="service-copy">
               <h3 data-title-anim="">{item.title}</h3>
@@ -38,11 +39,10 @@ export function Services() {
                 eager
                 priority="auto"
                 unoptimized
-                {...projects[index].images.detalhe}
-                alt={`${projects[index].category} — estudo conceitual`}
+                {...serviceItemImages[item.image]}
                 sizes="(min-width:768px) 40vw,100vw"
               />
-              <small>Inspiração de móveis planejados</small>
+              <small>Imagem ilustrativa do serviço</small>
             </div>
           </article>
         ))}
@@ -63,7 +63,7 @@ export function ServicesOpening() {
       <div className="service-opening-content">
         <p className="service-opening-caption">
           <span aria-hidden="true" />
-          Experiência <em>da</em> Traço
+          Experiência <em>da</em> Fritz
         </p>
         <h1>
           <span data-service-title-text="">Móveis planejados</span>
@@ -83,9 +83,9 @@ export function ServicesOpening() {
         <a
           className="service-opening-down"
           href="#apresentacao-servicos"
-          aria-label="Assistir à apresentação da Traço"
+          aria-label="Assistir à apresentação da Fritz"
         >
-          <span className="tw:sr-only">Assistir à apresentação da Traço</span>
+          <span className="tw:sr-only">Assistir à apresentação da Fritz</span>
           <svg aria-hidden="true" viewBox="0 0 20 40" width="16" height="32">
             <path d="M10 2v32m-6-7 6 7 6-7" fill="none" stroke="currentColor" />
           </svg>

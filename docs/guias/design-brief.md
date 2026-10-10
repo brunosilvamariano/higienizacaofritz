@@ -173,3 +173,54 @@ Página Sobre: remover referências à agência digital, avaliações, números,
 ## Símbolo, ambientes e avaliações — 10/10/2026
 
 Substituir o símbolo da referência pelo sinal // já usado na marca Traço. Substituir as seis logos fictícias por desenhos de cozinhas, quartos, salas, banheiros, home office e armários. Preservar a composição da grade e a linguagem monocromática. No bloco de avaliações, manter quatro cards e animações, usar fotos públicas locais do perfil Google Bruno Mariano Silva, textos originais ou trechos identificados e nota conferida em 10/10/2026. Explicitar que o perfil é de Bruno Mariano Silva (webdesigner), sem atribuir avaliações à Traço. Referência enviada: resumo Google, estrelas, retratos, links para consultar e CTA para avaliar. Preservar a paleta da Traço e assegurar leitura em telas pequenas.
+
+## Paleta da página inicial — 2026-10-10
+
+Escopo aprovado: somente cores da Home. Preservar conteúdo, imagens, fontes,
+layout, dimensões dos botões e todas as animações existentes. Não adaptar as
+outras páginas nesta etapa.
+
+Base #f8fafc, texto e blocos escuros #0f172a, destaques e CTAs #2563eb,
+apoio #bfd4ff. Fundos intermediários são misturas dessas quatro cores:
+apresentação clara, Processo azul muito suave com cartões brancos, galeria com
+painéis em azuis suaves, Marcas e footer escuros, Serviços azul claro,
+depoimentos alternando fundos suaves e azul principal, CTA principal azul.
+Sobre fotos, preservar texto branco e overlay escuro. Preservar cores próprias
+das marcas e o verde do WhatsApp flutuante.
+
+Tokens condicionados à presença de .home-palette, sem mudar a paleta global das
+outras rotas. home-colors.css contém apenas propriedades de cor e alcança header,
+menu e footer compartilhados somente enquanto a Home está renderizada.
+
+## Marca Fritz — 2026-10-10
+
+Logo real fornecida pelo usuário em shared/fritz/fritz-mark.png. Nome Fritz com
+“Higienização e impermeabilização” abaixo no cabeçalho, abertura, menu,
+transição e rodapé. Substituir o símbolo Traço e os ícones antigos. Preservar
+a paleta aprovada, os efeitos existentes e a composição das seções.
+
+Correção de escopo — 2026-10-10: Hero restaurado ao conteúdo e à estrutura anteriores à troca de marca. Manter apenas a paleta aprovada; aguardar pedido específico para adaptar o Hero. Futuras alterações substituem elementos existentes, sem acrescentar títulos, blocos ou alterar o layout.
+
+## Faixa de diferenciais Fritz — 2026-10-10
+
+Substituir apenas textos e imagens dos cards da faixa horizontal por cinco pontos de cuidado com estofados. Preservar a introdução, a logo, o CTA, o CSS e toda a animação. Usar WebPs fornecidos como imagens ilustrativas; não apresentar resultados reais, métricas ou benefícios de saúde sem comprovação.
+
+## Processo de atendimento Fritz — 2026-10-10
+
+Atualizar somente os textos existentes da seção Processo: envio de fotos para orçamento, combinação do atendimento, realização do serviço e cuidados posteriores. Preservar quatro cartões, botões expansíveis, cores, layout e animações. Não prometer prazos de secagem, resultados ou métodos técnicos não confirmados.
+
+## Fechamento da faixa de diferenciais — 2026-10-10
+
+Adicionar o card 06 como conclusão, com convite para solicitar orçamento. Substituir a área fotográfica desse card por um CTA de WhatsApp com ícone local. Preservar fonte, número, etiqueta, dimensões e animação dos cartões existentes. O link usa o contato Fritz já configurado.
+
+### Home — Por que escolher a Fritz
+
+Seção de painéis adaptada com textos de consulta, cuidado com as peças, impermeabilização e contato direto. Fotos ilustrativas de higienização em WebP para desktop, tablet e mobile. CTAs direcionam ao WhatsApp com mensagens por assunto. Preservados CSS, fontes, estrutura e animações. Sem atribuir resultados reais ou vantagens não confirmadas à empresa.
+
+### Home — Agradecimento da Fritz
+
+Adaptar somente textos e ícones da grade Trust para agradecer a confiança na Fritz. Seis ícones lineares locais: sofás, colchões, poltronas, tapetes, cadeiras e impermeabilização. Manter posições, dimensões, cores, tipografia e animações existentes.
+
+### Seção de serviços da Fritz
+
+Manter os quatro blocos e todo o CSS existente. Conteúdo: higienização de estofados, colchões, tapetes e impermeabilização. Fotografias ilustrativas locais em WebP para três telas, sem promessas de saúde ou resultados garantidos. Componente compartilhado pela home e página de serviços; abertura da página preservada.

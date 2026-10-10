@@ -1,39 +1,48 @@
-import olharDesktop from '@/assets/images/pages/home/studio/desktop.webp';
-import olharTablet from '@/assets/images/pages/home/studio/tablet.webp';
-import olharMobile from '@/assets/images/pages/home/studio/mobile.webp';
-import rotinaDesktop from '@/assets/images/pages/home/hero/bedroom/desktop.webp';
-import rotinaTablet from '@/assets/images/pages/home/hero/bedroom/tablet.webp';
-import rotinaMobile from '@/assets/images/pages/home/hero/bedroom/mobile.webp';
-import materiaDesktop from '@/assets/images/pages/home/services/desktop.webp';
-import materiaTablet from '@/assets/images/pages/home/services/tablet.webp';
-import materiaMobile from '@/assets/images/pages/home/services/mobile.webp';
-import detalheDesktop from '@/assets/images/pages/home/process/dar-forma/desktop.webp';
-import detalheTablet from '@/assets/images/pages/home/process/dar-forma/tablet.webp';
-import detalheMobile from '@/assets/images/pages/home/process/dar-forma/mobile.webp';
+import sofasdesktop from '@/assets/images/pages/home/studio/diferenciais/sofas/desktop.webp';
+import sofastablet from '@/assets/images/pages/home/studio/diferenciais/sofas/tablet.webp';
+import sofasmobile from '@/assets/images/pages/home/studio/diferenciais/sofas/mobile.webp';
+import colchoesdesktop from '@/assets/images/pages/home/studio/diferenciais/colchoes/desktop.webp';
+import colchoestablet from '@/assets/images/pages/home/studio/diferenciais/colchoes/tablet.webp';
+import colchoesmobile from '@/assets/images/pages/home/studio/diferenciais/colchoes/mobile.webp';
+import poltronasdesktop from '@/assets/images/pages/home/studio/diferenciais/poltronas/desktop.webp';
+import poltronastablet from '@/assets/images/pages/home/studio/diferenciais/poltronas/tablet.webp';
+import poltronasmobile from '@/assets/images/pages/home/studio/diferenciais/poltronas/mobile.webp';
+import tapetesdesktop from '@/assets/images/pages/home/studio/diferenciais/tapetes/desktop.webp';
+import tapetestablet from '@/assets/images/pages/home/studio/diferenciais/tapetes/tablet.webp';
+import tapetesmobile from '@/assets/images/pages/home/studio/diferenciais/tapetes/mobile.webp';
+import impermeabilizacaodesktop from '@/assets/images/pages/home/studio/diferenciais/impermeabilizacao/desktop.webp';
+import impermeabilizacaotablet from '@/assets/images/pages/home/studio/diferenciais/impermeabilizacao/tablet.webp';
+import impermeabilizacaomobile from '@/assets/images/pages/home/studio/diferenciais/impermeabilizacao/mobile.webp';
 
-export const studioImages = [
-  {
-    desktop: olharDesktop,
-    tablet: olharTablet,
-    mobile: olharMobile,
-    alt: 'Interior com estante em carvalho, mesa em travertino e poltrona de linho.',
+export const studioImages = {
+  sofas: {
+    desktop: sofasdesktop,
+    tablet: sofastablet,
+    mobile: sofasmobile,
+    alt: 'Imagem ilustrativa de higienização de sofá com extratora.',
   },
-  {
-    desktop: rotinaDesktop,
-    tablet: rotinaTablet,
-    mobile: rotinaMobile,
-    alt: 'Dormitório com marcenaria em madeira e cama em linho.',
+  colchoes: {
+    desktop: colchoesdesktop,
+    tablet: colchoestablet,
+    mobile: colchoesmobile,
+    alt: 'Imagem ilustrativa de higienização de colchão com extratora.',
   },
-  {
-    desktop: materiaDesktop,
-    tablet: materiaTablet,
-    mobile: materiaMobile,
-    alt: 'Composição de carvalho, travertino e linho sob luz natural.',
+  poltronas: {
+    desktop: poltronasdesktop,
+    tablet: poltronastablet,
+    mobile: poltronasmobile,
+    alt: 'Imagem ilustrativa de higienização de poltrona com extratora.',
   },
-  {
-    desktop: detalheDesktop,
-    tablet: detalheTablet,
-    mobile: detalheMobile,
-    alt: 'Detalhe de acabamento no encontro entre gabinete de carvalho e bancada de travertino.',
+  tapetes: {
+    desktop: tapetesdesktop,
+    tablet: tapetestablet,
+    mobile: tapetesmobile,
+    alt: 'Imagem ilustrativa de higienização de tapete com extratora.',
   },
-];
+  impermeabilizacao: {
+    desktop: impermeabilizacaodesktop,
+    tablet: impermeabilizacaotablet,
+    mobile: impermeabilizacaomobile,
+    alt: 'Imagem ilustrativa de aplicação de impermeabilizante em sofá.',
+  },
+} as const;

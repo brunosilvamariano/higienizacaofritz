@@ -320,3 +320,15 @@
     transition: none;
   }
 }
+
+.menu-brand-subtitle {
+  display: block;
+  margin-top: 16px;
+  font:
+    400 clamp(12px, 1.3vw, 20px)/1.35 var(--font-body),
+    sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  -webkit-text-fill-color: var(--white);
+  white-space: nowrap;
+}

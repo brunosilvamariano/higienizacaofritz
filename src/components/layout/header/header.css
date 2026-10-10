@@ -7,7 +7,7 @@
 .site-header[data-home='true'] {
   position: absolute;
   inset: 0 0 auto;
-  background: transparent;
+  background: #0f172acc;
   color: white;
 }
 .header-inner {
@@ -132,5 +132,37 @@
 @media (prefers-reduced-motion: reduce) {
   .nav-link-label i {
     transition: none;
+  }
+}
+
+/* Marca fornecida: nome e assinatura no mesmo espaço do cabeçalho. */
+.brand .brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: none;
+}
+.brand > .brand-copy {
+  font-family: var(--font-display), sans-serif;
+  font-size: inherit;
+  font-style: normal;
+  min-width: 0;
+  line-height: 0.9;
+}
+.brand-copy strong {
+  font-weight: 400;
+}
+.brand-copy small {
+  display: block;
+  margin-top: 4px;
+  white-space: nowrap;
+  font:
+    400 clamp(7px, 0.6vw, 9px)/1.15 var(--font-body),
+    sans-serif;
+}
+@media (max-width: 767px) {
+  .brand .brand-logo {
+    width: 36px;
+    height: 36px;
   }
 }

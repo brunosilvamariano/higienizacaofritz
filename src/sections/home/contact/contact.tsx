@@ -1,5 +1,5 @@
 import { HoverLabel } from '@/components/ui/hover-label';
-import Link from 'next/link';
+import { whatsappUrl } from '@/config/contact';
 import './contact.css';
 export function Contact() {
   return (
@@ -26,7 +26,14 @@ export function Contact() {
           </div>
         </div>
       ))}
-      <Link href="/contato" className="contact-button">
+      <a
+        href={whatsappUrl()}
+        className="contact-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Solicitar orçamento pelo WhatsApp da Fritz — abrir em nova aba"
+        data-track-contact="orçamento home"
+      >
         <span className="contact-button-gaps" aria-hidden="true">
           <span className="contact-button-gap" />
           <span className="contact-button-gap" />
@@ -38,7 +45,7 @@ export function Contact() {
         <span className="contact-button-icon" aria-hidden="true">
           →
         </span>
-      </Link>
+      </a>
     </section>
   );
 }

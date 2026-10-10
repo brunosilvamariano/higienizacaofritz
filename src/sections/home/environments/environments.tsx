@@ -2,7 +2,9 @@
 import { HoverLabel } from '@/components/ui/hover-label';
 
 import { TitleReveal } from '@/animations/title-reveal';
-import Link from 'next/link';
+import { whatsappUrl } from '@/config/contact';
+import { fritzChoices } from './environments.content';
+import { fritzChoiceImages } from './environments.images';
 import { useEffect, useRef } from 'react';
 import {
   motion,
@@ -14,7 +16,7 @@ import {
   animate,
   type AnimationPlaybackControls,
 } from 'framer-motion';
-import { projects } from '@/content/projects';
+
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import './environments.css';
 function WorkCard({
@@ -24,7 +26,7 @@ function WorkCard({
   index: number;
   progress: ReturnType<typeof useScroll>['scrollYProgress'];
 }) {
-  const project = projects[index];
+  const project = fritzChoices[index];
   const reduced = useReducedMotion();
 
   // Reference timeline: 0.1s hold, three 0.5s exchanges separated by 0.01s.
@@ -60,25 +62,34 @@ function WorkCard({
       }}
     >
       <div className="environment-copy">
-        <Link href={`/projetos/${project.slug}`}>
+        <a
+          href={whatsappUrl(project.context)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <h3>
             {project.title}
             <br />
             {project.category}
           </h3>
-        </Link>
+        </a>
         <p>{project.description}</p>
-        <Link className="pill-link" href={`/projetos/${project.slug}`}>
-          <HoverLabel variant="v2">Saiba mais</HoverLabel>
-        </Link>
+        <a
+          className="pill-link"
+          href={whatsappUrl(project.context)}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-track-contact={`orcamento por que fritz ${project.id}`}
+        >
+          <HoverLabel variant="v2">{project.cta}</HoverLabel>
+        </a>
       </div>
       <div className="environment-photo">
         <ResponsiveImage
           eager
           priority="auto"
           unoptimized
-          {...project.images.capa}
-          alt={`${project.category} — ${project.title}`}
+          {...fritzChoiceImages[index]}
           sizes="(min-width:768px) 500px,100vw"
         />
       </div>
@@ -112,16 +123,16 @@ export function Environments() {
       tabIndex={-1}
     >
       <div className="reference-heading">
-        <TitleReveal id="environments-title" text="Projetos em destaque" />
+        <TitleReveal id="environments-title" text="Escolher a Fritz!" />
         <span className="reference-badge" data-floating-badge="">
-          Espaços sob medida
+          Cuidado com seu estofado
         </span>
       </div>
       <div ref={track} className="environment-track" data-reduced={!!reduced}>
         <div className="environment-list">
           {[0, 1, 2, 3].map((index) => (
             <WorkCard
-              key={projects[index].slug}
+              key={fritzChoices[index].id}
               index={index}
               progress={smoothProgress}
             />

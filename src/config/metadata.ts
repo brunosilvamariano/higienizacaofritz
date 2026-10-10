@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import socialImage from '@/assets/images/shared/social/traco-compartilhamento.jpg';
+import socialImage from '@/assets/images/shared/fritz/fritz-mark.png';
 import { site } from './site';
 
 const shareImage = {
   url: socialImage.src,
   width: socialImage.width,
   height: socialImage.height,
-  alt: 'Traço — Seu espaço, no seu traço. Cozinha planejada em madeira com ilha em pedra.',
-  type: 'image/jpeg',
+  alt: 'Fritz — Higienização e impermeabilização',
+  type: 'image/png',
 };
 
 export const siteMetadata: Metadata = {
@@ -16,7 +16,7 @@ export const siteMetadata: Metadata = {
   title: { default: site.title, template: `%s | ${site.name}` },
   description: site.description,
   alternates: { canonical: '/' },
-  category: 'Móveis planejados',
+  category: 'Higienização e impermeabilização',
   robots: {
     index: site.indexable,
     follow: true,

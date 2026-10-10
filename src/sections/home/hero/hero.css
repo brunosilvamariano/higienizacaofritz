@@ -19,7 +19,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #0004;
+  background: #000c;
 }
 .hero-wordmark {
   position: relative;
@@ -214,5 +214,30 @@
 @media (min-width: 1920px) {
   .hero-content h2 {
     font-size: 96px;
+  }
+}
+/* Gota decorativa: movimento independente da entrada do Hero. */
+.hero-water-symbol {
+  display: inline-flex;
+  flex: none;
+  animation: hero-water-float 4s ease-in-out infinite;
+}
+.hero-water-symbol svg {
+  display: block;
+  width: 0.75em;
+  height: 1em;
+}
+@keyframes hero-water-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-water-symbol {
+    animation: none;
   }
 }

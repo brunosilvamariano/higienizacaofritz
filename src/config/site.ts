@@ -15,10 +15,10 @@ if (
 }
 
 export const site = {
-  name: 'Traço Móveis Planejados',
+  name: 'Fritz — Higienização e impermeabilização',
   url: url.origin,
-  title: 'Traço — Móveis planejados | Seu espaço. Seu traço.',
+  title: 'Fritz — Higienização e impermeabilização',
   description:
-    'Móveis planejados para cozinhas, quartos, salas, banheiros e home office. Explore ideias para aproveitar seu espaço e converse sobre seu projeto com a Traço.',
+    'Fritz: higienização e impermeabilização de estofados. Converse com a equipe sobre os cuidados com seu estofado.',
   indexable: process.env.SITE_INDEXABLE === 'true',
 };

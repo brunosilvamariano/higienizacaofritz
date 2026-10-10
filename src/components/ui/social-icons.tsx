@@ -1,3 +1,4 @@
+import './social-icons.css';
 export function WhatsAppIcon() {
   return (
     <svg

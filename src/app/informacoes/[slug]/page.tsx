@@ -11,7 +11,7 @@ const pages = {
   },
   alteracoes: {
     title: 'Registro de alterações',
-    text: '8 de outubro de 2026: reconstrução da Home, Sobre, Projetos, Serviços, Contato e Blog, seguindo a estrutura do Ariyana. Conteúdos da referência identificados como demonstração. Vídeos da Traço aguardam envio.',
+    text: '8 de outubro de 2026: reconstrução da Home, Sobre, Projetos, Serviços, Contato e Blog, seguindo a estrutura do Ariyana. Conteúdos da referência identificados como demonstração. Vídeos da Fritz aguardam envio.',
   },
 } as const;
 export function generateStaticParams() {
@@ -31,7 +31,7 @@ export default async function Information({
       className="page-content tw:relative tw:bg-paper"
       tabIndex={-1}
     >
-      <PageOpening caption="Informações da Traço" title={page.title} />
+      <PageOpening caption="Informações da Fritz" title={page.title} />
       <section className="section tw:max-w-[1000px] tw:mx-auto tw:text-[20px] tw:leading-relaxed">
         <p>{page.text}</p>
       </section>

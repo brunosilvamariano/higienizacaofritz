@@ -8,7 +8,9 @@ import {
 } from 'framer-motion';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { studioContent } from './studio.content';
-import { projects } from '@/content/projects';
+import { studioImages } from './studio.images';
+import { WhatsAppIcon } from '@/components/ui/social-icons';
+import { whatsappUrl } from '@/config/contact';
 export function StudioPanels() {
   const track = useRef<HTMLDivElement>(null);
   const strip = useRef<HTMLDivElement>(null);
@@ -51,7 +53,7 @@ export function StudioPanels() {
           className="studio-strip tw:flex"
           style={{ x: reduced ? 0 : x }}
         >
-          {studioContent.items.map((item, index) => (
+          {studioContent.items.map((item) => (
             <article
               className="studio-card"
               key={item.id}
@@ -60,7 +62,9 @@ export function StudioPanels() {
               <div className="studio-card-heading">
                 <span
                   className="studio-card-tag"
-                  style={{ background: item.color }}
+                  style={{
+                    background: `var(--home-timeline-color, ${item.color})`,
+                  }}
                 >
                   {item.title}
                 </span>
@@ -70,14 +74,29 @@ export function StudioPanels() {
               </div>
               <p>{item.text}</p>
               <div className="studio-card-image">
-                <ResponsiveImage
-                  eager
-                  priority="auto"
-                  unoptimized
-                  {...projects[index].images.capa}
-                  alt={`${projects[index].category} — estudo conceitual`}
-                  sizes="(min-width:992px) 480px,300px"
-                />
+                {item.image ? (
+                  <ResponsiveImage
+                    eager
+                    priority="auto"
+                    unoptimized
+                    {...studioImages[item.image]}
+                    sizes="(min-width:992px) 480px,300px"
+                  />
+                ) : (
+                  <a
+                    className="studio-conclusion"
+                    href={whatsappUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track-contact="orcamento diferenciais"
+                    aria-label="Solicitar orçamento à Fritz pelo WhatsApp"
+                  >
+                    <WhatsAppIcon />
+                    <span>
+                      Solicitar orçamento <span aria-hidden="true">↗</span>
+                    </span>
+                  </a>
+                )}
               </div>
             </article>
           ))}

@@ -1,11 +1,11 @@
 import { EnvironmentIcon } from './environment-icon';
 const environments = [
-  { kind: 'cozinha', label: 'Cozinhas' },
-  { kind: 'quarto', label: 'Quartos' },
-  { kind: 'sala', label: 'Salas' },
-  { kind: 'banheiro', label: 'Banheiros' },
-  { kind: 'escritorio', label: 'Home office' },
-  { kind: 'armario', label: 'Armários' },
+  { kind: 'sofa', label: 'Sofás' },
+  { kind: 'colchao', label: 'Colchões' },
+  { kind: 'poltrona', label: 'Poltronas' },
+  { kind: 'tapete', label: 'Tapetes' },
+  { kind: 'cadeira', label: 'Cadeiras' },
+  { kind: 'protecao', label: 'Proteção' },
 ] as const;
 import './trust.css';
 export function Trust() {
@@ -13,27 +13,27 @@ export function Trust() {
     <section
       className="trust"
       id="marcas"
-      aria-label="Ambientes com móveis planejados"
+      aria-label="Obrigado por escolher a Fritz"
     >
       <div className="trust-grid">
         <div className="trust-ticker" aria-hidden="true">
           <div>
             {[0, 1, 2].map((n) => (
               <span key={n}>
-                Seu espaço, bem pensado <i>✳</i>
+                Obrigado pela confiança <i>✳</i>
               </span>
             ))}
           </div>
         </div>
         <div className="trust-quote">
           <blockquote data-text-anim="">
-            Mais espaço para o que faz parte da sua vida. Móveis que organizam,
-            acolhem e acompanham sua rotina.
+            Obrigado por escolher a Fritz para cuidar dos seus estofados. Sua
+            confiança faz parte de cada atendimento.
           </blockquote>
           <p>
-            <strong>O olhar da Traço</strong>
+            <strong>Com carinho, equipe Fritz</strong>
             <br />
-            Planejamento para o seu jeito de morar
+            Higienização e impermeabilização
           </p>
         </div>
         {environments.map((environment, index) => (

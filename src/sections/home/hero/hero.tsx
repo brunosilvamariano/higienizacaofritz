@@ -33,12 +33,8 @@ export function Hero() {
       <div className="hero-background" aria-hidden="true">
         <ResponsiveImage {...heroSlides[0].images} alt="" eager sizes="100vw" />
       </div>
-      <h1
-        id="hero-title"
-        className="hero-wordmark"
-        aria-label="Traço Móveis Planejados"
-      >
-        <EntranceText text="TRAÇO STUDIO" />
+      <h1 id="hero-title" className="hero-wordmark" aria-label="Higienização">
+        <EntranceText text="Higienização" />
       </h1>
       <div className="hero-content tw:relative tw:flex">
         <h2 aria-label={heroContent.title.join(' ')}>
@@ -63,11 +59,26 @@ export function Hero() {
           </a>
         </div>
         <div className="hero-stat">
-          <span aria-hidden="true">✳</span>
+          <span className="hero-water-symbol" aria-hidden="true">
+            <svg
+              viewBox="0 0 48 64"
+              width="48"
+              height="64"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              focusable="false"
+            >
+              <path d="M24 4C20 12 5 29 5 40a19 19 0 0 0 38 0C43 29 28 12 24 4Z" />
+              <path d="M13 40a11 11 0 0 0 11 11" />
+            </svg>
+          </span>
           <div>
-            <strong>Sob medida</strong>
-            <p>Para o seu jeito de viver</p>
-            <small>Cozinhas, quartos, salas e mais</small>
+            <strong>Cuidado profissional</strong>
+            <p>Higienização e proteção</p>
+            <small>Sofás e outros estofados</small>
           </div>
         </div>
       </div>

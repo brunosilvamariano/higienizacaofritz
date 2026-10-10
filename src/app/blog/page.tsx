@@ -4,7 +4,7 @@ import { PageOpening } from '@/components/layout/page-opening/page-opening';
 import { BlogListing } from '@/sections/blog/listing/blog-listing';
 import { Contact } from '@/sections/home/contact/contact';
 export const metadata: Metadata = {
-  title: 'Ideias sobre móveis planejados — Traço',
+  title: 'Ideias sobre móveis planejados — Fritz',
   description:
     'Leia sobre cozinhas, quartos, espaços compactos e como avaliar um orçamento de móveis planejados.',
   alternates: { canonical: '/blog' },

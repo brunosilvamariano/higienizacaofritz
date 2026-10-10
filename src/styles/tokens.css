@@ -48,3 +48,30 @@
     --section-space: 64px;
   }
 }
+
+/* Paleta Fritz: apenas a Home, inclusive seus componentes compartilhados. */
+:root:has(.home-palette) {
+  --paper: #f8fafc;
+  --ink: #0f172a;
+  --brand: #2563eb;
+  --brand-logo: #2563eb;
+  --brand-deep: #0f172a;
+  --mist: color-mix(in srgb, #bfd4ff 28%, #f8fafc);
+  --sand: color-mix(in srgb, #bfd4ff 45%, #f8fafc);
+  --amber: #bfd4ff;
+  --amber-text: #2563eb;
+  --blue-soft: color-mix(in srgb, #bfd4ff 65%, #f8fafc);
+  --blue-panel: color-mix(in srgb, #bfd4ff 75%, #f8fafc);
+  --sand-panel: color-mix(in srgb, #bfd4ff 85%, #f8fafc);
+  --blue-panel-strong: #bfd4ff;
+  --blue-gray: color-mix(in srgb, #bfd4ff 35%, #f8fafc);
+  --blue-gray-panel: color-mix(in srgb, #bfd4ff 60%, #f8fafc);
+  --muted: color-mix(in srgb, #0f172a 78%, #f8fafc);
+  --on-dark-muted: #bfd4ff;
+  --line: #0f172a33;
+  --line-on-dark: #bfd4ff44;
+  --taupe: var(--sand);
+  --copper: var(--brand);
+  --surface: var(--mist);
+  --home-timeline-color: #bfd4ff;
+}

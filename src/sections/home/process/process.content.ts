@@ -1,22 +1,22 @@
 export const processSteps = [
   {
     id: 'conversa',
-    title: 'Entender seu espaço',
-    text: 'O ponto de partida é sua rotina: quais ambientes deseja transformar, o que precisa guardar e quanto pretende investir. Fotos, referências e uma planta ajudam nessa conversa.',
+    title: 'Envie fotos do estofado',
+    text: 'Entre em contato pelo WhatsApp e envie fotos do estofado. Informe o serviço desejado, a quantidade de estofados e seu bairro e cidade para solicitar um orçamento à Fritz.',
   },
   {
     id: 'projeto',
-    title: 'Planejar cada medida',
-    text: 'Medidas, circulação e equipamentos orientam o layout. A distribuição dos móveis busca aproveitar o ambiente sem abrir mão do conforto no dia a dia.',
+    title: 'Combine o atendimento',
+    text: 'Confira o orçamento, esclareça suas dúvidas e consulte os horários disponíveis. Combine com a Fritz o serviço, o local e os preparativos necessários para o atendimento.',
   },
   {
     id: 'escolhas',
-    title: 'Definir os detalhes',
-    text: 'Acabamentos, divisões internas e ferragens compõem a proposta. Antes da aprovação, alinhe o que está incluído, o valor e o prazo de entrega.',
+    title: 'Realização do serviço',
+    text: 'No dia combinado, facilite o acesso aos estofados e prepare o ambiente conforme as orientações recebidas. O atendimento segue o serviço de higienização ou impermeabilização acordado.',
   },
   {
     id: 'montagem',
-    title: 'Produção e montagem',
-    text: 'Com o projeto aprovado, a execução segue as especificações combinadas. A montagem e a conferência final completam o ambiente para o uso.',
+    title: 'Cuidados após o serviço',
+    text: 'Siga as orientações sobre ventilação, secagem e retorno ao uso do estofado. Esses cuidados variam conforme o tecido, o serviço realizado e as condições do ambiente.',
   },
 ] as const;

@@ -1,7 +1,7 @@
 import { HoverLabel } from '@/components/ui/hover-label';
-import Link from 'next/link';
 import Image from 'next/image';
-import pattern from '@/assets/images/shared/traco/simbolo.svg';
+import { whatsappUrl } from '@/config/contact';
+import pattern from '@/assets/images/shared/fritz/fritz-studio.svg';
 import { DemoNote } from '@/components/ui/demo-note';
 import { StudioPanels } from './studio-panels';
 import { StudioTitle } from './studio-title';
@@ -19,24 +19,27 @@ export function Studio() {
           <span className="studio-caption">
             <span className="studio-caption-circle" aria-hidden="true" />
             <span>
-              Por dentro <i>(da)</i> Traço
+              Por dentro <i>(da)</i> Fritz
             </span>
           </span>
           <StudioTitle />
-          <Link href="/sobre" className="pill-link">
-            <HoverLabel variant="primary">Conheça a Traço</HoverLabel>
-          </Link>
+          <a
+            href={whatsappUrl(
+              'agendar a higienização ou impermeabilização do meu estofado',
+            )}
+            className="pill-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Agendar higienização pelo WhatsApp"
+            data-track-contact="agendamento home"
+          >
+            <HoverLabel variant="primary">Agendar pelo WhatsApp</HoverLabel>
+          </a>
         </div>
-        <Image
-          src={pattern}
-          alt="Símbolo da Traço — dois traços diagonais"
-          className="studio-pattern"
-        />
+        <Image src={pattern} alt="Logo da Fritz" className="studio-pattern" />
       </div>
       <div className="studio-demo">
-        <DemoNote>
-          Estudos conceituais para inspirar seu próximo ambiente.
-        </DemoNote>
+        <DemoNote>O cuidado da Fritz em cada detalhe do seu estofado.</DemoNote>
       </div>
       <StudioPanels />
     </section>

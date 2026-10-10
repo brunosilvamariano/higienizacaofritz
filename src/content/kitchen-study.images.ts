@@ -6,5 +6,5 @@ export const kitchenStudyImages = {
   desktop,
   tablet,
   mobile,
-  alt: 'Estudo de cozinha em carvalho natural, com ilha de travertino e luz da manhã.',
+  alt: 'Higienização profissional de sofá em tecido com extratora.',
 };

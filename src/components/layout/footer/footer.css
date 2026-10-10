@@ -296,3 +296,16 @@
     max-width: 100%;
   }
 }
+
+.footer-brand-subtitle {
+  display: block;
+  margin-top: 18px;
+  font:
+    400 clamp(12px, 1.1vw, 18px)/1.35 var(--font-body),
+    sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--on-dark-muted);
+  -webkit-text-fill-color: var(--on-dark-muted);
+  white-space: nowrap;
+}

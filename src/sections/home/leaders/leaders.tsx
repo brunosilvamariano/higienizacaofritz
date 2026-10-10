@@ -112,7 +112,7 @@ export function Leaders() {
           <span>morar</span>
         </h2>
         <Link href="/sobre" className="pill-link">
-          <HoverLabel variant="primary">Conheça a Traço</HoverLabel>
+          <HoverLabel variant="primary">Conheça a Fritz</HoverLabel>
         </Link>
       </div>
       <DemoNote>Imagens de estudos conceituais de móveis planejados.</DemoNote>

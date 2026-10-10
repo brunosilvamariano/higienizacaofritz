@@ -14,7 +14,7 @@ export function AboutStory() {
       </figure>
       <div className="about-story-grid tw:grid">
         <Reveal>
-          <span className="section-kicker">O olhar da Traço</span>
+          <span className="section-kicker">O olhar da Fritz</span>
           <h2 id="about-story-title">
             Seu jeito de viver.
             <br />
@@ -30,11 +30,11 @@ export function AboutStory() {
           </p>
           <p>
             Layout, divisões internas e acabamentos devem funcionar em conjunto.
-            O olhar da Traço é unir organização e conforto em móveis que façam
+            O olhar da Fritz é unir organização e conforto em móveis que façam
             sentido para o seu jeito de viver.
           </p>
-          <WhatsAppLink context="o olhar da Traço e um projeto para meu espaço">
-            Conversar com a Traço
+          <WhatsAppLink context="o olhar da Fritz e um projeto para meu espaço">
+            Conversar com a Fritz
           </WhatsAppLink>
         </Reveal>
       </div>

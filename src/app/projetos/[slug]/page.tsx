@@ -18,10 +18,10 @@ export async function generateMetadata({
   if (!project) return { title: 'Projeto não encontrado' };
   return {
     title: `${project.title} — ${project.category}`,
-    description: `${project.introduction} Estudo conceitual de marcenaria da Traço.`,
+    description: `${project.introduction} Estudo conceitual de marcenaria da Fritz.`,
     alternates: { canonical: `/projetos/${slug}` },
     openGraph: {
-      title: `${project.title} — Traço`,
+      title: `${project.title} — Fritz`,
       description: project.introduction,
       url: `/projetos/${slug}`,
       images: [
