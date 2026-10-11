@@ -325,3 +325,7 @@ No celular, missão, visão e valores ficam em uma coluna, com altura uniforme e
 ### Empilhamento dos valores no mobile — 11/10/2026
 Somente Missão, Visão e Valores ganham cards sticky com deslocamento vertical progressivo para preservar os títulos anteriores. Manter cores e desktop, com alternativa estática para movimento reduzido.
 
+
+### Cores nas áreas atendidas — 11/10/2026
+Diferenciar as cidades com sequência de gelo e dois azuis claros da paleta, preservando texto navy, leitura e efeito de desktop. Acrescentar respiro lateral às linhas.
+

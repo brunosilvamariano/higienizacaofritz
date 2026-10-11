@@ -669,3 +669,37 @@
     margin-bottom: 72px;
   }
 }
+
+/* O hover com deslocamento é reservado a telas com espaço e ponteiro. */
+@media (max-width: 767px), (hover: none), (pointer: coarse) {
+  .about-page .about-award-row:hover {
+    color: var(--ink);
+    background: transparent;
+    padding-inline: 0;
+  }
+  .about-award-row:hover::before {
+    transform: scaleY(0);
+    transition: none;
+  }
+  .about-award-row:hover > strong:first-child,
+  .about-award-row:hover > strong:last-child {
+    transform: none;
+  }
+}
+
+/* Variação de cor identifica cada área sem depender do hover. */
+.about-page .about-award-row {
+  --area-row-background: var(--paper);
+  background: var(--area-row-background);
+  padding-inline: 16px;
+}
+.about-page .about-award-row:nth-child(3n + 2) {
+  --area-row-background: var(--mist);
+}
+.about-page .about-award-row:nth-child(3n) {
+  --area-row-background: var(--blue-soft);
+}
+.about-page .about-award-row:hover {
+  background: var(--area-row-background);
+  padding-inline: 16px;
+}
