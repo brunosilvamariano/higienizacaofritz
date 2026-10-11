@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import Image from 'next/image';
+import fritzMark from '@/assets/images/shared/fritz/fritz-mark.png';
 import { navigateAnchor } from '@/lib/navigate-anchor';
 import { focusAnchor } from '@/lib/focus-anchor';
 import { prefersReducedMotion } from '@/lib/media-queries';
@@ -15,11 +17,6 @@ type Destination = {
   restoreScroll?: number;
 };
 type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
-const preloaderLetters = Array.from('FRITZ').map((letter, index) => ({
-  letter,
-  id: `preloader-${index}`,
-  delay: `${0.05 + (index * 0.4) / 6}s`,
-}));
 
 export function PageTransition() {
   const router = useRouter();
@@ -254,21 +251,14 @@ export function PageTransition() {
       data-home={pathname === '/'}
       aria-hidden={phase === 'idle'}
     >
-      <span className="page-transition-wordmark" aria-hidden="true">
-        {preloaderLetters.map(({ letter, id, delay }) => (
-          <span className="preloader-letter-mask" key={id}>
-            <span style={{ animationDelay: delay }}>{letter}</span>
-          </span>
-        ))}
-        <small className="preloader-brand-subtitle">
-          Higienização e impermeabilização
-        </small>
-      </span>
-      <span className="page-transition-border" aria-hidden="true">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <i key={i} />
-        ))}
-      </span>
+      <Image
+        className="page-transition-logo"
+        src={fritzMark}
+        alt="Fritz"
+        width={112}
+        height={112}
+        priority
+      />
     </div>
   );
 }

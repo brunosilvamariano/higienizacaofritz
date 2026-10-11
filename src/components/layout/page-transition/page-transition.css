@@ -116,3 +116,9 @@
     sans-serif;
   white-space: nowrap;
 }
+
+.page-transition-logo {
+  width: clamp(88px, 16vw, 112px);
+  height: auto;
+  object-fit: contain;
+}

@@ -333,3 +333,7 @@ Diferenciar as cidades com sequência de gelo e dois azuis claros da paleta, pre
 ### Refinamento editorial e mobile — 11/10/2026
 Encurtar os textos repetidos da Home, distinguindo apresentação, processo, diferenciais e serviços. Ajustar apenas espaços estáticos no mobile. Preservar todos os CTAs, dados, seções, URLs, formulários, cores e animações atuais.
 
+
+### Abertura com logo — 11/10/2026
+Manter a tela e a lógica de carregamento, exibindo somente a marca gráfica da Fritz centralizada, sem texto adicional nem linhas decorativas.
+
