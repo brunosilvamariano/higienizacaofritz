@@ -6,7 +6,7 @@ import { ProjectGallery } from '@/sections/projects/gallery/project-gallery';
 import { Contact } from '@/sections/home/contact/contact';
 
 export const metadata: Metadata = pageMetadata(
-  'Registros da Fritz',
+  'Galeria da Fritz',
   'Fotos e registros de estofados e atendimentos da Fritz. Conheça nosso cuidado e solicite seu orçamento.',
   '/projetos',
 );

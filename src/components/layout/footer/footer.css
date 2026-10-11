@@ -309,3 +309,25 @@
   -webkit-text-fill-color: var(--on-dark-muted);
   white-space: nowrap;
 }
+
+/* No celular, o rótulo acessível também é o texto visível e pode quebrar. */
+@media (max-width: 767px) {
+  .footer-links nav a {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+  .footer-links nav a .hover-label {
+    display: none;
+  }
+  .footer-links nav a .tw\:sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}

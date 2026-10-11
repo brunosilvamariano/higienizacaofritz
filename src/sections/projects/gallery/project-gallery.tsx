@@ -53,7 +53,7 @@ export function ProjectGallery() {
       >
         <div className="reference-heading">
           <h2 id="collection-heading" data-title-anim="">
-            Registros da Fritz
+            Galeria da Fritz
           </h2>
           <span className="reference-badge" data-floating-badge="">
             Cuidado em cada detalhe

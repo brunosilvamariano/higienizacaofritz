@@ -41,10 +41,10 @@ export function Footer() {
               <HoverLabel>Contato</HoverLabel>
             </Link>
           </nav>
-          <nav aria-label="Projetos e artigos">
-            <h2>Projetos e artigos</h2>
+          <nav aria-label="Galeria e artigos">
+            <h2>Galeria e artigos</h2>
             <Link href="/projetos">
-              <HoverLabel>Projetos</HoverLabel>
+              <HoverLabel>Galeria</HoverLabel>
             </Link>
             <Link href="/blog">
               <HoverLabel>Blog</HoverLabel>

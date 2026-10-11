@@ -608,3 +608,26 @@
 .reference-divider-awards {
   color: #f9ebe4;
 }
+
+/* Uma coluna mantém os três valores legíveis nos celulares. */
+@media (max-width: 767px) {
+  .about-why-items {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-why-card {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    min-height: 240px;
+    padding: 88px 24px 48px;
+    border-radius: 32px;
+  }
+  .about-why-card h3 {
+    max-width: 100%;
+    font-size: clamp(32px, 8vw, 40px);
+    line-height: 1.1;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+}

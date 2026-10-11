@@ -317,3 +317,7 @@ Adaptar somente o detalhe cozinha-encontro para cuidado da Fritz com estofados, 
 ### Auditoria completa Fritz — conteúdo, mídia e SEO
 
 Eliminar conteúdo e referências visíveis do modelo de marcenaria em todas as rotas e módulos de conteúdo, incluindo páginas acessadas diretamente. Preservar layout, cores aprovadas e animações. Usar nomes de rotas ligados aos serviços com redirecionamentos permanentes dos antigos. Configurar domínio higienizacaofritz.vercel.app, canonicals e compartilhamento com google.jpg fornecida (1200x630), vídeo download.mp4 no reel, sitemap e robots. Dados estruturados somente com fatos confirmados. Validar conteúdo renderizado e recursos; não publicar automaticamente.
+
+### Ajustes de responsividade — 11/10/2026
+No celular, missão, visão e valores ficam em uma coluna, com altura uniforme e texto protegido por espaçamento interno. Os links do rodapé permitem quebra de linha sem corte. Preservar as três cores e os efeitos de desktop. Renomear a navegação Projetos para Galeria, mantendo as URLs existentes.
+
