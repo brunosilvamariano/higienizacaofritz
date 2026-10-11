@@ -329,3 +329,7 @@ Somente Missão, Visão e Valores ganham cards sticky com deslocamento vertical 
 ### Cores nas áreas atendidas — 11/10/2026
 Diferenciar as cidades com sequência de gelo e dois azuis claros da paleta, preservando texto navy, leitura e efeito de desktop. Acrescentar respiro lateral às linhas.
 
+
+### Refinamento editorial e mobile — 11/10/2026
+Encurtar os textos repetidos da Home, distinguindo apresentação, processo, diferenciais e serviços. Ajustar apenas espaços estáticos no mobile. Preservar todos os CTAs, dados, seções, URLs, formulários, cores e animações atuais.
+

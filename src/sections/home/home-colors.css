@@ -230,3 +230,23 @@ body:has(.home-palette) .reference-divider-footer {
   color: #f8fafc;
   text-shadow: 0 2px 12px #0f172a99;
 }
+
+/* Respiro mais compacto nas áreas estáticas da Home no celular. */
+@media (max-width: 767px) {
+  .home-palette .studio {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  .home-palette .studio-intro {
+    margin-bottom: 64px;
+  }
+  .home-palette .environments {
+    padding-block: 64px;
+  }
+  .home-palette .process-heading {
+    margin-bottom: 40px;
+  }
+  .home-palette .environment-copy p {
+    margin-block: 20px 32px;
+  }
+}

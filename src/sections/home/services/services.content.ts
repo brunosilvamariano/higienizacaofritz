@@ -15,7 +15,7 @@ export const servicesContent = {
         'Braços',
         'Encostos',
       ],
-      text: 'Higienização de sofás, poltronas e cadeiras estofadas. Envie fotos e informe a quantidade de peças para consultar o serviço indicado para o tecido e solicitar seu orçamento.',
+      text: 'Higienização de sofás, poltronas e cadeiras estofadas, conforme as características do tecido e a necessidade de cada estofado.',
     },
     {
       id: 'colchoes',
@@ -29,7 +29,7 @@ export const servicesContent = {
         'Dimensões da peça',
         'Cuidados após o serviço',
       ],
-      text: 'Seu colchão também faz parte do cuidado com a casa. Informe o tamanho e envie fotos para consultar a higienização com a Fritz e as orientações de secagem e retorno ao uso.',
+      text: 'Higienização de colchões de diferentes tamanhos. Consulte as orientações de ventilação, secagem e retorno ao uso.',
     },
     {
       id: 'tapetes',
@@ -43,7 +43,7 @@ export const servicesContent = {
         'Orçamento',
         'Orientações de cuidado',
       ],
-      text: 'Limpeza de tapetes conforme as características de cada peça. Envie fotos e informe as medidas para conversar sobre o atendimento e receber um orçamento da Fritz.',
+      text: 'Limpeza de tapetes conforme o material e as dimensões. Informe as medidas para consultar o atendimento.',
     },
     {
       id: 'impermeabilizacao',
@@ -57,7 +57,7 @@ export const servicesContent = {
         'Aplicação',
         'Cuidados após o serviço',
       ],
-      text: 'Consulte a impermeabilização para o seu estofado. A Fritz orienta sobre a indicação para o tecido e os cuidados após a aplicação, para que você saiba como usar e conservar a peça.',
+      text: 'Consulte a proteção indicada para o tecido do seu estofado e receba orientações de uso e conservação após a aplicação.',
     },
   ],
 } as const;
