@@ -251,3 +251,37 @@
     margin-bottom: 32px;
   }
 }
+
+.testimonials .review-google-word {
+  display: inline-block;
+}
+.testimonials .testimonial-card .testimonial-stars,
+.home-palette .testimonials .testimonial-card .testimonial-stars {
+  color: #fbbc05;
+}
+
+.testimonials .review-actions .pill-link:has(.hover-label-primary),
+.home-palette
+  .testimonials
+  .review-actions
+  .pill-link:has(.hover-label-primary) {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+.testimonials
+  .review-actions
+  .pill-link:has(.hover-label-primary):is(:hover, :focus-visible),
+.home-palette
+  .testimonials
+  .review-actions
+  .pill-link:has(.hover-label-primary):is(:hover, :focus-visible) {
+  background: #eef4ff;
+  color: #0f172a;
+  border-color: #4285f4;
+}
+.testimonials .review-actions .review-google-mark {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}

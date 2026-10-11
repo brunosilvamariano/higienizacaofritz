@@ -45,6 +45,6 @@ export const serviceItemImages = {
     desktop: impermeabilizacaodesktop,
     tablet: impermeabilizacaotablet,
     mobile: impermeabilizacaomobile,
-    alt: 'Imagem ilustrativa de impermeabilização de estofado.',
+    alt: 'Gotas de água sobre tecido, representando a proteção da impermeabilização.',
   },
 } as const;

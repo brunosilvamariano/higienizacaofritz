@@ -1,5 +1,5 @@
 export const servicesContent = {
-  title: 'Cuidado para os seus estofados',
+  title: 'Serviços Fritz',
   introduction:
     'Conheça os serviços de higienização e impermeabilização da Fritz e consulte o atendimento para suas peças.',
   items: [

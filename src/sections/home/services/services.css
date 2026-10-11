@@ -31,8 +31,9 @@
 }
 .service-copy > p {
   font-size: 20px;
-  text-transform: uppercase;
-  font-weight: 700;
+  text-transform: none;
+  font-weight: 400;
+  line-height: 1.5;
   margin-bottom: 20px;
 }
 .service-tags {
@@ -343,4 +344,49 @@
   .service-opening-content h1 {
     font-size: var(--heading-section);
   }
+}
+
+/* Variações suaves da paleta Fritz para distinguir os serviços. */
+.services .service-row:nth-child(1),
+.home-palette .services .service-row:nth-child(1) {
+  background: #dce8ff;
+}
+.services .service-row:nth-child(2),
+.home-palette .services .service-row:nth-child(2) {
+  background: #edf3ff;
+}
+.services .service-row:nth-child(3),
+.home-palette .services .service-row:nth-child(3) {
+  background: #d2e1ff;
+}
+.services .service-row:nth-child(4),
+.home-palette .services .service-row:nth-child(4) {
+  background: #e4edff;
+}
+
+/* Estende apenas o fundo, preservando a largura e o alinhamento do conteúdo. */
+.services .service-row {
+  isolation: isolate;
+}
+.services .service-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: inherit;
+  box-shadow: 0 0 0 100vmax var(--service-row-background);
+  clip-path: inset(0 -100vmax);
+  pointer-events: none;
+}
+.services .service-row:nth-child(1) {
+  --service-row-background: #dce8ff;
+}
+.services .service-row:nth-child(2) {
+  --service-row-background: #edf3ff;
+}
+.services .service-row:nth-child(3) {
+  --service-row-background: #d2e1ff;
+}
+.services .service-row:nth-child(4) {
+  --service-row-background: #e4edff;
 }

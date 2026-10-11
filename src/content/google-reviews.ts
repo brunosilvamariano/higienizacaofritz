@@ -1,44 +1,46 @@
-import gustavo from '@/assets/images/shared/google-reviews/gustavo-silva.png';
-import rique from '@/assets/images/shared/google-reviews/rique-yt.png';
-import kaua from '@/assets/images/shared/google-reviews/kaua-lucindo.png';
-import nayane from '@/assets/images/shared/google-reviews/nayane-freitas.png';
+import thays from '@/assets/images/shared/fritz/google-reviews/thays-leal.webp';
+import reviewer0 from '@/assets/images/shared/fritz/google-reviews/camila-rosa-gomes.webp';
+import reviewer1 from '@/assets/images/shared/fritz/google-reviews/bia-marina.webp';
+import reviewer2 from '@/assets/images/shared/fritz/google-reviews/ketti-pars.webp';
 export const googleReviews = {
-  profileName: 'Bruno Mariano Silva',
+  profileName: 'Higienização e Impermeabilização Fritz',
   rating: '5,0',
-  count: 5,
+  count: 289,
   checkedAt: '10/10/2026',
+  profile: 'https://www.google.com/maps?cid=4180201816637624609',
+  reviewUrl: 'https://www.google.com/maps?cid=4180201816637624609',
   items: [
     {
-      name: 'Gustavo Silva',
-      image: gustavo,
-      text: 'Ótimo profissional. […] sempre atento aos detalhes',
+      name: 'Camila Rosa Gomes',
+      image: reviewer0,
+      text: 'o Alfredo é muito cuidadoso e comprometido',
       excerpt: true,
       profile:
-        'https://www.google.com/maps/contrib/117122593002217545413/reviews?hl=pt-BR',
+        'https://www.google.com/maps/contrib/113089659287269548207/reviews?hl=pt-BR',
     },
     {
-      name: 'RIQUE YT',
-      image: rique,
-      text: 'os melhores sites de joinville',
-      excerpt: false,
+      name: 'Bia Marina',
+      image: reviewer1,
+      text: 'Excelente serviço! Limpeza de qualidade, bom atendimento e trabalho muito limpo',
+      excerpt: true,
       profile:
-        'https://www.google.com/maps/contrib/116564779564657719722/reviews?hl=pt-BR',
+        'https://www.google.com/maps/contrib/107311281463588243509/reviews?hl=pt-BR',
     },
     {
-      name: 'Kauã H. Lucindo',
-      image: kaua,
-      text: 'o cara é bom!',
-      excerpt: false,
+      name: 'Ketti Pars',
+      image: reviewer2,
+      text: 'Super recomendo o trabalho do Fritz! Caprichoso, cuidadoso e empenhado em solucionar o problema.',
+      excerpt: true,
       profile:
-        'https://www.google.com/maps/contrib/115503429811888128782/reviews?hl=pt-BR',
+        'https://www.google.com/maps/contrib/109811868611662659037/reviews?hl=pt-BR',
     },
     {
-      name: 'Nayane Freitas',
-      image: nayane,
-      text: null,
-      excerpt: false,
+      name: 'Thays Leal',
+      image: thays,
+      text: 'Serviço excelente! Impermeabilizei minhas cadeiras e cabeceira, ele isolou a parte de madeira com cuidado.',
+      excerpt: true,
       profile:
-        'https://www.google.com/maps/contrib/105925686386066189451/reviews?hl=pt-BR',
+        'https://www.google.com/maps/contrib/105085449511163122408/reviews?hl=pt-BR',
     },
   ],
 } as const;

@@ -1,5 +1,6 @@
 import { HoverLabel } from '@/components/ui/hover-label';
 import { whatsappUrl } from '@/config/contact';
+import { contactContent } from './contact.content';
 import './contact.css';
 export function Contact() {
   return (
@@ -10,7 +11,7 @@ export function Contact() {
       tabIndex={-1}
     >
       <h2 id="contact-title" className="contact-accessible">
-        Vamos planejar seu espaço
+        {contactContent.description}
       </h2>
       {[false, true].map((stroke) => (
         <div
@@ -21,13 +22,13 @@ export function Contact() {
         >
           <div>
             {[0, 1].map((n) => (
-              <span key={n}>Seu próximo ambiente começa aqui</span>
+              <span key={n}>{contactContent.title}</span>
             ))}
           </div>
         </div>
       ))}
       <a
-        href={whatsappUrl()}
+        href={whatsappUrl(contactContent.context)}
         className="contact-button"
         target="_blank"
         rel="noopener noreferrer"
@@ -40,7 +41,7 @@ export function Contact() {
           <span className="contact-button-gap" />
         </span>
         <span className="contact-button-text">
-          <HoverLabel variant="cta">Solicitar orçamento</HoverLabel>
+          <HoverLabel variant="cta">Orçamento pelo WhatsApp</HoverLabel>
         </span>
         <span className="contact-button-icon" aria-hidden="true">
           →

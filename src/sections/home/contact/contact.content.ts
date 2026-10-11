@@ -1,7 +1,7 @@
 export const contactContent = {
-  title: 'Seu espaço começa com uma conversa.',
+  title: 'Seu estofado merece o cuidado da Fritz',
   description:
-    'Conte sua ideia, os ambientes que deseja transformar e o que faz sentido para sua rotina.',
+    'Solicite seu orçamento de higienização ou impermeabilização pelo WhatsApp da Fritz.',
   context:
-    'um novo projeto de móveis planejados. Gostaria de contar minha ideia e entender os próximos passos',
+    'higienização ou impermeabilização. Gostaria de enviar fotos das peças e informar meu bairro e cidade para solicitar um orçamento',
 } as const;

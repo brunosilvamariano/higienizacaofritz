@@ -224,3 +224,41 @@ Adaptar somente textos e ícones da grade Trust para agradecer a confiança na F
 ### Seção de serviços da Fritz
 
 Manter os quatro blocos e todo o CSS existente. Conteúdo: higienização de estofados, colchões, tapetes e impermeabilização. Fotografias ilustrativas locais em WebP para três telas, sem promessas de saúde ou resultados garantidos. Componente compartilhado pela home e página de serviços; abertura da página preservada.
+
+### Simplificação da seção Serviços
+
+Título curto Serviços Fritz, sem introdução nem etiquetas de características. Legendas identificam o serviço. Impermeabilização usa fotografia disponível de gotas sobre tecido, mantida na resolução original de 400×200 para não ampliar artificialmente; três arquivos WebP para as telas existentes.
+
+### Parágrafos de serviços
+
+Usar caixa normal, peso 400 e entrelinha 1.5 para distinguir os parágrafos dos títulos. Preservar os tamanhos existentes de 20px e 16px no mobile.
+
+### Padrão dos títulos e cores dos serviços
+
+Quebra explícita antes do nome da peça nos quatro títulos. Diferenciar as linhas com fundos azul claro #dce8ff, #edf3ff, #d2e1ff e #e4edff, sem mudar fontes, espaçamentos ou animações.
+
+### Fundos dos serviços de margem a margem
+
+Estender as cores horizontalmente até as bordas da tela por uma camada decorativa recortada, preservando largura, margens do conteúdo e comportamento sticky dos cards.
+
+### Círculo de imagens da Fritz
+
+Preservar composição, dez posições e movimentos. Texto Cuidado de verdade e faixa Fritz, cuidado em cada detalhe. Incluir foto fornecida do profissional e imagens de sofás, colchões, poltronas, tapetes, cadeiras e impermeabilização. Versões WebP quadradas de 500px, 360px e 240px sem ampliação. CTA Conheça a Fritz permanece para /sobre.
+
+### Avaliações reais da Fritz
+
+Perfil Google Maps verificado em 10/10/2026: 5,0 e 289 avaliações. Três trechos identificados como tais: Camila Rosa Gomes, Bia Marina e Ketti Pars, com fotos públicas baixadas e convertidas para WebP. Links para perfil da empresa e perfis dos autores. Palavra Google com cores por letra, estrelas amarelas, sem mudar tamanho de título ou layout.
+
+Quarto card restaurado com trecho e foto pública da avaliação de cinco estrelas de Thays Leal, verificada no perfil da Fritz. Mantida composição original de quatro cards.
+
+### CTA de avaliação Google
+
+Aplicar quatro gradientes radiais com azul, vermelho, amarelo e verde do Google somente ao CTA Deixar uma avaliação. Texto escuro para leitura nas áreas claras. Preservar dimensões e animação HoverLabel.
+
+### Refinamento do CTA Google
+
+Substituir degradê por fundo branco, texto azul escuro, borda cinza suave e ícone G nas cores oficiais. Hover azul claro com borda azul. Preservar formato e animação do botão.
+
+### Faixa final de contato da Fritz
+
+Texto animado Seu estofado merece o cuidado da Fritz e CTA Orçamento pelo WhatsApp com mensagem específica para higienização ou impermeabilização, envio de fotos e localização. Preservar animações, dimensões e cores da faixa.

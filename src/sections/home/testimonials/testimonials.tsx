@@ -1,7 +1,5 @@
-import { TitleReveal } from '@/animations/title-reveal';
 import Image from 'next/image';
 import { googleReviews } from '@/content/google-reviews';
-import { developer } from '@/config/developer';
 import { HoverLabel } from '@/components/ui/hover-label';
 import './testimonials.css';
 function GoogleMark() {
@@ -33,12 +31,24 @@ export function Testimonials() {
       aria-labelledby="testimonials-title"
     >
       <div className="reference-heading">
-        <TitleReveal id="testimonials-title" text="Avaliações no Google" />
-        <p className="review-profile-name">Fritz — Higienização e impermeabilização</p>
+        <h2 id="testimonials-title" data-title-anim="">
+          Avaliações no{' '}
+          <span className="review-google-word">
+            <span style={{ color: '#4285F4' }}>G</span>
+            <span style={{ color: '#EA4335' }}>o</span>
+            <span style={{ color: '#FBBC05' }}>o</span>
+            <span style={{ color: '#4285F4' }}>g</span>
+            <span style={{ color: '#34A853' }}>l</span>
+            <span style={{ color: '#EA4335' }}>e</span>
+          </span>
+        </h2>
+        <p className="review-profile-name">
+          Fritz — Higienização e impermeabilização
+        </p>
       </div>
       <div className="review-summary">
         <a
-          href={developer.googleProfile}
+          href={googleReviews.profile}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -107,20 +117,16 @@ export function Testimonials() {
       <div className="review-actions">
         <a
           className="pill-link"
-          href={developer.googleReview}
+          href={googleReviews.reviewUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
+          <GoogleMark />
           <HoverLabel variant="primary">
             Deixar uma avaliação no Google
           </HoverLabel>
         </a>
       </div>
-      <p className="review-disclosure">
-        Avaliações públicas do perfil de Bruno Mariano Silva sobre serviços de
-        criação de sites. Nota e quantidade conferidas em{' '}
-        {googleReviews.checkedAt}.
-      </p>
     </section>
   );
 }

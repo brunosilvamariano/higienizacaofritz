@@ -9,9 +9,8 @@ import {
   useTransform,
   useReducedMotion,
 } from 'framer-motion';
-import { projects } from '@/content/projects';
+import { leadersImages } from './leaders.images';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { DemoNote } from '@/components/ui/demo-note';
 import { useSmoothedProgress } from '@/animations/use-smoothed-progress';
 import './leaders.css';
 export function Leaders() {
@@ -93,9 +92,7 @@ export function Leaders() {
                   eager
                   priority="auto"
                   unoptimized
-                  {...projects[index % 6].images[
-                    index < 6 ? 'capa' : 'detalhe'
-                  ]}
+                  {...leadersImages[index]}
                   alt=""
                   sizes="18vw"
                 />
@@ -105,17 +102,16 @@ export function Leaders() {
         </div>
       </motion.div>
       <div className="leaders-copy">
-        <span className="leaders-badge">Cada ambiente, uma possibilidade</span>
+        <span className="leaders-badge">Fritz, cuidado em cada detalhe</span>
         <h2 id="leaders-title">
-          Seu jeito de
+          Cuidado de
           <br />
-          <span>morar</span>
+          <span>verdade</span>
         </h2>
         <Link href="/sobre" className="pill-link">
           <HoverLabel variant="primary">Conheça a Fritz</HoverLabel>
         </Link>
       </div>
-      <DemoNote>Imagens de estudos conceituais de móveis planejados.</DemoNote>
     </section>
   );
 }

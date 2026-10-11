@@ -2,7 +2,6 @@ import { ServiceOpeningMotion } from './service-opening-motion';
 import { TitleReveal } from '@/animations/title-reveal';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { projects } from '@/content/projects';
-import { DemoNote } from '@/components/ui/demo-note';
 import { servicesContent } from './services.content';
 import { serviceItemImages } from './services.images';
 import './services.css';
@@ -20,19 +19,17 @@ export function Services() {
         <span className="reference-badge" data-floating-badge="">
           Higienização e proteção
         </span>
-        <DemoNote>{servicesContent.introduction}</DemoNote>
       </div>
       <div className="services-list">
         {services.map((item) => (
           <article key={item.title} className="service-row tw:flex">
             <div className="service-copy">
-              <h3 data-title-anim="">{item.title}</h3>
+              <h3 data-title-anim="">
+                {item.title.slice(0, item.title.lastIndexOf(' '))}
+                <br />
+                {item.title.slice(item.title.lastIndexOf(' ') + 1)}
+              </h3>
               <p data-text-anim="">{item.text}</p>
-              <div className="service-tags">
-                {item.features.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
             </div>
             <div className="service-image">
               <ResponsiveImage
@@ -42,7 +39,7 @@ export function Services() {
                 {...serviceItemImages[item.image]}
                 sizes="(min-width:768px) 40vw,100vw"
               />
-              <small>Imagem ilustrativa do serviço</small>
+              <small>{item.title}</small>
             </div>
           </article>
         ))}
