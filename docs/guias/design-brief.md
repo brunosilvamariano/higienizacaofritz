@@ -321,3 +321,7 @@ Eliminar conteúdo e referências visíveis do modelo de marcenaria em todas as 
 ### Ajustes de responsividade — 11/10/2026
 No celular, missão, visão e valores ficam em uma coluna, com altura uniforme e texto protegido por espaçamento interno. Os links do rodapé permitem quebra de linha sem corte. Preservar as três cores e os efeitos de desktop. Renomear a navegação Projetos para Galeria, mantendo as URLs existentes.
 
+
+### Empilhamento dos valores no mobile — 11/10/2026
+Somente Missão, Visão e Valores ganham cards sticky com deslocamento vertical progressivo para preservar os títulos anteriores. Manter cores e desktop, com alternativa estática para movimento reduzido.
+

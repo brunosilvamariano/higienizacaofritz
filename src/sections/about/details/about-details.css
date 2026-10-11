@@ -631,3 +631,41 @@
     overflow-wrap: break-word;
   }
 }
+
+/* Cada próximo card preserva a faixa de título do anterior. */
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .about-why-items {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    align-items: start;
+  }
+  .about-why-card {
+    position: sticky;
+    flex: none;
+    top: 80px;
+    z-index: 1;
+    min-height: clamp(240px, 35svh, 320px);
+  }
+  .about-why-card:nth-child(2) {
+    top: 152px;
+    z-index: 2;
+  }
+  .about-why-card:nth-child(3) {
+    top: 224px;
+    z-index: 3;
+  }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .about-why-items::after {
+    content: '';
+    flex: none;
+    height: 40svh;
+  }
+  .about-why-card:first-child {
+    margin-bottom: 144px;
+  }
+  .about-why-card:nth-child(2) {
+    margin-bottom: 72px;
+  }
+}
