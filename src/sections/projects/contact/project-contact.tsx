@@ -24,8 +24,8 @@ export function ProjectContact({
         </div>
         <div className="project-contact-action tw:max-w-[360px]">
           <p>
-            Envie fotos da peça e informe sua cidade. A conversa começa por
-            você.
+            Envie fotos dos estofados e informe sua cidade. A conversa começa
+            por você.
           </p>
           <WhatsAppLink
             context={context}

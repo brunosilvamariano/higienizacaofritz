@@ -22,7 +22,7 @@ export function AboutStats() {
         {[
           {
             title: 'Atendimento',
-            text: 'Começa pelas fotos da peça e pela sua necessidade.',
+            text: 'Começa pelas fotos dos estofados e pela sua necessidade.',
           },
           {
             title: 'Tecidos',

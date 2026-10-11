@@ -88,7 +88,7 @@ export function FritzCareDetail({ project }: { project: Project }) {
         </div>
         <div className="project-overview-stats">
           {[
-            { value: '01', label: 'Envie fotos da peça' },
+            { value: '01', label: 'Envie fotos dos estofados' },
             { value: '02', label: 'Informe quantidade e dimensões' },
             { value: '03', label: 'Consulte o serviço indicado' },
             { value: '04', label: 'Combine o atendimento e os cuidados' },

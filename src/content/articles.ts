@@ -7,7 +7,7 @@ export const articles = [
     sections: [
       {
         title: 'Mostre o seu estofado',
-        text: 'Envie uma foto da peça inteira e imagens dos detalhes que precisam de atenção. Informe se é um sofá fixo ou retrátil, uma poltrona ou outro estofado.',
+        text: 'Envie fotos dos estofados por inteiro e imagens dos detalhes que precisam de atenção. Informe se é um sofá fixo ou retrátil, uma poltrona ou outro estofado.',
       },
       {
         title: 'Conte o que você precisa',
