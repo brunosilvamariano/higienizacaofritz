@@ -11,9 +11,9 @@ const homeOfficeSizes =
 
 export function EnvironmentCard({ item }: { item: Environment }) {
   const imageSizes =
-    item.id === 'cozinhas' || item.id === 'banheiros'
+    item.id === 'sofas' || item.id === 'cadeiras'
       ? wideCardSizes
-      : item.id === 'home-office'
+      : item.id === 'impermeabilizacao'
         ? homeOfficeSizes
         : narrowCardSizes;
 
@@ -40,9 +40,9 @@ export function EnvironmentCard({ item }: { item: Environment }) {
             {item.description}
           </p>
           <WhatsAppLink
-            context={`móveis planejados para ${item.label.toLocaleLowerCase('pt-BR')}`}
+            context={`higienização de ${item.label.toLocaleLowerCase('pt-BR')}`}
           >
-            Planejar meu ambiente
+            Solicitar orçamento
           </WhatsAppLink>
         </div>
       </div>

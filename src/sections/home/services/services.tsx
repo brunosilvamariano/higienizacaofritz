@@ -1,7 +1,7 @@
 import { ServiceOpeningMotion } from './service-opening-motion';
 import { TitleReveal } from '@/animations/title-reveal';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { projects } from '@/content/projects';
+import { fritzProfessionalImage } from '@/sections/about/fritz.images';
 import { servicesContent } from './services.content';
 import { serviceItemImages } from './services.images';
 import './services.css';
@@ -69,19 +69,19 @@ export function ServicesOpening() {
           Experiência <em>da</em> Fritz
         </p>
         <h1>
-          <span data-service-title-text="">Móveis planejados</span>
+          <span data-service-title-text="">Higienização e proteção</span>
           <br />
-          <span data-service-title-text="">para o seu </span>
+          <span data-service-title-text="">para cuidar do seu </span>
           <span className="service-opening-photo">
             <ResponsiveImage
-              {...projects[1].images.detalhe}
+              {...fritzProfessionalImage}
               alt=""
               eager
               unoptimized
               sizes="150px"
             />
           </span>{' '}
-          <span data-service-title-text="">dia a dia</span>
+          <span data-service-title-text="">estofado</span>
         </h1>
         <a
           className="service-opening-down"

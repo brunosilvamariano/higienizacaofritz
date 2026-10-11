@@ -146,10 +146,10 @@ export function Showreel({
           >
             <div className="showreel-video-wrapper">
               <video
-                id="traco-reel-video"
+                id="fritz-reel-video"
                 ref={video}
-                src="/videos/traco-showreel.mp4"
-                preload="auto"
+                src="/videos/fritz-showreel.mp4"
+                preload="metadata"
                 muted
                 loop
                 playsInline
@@ -163,7 +163,7 @@ export function Showreel({
               className="showreel-control"
               type="button"
               aria-label={playing ? 'Pausar vídeo' : 'Reproduzir vídeo'}
-              aria-controls="traco-reel-video"
+              aria-controls="fritz-reel-video"
               onClick={toggle}
             >
               {variant === 'services' && playing ? (

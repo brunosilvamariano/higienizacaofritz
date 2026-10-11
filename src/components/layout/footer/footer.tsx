@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PrivacyPreferences } from '@/components/analytics/consent';
 import { contact } from '@/config/contact';
+import { googleReviews } from '@/content/google-reviews';
 import { developer } from '@/config/developer';
 import vbgLogo from '@/assets/images/shared/vbg/logo.webp';
 import { Newsletter } from './newsletter';
@@ -19,7 +20,7 @@ export function Footer() {
             <p>
               Fritz — Higienização e impermeabilização
               <br />
-              Espaços pensados para viver.
+              Cuidado com estofados em Joinville e região.
             </p>
             <a href={`tel:+${contact.whatsappNumber}`}>
               {contact.whatsappDisplay}
@@ -48,11 +49,11 @@ export function Footer() {
             <Link href="/blog">
               <HoverLabel>Blog</HoverLabel>
             </Link>
-            <Link href="/blog/conversa-com-a-fwa">
-              <HoverLabel>Planeje sua cozinha</HoverLabel>
+            <Link href="/blog/higienizacao-estofados">
+              <HoverLabel>Cuidados com estofados</HoverLabel>
             </Link>
-            <Link href="/projetos/cozinha-encontro">
-              <HoverLabel>Inspiração de cozinha</HoverLabel>
+            <Link href="/projetos/cuidado-estofados">
+              <HoverLabel>O cuidado da Fritz</HoverLabel>
             </Link>
           </nav>
           <div className="footer-information">
@@ -85,7 +86,11 @@ export function Footer() {
               </span>
               Instagram da Fritz
             </a>
-            <p>
+            <a
+              href={googleReviews.profile}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Ver perfil no{' '}
               <span className="footer-google">
                 <span className="tw:sr-only">Google</span>
@@ -98,8 +103,8 @@ export function Footer() {
                   <span className="google-red">e</span>
                 </span>
               </span>
-            </p>
-            <p>Cuidados com seus móveis</p>
+            </a>
+            <p>Cuidados com seus estofados</p>
             <PrivacyPreferences />
           </div>
         </div>
@@ -114,7 +119,9 @@ export function Footer() {
           </small>
         </Link>
         <div className="footer-credits">
-          <p>© {new Date().getFullYear()} Fritz. Conceito demonstrativo.</p>
+          <p>
+            © {new Date().getFullYear()} Fritz. Todos os direitos reservados.
+          </p>
           <a
             href={developer.website}
             target="_blank"

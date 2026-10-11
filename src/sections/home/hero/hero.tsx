@@ -71,6 +71,7 @@ export function Hero() {
               strokeLinejoin="round"
               focusable="false"
             >
+              <title>Gota de água</title>
               <path d="M24 4C20 12 5 29 5 40a19 19 0 0 0 38 0C43 29 28 12 24 4Z" />
               <path d="M13 40a11 11 0 0 0 11 11" />
             </svg>

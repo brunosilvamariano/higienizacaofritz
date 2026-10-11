@@ -1,0 +1,28 @@
+/* Paleta do detalhe Fritz, sem alterar os outros detalhes antigos. */
+:root:has(.fritz-care-page) {
+  --paper: #f1f5f9;
+}
+.fritz-care-page {
+  background: var(--paper);
+  color: var(--ink);
+}
+.fritz-care-page .project-tags span {
+  border-color: var(--ink);
+}
+.fritz-care-page .project-overview-stats p {
+  border-top-color: var(--line);
+}
+.fritz-care-page .project-quote-mask {
+  background: #f1f5f999;
+}
+.fritz-care-page .project-result {
+  background: var(--sand);
+}
+.fritz-care-page .pill-link:has(.hover-label-v2) {
+  background: var(--brand);
+  color: var(--white);
+}
+.fritz-care-page .pill-link:has(.hover-label-v2):is(:hover, :focus-visible) {
+  background: var(--ink);
+  color: var(--white);
+}

@@ -26,8 +26,8 @@ export function contactFormUrl(data: FormData, intent: 'hello' | 'quote') {
     ['Empresa', value('company')],
     ...(intent === 'quote'
       ? [
-          ['Tipo de projeto', value('project')],
-          ['Orçamento', value('budget')],
+          ['Serviço desejado', value('service')],
+          ['Quantidade de peças', value('quantity')],
         ]
       : []),
     ['Mensagem', value('message')],

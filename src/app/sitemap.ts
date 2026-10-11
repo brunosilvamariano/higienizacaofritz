@@ -4,9 +4,11 @@ import { site } from '@/config/site';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!site.indexable) return [];
-  return routes.map((route) => ({
-    url: route.path === '/' ? site.url : `${site.url}${route.path}`,
-    changeFrequency: 'monthly',
-    priority: route.priority,
-  }));
+  return routes
+    .filter((route) => !route.path.startsWith('/informacoes/'))
+    .map((route) => ({
+      url: route.path === '/' ? site.url : `${site.url}${route.path}`,
+      changeFrequency: 'monthly',
+      priority: route.priority,
+    }));
 }

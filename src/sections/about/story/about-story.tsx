@@ -23,17 +23,16 @@ export function AboutStory() {
         </Reveal>
         <Reveal className="about-story-copy">
           <p>
-            O ponto de partida é entender como você usa a casa: o que precisa
-            guardar, onde prepara suas refeições e como divide os momentos de
-            trabalho e descanso. O planejamento conecta essas necessidades ao
-            espaço disponível.
+            O primeiro passo é entender sua peça e o cuidado que você procura.
+            Envie fotos, quantidade de estofados e sua localização para
+            conversar com a Fritz.
           </p>
           <p>
-            Layout, divisões internas e acabamentos devem funcionar em conjunto.
-            O olhar da Fritz é unir organização e conforto em móveis que façam
-            sentido para o seu jeito de viver.
+            Converse sobre o serviço indicado para o tecido e siga as
+            orientações após o atendimento. Atenção às peças e respeito pela sua
+            casa orientam essa conversa.
           </p>
-          <WhatsAppLink context="o olhar da Fritz e um projeto para meu espaço">
+          <WhatsAppLink context="higienização do meu estofado">
             Conversar com a Fritz
           </WhatsAppLink>
         </Reveal>
@@ -55,7 +54,7 @@ export function AboutStory() {
         </figure>
       </div>
       <div className="about-story-wordmark" aria-hidden="true">
-        Nosso traço.
+        Nosso cuidado.
       </div>
     </section>
   );

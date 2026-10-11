@@ -1,91 +1,94 @@
 export const articles = [
   {
-    slug: 'conversa-com-a-fwa',
-    date: '10 de outubro de 2026',
-    title: 'Cozinha planejada: espaço para a sua rotina',
+    slug: 'higienizacao-estofados',
+    title: 'Higienização de estofados: por onde começar',
     summary:
-      'Uma cozinha funcional começa pela maneira como você prepara refeições, guarda utensílios e usa os eletrodomésticos.',
+      'O primeiro passo é entender a peça e conversar sobre o serviço indicado para seu tecido.',
     sections: [
       {
-        title: 'Comece pelo que você usa',
-        text: 'Liste os eletrodomésticos, panelas, louças e mantimentos que precisam de lugar. Pense também em quem costuma cozinhar e no espaço necessário para abrir gavetas e portas com conforto.',
+        title: 'Mostre o seu estofado',
+        text: 'Envie uma foto da peça inteira e imagens dos detalhes que precisam de atenção. Informe se é um sofá fixo ou retrátil, uma poltrona ou outro estofado.',
       },
       {
-        title: 'Distribua preparo e armazenamento',
-        text: 'Bancada, pia, fogão e geladeira precisam fazer sentido em conjunto. Avalie a circulação e a posição das instalações antes de definir os módulos. A solução deve partir das medidas do seu ambiente.',
+        title: 'Conte o que você precisa',
+        text: 'Explique suas dúvidas e o que motivou a procura pelo serviço. Compartilhe as informações disponíveis sobre o tecido e tratamentos anteriores para que a Fritz possa orientar a conversa.',
       },
       {
-        title: 'Escolha os detalhes com atenção',
-        text: 'Divisões internas, puxadores e ferragens influenciam o uso diário. Compare as especificações da proposta e peça amostras dos acabamentos para entender cores e texturas.',
-      },
-    ],
-    highlight: 'Planejar a cozinha é dar lugar ao que você usa todos os dias.',
-  },
-  {
-    slug: 'excelencia-digital',
-    date: '10 de outubro de 2026',
-    title: 'Ambientes pequenos: como aproveitar melhor o espaço',
-    summary:
-      'Móveis planejados ajudam a organizar espaços compactos quando layout, armazenamento e circulação são pensados juntos.',
-    sections: [
-      {
-        title: 'Defina suas prioridades',
-        text: 'Identifique o que precisa guardar e quais atividades acontecem no ambiente. Essa lista ajuda a escolher os módulos necessários e evita ocupar o espaço com móveis sem função clara.',
-      },
-      {
-        title: 'Pense além da largura',
-        text: 'A altura das paredes e os cantos podem receber armários ou nichos. Considere o alcance das prateleiras e reserve espaço para abrir portas, sentar e circular.',
-      },
-      {
-        title: 'Avalie a composição completa',
-        text: 'Móveis, iluminação e objetos participam da percepção do ambiente. Use referências para mostrar o resultado que procura, mas confira as medidas antes de reproduzir uma solução vista em outra casa.',
-      },
-    ],
-    highlight: 'Aproveitar o espaço também é preservar lugar para se mover.',
-  },
-  {
-    slug: 'site-do-mes',
-    date: '10 de outubro de 2026',
-    title: 'Quarto planejado: organização e conforto',
-    summary:
-      'Roupeiros, cabeceiras e mesas de apoio podem formar um conjunto que organiza seus pertences sem comprometer a circulação.',
-    sections: [
-      {
-        title: 'Planeje o roupeiro por dentro',
-        text: 'Observe a quantidade de roupas dobradas, peças em cabides, calçados e acessórios. A divisão interna precisa atender ao que você guarda e manter os itens mais usados ao alcance.',
-      },
-      {
-        title: 'Reserve espaço para descansar',
-        text: 'Considere as dimensões da cama, as passagens laterais e a abertura do armário. Cabeceiras e mesas de apoio devem se integrar ao quarto sem dificultar os movimentos.',
-      },
-      {
-        title: 'Conecte os detalhes',
-        text: 'Tomadas, pontos de luz e acabamentos precisam ser considerados junto aos móveis. Compartilhe suas referências e hábitos para que o planejamento reflita o uso real do quarto.',
+        title: 'Alinhe os cuidados após o serviço',
+        text: 'Pergunte sobre o uso da peça após o atendimento e siga as orientações recebidas. O procedimento e os cuidados precisam considerar as características do estofado.',
       },
     ],
     highlight:
-      'Organização é ter lugar para suas coisas e espaço para descansar.',
+      'Cada peça merece uma orientação que considere seu tecido e sua rotina.',
+    date: '11 de outubro de 2026',
   },
   {
-    slug: 'revolt-holographik',
-    date: '10 de outubro de 2026',
-    title: 'Orçamento de móveis planejados: o que considerar',
+    slug: 'impermeabilizacao-estofados',
+    title: 'Impermeabilização: converse sobre a indicação para sua peça',
     summary:
-      'Uma proposta fica mais fácil de avaliar quando você entende as medidas, os materiais e os serviços que estão incluídos.',
+      'Antes de solicitar a impermeabilização, consulte a Fritz sobre a indicação do serviço para seu estofado.',
     sections: [
       {
-        title: 'Reúna as informações do ambiente',
-        text: 'Informe quais espaços deseja planejar, sua cidade e suas prioridades. Fotos, planta e medidas aproximadas ajudam na conversa inicial; as medidas definitivas precisam ser conferidas antes da produção.',
+        title: 'Informe as características da peça',
+        text: 'Fotos do estofado e da etiqueta, quando disponível, ajudam na conversa inicial. Conte se a peça já recebeu algum tratamento e quais são suas expectativas.',
       },
       {
-        title: 'Compare o que está incluído',
-        text: 'Leia a descrição dos módulos, acabamentos, ferragens e divisões internas. Confira se a proposta inclui montagem e quais itens precisam ser contratados à parte. O valor sozinho não descreve o projeto completo.',
+        title: 'Tire suas dúvidas antes da aplicação',
+        text: 'Peça orientações sobre o procedimento, os cuidados e o que esperar do serviço. Confirme a indicação para o tecido antes de combinar o atendimento.',
       },
       {
-        title: 'Alinhe as próximas etapas',
-        text: 'Confirme as condições de pagamento, o prazo previsto e o procedimento para alterações. Tire suas dúvidas antes da aprovação e mantenha registradas as especificações combinadas.',
+        title: 'Combine os cuidados de uso',
+        text: 'Pergunte quando a peça poderá ser utilizada e como agir no caso de derramamento de líquidos. Siga as recomendações específicas fornecidas pela Fritz.',
       },
     ],
-    highlight: 'Uma proposta clara ajuda você a decidir com mais segurança.',
+    highlight:
+      'Uma conversa clara ajuda a escolher o cuidado adequado para o estofado.',
+    date: '11 de outubro de 2026',
+  },
+  {
+    slug: 'cuidados-cadeiras',
+    title: 'Cadeiras estofadas: cuidado com as peças da sua rotina',
+    summary:
+      'As cadeiras fazem parte das refeições, dos encontros e do trabalho. Informe a quantidade de peças ao solicitar seu orçamento.',
+    sections: [
+      {
+        title: 'Conte quantas cadeiras são',
+        text: 'Informe a quantidade de cadeiras e se os modelos são iguais. Fotos dos assentos e encostos ajudam a mostrar quais partes são estofadas.',
+      },
+      {
+        title: 'Mostre os detalhes do tecido',
+        text: 'Envie imagens das áreas que precisam de atenção e compartilhe as informações que tiver sobre o material. Evite escolher um procedimento sem confirmar sua indicação.',
+      },
+      {
+        title: 'Organize o atendimento',
+        text: 'Informe sua cidade e converse sobre os horários disponíveis. Combine as condições de acesso e tire suas dúvidas sobre os cuidados após o serviço.',
+      },
+    ],
+    highlight:
+      'Cuidar das cadeiras também é cuidar dos momentos que acontecem ao redor da mesa.',
+    date: '11 de outubro de 2026',
+  },
+  {
+    slug: 'orcamento-fritz',
+    title: 'Orçamento da Fritz: quais informações enviar',
+    summary:
+      'Fotos, quantidade de peças e localização ajudam a começar a conversa sobre higienização e impermeabilização.',
+    sections: [
+      {
+        title: 'Envie fotos e a quantidade de peças',
+        text: 'Mostre a peça inteira e os detalhes relevantes. Para colchões e tapetes, informe também as dimensões; para cadeiras, conte a quantidade de unidades.',
+      },
+      {
+        title: 'Informe onde será o atendimento',
+        text: 'Envie sua cidade e bairro para consultar disponibilidade. A Fritz atende Joinville e outras cidades da região; confirme as condições para sua localização.',
+      },
+      {
+        title: 'Confirme o serviço e as próximas etapas',
+        text: 'Converse sobre o serviço indicado, o valor e o agendamento. Antes de confirmar, tire suas dúvidas sobre o que está incluído e os cuidados após o atendimento.',
+      },
+    ],
+    highlight:
+      'Com as informações da sua peça, fica mais fácil começar seu orçamento.',
+    date: '11 de outubro de 2026',
   },
 ] as const;

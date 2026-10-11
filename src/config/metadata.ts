@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import socialImage from '@/assets/images/shared/fritz/fritz-mark.png';
+import socialImage from '@/assets/images/shared/fritz/social-share.jpg';
 import { site } from './site';
 
 const shareImage = {
@@ -7,13 +7,13 @@ const shareImage = {
   width: socialImage.width,
   height: socialImage.height,
   alt: 'Fritz — Higienização e impermeabilização',
-  type: 'image/png',
+  type: 'image/jpeg',
 };
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
-  title: { default: site.title, template: `%s | ${site.name}` },
+  title: { default: site.title, template: '%s | Fritz' },
   description: site.description,
   alternates: { canonical: '/' },
   category: 'Higienização e impermeabilização',
@@ -48,3 +48,24 @@ export const siteMetadata: Metadata = {
       : undefined,
   },
 };
+
+export function pageMetadata(
+  title: string,
+  description: string,
+  path: string,
+  type: 'website' | 'article' = 'website',
+): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      ...siteMetadata.openGraph,
+      title,
+      description,
+      url: path,
+      type,
+    },
+    twitter: { ...siteMetadata.twitter, title, description },
+  };
+}

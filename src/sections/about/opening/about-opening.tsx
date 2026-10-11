@@ -9,7 +9,9 @@ export function AboutOpening() {
       caption="Por dentro da Fritz"
       title={
         <>
-          <span data-about-title-text="">Móveis planejados que dão forma </span>
+          <span data-about-title-text="">
+            Cuidado com estofados que faz parte{' '}
+          </span>
           <span className="reference-inline-image">
             <ResponsiveImage
               {...fritzServicePhotos[4]}
@@ -17,7 +19,7 @@ export function AboutOpening() {
               sizes="150px"
             />
           </span>
-          <span data-about-title-text="">ao seu jeito de viver.</span>
+          <span data-about-title-text="">da sua rotina.</span>
         </>
       }
     />

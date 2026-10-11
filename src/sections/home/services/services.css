@@ -349,18 +349,22 @@
 /* Variações suaves da paleta Fritz para distinguir os serviços. */
 .services .service-row:nth-child(1),
 .home-palette .services .service-row:nth-child(1) {
+  --service-row-background: #dce8ff;
   background: #dce8ff;
 }
 .services .service-row:nth-child(2),
 .home-palette .services .service-row:nth-child(2) {
+  --service-row-background: #edf3ff;
   background: #edf3ff;
 }
 .services .service-row:nth-child(3),
 .home-palette .services .service-row:nth-child(3) {
+  --service-row-background: #d2e1ff;
   background: #d2e1ff;
 }
 .services .service-row:nth-child(4),
 .home-palette .services .service-row:nth-child(4) {
+  --service-row-background: #e4edff;
   background: #e4edff;
 }
 
@@ -377,18 +381,6 @@
   box-shadow: 0 0 0 100vmax var(--service-row-background);
   clip-path: inset(0 -100vmax);
   pointer-events: none;
-}
-.services .service-row:nth-child(1) {
-  --service-row-background: #dce8ff;
-}
-.services .service-row:nth-child(2) {
-  --service-row-background: #edf3ff;
-}
-.services .service-row:nth-child(3) {
-  --service-row-background: #d2e1ff;
-}
-.services .service-row:nth-child(4) {
-  --service-row-background: #e4edff;
 }
 
 .service-title-ending {

@@ -10,3 +10,7 @@ coverage/
 Thumbs.db
 .font-package-temp/
 .npm-cache-fonts/
+
+.next-audit/
+work/
+.next-preview/

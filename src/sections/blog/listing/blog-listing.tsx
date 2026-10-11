@@ -1,20 +1,15 @@
 import { HoverLabel } from '@/components/ui/hover-label';
 import Link from 'next/link';
 import { articles } from '@/content/articles';
-import { projects } from '@/content/projects';
+import { fritzServicePhotos } from '@/sections/about/fritz.images';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { DemoNote } from '@/components/ui/demo-note';
 import './blog-listing.css';
 export function BlogListing() {
   return (
     <section
       className="blog-listing section"
-      aria-label="Artigos sobre móveis planejados"
+      aria-label="Artigos sobre o cuidado com estofados"
     >
-      <DemoNote>
-        Ideias para planejar seus ambientes, organizar a rotina e entender as
-        escolhas do seu projeto.
-      </DemoNote>
       {articles.map((article, index) => (
         <article key={article.slug} className="blog-row">
           <div className="blog-row-inner">
@@ -22,8 +17,8 @@ export function BlogListing() {
             <div className="blog-row-right">
               <Link href={`/blog/${article.slug}`} className="blog-row-image">
                 <ResponsiveImage
-                  {...projects[index].images.meio}
-                  alt={`${projects[index].category} — estudo conceitual`}
+                  {...fritzServicePhotos[[4, 1, 5, 0][index]]}
+                  alt={fritzServicePhotos[[4, 1, 5, 0][index]].alt}
                   sizes="65vw"
                 />
               </Link>

@@ -1,7 +1,6 @@
 import type { articles } from '@/content/articles';
-import { projects } from '@/content/projects';
+import { fritzServicePhotos } from '@/sections/about/fritz.images';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { DemoNote } from '@/components/ui/demo-note';
 import './blog-article.css';
 export function BlogArticle({
   article,
@@ -31,16 +30,13 @@ export function BlogArticle({
       </header>
       <div className="blog-article-image">
         <ResponsiveImage
-          {...projects[index].images.capa}
-          alt={`${projects[index].category} — estudo conceitual`}
+          {...fritzServicePhotos[[4, 1, 5, 0][index]]}
+          alt={fritzServicePhotos[[4, 1, 5, 0][index]].alt}
           eager
           sizes="90vw"
         />
       </div>
       <div className="blog-richtext">
-        <DemoNote>
-          Imagens de estudos conceituais para inspirar seu planejamento.
-        </DemoNote>
         <h2 data-title-anim="">Por onde começar</h2>
         <p data-text-anim="">{article.summary}</p>
         <h2 data-title-anim="">{article.sections[0].title}</h2>
@@ -50,8 +46,8 @@ export function BlogArticle({
         <p data-text-anim="">{article.sections[1].text}</p>
         <div className="blog-article-secondary">
           <ResponsiveImage
-            {...projects[index].images.detalhe}
-            alt={`${projects[index].category} — estudo conceitual`}
+            {...fritzServicePhotos[[2, 3, 0, 5][index]]}
+            alt={fritzServicePhotos[[2, 3, 0, 5][index]].alt}
             sizes="70vw"
           />
         </div>

@@ -113,25 +113,25 @@ export function ContactForm() {
             {tab === 'quote' && (
               <>
                 <label>
-                  Tipo de projeto
+                  Serviço desejado
                   <span className="contact-select">
-                    <select name="project">
-                      <option>Móveis planejados</option>
-                      <option>Cozinha</option>
-                      <option>Quarto</option>
-                      <option>Sala</option>
+                    <select name="service">
+                      <option>Higienização de estofados</option>
+                      <option>Higienização de colchões</option>
+                      <option>Higienização de tapetes</option>
+                      <option>Impermeabilização de estofados</option>
                     </select>
                     <span aria-hidden="true" className="contact-select-arrow" />
                   </span>
                 </label>
                 <label>
-                  Orçamento
+                  Quantidade de peças
                   <span className="contact-select">
-                    <select name="budget">
-                      <option>A definir</option>
-                      <option>Até R$ 10 mil</option>
-                      <option>De R$ 10 a 30 mil</option>
-                      <option>Acima de R$ 30 mil</option>
+                    <select name="quantity">
+                      <option>A informar</option>
+                      <option>1 peça</option>
+                      <option>2 a 4 peças</option>
+                      <option>5 ou mais peças</option>
                     </select>
                     <span aria-hidden="true" className="contact-select-arrow" />
                   </span>
@@ -142,7 +142,7 @@ export function ContactForm() {
               Mensagem*
               <textarea
                 name="message"
-                placeholder="Conte quais ambientes deseja planejar, sua cidade e o que precisa. Se tiver medidas ou referências, mencione também."
+                placeholder="Conte quais peças deseja higienizar ou impermeabilizar, sua cidade e bairro. Informe a quantidade e as dimensões, se souber."
                 required
               />
             </label>
@@ -152,7 +152,7 @@ export function ContactForm() {
               Abra o WhatsApp com seus dados e confirme o envio da mensagem.
             </small>
             <button type="submit" className="pill-link">
-              <HoverLabel variant="v2">Continuar no WhatsApp</HoverLabel>
+              <HoverLabel variant="v2">Continuar pelo WhatsApp</HoverLabel>
             </button>
           </div>
           {draftUrl && (
@@ -168,3 +168,4 @@ export function ContactForm() {
     </section>
   );
 }
+

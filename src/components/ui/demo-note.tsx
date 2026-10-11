@@ -1,5 +1,5 @@
 export function DemoNote({
-  children = 'Conteúdo demonstrativo da referência Ariyana; não representa dados da Fritz.',
+  children = 'Converse com a Fritz para confirmar disponibilidade e indicação do serviço.',
 }: {
   children?: string;
 }) {

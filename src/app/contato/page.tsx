@@ -1,15 +1,15 @@
 import '@/sections/home/home-colors.css';
 import '@/sections/contact/contact-colors.css';
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/config/metadata';
 import { PageOpening } from '@/components/layout/page-opening/page-opening';
 import { ContactForm } from '@/sections/contact/form/contact-form';
 import { Contact } from '@/sections/home/contact/contact';
-export const metadata: Metadata = {
-  title: 'Solicite seu orçamento — Fritz',
-  description:
-    'Conte quais ambientes deseja planejar e envie suas referências para iniciar a conversa sobre seu projeto de móveis planejados.',
-  alternates: { canonical: '/contato' },
-};
+export const metadata: Metadata = pageMetadata(
+  'Solicite seu orçamento',
+  'Envie fotos, quantidade de peças e sua localização para solicitar à Fritz um orçamento de higienização ou impermeabilização.',
+  '/contato',
+);
 export default function ContactPage() {
   return (
     <main
@@ -20,7 +20,7 @@ export default function ContactPage() {
       <PageOpening
         decorated={false}
         caption="Entre em contato"
-        title="Conte como você imagina seu espaço."
+        title="Vamos cuidar dos seus estofados."
       />
       <ContactForm />
       <Contact />

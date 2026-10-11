@@ -1,7 +1,10 @@
+import '@/sections/home/home-colors.css';
+import '@/sections/projects/detail/fritz-care-colors.css';
+import { FritzCareDetail } from '@/sections/projects/detail/fritz-care-detail';
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/config/metadata';
 import { notFound } from 'next/navigation';
 import { projects } from '@/content/projects';
-import { ProjectDetail } from '@/sections/projects/detail/project-detail';
 import { Contact } from '@/sections/home/contact/contact';
 
 export const dynamicParams = false;
@@ -16,24 +19,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) return { title: 'Projeto não encontrado' };
-  return {
-    title: `${project.title} — ${project.category}`,
-    description: `${project.introduction} Estudo conceitual de marcenaria da Fritz.`,
-    alternates: { canonical: `/projetos/${slug}` },
-    openGraph: {
-      title: `${project.title} — Fritz`,
-      description: project.introduction,
-      url: `/projetos/${slug}`,
-      images: [
-        {
-          url: project.images.capa.desktop.src,
-          width: 2048,
-          height: 1365,
-          alt: `${project.category} em carvalho e travertino`,
-        },
-      ],
-    },
-  };
+  return pageMetadata(
+    `${project.title} — ${project.category}`,
+    `${project.introduction} Consulte a Fritz sobre higienização e impermeabilização e solicite seu orçamento.`,
+    `/projetos/${slug}`,
+  );
 }
 export default async function ProjectPage({
   params,
@@ -47,13 +37,10 @@ export default async function ProjectPage({
   return (
     <main
       id="conteudo"
-      className="page-content tw:relative tw:bg-paper project-page"
+      className="page-content tw:relative tw:bg-paper project-page home-palette fritz-care-page"
       tabIndex={-1}
     >
-      <ProjectDetail
-        project={project}
-        next={projects[(index + 1) % projects.length]}
-      />
+      <FritzCareDetail project={project} />
       <Contact />
     </main>
   );

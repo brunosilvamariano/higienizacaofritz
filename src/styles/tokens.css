@@ -1,13 +1,13 @@
 :root {
-  --paper: #ffffff;
+  --paper: #f1f5f9;
   --white: #ffffff;
   --accent-text: var(--ink);
-  --taupe: #e9dcd2;
+  --taupe: #dce8ff;
   --taupe-text: var(--ink);
   --copper-deep: var(--ink);
   --on-dark-muted: var(--taupe);
-  --ink: #121212;
-  --copper: #756052;
+  --ink: #0f172a;
+  --copper: #2563eb;
   --muted: var(--ink);
   --line: #12121233;
   --line-on-dark: #ffffff44;
@@ -51,7 +51,7 @@
 
 /* Paleta Fritz: apenas a Home, inclusive seus componentes compartilhados. */
 :root:has(.home-palette) {
-  --paper: #f8fafc;
+  --paper: #f1f5f9;
   --ink: #0f172a;
   --brand: #2563eb;
   --brand-logo: #2563eb;

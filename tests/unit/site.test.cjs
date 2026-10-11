@@ -5,10 +5,10 @@ const { loadTs } = require('./helpers/load-ts.cjs');
 const load = (env) =>
   loadTs('src/config/site.ts', { globals: { process: { env } } }).site;
 
-test('sem SITE_URL usa a origem padrão e não indexa', () => {
+test('sem SITE_URL usa o domínio Fritz e permite indexação', () => {
   const site = load({});
-  assert.equal(site.url, 'https://tracomoveisplanejaveis.vercel.app');
-  assert.equal(site.indexable, false);
+  assert.equal(site.url, 'https://higienizacaofritz.vercel.app');
+  assert.equal(site.indexable, true);
 });
 
 test('SITE_URL válida é reduzida à origem', () => {
@@ -32,4 +32,9 @@ test('SITE_URL sem HTTPS, com caminho ou parâmetros é recusada', () => {
   ]) {
     assert.throws(() => load({ SITE_URL }), /SITE_URL/, SITE_URL);
   }
+});
+
+test('preview fica fora da indexação e opt-out explícito é respeitado', () => {
+  assert.equal(load({ VERCEL_ENV: 'preview' }).indexable, false);
+  assert.equal(load({ SITE_INDEXABLE: 'false' }).indexable, false);
 });

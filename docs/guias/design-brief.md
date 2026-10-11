@@ -305,3 +305,15 @@ Aplicar à página de listagem Projetos o fundo gelo #f1f5f9 e a paleta Fritz. P
 Substituir conteúdo de marcenaria da listagem por seis registros reais já verificados nas avaliações da Fritz, em WebP responsivo. Manter grade e animações. Descrever as peças sem inventar antes/depois ou resultados. Cards e CTA direcionam ao WhatsApp para orçamento. Faixa animada azul #2563eb com texto branco e nomes dos serviços. Atualizar metadados da listagem.
 
 Correção da faixa de Projetos: fixar azul #2563eb e texto branco diretamente no elemento para impedir que estilos antigos da faixa laranja prevaleçam.
+
+### Blog — listagem e leitura dos artigos
+
+Aplicar fundo gelo e paleta azul à listagem e às quatro páginas internas. Remover a frase introdutória indicada na captura. Adaptar os quatro artigos para cuidados com estofados, impermeabilização, cadeiras e solicitação de orçamento, sem alegações técnicas não verificadas. Usar fotos reais WebP responsivas já disponíveis. Preservar slugs para não quebrar Ler artigo, layout, tipografia e animações.
+
+### Detalhe acessado por Inspiração de cozinha
+
+Adaptar somente o detalhe cozinha-encontro para cuidado da Fritz com estofados, mantendo a rota existente e estrutura animada. Fotos reais WebP, descrição sem garantias ou antes/depois, resumo do atendimento e CTA WhatsApp. Fundo gelo e blocos azuis. Renomear os dois links antigos de cozinha no rodapé conforme seus destinos atuais.
+
+### Auditoria completa Fritz — conteúdo, mídia e SEO
+
+Eliminar conteúdo e referências visíveis do modelo de marcenaria em todas as rotas e módulos de conteúdo, incluindo páginas acessadas diretamente. Preservar layout, cores aprovadas e animações. Usar nomes de rotas ligados aos serviços com redirecionamentos permanentes dos antigos. Configurar domínio higienizacaofritz.vercel.app, canonicals e compartilhamento com google.jpg fornecida (1200x630), vídeo download.mp4 no reel, sitemap e robots. Dados estruturados somente com fatos confirmados. Validar conteúdo renderizado e recursos; não publicar automaticamente.

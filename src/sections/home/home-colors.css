@@ -116,6 +116,10 @@
 .home-palette .testimonial-card:nth-child(even) .testimonial-stars {
   color: var(--blue-panel-strong);
 }
+body:has(.home-palette) .mobile-menu-top > span {
+  background: var(--blue-panel-strong);
+  color: var(--ink);
+}
 .home-palette .contact-marquee[data-stroke='true'] span {
   -webkit-text-stroke-color: var(--ink);
 }
@@ -185,10 +189,6 @@ body:has(.home-palette) .footer-wordmark {
 }
 body:has(.home-palette) .mobile-menu-top > p {
   background-image: linear-gradient(var(--white) 32%, var(--ink) 90%);
-}
-body:has(.home-palette) .mobile-menu-top > span {
-  background: var(--blue-panel-strong);
-  color: var(--ink);
 }
 body:has(.home-palette) .mobile-links a {
   color: var(--on-dark-muted);

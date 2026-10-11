@@ -10,7 +10,7 @@ export { AboutMotion };
 
 export function AboutStats() {
   return (
-    <section className="about-stats section" aria-label="Elementos do projeto">
+    <section className="about-stats section" aria-label="O cuidado da Fritz">
       <div className="about-stats-grid">
         <div className="about-stats-photo">
           <ResponsiveImage
@@ -21,20 +21,20 @@ export function AboutStats() {
         </div>
         {[
           {
-            title: 'Planejamento',
-            text: 'Começa pelo espaço e pela sua rotina.',
+            title: 'Atendimento',
+            text: 'Começa pelas fotos da peça e pela sua necessidade.',
           },
           {
-            title: 'Materiais',
-            text: 'Texturas e acabamentos compõem o ambiente.',
+            title: 'Tecidos',
+            text: 'Cada tecido tem características que merecem atenção.',
           },
           {
-            title: 'Função',
-            text: 'Organização e circulação orientam as escolhas.',
+            title: 'Orientação',
+            text: 'Converse sobre o serviço e os cuidados após o atendimento.',
           },
           {
             title: 'Detalhes',
-            text: 'Proporções, iluminação e uso em cada composição.',
+            text: 'Atenção às peças que fazem parte da sua rotina.',
           },
         ].map((item) => (
           <article className="about-stats-card" key={item.title}>

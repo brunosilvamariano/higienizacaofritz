@@ -5,18 +5,20 @@ import { Header } from '@/components/layout/header/header';
 import { Footer } from '@/components/layout/footer/footer';
 import { ConsentManager } from '@/components/analytics/consent';
 import { siteMetadata } from '@/config/metadata';
+import { BusinessSchema } from '@/components/seo-business-schema';
 import { AnchorNavigation } from '@/components/layout/anchor-navigation';
 import { PageTransition } from '@/components/layout/page-transition/page-transition';
 import { SectionEntrances } from '@/animations/section-entrances';
 import { FloatingContact } from '@/components/ui/floating-contact';
 import '@/styles/globals.css';
 
-export const viewport: Viewport = { themeColor: '#121212' };
+export const viewport: Viewport = { themeColor: '#0f172a' };
 export const metadata: Metadata = siteMetadata;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR" className={`${bebasNeue.variable} ${dmSans.variable}`}>
       <body>
+        <BusinessSchema />
         <PageTransition />
         <a href="#conteudo" className="skip-link tw:bg-ink">
           Pular para o conteúdo

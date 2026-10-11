@@ -1,32 +1,32 @@
 export const faqItems = [
   {
-    id: 'cozinha',
-    question: 'O que considerar em uma cozinha planejada?',
+    id: 'orcamento',
+    question: 'Como pedir um orçamento?',
     answer:
-      'A rotina de preparo, os eletrodomésticos e o que precisa ser guardado orientam o desenho. Bancadas, gavetas e circulação são pensadas em conjunto.',
+      'Envie fotos, quantidade de peças e sua cidade pelo WhatsApp da Fritz.',
   },
   {
-    id: 'dormitorio',
-    question: 'Como aproveitar melhor o espaço do dormitório?',
+    id: 'atendimento',
+    question: 'Onde a Fritz atende?',
     answer:
-      'A divisão do roupeiro parte das peças que você usa. Portas, nichos e cabeceira devem respeitar a circulação e criar um ambiente leve para descansar.',
+      'Joinville, Itapoá, São Francisco do Sul, Balneário Camboriú, Balneário Piçarras, Balneário Barra do Sul e Barra Velha. Consulte disponibilidade.',
   },
   {
-    id: 'sala',
-    question: 'A marcenaria pode integrar os ambientes?',
+    id: 'tecido',
+    question: 'Qual serviço é indicado para meu estofado?',
     answer:
-      'Painéis, estantes e módulos de apoio podem conectar estar e jantar. O projeto considera equipamentos, passagem de cabos e os objetos que fazem parte da casa.',
+      'Compartilhe fotos e as informações disponíveis sobre o tecido para receber orientação da Fritz.',
   },
   {
-    id: 'banheiro',
-    question: 'Como planejar a marcenaria do banheiro?',
+    id: 'impermeabilizacao',
+    question: 'Posso impermeabilizar meu estofado?',
     answer:
-      'O desenho considera as instalações, a ventilação e os itens da rotina. Materiais e acabamentos devem ser especificados para as condições de umidade do ambiente.',
+      'Consulte a indicação para o tecido e os cuidados da aplicação diretamente com a Fritz.',
   },
   {
-    id: 'trabalho',
-    question: 'É possível criar um espaço de trabalho compacto?',
+    id: 'cuidados',
+    question: 'Quais são os cuidados após o atendimento?',
     answer:
-      'Uma bancada bem dimensionada, organização de cabos e armazenamento podem integrar o trabalho à casa. Iluminação e ergonomia também entram no planejamento.',
+      'Siga as orientações fornecidas para sua peça e tire suas dúvidas antes de utilizá-la.',
   },
 ] as const;
