@@ -30,30 +30,54 @@ export function Footer() {
             <h2>Navegue</h2>
             <Link href="/">
               <HoverLabel>Início</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Início
+              </span>
             </Link>
             <Link href="/sobre">
               <HoverLabel>Sobre</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Sobre
+              </span>
             </Link>
             <Link href="/servicos">
               <HoverLabel>Serviços</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Serviços
+              </span>
             </Link>
             <Link href="/contato">
               <HoverLabel>Contato</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Contato
+              </span>
             </Link>
           </nav>
           <nav aria-label="Galeria e artigos">
             <h2>Galeria e artigos</h2>
             <Link href="/projetos">
               <HoverLabel>Galeria</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Galeria
+              </span>
             </Link>
             <Link href="/blog">
               <HoverLabel>Blog</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Blog
+              </span>
             </Link>
             <Link href="/blog/higienizacao-estofados">
               <HoverLabel>Cuidados com estofados</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                Cuidados com estofados
+              </span>
             </Link>
             <Link href="/projetos/cuidado-estofados">
               <HoverLabel>O cuidado da Fritz</HoverLabel>
+              <span className="footer-link-mobile" aria-hidden="true">
+                O cuidado da Fritz
+              </span>
             </Link>
           </nav>
           <div className="footer-information">
