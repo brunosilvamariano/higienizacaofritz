@@ -25,9 +25,15 @@ export function Services() {
           <article key={item.title} className="service-row tw:flex">
             <div className="service-copy">
               <h3 data-title-anim="">
-                {item.title.slice(0, item.title.lastIndexOf(' '))}
+                {item.image === 'impermeabilizacao'
+                  ? 'Impermeabilização'
+                  : item.title.slice(0, item.title.lastIndexOf(' '))}
                 <br />
-                {item.title.slice(item.title.lastIndexOf(' ') + 1)}
+                <span className="service-title-ending">
+                  {item.image === 'impermeabilizacao'
+                    ? 'de estofados'
+                    : item.title.slice(item.title.lastIndexOf(' ') + 1)}
+                </span>
               </h3>
               <p data-text-anim="">{item.text}</p>
             </div>

@@ -390,3 +390,7 @@
 .services .service-row:nth-child(4) {
   --service-row-background: #e4edff;
 }
+
+.service-title-ending {
+  white-space: nowrap;
+}

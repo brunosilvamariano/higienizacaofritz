@@ -211,3 +211,22 @@ body:has(.home-palette) .reference-divider-linen {
 body:has(.home-palette) .reference-divider-footer {
   color: var(--ink);
 }
+
+/* Gelo azulado na Home; preserva os blocos azuis e a paleta do Sobre. */
+:root:has(.home-palette .hero) {
+  --paper: #f1f5f9;
+}
+.home-palette,
+.home-palette :is(.studio, .showreel, .leaders, .testimonials, .contact) {
+  background-color: var(--paper);
+}
+.home-palette :is(.process, .environments) {
+  background-color: #e8effb;
+}
+.home-palette .services {
+  background-color: #dce8ff;
+}
+.home-palette :is(.showreel h2, .showreel-track[data-reduced='true'] h2) {
+  color: #f8fafc;
+  text-shadow: 0 2px 12px #0f172a99;
+}

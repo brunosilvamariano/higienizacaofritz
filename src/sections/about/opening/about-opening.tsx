@@ -1,6 +1,6 @@
 import { PageOpening } from '@/components/layout/page-opening/page-opening';
 import { ResponsiveImage } from '@/components/media/responsive-image';
-import { projects } from '@/content/projects';
+import { fritzServicePhotos } from '../fritz.images';
 import './about-opening.css';
 export function AboutOpening() {
   return (
@@ -12,8 +12,8 @@ export function AboutOpening() {
           <span data-about-title-text="">Móveis planejados que dão forma </span>
           <span className="reference-inline-image">
             <ResponsiveImage
-              {...projects[0].images.detalhe}
-              alt="Detalhe de acabamento de móveis planejados"
+              {...fritzServicePhotos[4]}
+              alt={fritzServicePhotos[4].alt}
               sizes="150px"
             />
           </span>

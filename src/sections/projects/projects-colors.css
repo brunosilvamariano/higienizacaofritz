@@ -1,0 +1,26 @@
+/* Somente cores da listagem de Projetos. */
+:root:has(.projects-page) {
+  --paper: #f1f5f9;
+}
+.projects-page {
+  background: var(--paper);
+  color: var(--ink);
+}
+.projects-page .reference-opening-circle {
+  background: var(--blue-panel-strong);
+}
+.projects-page .project-ticker {
+  background: var(--brand);
+  color: var(--white);
+}
+.projects-page .reference-divider-orange {
+  color: var(--brand);
+}
+.projects-page .project-collection .reference-badge {
+  background: var(--blue-panel-strong);
+  color: var(--ink);
+}
+.projects-page .project-card-tags span {
+  border-color: var(--ink);
+  color: var(--ink);
+}

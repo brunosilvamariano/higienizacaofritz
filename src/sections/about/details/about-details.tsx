@@ -1,4 +1,8 @@
-import { projects } from '@/content/projects';
+import {
+  fritzProfessionalImage,
+  fritzAboutCards,
+  fritzLifePhotos,
+} from '../fritz.images';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { AboutMotion } from './about-motion';
 import './about-details.css';
@@ -10,8 +14,8 @@ export function AboutStats() {
       <div className="about-stats-grid">
         <div className="about-stats-photo">
           <ResponsiveImage
-            {...projects[5].images.capa}
-            alt="Ambiente de trabalho com móveis planejados"
+            {...fritzProfessionalImage}
+            alt="Profissional da Fritz durante o cuidado com um estofado"
             sizes="45vw"
           />
         </div>
@@ -47,14 +51,13 @@ export function WhyChoose() {
     <section className="about-why section" aria-labelledby="why-title">
       <div className="about-why-heading">
         <h2 id="why-title" data-title-anim="">
-          Seu espaço, seu jeito
+          O que nos move
         </h2>
         <div>
-          <h3 data-title-anim="">Móveis planejados</h3>
+          <h3 data-title-anim="">O cuidado da Fritz</h3>
           <p data-text-anim="">
-            Planejar um ambiente é pensar em como você vive: o que precisa
-            guardar, como se movimenta e quais materiais fazem sentido no seu
-            espaço.
+            Cuidar dos estofados que fazem parte da sua vida, com atenção à peça
+            e respeito pela sua casa.
           </p>
         </div>
       </div>
@@ -62,9 +65,9 @@ export function WhyChoose() {
         <div className="about-why-stage">
           <div className="about-why-items">
             {[
-              { title: 'Entender', value: 'Sua rotina' },
-              { title: 'Planejar', value: 'Seu espaço' },
-              { title: 'Compor', value: 'Os detalhes' },
+              { title: 'Missão', value: 'Cuidar de cada peça' },
+              { title: 'Visão', value: 'Construir confiança' },
+              { title: 'Valores', value: 'Respeito e cuidado' },
             ].map((item) => (
               <article className="about-why-card" key={item.title}>
                 <span>{item.title}</span>
@@ -82,24 +85,24 @@ export function AboutTeam() {
     <section className="about-team section" aria-labelledby="team-title">
       <div className="reference-heading">
         <h2 id="team-title" data-title-anim="">
-          Ambientes
+          O cuidado na prática
         </h2>
         <span className="reference-badge" data-floating-badge="">
-          Para viver
+          Equipe Fritz
         </span>
       </div>
       <div className="about-team-track">
         <div className="about-team-stage">
           <div className="about-team-grid">
-            {projects.slice(0, 4).map((project) => (
-              <article key={project.slug}>
+            {fritzAboutCards.map((project) => (
+              <article key={project.id}>
                 <ResponsiveImage
-                  {...project.images.capa}
-                  alt={`Composição de ${project.category.toLowerCase()} com móveis planejados`}
+                  {...project.images}
+                  alt={project.images.alt}
                   sizes="(max-width: 767px) 90vw, 25vw"
                 />
-                <h3>{project.category}</h3>
-                <p>{project.introduction}</p>
+                <h3>{project.title}</h3>
+                <p>{project.text}</p>
               </article>
             ))}
           </div>
@@ -113,38 +116,48 @@ export function AboutAwards() {
     <section className="about-awards section" aria-labelledby="awards-title">
       <div className="reference-heading">
         <h2 id="awards-title" data-title-anim="">
-          Cada detalhe conta
+          Onde a Fritz atende
         </h2>
         <span className="reference-badge" data-floating-badge="">
-          Forma e função
+          Áreas atendidas
         </span>
       </div>
       <div>
         {[
           {
-            title: 'Proporção',
-            text: 'Móveis em relação ao espaço disponível',
-            detail: 'Composição',
+            title: 'Itapoá',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
           },
           {
-            title: 'Organização',
-            text: 'Lugar para os objetos do dia a dia',
-            detail: 'Uso',
+            title: 'São Francisco do Sul',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
           },
           {
-            title: 'Materiais',
-            text: 'Texturas e acabamentos em conjunto',
-            detail: 'Escolhas',
+            title: 'Balneário Camboriú',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
           },
           {
-            title: 'Iluminação',
-            text: 'Luz que valoriza o ambiente e suas funções',
-            detail: 'Atmosfera',
+            title: 'Balneário Piçarras',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
           },
           {
-            title: 'Circulação',
-            text: 'Espaço para se mover com conforto',
-            detail: 'Planejamento',
+            title: 'Balneário Barra do Sul',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
+          },
+          {
+            title: 'Barra Velha',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
+          },
+          {
+            title: 'Joinville',
+            text: 'Consulte horários e disponibilidade',
+            detail: 'Santa Catarina',
           },
         ].map((item) => (
           <article key={item.title} className="about-award-row">
@@ -162,21 +175,17 @@ export function AboutLife() {
     <section className="about-life section" aria-labelledby="life-title">
       <div className="reference-heading">
         <h2 id="life-title" data-title-anim="">
-          Madeira, luz e proporção
+          Cuidado em cada detalhe
         </h2>
         <p data-text-anim="">
-          Explore composições de móveis planejados para diferentes espaços da
-          casa.
+          Conheça quem cuida dos seus estofados. Fale com a Fritz para consultar
+          o serviço indicado para suas peças.
         </p>
       </div>
       <div className="about-life-images" data-slide-cards="">
-        {projects.slice(0, 4).map((project) => (
-          <div key={project.slug} data-slide-card="">
-            <ResponsiveImage
-              {...project.images.angulo}
-              alt={`${project.category} — composição de móveis planejados`}
-              sizes="30vw"
-            />
+        {fritzLifePhotos.map((image) => (
+          <div key={image.desktop.src} data-slide-card="">
+            <ResponsiveImage {...image} alt={image.alt} sizes="30vw" />
           </div>
         ))}
       </div>

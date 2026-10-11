@@ -262,3 +262,46 @@ Substituir degradê por fundo branco, texto azul escuro, borda cinza suave e íc
 ### Faixa final de contato da Fritz
 
 Texto animado Seu estofado merece o cuidado da Fritz e CTA Orçamento pelo WhatsApp com mensagem específica para higienização ou impermeabilização, envio de fotos e localização. Preservar animações, dimensões e cores da faixa.
+
+### Página Sobre — etapa de cores
+
+Aplicar a paleta Fritz #f8fafc, #0f172a, #2563eb e #bfd4ff à página inteira. Fundos claros, cards alternados em azul, azul escuro e azul suave, títulos escuros e botões azuis. Compartilhar a paleta já aplicada na home para header, footer e contato. Preservar todos os textos, imagens, medidas e movimentos nesta etapa.
+
+Preferência explícita: nunca remover áreas de cor existentes sem solicitação do usuário. Na abertura Sobre, manter o círculo destacado em azul suave #bfd4ff, preservando seu contraste com o fundo.
+
+### Sobre — áreas atendidas e princípios
+
+Lista de sete cidades fornecidas pelo usuário substitui os cinco itens antigos. Três cards passam a Missão, Visão e Valores, com frases curtas de propósito, sem métricas nem certificações inventadas. Todas as imagens desta página passam a recortes da foto real do profissional fornecida pelo usuário; excluir da exibição imagens geradas ou de origem não confirmada. WebP responsivo sem ampliação. Preservar cores, dimensões e movimentos.
+
+### Correção da variedade de fotos na página Sobre
+
+Manter retrato fornecido apenas no destaque AboutStats. Usar seis fotos distintas verificadas nas avaliações de Bia Marina, Ketti Pars e Camila Rosa Gomes no perfil da Fritz para abertura e galerias. Não indicar antes/depois ou resultado garantido. Todas convertidas em WebP sem ampliação.
+### Home — fundos e legibilidade do reel
+
+Fixar fundos claros em branco frio e azuis da paleta Fritz, preservando as áreas coloridas existentes. Melhorar o contraste de Play Reel sobre o vídeo com texto branco e sombra. Manter “de estofados” junto na segunda linha do título de impermeabilização, sem alterar tamanho de fontes ou animações.
+
+### Home — fundo gelo aprovado
+
+Aplicar #f1f5f9 aos fundos claros da Home e seus separadores. Preservar os blocos azuis, cores da página Sobre, tipografia e animações.
+
+### Sobre — fundo gelo aprovado
+
+Aplicar #f1f5f9 como fundo claro da página Sobre, incluindo os separadores e componentes compartilhados. Preservar círculo azul, cards coloridos, fotografias, fontes e animações.
+
+### Serviços — paleta Fritz e fundo gelo
+
+Aplicar à página Serviços os mesmos tokens e cores dos componentes compartilhados da Home. Fundo #f1f5f9, detalhes da abertura em azul, sem remover círculos, triângulo ou áreas coloridas. Preservar textos, fotos, medidas e animações.
+
+### Contato — paleta Fritz e fundo gelo
+
+Aplicar fundo #f1f5f9 à página Contato, campos em azul suave, foco e aba selecionada em azul Fritz, textos em azul escuro. Reutilizar cores dos componentes compartilhados. Preservar conteúdo, dimensões, animações e funcionamento do formulário.
+
+### Projetos — primeira etapa, somente cores
+
+Aplicar à página de listagem Projetos o fundo gelo #f1f5f9 e a paleta Fritz. Preservar o círculo da abertura em azul suave, substituir faixa laranja por azul e selo verde por azul suave. Manter textos, imagens, dimensões, interações e animações.
+
+### Projetos — adaptação para registros reais da Fritz
+
+Substituir conteúdo de marcenaria da listagem por seis registros reais já verificados nas avaliações da Fritz, em WebP responsivo. Manter grade e animações. Descrever as peças sem inventar antes/depois ou resultados. Cards e CTA direcionam ao WhatsApp para orçamento. Faixa animada azul #2563eb com texto branco e nomes dos serviços. Atualizar metadados da listagem.
+
+Correção da faixa de Projetos: fixar azul #2563eb e texto branco diretamente no elemento para impedir que estilos antigos da faixa laranja prevaleçam.

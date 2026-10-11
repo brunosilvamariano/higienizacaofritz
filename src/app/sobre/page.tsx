@@ -1,3 +1,5 @@
+import '@/sections/home/home-colors.css';
+import '@/sections/about/about-colors.css';
 import type { Metadata } from 'next';
 import { AboutOpening } from '@/sections/about/opening/about-opening';
 import {
@@ -36,7 +38,7 @@ export default function AboutPage() {
   return (
     <main
       id="conteudo"
-      className="page-content tw:relative tw:bg-paper about-page"
+      className="page-content tw:relative tw:bg-paper about-page home-palette"
       tabIndex={-1}
     >
       <AboutMotion />

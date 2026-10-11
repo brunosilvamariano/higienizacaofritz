@@ -1,3 +1,5 @@
+import '@/sections/home/home-colors.css';
+import '@/sections/home/services/services-colors.css';
 import type { Metadata } from 'next';
 import { Showreel } from '@/sections/home/showreel/showreel';
 import { Services, ServicesOpening } from '@/sections/home/services/services';
@@ -13,7 +15,7 @@ export default function ServicesPage() {
   return (
     <main
       id="conteudo"
-      className="page-content tw:relative tw:bg-paper services-page"
+      className="page-content tw:relative tw:bg-paper services-page home-palette"
       tabIndex={-1}
     >
       <ServicesOpening />
