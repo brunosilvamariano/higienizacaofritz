@@ -337,3 +337,9 @@ Encurtar os textos repetidos da Home, distinguindo apresentação, processo, dif
 ### Abertura com logo — 11/10/2026
 Manter a tela e a lógica de carregamento, exibindo somente a marca gráfica da Fritz centralizada, sem texto adicional nem linhas decorativas.
 
+
+### Entrada sincronizada — 11/10/2026
+Reduzir somente a espera artificial da tela de carregamento em 1,44 segundo. Preservar a animação original de entrada, sua transição e a sincronização do hero.
+
+
+Limitar a espera inicial por fontes e imagem a 250 ms (antes 1.200 ms) e o fallback da Home a 1 segundo (antes 4 segundos). Manter a animação de saída da logo e a entrada do hero.

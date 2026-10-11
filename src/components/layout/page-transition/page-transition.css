@@ -87,7 +87,7 @@
   animation: preloader-letter 1s cubic-bezier(0.87, 0, 0.13, 1) both;
 }
 .page-transition[data-home='true'][data-phase='initial'] {
-  animation-delay: 4s;
+  animation-delay: 1s;
 }
 .page-transition[data-home='true'][data-phase='revealing'] {
   transform: translateY(-120%);

@@ -48,7 +48,7 @@ export function PageTransition() {
             image?.decode().catch(() => undefined),
           ]),
           new Promise<void>((resolve) => {
-            deadline = setTimeout(resolve, 1200);
+            deadline = setTimeout(resolve, 250);
           }),
         ]);
         if (cancelled) return;
@@ -59,12 +59,8 @@ export function PageTransition() {
           const curtain =
             document.querySelector<HTMLElement>('.page-transition');
           if (curtain)
-            curtain.dataset.entranceStart = String(performance.now());
+            curtain.dataset.entranceStart = String(performance.now() - 1440);
           window.dispatchEvent(new Event('traco:entrance-ready'));
-          await new Promise<void>((resolve) => {
-            deadline = setTimeout(resolve, 1440);
-          });
-          if (cancelled) return;
         }
         setPhase('revealing');
         finish = setTimeout(
