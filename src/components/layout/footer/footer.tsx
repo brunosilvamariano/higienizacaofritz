@@ -67,18 +67,6 @@ export function Footer() {
                 Blog
               </span>
             </Link>
-            <Link href="/blog/higienizacao-estofados">
-              <HoverLabel>Cuidados com estofados</HoverLabel>
-              <span className="footer-link-mobile" aria-hidden="true">
-                Cuidados com estofados
-              </span>
-            </Link>
-            <Link href="/projetos/cuidado-estofados">
-              <HoverLabel>O cuidado da Fritz</HoverLabel>
-              <span className="footer-link-mobile" aria-hidden="true">
-                O cuidado da Fritz
-              </span>
-            </Link>
           </nav>
           <div className="footer-information">
             <h2>Informações</h2>
