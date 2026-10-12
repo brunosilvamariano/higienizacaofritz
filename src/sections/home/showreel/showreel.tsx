@@ -124,14 +124,14 @@ export function Showreel({
                 { '--reel-label-x': reduced ? '34vw' : left } as MotionStyle
               }
             >
-              Play
+              Veja nosso
             </motion.span>
             <motion.span
               style={
                 { '--reel-label-x': reduced ? '-34vw' : right } as MotionStyle
               }
             >
-              Reel
+              trabalho
             </motion.span>
           </motion.h2>
           <motion.div

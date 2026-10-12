@@ -416,3 +416,7 @@ Remover somente o fundo da faixa do header sobre a Home, mantendo logo, links, m
 ### Vídeos reais dos serviços — 12/10/2026
 
 Substituir as imagens dos quatro serviços pelos vídeos enviados de estofados, colchões, tapetes e impermeabilização, na Home e na página Serviços. Preservar os cards 4:3, cores e empilhamento. Usar MP4 local otimizado e capa extraída do próprio vídeo. Carregar somente quando o vídeo entra na tela, reproduzir sem som em loop e pausar fora da área visível ou com a aba oculta. Disponibilizar controles nativos e respeitar a preferência por movimento reduzido.
+
+### Princípios: rolagem mobile mais compacta — 12/10/2026
+
+Remover as margens adicionais de 144px e 72px entre Missão, Visão e Valores no mobile. Preservar o gap de 16px, dimensões dos cards, ícones e posições sticky de 80px, 152px e 224px. Trocar o espaço final de 40svh por 144px, equivalente às duas faixas de título expostas, para completar o empilhamento com menos rolagem. Manter desktop, tablet a partir de 768px e movimento reduzido sem alteração.

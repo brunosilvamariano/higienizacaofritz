@@ -648,12 +648,14 @@
   .about-why-items {
     display: flex;
     flex-direction: column;
+    gap: 16px;
     padding-bottom: 0;
     align-items: start;
   }
   .about-why-card {
     position: sticky;
     flex: none;
+    margin-bottom: 0;
     top: 80px;
     z-index: 1;
     min-height: clamp(240px, 35svh, 320px);
@@ -671,13 +673,8 @@
   .about-why-items::after {
     content: '';
     flex: none;
-    height: 40svh;
-  }
-  .about-why-card:first-child {
-    margin-bottom: 144px;
-  }
-  .about-why-card:nth-child(2) {
-    margin-bottom: 72px;
+    /* Duas faixas de título mantêm o empilhamento completo no final. */
+    height: 144px;
   }
 }
 
