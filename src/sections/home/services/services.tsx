@@ -3,7 +3,8 @@ import { TitleReveal } from '@/animations/title-reveal';
 import { ResponsiveImage } from '@/components/media/responsive-image';
 import { fritzProfessionalImage } from '@/sections/about/fritz.images';
 import { servicesContent } from './services.content';
-import { serviceItemImages } from './services.images';
+import { ServiceVideo } from './service-video';
+import { serviceVideoPosters } from './services.videos';
 import './services.css';
 const services = servicesContent.items;
 export function Services() {
@@ -38,14 +39,11 @@ export function Services() {
               <p data-text-anim="">{item.text}</p>
             </div>
             <div className="service-image">
-              <ResponsiveImage
-                eager
-                priority="auto"
-                unoptimized
-                {...serviceItemImages[item.image]}
-                sizes="(min-width:768px) 40vw,100vw"
+              <ServiceVideo
+                id={item.id}
+                title={item.title}
+                poster={serviceVideoPosters[item.id].src}
               />
-              <small>{item.title}</small>
             </div>
           </article>
         ))}

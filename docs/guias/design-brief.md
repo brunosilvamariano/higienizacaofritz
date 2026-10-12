@@ -412,3 +412,7 @@ O usuário rejeitou rosa/lavanda e verde. A paleta final usa exclusivamente coba
 ### Hero escuro com header integrado — 12/10/2026
 
 Remover somente o fundo da faixa do header sobre a Home, mantendo logo, links, menu e linhas de navegação. Escurecer a fotografia do hero com uma camada azul profundo de 60% nas extremidades e 48% no centro, para valorizar os títulos brancos e a navegação. Preservar a fotografia, dimensões, animação de entrada e headers das páginas internas.
+
+### Vídeos reais dos serviços — 12/10/2026
+
+Substituir as imagens dos quatro serviços pelos vídeos enviados de estofados, colchões, tapetes e impermeabilização, na Home e na página Serviços. Preservar os cards 4:3, cores e empilhamento. Usar MP4 local otimizado e capa extraída do próprio vídeo. Carregar somente quando o vídeo entra na tela, reproduzir sem som em loop e pausar fora da área visível ou com a aba oculta. Disponibilizar controles nativos e respeitar a preferência por movimento reduzido.
