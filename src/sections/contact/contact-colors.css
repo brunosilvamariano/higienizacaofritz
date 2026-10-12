@@ -1,6 +1,6 @@
 /* Cores da página Contato, preservando a estrutura do formulário. */
 :root:has(.contact-page) {
-  --paper: #f1f5f9;
+  --paper: var(--palette-ice);
 }
 .contact-page {
   background: var(--paper);
@@ -19,7 +19,7 @@
 }
 .contact-page .contact-form-grid :is(input, select, textarea):focus {
   border-color: var(--brand);
-  box-shadow: 0 0 0 3px #2563eb1a;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 10%, transparent);
 }
 .contact-page .contact-form-status {
   background: var(--blue-panel-strong);

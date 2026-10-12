@@ -349,23 +349,23 @@
 /* Variações suaves da paleta Fritz para distinguir os serviços. */
 .services .service-row:nth-child(1),
 .home-palette .services .service-row:nth-child(1) {
-  --service-row-background: #dce8ff;
-  background: #dce8ff;
+  --service-row-background: var(--mist);
+  background: var(--service-row-background);
 }
 .services .service-row:nth-child(2),
 .home-palette .services .service-row:nth-child(2) {
-  --service-row-background: #edf3ff;
-  background: #edf3ff;
+  --service-row-background: var(--stone);
+  background: var(--service-row-background);
 }
 .services .service-row:nth-child(3),
 .home-palette .services .service-row:nth-child(3) {
-  --service-row-background: #d2e1ff;
-  background: #d2e1ff;
+  --service-row-background: var(--steel);
+  background: var(--service-row-background);
 }
 .services .service-row:nth-child(4),
 .home-palette .services .service-row:nth-child(4) {
-  --service-row-background: #e4edff;
-  background: #e4edff;
+  --service-row-background: var(--sand);
+  background: var(--service-row-background);
 }
 
 /* Estende apenas o fundo, preservando a largura e o alinhamento do conteúdo. */

@@ -1,6 +1,6 @@
 /* Paleta do detalhe Fritz, sem alterar os outros detalhes antigos. */
 :root:has(.fritz-care-page) {
-  --paper: #f1f5f9;
+  --paper: var(--palette-ice);
 }
 .fritz-care-page {
   background: var(--paper);
@@ -13,7 +13,7 @@
   border-top-color: var(--line);
 }
 .fritz-care-page .project-quote-mask {
-  background: #f1f5f999;
+  background: color-mix(in srgb, var(--paper) 60%, transparent);
 }
 .fritz-care-page .project-result {
   background: var(--sand);

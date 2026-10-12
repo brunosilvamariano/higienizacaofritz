@@ -7,7 +7,7 @@
 .site-header[data-home='true'] {
   position: absolute;
   inset: 0 0 auto;
-  background: #0f172acc;
+  background: transparent;
   color: white;
 }
 .header-inner {

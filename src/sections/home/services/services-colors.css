@@ -1,6 +1,6 @@
 /* Paleta da página Serviços; mantém os elementos decorativos existentes. */
 :root:has(.services-page) {
-  --paper: #f1f5f9;
+  --paper: var(--palette-ice);
 }
 .services-page .service-page-opening {
   background: var(--paper);

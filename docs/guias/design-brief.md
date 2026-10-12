@@ -380,3 +380,35 @@ Alinhar o card Solicitar orçamento à linguagem tipográfica do site: fundo azu
 ### Funcionamento do reel da Home — 11/10/2026
 
 Reproduzir o comportamento observado e a configuração original da Ariyana: progresso da entrada do topo no viewport até a saída da base (start end → end start), suavização 90%, quadro de 50vw/40vh aos 32% e 100vw/100vh aos 60%, texto aparece entre 32–42% e se desloca ±34vw atrás do vídeo. Desktop sticky de 250vh; tablet e celular estáticos em 3:2, com raios 24/20/16px e espaçamento regular. Play/pausa inline, sem autoplay no reel, vídeo mudo e em loop. Manter vídeo enviado, variante Serviços, acessibilidade, movimento reduzido, paleta Fritz e entrada do hero.
+
+### Separação dos fundos das etapas e diferenciais — 11/10/2026
+
+Manter o bloco arredondado das etapas em azul suave e aplicar o fundo gelo da página à seção Escolher a Fritz. Tornar visível a separação entre as seções, como na referência, sem alterar espaçamentos, títulos, cores dos quatro cards ou animações.
+
+### Harmonia dos cards de diferenciais — 11/10/2026
+
+Substituir as combinações de alto contraste entre as duas áreas de cada card por pares próximos de azuis suaves. A área da fotografia usa uma variação um pouco mais profunda do fundo do texto, preservando a distinção entre as duas superfícies. Quatro variações da mesma família azul, com texto navy e CTA transparente contornado em navy, como a referência. Manter fundo externo gelo, estrutura, fotografias, dimensões, funcionalidades e movimentos.
+
+### Transição após os serviços — 12/10/2026
+
+Aplicar gelo somente ao padding inferior da seção Serviços, usando a mesma medida responsiva do espaçamento existente. Preservar o fundo azul do título, as quatro cores dos serviços, fotos, dimensões, efeito sticky e demais seções. A correção atende tanto a Home quanto a página Serviços.
+
+### Correção da transição com as linhas da Home — 12/10/2026
+
+Na Home, manter o azul do último serviço (#e4edff) no padding inferior e nas linhas decorativas imediatamente seguintes, eliminando o intervalo gelo que separava visualmente as linhas do bloco. Na página Serviços, preservar o espaço final em gelo antes das avaliações. Não alterar alturas, espaçamentos, efeitos sticky ou vídeo.
+
+### Sobre: intervalo e ícones dos princípios — 12/10/2026
+
+Igualar à referência a ausência de padding inferior em WhyChoose no desktop, eliminando 150px duplicados antes de O cuidado na prática. Manter o percurso de rolagem e os espaços do tablet/celular. Acrescentar SVGs decorativos locais de estofado com brilho, escudo com gota e mão com coração aos cards Missão, Visão e Valores. Ícones discretos no canto inferior direito, reduzidos no mobile, atrás do texto e ignorados por leitores de tela. Preservar cores e o empilhamento mobile.
+
+### Nova paleta fosca Fritz — 12/10/2026
+
+Aplicar ao site inteiro uma paleta centralizada: cobalto #3155c6, azul profundo #172341, gelo #f4f6fb, branco #ffffff, cinza fosco #e5e8ee, azul suave #cdd9f2, lavanda #e5dff2 e verde suave #dfebe6. As áreas de texto e fotografia dos diferenciais usam pares próximos, com variações foscas e contornos navy. Distribuir lavanda e verde como acentos nos cards de diferenciais, princípios e serviços; reservar o cobalto aos CTAs e faixas de destaque. Preservar todas as áreas coloridas, contraste de leitura, fundos contínuos dos separadores, fotos, dimensões, animações e funcionalidades. Google, Instagram, WhatsApp e estrelas mantêm suas cores próprias. Validar todas as páginas principais no navegador e leitura em mobile.
+
+### Direção final da paleta: azuis e neutros — 12/10/2026
+
+O usuário rejeitou rosa/lavanda e verde. A paleta final usa exclusivamente cobalto #2850c3, azul profundo #13213d, azul noite #263e72, azul aço #cedbea, gelo #f4f7fb, branco e cinzas frios foscos. Os diferenciais alternam azul suave, cinza claro, azul aço e azul noite, sempre com duas superfícies próximas; o card azul noite tem texto e contorno brancos. Princípios e serviços ganham variações claras de azul e cinza. Substituir os tokens lavanda e verde por stone e steel. Manter as cores oficiais dos ícones sociais e estrelas, imagens, todas as áreas de cor, layout e funcionalidades.
+
+### Hero escuro com header integrado — 12/10/2026
+
+Remover somente o fundo da faixa do header sobre a Home, mantendo logo, links, menu e linhas de navegação. Escurecer a fotografia do hero com uma camada azul profundo de 60% nas extremidades e 48% no centro, para valorizar os títulos brancos e a navegação. Preservar a fotografia, dimensões, animação de entrada e headers das páginas internas.

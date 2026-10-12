@@ -26,7 +26,7 @@ export function ProjectGallery() {
       </PageOpening>
       <div
         className="project-ticker"
-        style={{ backgroundColor: '#2563eb', color: '#ffffff' }}
+        style={{ backgroundColor: 'var(--brand)', color: 'var(--white)' }}
         aria-hidden="true"
       >
         <div>

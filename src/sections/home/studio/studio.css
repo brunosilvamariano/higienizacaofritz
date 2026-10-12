@@ -341,8 +341,8 @@
   width: 100%;
   height: 100%;
   padding: 32px;
-  background: #2563eb;
-  color: #ffffff;
+  background: var(--brand);
+  color: var(--white);
   text-decoration: none;
   transition: background 0.3s;
 }
@@ -378,8 +378,8 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #f1f5f9;
-  color: #2563eb;
+  background: var(--paper);
+  color: var(--brand);
   transition: transform 0.3s;
 }
 .studio-conclusion-arrow > svg {
@@ -387,7 +387,7 @@
   height: 28px;
 }
 .studio-conclusion:is(:hover, :focus-visible) {
-  background: #0f172a;
+  background: var(--ink);
 }
 .studio-conclusion:is(:hover, :focus-visible) .studio-conclusion-arrow {
   transform: rotate(-35deg);

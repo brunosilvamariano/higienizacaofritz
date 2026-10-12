@@ -65,13 +65,38 @@ export function WhyChoose() {
         <div className="about-why-stage">
           <div className="about-why-items">
             {[
-              { title: 'Missão', value: 'Cuidar de cada peça' },
-              { title: 'Visão', value: 'Construir confiança' },
-              { title: 'Valores', value: 'Respeito e cuidado' },
+              {
+                title: 'Missão',
+                value: 'Cuidar de cada peça',
+                icon: 'M16 34V24a6 6 0 0 1 6-6h20a6 6 0 0 1 6 6v10 M10 34a6 6 0 0 1 6 6v5h32v-5a6 6 0 1 1 12 0v13H4V40a6 6 0 0 1 6-6Z M10 53v6m44-6v6 M48 4l2 6 6 2-6 2-2 6-2-6-6-2 6-2Z',
+              },
+              {
+                title: 'Visão',
+                value: 'Construir confiança',
+                icon: 'M32 5 54 14v17c0 14-9 22-22 28C19 53 10 45 10 31V14Z M32 19s-9 10-9 16a9 9 0 0 0 18 0c0-6-9-16-9-16Z M28 35a4 4 0 0 0 4 4',
+              },
+              {
+                title: 'Valores',
+                value: 'Respeito e cuidado',
+                icon: 'M32 27 20 16a7 7 0 0 1 12-7 7 7 0 0 1 12 7Z M4 38h9v20H4Z M13 43l10-7h12a5 5 0 0 1 0 10H24 M40 44l11-7a5 5 0 0 1 6 8L40 58H24l-11-6',
+              },
             ].map((item) => (
               <article className="about-why-card" key={item.title}>
                 <span>{item.title}</span>
                 <h3>{item.value}</h3>
+                <svg
+                  className="about-why-decoration"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.75"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d={item.icon} />
+                </svg>
               </article>
             ))}
           </div>

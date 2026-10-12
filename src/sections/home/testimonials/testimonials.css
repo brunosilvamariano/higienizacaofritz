@@ -266,8 +266,8 @@
   .review-actions
   .pill-link:has(.hover-label-primary) {
   background: #ffffff;
-  color: #0f172a;
-  border-color: #cbd5e1;
+  color: var(--ink);
+  border-color: var(--sand-panel);
 }
 .testimonials
   .review-actions
@@ -276,8 +276,8 @@
   .testimonials
   .review-actions
   .pill-link:has(.hover-label-primary):is(:hover, :focus-visible) {
-  background: #eef4ff;
-  color: #0f172a;
+  background: var(--mist);
+  color: var(--ink);
   border-color: #4285f4;
 }
 .testimonials .review-actions .review-google-mark {

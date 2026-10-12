@@ -12,7 +12,7 @@ import { SectionEntrances } from '@/animations/section-entrances';
 import { FloatingContact } from '@/components/ui/floating-contact';
 import '@/styles/globals.css';
 
-export const viewport: Viewport = { themeColor: '#0f172a' };
+export const viewport: Viewport = { themeColor: '#13213d' };
 export const metadata: Metadata = siteMetadata;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

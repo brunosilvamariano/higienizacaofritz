@@ -1,6 +1,6 @@
 /* Paleta Fritz na listagem e nas páginas de leitura. */
 :root:has(:is(.blog-page, .article-page)) {
-  --paper: #f1f5f9;
+  --paper: var(--palette-ice);
 }
 :is(.blog-page, .article-page) {
   background: var(--paper);

@@ -1,6 +1,6 @@
 /* Somente cores da listagem de Projetos. */
 :root:has(.projects-page) {
-  --paper: #f1f5f9;
+  --paper: var(--palette-ice);
 }
 .projects-page {
   background: var(--paper);

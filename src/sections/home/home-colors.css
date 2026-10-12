@@ -3,7 +3,12 @@
   background: var(--ink);
 }
 .home-palette .hero-background::after {
-  background: #0f172a44;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ink) 60%, transparent) 0%,
+    color-mix(in srgb, var(--ink) 48%, transparent) 45%,
+    color-mix(in srgb, var(--ink) 60%, transparent) 100%
+  );
 }
 .home-palette :is(.studio-card-heading::after, .process-marker) {
   background: var(--brand);
@@ -38,47 +43,36 @@
   color: var(--white);
 }
 .home-palette .environment-list .environment-panel {
-  --choice-surface: #ffffff;
-  --choice-ink: #0f172a;
-  --choice-photo: #2563eb;
-  --choice-button: #2563eb;
-  --choice-button-ink: #ffffff;
-  --choice-hover: #0f172a;
-  --choice-hover-ink: #ffffff;
+  --choice-surface: var(--blue-soft);
+  --choice-ink: var(--ink);
+  --choice-photo: var(--blue-panel-strong);
+  --choice-button: transparent;
+  --choice-button-ink: var(--choice-ink);
+  --choice-hover: var(--ink);
+  --choice-hover-ink: var(--white);
   --button-surface: var(--choice-surface);
   background: var(--choice-surface);
   color: var(--choice-ink);
 }
 .home-palette .environment-panel:nth-child(2) {
-  --choice-surface: #0f172a;
-  --choice-ink: #ffffff;
-  --choice-photo: #bfd4ff;
-  --choice-button: #ffffff;
-  --choice-button-ink: #0f172a;
-  --choice-hover: #bfd4ff;
-  --choice-hover-ink: #0f172a;
+  --choice-surface: var(--stone);
+  --choice-photo: var(--stone-panel);
 }
 .home-palette .environment-panel:nth-child(3) {
-  --choice-surface: #dce8ff;
-  --choice-photo: #0f172a;
-  --choice-button: #0f172a;
-  --choice-hover: #2563eb;
+  --choice-surface: var(--steel);
+  --choice-photo: var(--steel-panel);
 }
 .home-palette .environment-panel:nth-child(4) {
-  --choice-surface: #2563eb;
-  --choice-ink: #ffffff;
-  --choice-photo: #1d4ed8;
-  --choice-button: #ffffff;
-  --choice-button-ink: #0f172a;
-  --choice-hover: #dce8ff;
-  --choice-hover-ink: #0f172a;
+  --choice-surface: var(--midnight);
+  --choice-photo: var(--midnight-panel);
+  --choice-ink: var(--white);
 }
 .home-palette .environment-list .environment-panel .environment-photo {
   background: var(--choice-photo);
 }
 .home-palette .environment-panel .environment-copy .pill-link {
   background: var(--choice-button);
-  border-color: var(--choice-button);
+  border-color: var(--choice-ink);
   color: var(--choice-button-ink);
 }
 .home-palette
@@ -95,11 +89,19 @@
 .home-palette .trust {
   background-color: var(--ink);
   background-image:
-    linear-gradient(to right, #bfd4ff12 1px, transparent 1px),
-    linear-gradient(to bottom, #bfd4ff12 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--on-dark-muted) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--on-dark-muted) 7%, transparent) 1px,
+      transparent 1px
+    );
 }
 .home-palette :is(.trust-ticker, .trust-quote, .trust-logo) {
-  background: #0f172acc;
+  background: color-mix(in srgb, var(--ink) 80%, transparent);
   border-color: var(--line-on-dark);
 }
 .home-palette :is(.services, .service-row) {
@@ -175,7 +177,7 @@ body:has(.home-palette) .mobile-menu-top > span {
   color: var(--ink);
 }
 .home-palette .showreel-error {
-  background: #0f172aaa;
+  background: color-mix(in srgb, var(--ink) 67%, transparent);
 }
 .home-palette :is(.showreel-prev, .showreel-next) {
   color: var(--ink);
@@ -233,7 +235,7 @@ body:has(.home-palette) .reference-divider {
   background: var(--paper);
 }
 body:has(.home-palette) .reference-divider-linen {
-  color: var(--sand);
+  color: var(--services-ending-background, var(--sand));
 }
 body:has(.home-palette) .reference-divider-footer {
   color: var(--ink);
@@ -241,17 +243,27 @@ body:has(.home-palette) .reference-divider-footer {
 
 /* Gelo azulado na Home; preserva os blocos azuis e a paleta do Sobre. */
 :root:has(.home-palette .hero) {
-  --paper: #f1f5f9;
+  --paper: var(--palette-ice);
+  --services-ending-background: var(--sand);
 }
 .home-palette,
 .home-palette :is(.studio, .showreel, .leaders, .testimonials, .contact) {
   background-color: var(--paper);
 }
-.home-palette :is(.process, .environments) {
-  background-color: #e8effb;
+.home-palette .process {
+  background-color: var(--mist);
+}
+.home-palette .environments {
+  background-color: var(--paper);
 }
 .home-palette .services {
-  background-color: #dce8ff;
+  background-color: var(--mist);
+  /* Corte reto no padding inferior, sem mudar os fundos dos serviços. */
+  background-image: linear-gradient(
+    to top,
+    var(--services-ending-background, var(--paper)) var(--section-space),
+    transparent var(--section-space)
+  );
 }
 .home-palette :is(.showreel h2, .showreel-track[data-reduced='true'] h2) {
   color: var(--ink);

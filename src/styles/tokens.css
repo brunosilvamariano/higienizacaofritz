@@ -1,21 +1,43 @@
 :root {
-  --paper: #f1f5f9;
+  --palette-ice: #f4f7fb;
+  --paper: var(--palette-ice);
   --white: #ffffff;
+  --brand: #2850c3;
+  --brand-hover: #1f3f9d;
+  --brand-logo: var(--brand);
+  --brand-deep: var(--ink);
+  --mist: #e7eef8;
+  --sand: #e6eaf1;
+  --blue-soft: #d4e0f2;
+  --blue-panel: #c9d7ec;
+  --sand-panel: #d4dbe5;
+  --blue-panel-strong: #b5c8e8;
+  --blue-gray: #e1e7ef;
+  --blue-gray-panel: #c7d1df;
+  --stone: #eceff4;
+  --stone-panel: #dae0e9;
+  --steel: #cedbea;
+  --steel-panel: #b7c9df;
+  --midnight: #263e72;
+  --midnight-panel: #203462;
+  --amber: var(--blue-panel-strong);
+  --amber-text: var(--brand);
+  --home-timeline-color: var(--blue-panel-strong);
   --accent-text: var(--ink);
-  --taupe: #dce8ff;
+  --taupe: var(--sand);
   --taupe-text: var(--ink);
   --copper-deep: var(--ink);
-  --on-dark-muted: var(--taupe);
-  --ink: #0f172a;
-  --copper: #2563eb;
-  --muted: var(--ink);
-  --line: #12121233;
-  --line-on-dark: #ffffff44;
+  --on-dark-muted: #c6d1e6;
+  --ink: #13213d;
+  --copper: var(--brand);
+  --muted: #4a5971;
+  --line: #13213d26;
+  --line-on-dark: #c6d1e63d;
   --gutter: clamp(20px, 5vw, 96px);
   --section-space: clamp(72px, 10vw, 160px);
   --header-height: 84px;
   --radius: 20px;
-  --surface: #f0f0f0;
+  --surface: var(--mist);
   /* Camadas globais. Empilhamentos internos de seção usam valores locais. */
   --z-content: 1;
   --z-header: 30;
@@ -47,31 +69,4 @@
   :root {
     --section-space: 64px;
   }
-}
-
-/* Paleta Fritz: apenas a Home, inclusive seus componentes compartilhados. */
-:root:has(.home-palette) {
-  --paper: #f1f5f9;
-  --ink: #0f172a;
-  --brand: #2563eb;
-  --brand-logo: #2563eb;
-  --brand-deep: #0f172a;
-  --mist: color-mix(in srgb, #bfd4ff 28%, #f8fafc);
-  --sand: color-mix(in srgb, #bfd4ff 45%, #f8fafc);
-  --amber: #bfd4ff;
-  --amber-text: #2563eb;
-  --blue-soft: color-mix(in srgb, #bfd4ff 65%, #f8fafc);
-  --blue-panel: color-mix(in srgb, #bfd4ff 75%, #f8fafc);
-  --sand-panel: color-mix(in srgb, #bfd4ff 85%, #f8fafc);
-  --blue-panel-strong: #bfd4ff;
-  --blue-gray: color-mix(in srgb, #bfd4ff 35%, #f8fafc);
-  --blue-gray-panel: color-mix(in srgb, #bfd4ff 60%, #f8fafc);
-  --muted: color-mix(in srgb, #0f172a 78%, #f8fafc);
-  --on-dark-muted: #bfd4ff;
-  --line: #0f172a33;
-  --line-on-dark: #bfd4ff44;
-  --taupe: var(--sand);
-  --copper: var(--brand);
-  --surface: var(--mist);
-  --home-timeline-color: #bfd4ff;
 }
