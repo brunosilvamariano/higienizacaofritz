@@ -6,7 +6,11 @@ import { navigation } from '@/config/navigation';
 import { contact, whatsappUrl } from '@/config/contact';
 import { InstagramIcon } from '@/components/ui/social-icons';
 import { prefersReducedMotion } from '@/lib/media-queries';
-export function MobileNavigation() {
+export function MobileNavigation({
+  onOpenChange,
+}: {
+  onOpenChange?: (open: boolean) => void;
+}) {
   const pathname = usePathname();
   const dialog = useRef<HTMLDialogElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
@@ -29,6 +33,7 @@ export function MobileNavigation() {
     element.dataset.state = 'opening';
     element.showModal();
     setIsOpen(true);
+    onOpenChange?.(true);
   }
   useEffect(() => {
     if (!isOpen) return;
@@ -68,6 +73,7 @@ export function MobileNavigation() {
         }}
         onClose={() => {
           setIsOpen(false);
+          onOpenChange?.(false);
           toggle.current?.focus({ preventScroll: true });
         }}
       >

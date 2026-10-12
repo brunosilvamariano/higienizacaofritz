@@ -420,3 +420,9 @@ Substituir as imagens dos quatro serviços pelos vídeos enviados de estofados, 
 ### Princípios: rolagem mobile mais compacta — 12/10/2026
 
 Remover as margens adicionais de 144px e 72px entre Missão, Visão e Valores no mobile. Preservar o gap de 16px, dimensões dos cards, ícones e posições sticky de 80px, 152px e 224px. Trocar o espaço final de 40svh por 144px, equivalente às duas faixas de título expostas, para completar o empilhamento com menos rolagem. Manter desktop, tablet a partir de 768px e movimento reduzido sem alteração.
+
+### Navegação disponível ao rolar para cima — 12/10/2026
+
+Fixar o header e preservar sua aparência original no topo: transparente sobre o hero e gelo nas páginas internas. Durante a página, usar fundo azul profundo e texto branco. Recolher após 28px de rolagem para baixo e revelar após 12px para cima; manter visível com menu aberto ou foco de teclado na navegação. Reservar a altura original nas páginas internas para evitar saltos de layout. Respeitar movimento reduzido, preservar links, diálogo e animação de entrada da Home.
+
+Na primeira descida do hero, manter o header transparente enquanto ele se recolhe. Aplicar o azul quando a navegação for revelada durante a página e preservá-lo ao recolher novamente. Ao voltar ao topo, dissolver o fundo e a sombra em 400ms, eliminando a troca brusca de cor; movimento reduzido permanece sem transição.
