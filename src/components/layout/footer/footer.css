@@ -327,3 +327,31 @@
     white-space: normal;
   }
 }
+
+/* Reservar o canto do botão de voltar ao topo sem cobrir os créditos. */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-credits {
+    padding-inline-end: 72px;
+  }
+}
+
+/* Quatro colunas comprimem os contatos e links no tablet de 768 px. */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-links {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 32px;
+  }
+  .footer-links > * {
+    min-width: 0;
+  }
+  .footer-contact p {
+    max-width: none;
+  }
+  .footer-contact > a {
+    white-space: nowrap;
+  }
+  .footer-newsletter form {
+    max-width: 580px;
+  }
+}

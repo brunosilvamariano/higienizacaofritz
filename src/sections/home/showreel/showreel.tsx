@@ -22,7 +22,8 @@ export function Showreel({
   const reduced = useReducedMotion();
   const { scrollYProgress } = useScroll({
     target: track,
-    offset: ['start end', 'end end'],
+    // Ariyana: from the track entering the viewport to its bottom leaving it.
+    offset: ['start end', 'end start'],
   });
   const progress = useSmoothedProgress(scrollYProgress, 0.9);
   const labelOpacity = useTransform(progress, [0.32, 0.42], [0, 1]);

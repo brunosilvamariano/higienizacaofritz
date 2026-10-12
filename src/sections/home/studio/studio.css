@@ -335,30 +335,104 @@
 .studio-conclusion {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 16px;
   width: 100%;
   height: 100%;
-  padding: 24px;
-  background: #bfd4ff;
-  color: #0f172a;
+  padding: 32px;
+  background: #2563eb;
+  color: #ffffff;
   text-decoration: none;
+  transition: background 0.3s;
 }
-.studio-conclusion > svg {
-  width: clamp(48px, 5vw, 72px);
-  height: auto;
-  flex-shrink: 0;
-  color: #2563eb;
-}
-.studio-conclusion > span {
+.studio-conclusion-caption {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 20px;
-  font-weight: 600;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.studio-conclusion-caption > svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+.studio-conclusion-action {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.studio-conclusion-title {
+  font:
+    400 clamp(32px, 4vw, 56px)/1 var(--font-display),
+    sans-serif;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.studio-conclusion-arrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #2563eb;
+  transition: transform 0.3s;
+}
+.studio-conclusion-arrow > svg {
+  width: 28px;
+  height: 28px;
+}
+.studio-conclusion:is(:hover, :focus-visible) {
+  background: #0f172a;
+}
+.studio-conclusion:is(:hover, :focus-visible) .studio-conclusion-arrow {
+  transform: rotate(-35deg);
 }
 .studio-conclusion:focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 3px solid #ffffff;
   outline-offset: -6px;
+}
+@media (max-width: 991px) {
+  .studio-conclusion {
+    padding: 24px;
+  }
+  .studio-conclusion-title {
+    font-size: 32px;
+  }
+  .studio-conclusion-arrow {
+    width: 44px;
+    height: 44px;
+  }
+  .studio-conclusion-arrow > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-conclusion,
+  .studio-conclusion-arrow {
+    transition: none;
+  }
+  .studio-conclusion:is(:hover, :focus-visible) .studio-conclusion-arrow {
+    transform: none;
+  }
+}
+
+/* Em telas muito estreitas, o card precisa caber junto às margens. */
+@media (max-width: 479px) {
+  .studio-card {
+    width: min(300px, calc(100vw - 48px));
+  }
+}
+
+/* A referência usa corpo de 16 px na faixa horizontal do tablet. */
+@media (max-width: 991px) {
+  .studio-card > p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }

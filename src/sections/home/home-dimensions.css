@@ -1,0 +1,169 @@
+/* Medidas da Home de referência, isoladas da paleta e das outras páginas. */
+.home-palette {
+  --heading-large: clamp(3.75rem, -0.1942rem + 16.8285vw, 20rem);
+  --heading-section: clamp(2.75rem, 1.4757rem + 5.4369vw, 8rem);
+  --heading-medium: clamp(2rem, 1.2112rem + 3.3657vw, 5.25rem);
+  --heading-small: clamp(1.75rem, 1.5376rem + 0.9061vw, 2.625rem);
+  --home-space-md: 24px;
+  --home-space-xl: 32px;
+  --home-space-3xl: 40px;
+  --home-space-7xl: 60px;
+  --home-space-8xl: 80px;
+  --home-radius-sm: 20px;
+  --home-radius-lg: 40px;
+  --home-radius-xl: 100px;
+  --home-body-lg: 20px;
+  --home-body-md: 18px;
+  --home-body-xl: 24px;
+}
+.home-palette :is(.studio, .environments) {
+  padding-block: var(--section-space);
+}
+.home-palette .studio-intro {
+  margin-bottom: var(--section-space);
+}
+.home-palette :is(.reference-heading, .process-heading) {
+  margin-bottom: var(--home-space-8xl);
+}
+.home-palette .reference-badge {
+  font-size: clamp(1.5rem, 1.2573rem + 1.0356vw, 2.5rem);
+  letter-spacing: -0.01em;
+}
+.home-palette .studio-intro h2 {
+  font-size: var(--heading-medium);
+  letter-spacing: -0.01em;
+  margin-block: var(--home-space-3xl) var(--home-space-xl);
+}
+.home-palette
+  :is(.environments, .services, .testimonials)
+  .reference-heading
+  h2 {
+  font-size: var(--heading-large);
+}
+.home-palette .studio-card-heading {
+  margin-bottom: var(--home-space-md);
+}
+.home-palette .studio-card > p {
+  font-size: var(--home-body-lg);
+  padding-top: var(--home-space-3xl);
+}
+.home-palette :is(.studio-card-image, .service-image) {
+  border-radius: var(--home-radius-lg);
+}
+.home-palette .process {
+  border-radius: var(--home-radius-xl);
+}
+.home-palette .process-card {
+  border-radius: var(--home-radius-lg);
+}
+.home-palette .process-count {
+  font-size: var(--home-body-xl);
+  letter-spacing: -0.01em;
+  margin-bottom: var(--home-space-md);
+}
+.home-palette .process-card h3 {
+  letter-spacing: -0.01em;
+}
+.home-palette .process-heading > p {
+  font-size: var(--home-body-lg);
+  line-height: 1.5;
+}
+.home-palette .process-description p {
+  font-size: var(--home-body-md);
+}
+.home-palette .process-description p::before {
+  height: var(--home-space-md);
+}
+.home-palette :is(.environment-panel, .environment-photo picture) {
+  border-radius: var(--home-radius-sm);
+}
+.home-palette .environment-copy p {
+  font-size: var(--home-body-lg);
+  margin-block: var(--home-space-md) var(--home-space-7xl);
+}
+.home-palette .environment-copy .pill-link {
+  border-radius: 999px;
+}
+.home-palette .environment-photo picture {
+  aspect-ratio: 1;
+}
+.home-palette .service-copy h3 {
+  margin-bottom: var(--home-space-3xl);
+}
+.home-palette .service-copy > p {
+  font-size: var(--home-body-lg);
+}
+@media (min-width: 1440px) {
+  .home-palette .environment-photo {
+    padding-block: 80px;
+  }
+}
+@media (min-width: 1920px) {
+  .home-palette .process-card {
+    padding-inline: 40px;
+  }
+  .home-palette .environment-copy p {
+    max-width: 607px;
+  }
+}
+@media (max-width: 991px) {
+  .home-palette {
+    --home-space-md: 20px;
+    --home-space-xl: 24px;
+    --home-space-3xl: 24px;
+    --home-space-7xl: 48px;
+    --home-space-8xl: 52px;
+    --home-radius-sm: 16px;
+    --home-radius-lg: 24px;
+    --home-radius-xl: 60px;
+    --home-body-lg: 16px;
+    --home-body-xl: 20px;
+  }
+  .home-palette .environment-copy {
+    padding: 60px 32px;
+  }
+  .home-palette .environment-copy .pill-link:has(.hover-label-v2) {
+    padding: 16px;
+    min-height: 0;
+  }
+}
+@media (max-width: 767px) {
+  .home-palette {
+    --home-space-md: 16px;
+    --home-space-xl: 20px;
+    --home-space-3xl: 20px;
+    --home-space-7xl: 36px;
+    --home-space-8xl: 44px;
+    --home-radius-sm: 12px;
+    --home-radius-lg: 20px;
+    --home-radius-xl: 40px;
+    --home-body-md: 16px;
+    --home-body-xl: 16px;
+  }
+  .home-palette .reference-badge {
+    padding: 8px 16px;
+  }
+  .home-palette .environments .reference-badge {
+    right: 130px;
+  }
+  .home-palette .environment-copy {
+    padding: 40px 32px;
+  }
+  .home-palette .environment-photo {
+    padding: 52px 32px;
+  }
+}
+@media (max-width: 479px) {
+  .home-palette {
+    --home-space-7xl: 32px;
+    --home-space-8xl: 32px;
+    --home-radius-lg: 16px;
+    --home-radius-xl: 32px;
+  }
+  .home-palette .environment-copy {
+    padding: 32px 20px;
+  }
+  .home-palette .environment-photo {
+    padding: 24px;
+  }
+}

@@ -1,4 +1,5 @@
 import '@/sections/home/home-colors.css';
+import '@/sections/home/home-dimensions.css';
 import { Contact } from '@/sections/home/contact/contact';
 import { Hero } from '@/sections/home/hero/hero';
 import { Environments } from '@/sections/home/environments/environments';

@@ -332,3 +332,51 @@
   -webkit-text-fill-color: var(--white);
   white-space: nowrap;
 }
+
+/* O menu completo precisa reservar espaço para a marca em tablets. */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .mobile-menu-inner {
+    padding-top: 32px;
+  }
+  .mobile-menu-top {
+    margin-bottom: 24px;
+  }
+  .mobile-menu-top > p {
+    font-size: clamp(120px, 16vw, 180px);
+    line-height: 1;
+  }
+  .mobile-menu-top > span {
+    top: 56px;
+    font-size: 28px;
+    line-height: 1;
+    padding: 16px 28px;
+  }
+  .mobile-links a {
+    font-size: 44px;
+    line-height: 1;
+    padding: 12px 0;
+  }
+  .mobile-menu-contact {
+    padding: 24px 40px;
+    font-size: 18px;
+  }
+  .close-menu {
+    top: 20px;
+    right: 24px;
+    bottom: auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+}
+
+/* A faixa completa deve caber também em celulares de 320 px. */
+@media (max-width: 479px) {
+  .mobile-menu-top > span {
+    max-width: calc(100% - 48px);
+    white-space: normal;
+    text-wrap: balance;
+    font-size: clamp(20px, 5.4vw, 24px);
+    line-height: 1;
+  }
+}

@@ -276,6 +276,7 @@ Lista de sete cidades fornecidas pelo usuário substitui os cinco itens antigos.
 ### Correção da variedade de fotos na página Sobre
 
 Manter retrato fornecido apenas no destaque AboutStats. Usar seis fotos distintas verificadas nas avaliações de Bia Marina, Ketti Pars e Camila Rosa Gomes no perfil da Fritz para abertura e galerias. Não indicar antes/depois ou resultado garantido. Todas convertidas em WebP sem ampliação.
+
 ### Home — fundos e legibilidade do reel
 
 Fixar fundos claros em branco frio e azuis da paleta Fritz, preservando as áreas coloridas existentes. Melhorar o contraste de Play Reel sobre o vídeo com texto branco e sombra. Manter “de estofados” junto na segunda linha do título de impermeabilização, sem alterar tamanho de fontes ou animações.
@@ -319,27 +320,63 @@ Adaptar somente o detalhe cozinha-encontro para cuidado da Fritz com estofados, 
 Eliminar conteúdo e referências visíveis do modelo de marcenaria em todas as rotas e módulos de conteúdo, incluindo páginas acessadas diretamente. Preservar layout, cores aprovadas e animações. Usar nomes de rotas ligados aos serviços com redirecionamentos permanentes dos antigos. Configurar domínio higienizacaofritz.vercel.app, canonicals e compartilhamento com google.jpg fornecida (1200x630), vídeo download.mp4 no reel, sitemap e robots. Dados estruturados somente com fatos confirmados. Validar conteúdo renderizado e recursos; não publicar automaticamente.
 
 ### Ajustes de responsividade — 11/10/2026
+
 No celular, missão, visão e valores ficam em uma coluna, com altura uniforme e texto protegido por espaçamento interno. Os links do rodapé permitem quebra de linha sem corte. Preservar as três cores e os efeitos de desktop. Renomear a navegação Projetos para Galeria, mantendo as URLs existentes.
 
-
 ### Empilhamento dos valores no mobile — 11/10/2026
+
 Somente Missão, Visão e Valores ganham cards sticky com deslocamento vertical progressivo para preservar os títulos anteriores. Manter cores e desktop, com alternativa estática para movimento reduzido.
 
-
 ### Cores nas áreas atendidas — 11/10/2026
+
 Diferenciar as cidades com sequência de gelo e dois azuis claros da paleta, preservando texto navy, leitura e efeito de desktop. Acrescentar respiro lateral às linhas.
 
-
 ### Refinamento editorial e mobile — 11/10/2026
+
 Encurtar os textos repetidos da Home, distinguindo apresentação, processo, diferenciais e serviços. Ajustar apenas espaços estáticos no mobile. Preservar todos os CTAs, dados, seções, URLs, formulários, cores e animações atuais.
 
-
 ### Abertura com logo — 11/10/2026
+
 Manter a tela e a lógica de carregamento, exibindo somente a marca gráfica da Fritz centralizada, sem texto adicional nem linhas decorativas.
 
-
 ### Entrada sincronizada — 11/10/2026
+
 Reduzir somente a espera artificial da tela de carregamento em 1,44 segundo. Preservar a animação original de entrada, sua transição e a sincronização do hero.
 
-
 Limitar a espera inicial por fontes e imagem a 250 ms (antes 1.200 ms) e o fallback da Home a 1 segundo (antes 4 segundos). Manter a animação de saída da logo e a entrada do hero.
+
+### Responsividade em tablet — 11/10/2026
+
+Validar todas as páginas em 1024 × 776, incluindo rolagem, animações, menu, imagens, formulários e footer. Corrigir cortes reais com estilos específicos para tablet, preservando conteúdo, paleta, funcionalidades e animações de entrada.
+
+Ajustes confirmados: reservar espaço superior da marca no menu entre 992 e 1199 px; exibir avaliações em duas colunas nessa faixa para evitar que os cards escondam os comentários. Manter animações, cores e quatro avaliações.
+
+No footer, reservar 72 px no lado dos créditos entre 992 e 1199 px para que o botão flutuante de voltar ao topo não cubra a marca da agência.
+
+### Complemento da validação — cards finais e tablet de 768 px
+
+Calcular o fim da rolagem horizontal pela largura real do conteúdo e da área disponível, para que o último card apareça inteiro. Em 768–1199 px, centralizar a faixa da seção Cuidado de verdade e manter o texto opaco. Em 768–991 px, organizar o footer em duas colunas e limitar a largura do formulário para evitar o botão flutuante.
+
+Na regressão de 320 px, limitar a largura dos cards a viewport menos 48 px, garantindo o último card inteiro também nas telas estreitas.
+
+### Referência responsiva Ariyana — 11/10/2026
+
+Comparar a Home de https://ariyana-studio.webflow.io/ em 320, 390, 479, 767, 768, 1024 e 1440 px. Preservar identidade Fritz, conteúdo, imagens, animação de entrada, rolagem horizontal, vídeo, navegação e WhatsApp. Aproveitar a tipografia de 16 px dos cards da faixa no tablet e o respiro lateral de 20 px dos cards estáticos no celular. Dimensionar o botão do Google e a faixa do menu para as frases mais longas em português, sem excluir texto, ícones ou cores. Manter avaliações legíveis em duas colunas no tablet e footer com largura adequada, mesmo quando a referência usa sobreposição ou colunas estreitas.
+
+Na comparação dos limites, manter as etapas em duas colunas entre 480 e 767 px, evitando a grade de três cards e um isolado causada pelo auto-fit. Corpo das descrições em 16 px no celular.
+
+### Medidas verificadas da referência — 11/10/2026
+
+Substituir a aproximação anterior pelas medidas reais do CSS e do navegador da Home Ariyana em 396×852, 631×1040 e 629×932. Igualar escalas tipográficas, entrelinhas, margens, padding e raios responsivos, com tokens próprios da Fritz. A seção Escolher a Fritz usa a mesma escala h2 da referência. Aplicar os espaçamentos originais às etapas, cards de diferenciais e faixa de apresentação. Manter cores, conteúdo, fotos, WhatsApp, correção do último card e animação de entrada. Alturas automáticas acompanham os textos em português e as fotos existentes; não ocultar conteúdo para reproduzir a altura de um texto diferente.
+
+### Contraste nos diferenciais — 11/10/2026
+
+Distinguir os quatro cards empilhados com branco e azul Fritz, navy e azul claro, azul claro e navy, azul Fritz e azul profundo. Texto navy nas superfícies claras e branco nas escuras; CTAs com cores próprias e contraste também no hover e foco. Preservar o fundo externo azul suave, as duas áreas coloridas de cada card, dimensões, fotografias, conteúdo e animação de empilhamento.
+
+### CTA final da faixa horizontal — 11/10/2026
+
+Alinhar o card Solicitar orçamento à linguagem tipográfica do site: fundo azul Fritz, título branco em Bebas Neue em duas linhas, indicação discreta do WhatsApp e seta em círculo claro. Hover navy e foco visível, com movimento reduzido respeitado. Preservar altura e largura do card, rolagem horizontal, destino WhatsApp e rastreamento.
+
+### Funcionamento do reel da Home — 11/10/2026
+
+Reproduzir o comportamento observado e a configuração original da Ariyana: progresso da entrada do topo no viewport até a saída da base (start end → end start), suavização 90%, quadro de 50vw/40vh aos 32% e 100vw/100vh aos 60%, texto aparece entre 32–42% e se desloca ±34vw atrás do vídeo. Desktop sticky de 250vh; tablet e celular estáticos em 3:2, com raios 24/20/16px e espaçamento regular. Play/pausa inline, sem autoplay no reel, vídeo mudo e em loop. Manter vídeo enviado, variante Serviços, acessibilidade, movimento reduzido, paleta Fritz e entrada do hero.

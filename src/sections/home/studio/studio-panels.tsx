@@ -29,7 +29,8 @@ export function StudioPanels() {
       const compact = window.innerWidth <= 991;
       setLimits({
         start: compact ? element.scrollWidth * 0.07 : window.innerWidth * 0.5,
-        end: -element.scrollWidth * (compact ? 0.84 : 0.7),
+        // Align the last card inside the viewport with the section's 5% inset.
+        end: Math.min(0, region.clientWidth * 0.95 - element.scrollWidth),
         top: Math.min(
           compact ? window.innerHeight * 0.18 : 0,
           window.innerHeight - element.offsetHeight,
@@ -91,9 +92,29 @@ export function StudioPanels() {
                     data-track-contact="orcamento diferenciais"
                     aria-label="Solicitar orçamento à Fritz pelo WhatsApp"
                   >
-                    <WhatsAppIcon />
-                    <span>
-                      Solicitar orçamento <span aria-hidden="true">↗</span>
+                    <span className="studio-conclusion-caption">
+                      <WhatsAppIcon /> Pelo WhatsApp
+                    </span>
+                    <span className="studio-conclusion-action">
+                      <span className="studio-conclusion-title">
+                        Solicitar
+                        <br />
+                        orçamento
+                      </span>
+                      <span
+                        className="studio-conclusion-arrow"
+                        aria-hidden="true"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                          <path
+                            d="M5 12h14m-6-6 6 6-6 6"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </span>
                     </span>
                   </a>
                 )}

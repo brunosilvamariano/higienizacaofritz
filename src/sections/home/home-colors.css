@@ -37,33 +37,60 @@
   background: var(--brand);
   color: var(--white);
 }
-.home-palette .environment-panel {
-  background: var(--mist);
-  --button-surface: var(--mist);
+.home-palette .environment-list .environment-panel {
+  --choice-surface: #ffffff;
+  --choice-ink: #0f172a;
+  --choice-photo: #2563eb;
+  --choice-button: #2563eb;
+  --choice-button-ink: #ffffff;
+  --choice-hover: #0f172a;
+  --choice-hover-ink: #ffffff;
+  --button-surface: var(--choice-surface);
+  background: var(--choice-surface);
+  color: var(--choice-ink);
 }
 .home-palette .environment-panel:nth-child(2) {
-  background: var(--sand);
-  --button-surface: var(--sand);
+  --choice-surface: #0f172a;
+  --choice-ink: #ffffff;
+  --choice-photo: #bfd4ff;
+  --choice-button: #ffffff;
+  --choice-button-ink: #0f172a;
+  --choice-hover: #bfd4ff;
+  --choice-hover-ink: #0f172a;
 }
 .home-palette .environment-panel:nth-child(3) {
-  background: var(--blue-soft);
-  --button-surface: var(--blue-soft);
+  --choice-surface: #dce8ff;
+  --choice-photo: #0f172a;
+  --choice-button: #0f172a;
+  --choice-hover: #2563eb;
 }
 .home-palette .environment-panel:nth-child(4) {
-  background: var(--blue-gray);
-  --button-surface: var(--blue-gray);
+  --choice-surface: #2563eb;
+  --choice-ink: #ffffff;
+  --choice-photo: #1d4ed8;
+  --choice-button: #ffffff;
+  --choice-button-ink: #0f172a;
+  --choice-hover: #dce8ff;
+  --choice-hover-ink: #0f172a;
 }
-.home-palette .environment-photo {
-  background: var(--blue-panel);
+.home-palette .environment-list .environment-panel .environment-photo {
+  background: var(--choice-photo);
 }
-.home-palette .environment-panel:nth-child(2) .environment-photo {
-  background: var(--sand-panel);
+.home-palette .environment-panel .environment-copy .pill-link {
+  background: var(--choice-button);
+  border-color: var(--choice-button);
+  color: var(--choice-button-ink);
 }
-.home-palette .environment-panel:nth-child(3) .environment-photo {
-  background: var(--blue-panel-strong);
+.home-palette
+  .environment-panel
+  .environment-copy
+  .pill-link:is(:hover, :focus-visible) {
+  background: var(--choice-hover);
+  border-color: var(--choice-hover);
+  color: var(--choice-hover-ink);
 }
-.home-palette .environment-panel:nth-child(4) .environment-photo {
-  background: var(--blue-gray-panel);
+.home-palette .environment-panel .environment-copy .pill-link:focus-visible {
+  outline-color: var(--choice-ink);
 }
 .home-palette .trust {
   background-color: var(--ink);
@@ -227,8 +254,8 @@ body:has(.home-palette) .reference-divider-footer {
   background-color: #dce8ff;
 }
 .home-palette :is(.showreel h2, .showreel-track[data-reduced='true'] h2) {
-  color: #f8fafc;
-  text-shadow: 0 2px 12px #0f172a99;
+  color: var(--ink);
+  text-shadow: none;
 }
 
 /* Respiro mais compacto nas áreas estáticas da Home no celular. */

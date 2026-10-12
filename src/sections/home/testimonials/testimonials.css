@@ -285,3 +285,56 @@
   height: 24px;
   flex-shrink: 0;
 }
+
+/* Duas colunas deixam os quatro comentários inteiros no tablet. */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .testimonial-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    padding-top: 0;
+    gap: 24px;
+  }
+  .testimonials .testimonial-card:nth-child(n) {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    min-height: 380px;
+    margin: 0;
+    padding: 28px;
+    border-radius: 28px;
+    transform: none;
+  }
+  .testimonial-card blockquote {
+    font-size: 20px;
+  }
+  .testimonial-author {
+    min-width: 0;
+  }
+  .testimonial-author > div {
+    min-width: 0;
+  }
+  .testimonial-author img {
+    flex: none;
+  }
+  .testimonial-author p {
+    font-size: 16px;
+  }
+}
+
+/* O texto em português é maior que os CTAs curtos da referência. */
+@media (max-width: 479px) {
+  .testimonials .review-actions .pill-link:has(.hover-label-primary) {
+    padding: 16px 18px;
+    font-size: clamp(16px, 4.6vw, 20px);
+    gap: 8px;
+    min-height: 56px;
+  }
+  .testimonials .review-actions .review-google-mark {
+    width: 20px;
+    height: 20px;
+  }
+  .review-actions .hover-button-line {
+    width: 16px;
+  }
+}
