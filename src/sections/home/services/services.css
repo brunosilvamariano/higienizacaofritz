@@ -279,9 +279,10 @@
 }
 
 @media (min-width: 992px) {
-  body:has(.services-page) .site-header {
-    position: absolute;
-    inset: 0 0 auto;
+  body:has(.services-page) .site-header-slot {
+    height: 0;
+  }
+  body:has(.services-page) .site-header:not([data-solid='true']) {
     background: transparent;
   }
   .service-page-opening {

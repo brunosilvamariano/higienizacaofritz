@@ -426,3 +426,5 @@ Remover as margens adicionais de 144px e 72px entre Missão, Visão e Valores no
 Fixar o header e preservar sua aparência original no topo: transparente sobre o hero e gelo nas páginas internas. Durante a página, usar fundo azul profundo e texto branco. Recolher após 28px de rolagem para baixo e revelar após 12px para cima; manter visível com menu aberto ou foco de teclado na navegação. Reservar a altura original nas páginas internas para evitar saltos de layout. Respeitar movimento reduzido, preservar links, diálogo e animação de entrada da Home.
 
 Na primeira descida do hero, manter o header transparente enquanto ele se recolhe. Aplicar o azul quando a navegação for revelada durante a página e preservá-lo ao recolher novamente. Ao voltar ao topo, dissolver o fundo e a sombra em 400ms, eliminando a troca brusca de cor; movimento reduzido permanece sem transição.
+
+Na auditoria das rotas, remover a posição absoluta legada do header da página Serviços no desktop. Preservar sua abertura com header transparente e sem espaço reservado nesse breakpoint; aplicar fundo azul quando revelado durante a rolagem, seguindo a navegação global.
