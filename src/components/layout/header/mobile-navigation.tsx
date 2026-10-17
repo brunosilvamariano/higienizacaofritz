@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { navigation } from '@/config/navigation';
 import { contact, whatsappUrl } from '@/config/contact';
 import { InstagramIcon } from '@/components/ui/social-icons';
+import { navigateAnchor } from '@/lib/navigate-anchor';
+import { isPlainClick } from '@/lib/plain-click';
 import { prefersReducedMotion } from '@/lib/media-queries';
 export function MobileNavigation({
   onOpenChange,
@@ -13,6 +15,7 @@ export function MobileNavigation({
   const dialog = useRef<HTMLDialogElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pendingAnchor = useRef<string | null>(null);
   const [isOpen, setIsOpen] = useState(false);
   function close() {
     const element = dialog.current;
@@ -72,7 +75,10 @@ export function MobileNavigation({
         onClose={() => {
           setIsOpen(false);
           onOpenChange?.(false);
-          toggle.current?.focus({ preventScroll: true });
+          const hash = pendingAnchor.current;
+          pendingAnchor.current = null;
+          if (hash) requestAnimationFrame(() => navigateAnchor(hash));
+          else toggle.current?.focus({ preventScroll: true });
         }}
       >
         <div className="mobile-menu-inner">
@@ -87,7 +93,22 @@ export function MobileNavigation({
           </div>
           <nav className="mobile-links" aria-label="Menu completo">
             {navigation.map((item) => (
-              <Link key={item.href} href={item.href} onClick={close}>
+              <Link
+                key={item.href}
+                href={item.href}
+                scroll={false}
+                onClick={(event) => {
+                  const url = new URL(item.href, location.href);
+                  if (
+                    isPlainClick(event.nativeEvent) &&
+                    url.pathname === location.pathname
+                  ) {
+                    event.preventDefault();
+                    pendingAnchor.current = url.hash;
+                  }
+                  close();
+                }}
+              >
                 <span className="mobile-link-label">
                   <span>{item.label}</span>
                   <span aria-hidden="true">{item.label}</span>

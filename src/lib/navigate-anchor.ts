@@ -37,13 +37,18 @@ export function navigateAnchor(
   }
   // Retira o foco do link de origem antes de calcular a posição de chegada.
   focusAnchor(hash);
-  const padding =
-    Number.parseFloat(
-      getComputedStyle(document.documentElement).scrollPaddingTop,
-    ) || 0;
+  const header = document.querySelector<HTMLElement>('.site-header');
+  const headerHeight = header?.offsetHeight ?? 67;
+  // Alinha o conteúdo, compensando o respiro que a própria seção já possui.
+  const sectionPadding =
+    Number.parseFloat(getComputedStyle(position).paddingTop) || 0;
   const top = Math.max(
     0,
-    position.getBoundingClientRect().top + scrollY - padding,
+    position.getBoundingClientRect().top +
+      scrollY +
+      sectionPadding -
+      headerHeight -
+      20,
   );
   window.scrollTo({
     top,

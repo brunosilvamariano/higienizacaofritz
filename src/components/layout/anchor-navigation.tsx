@@ -6,6 +6,20 @@ import { isPlainClick } from '@/lib/plain-click';
 
 export function AnchorNavigation() {
   useEffect(() => {
+    const previousRestoration = history.scrollRestoration;
+    const navigation = performance.getEntriesByType('navigation')[0] as
+      PerformanceNavigationTiming | undefined;
+    const reloadingHome =
+      navigation?.type === 'reload' && location.pathname === '/';
+    if (reloadingHome) {
+      history.scrollRestoration = 'manual';
+      history.replaceState(
+        history.state,
+        '',
+        location.pathname + location.search,
+      );
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
     const click = (event: MouseEvent) => {
       if (!isPlainClick(event) || !(event.target instanceof Element)) return;
       const link = event.target.closest<HTMLAnchorElement>('a[href]');
@@ -59,6 +73,7 @@ export function AnchorNavigation() {
     else window.addEventListener('load', restoreInitial, { once: true });
     return () => {
       disposed = true;
+      history.scrollRestoration = previousRestoration;
       observer?.disconnect();
       document.removeEventListener('click', click);
       window.removeEventListener('popstate', restore);
