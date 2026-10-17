@@ -56,7 +56,7 @@ export function Process() {
         );
         const top = card.getBoundingClientRect().top - previous;
         const target = baseTop + index * stackGap;
-        const shift = query.matches && top <= target ? target + exit - top : 0;
+        const shift = query.matches ? Math.max(0, target + exit - top) : 0;
         card.style.setProperty('--stack-shift', String(shift));
         return { top: top + shift, bottom: top + shift + card.offsetHeight };
       });

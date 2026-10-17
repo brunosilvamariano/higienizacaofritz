@@ -179,19 +179,8 @@
     transition: opacity 180ms ease;
   }
   .process-step {
-    --stack-index: 0;
+    position: relative;
     translate: 0 calc(var(--stack-shift, 0) * 1px);
-    position: sticky;
-    top: calc(72px + var(--stack-index) * 112px);
-  }
-  .process-step:nth-child(2) {
-    --stack-index: 1;
-  }
-  .process-step:nth-child(3) {
-    --stack-index: 2;
-  }
-  .process-step:nth-child(4) {
-    --stack-index: 3;
   }
   .process-step-description,
   .process-step-arrow-vertical {
