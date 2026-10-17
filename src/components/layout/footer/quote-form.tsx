@@ -24,8 +24,8 @@ export function QuoteForm() {
           placeholder="Sua observação ou dúvida"
           maxLength={500}
         />
-        <button type="submit">
-          <HoverLabel>Pedir orçamento</HoverLabel>
+        <button type="submit" className="pill-link">
+          <HoverLabel variant="primary">Pedir orçamento</HoverLabel>
         </button>
       </form>
       <small className="demo-note">

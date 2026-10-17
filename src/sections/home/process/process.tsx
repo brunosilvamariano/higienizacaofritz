@@ -2,7 +2,7 @@
 import { FritzIcon } from '@/components/ui/fritz-icon';
 import { TitleReveal } from '@/animations/title-reveal';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { processSteps } from './process.content';
 import { ProcessBanner } from './process-banner';
 import './process.css';
@@ -28,6 +28,64 @@ function StepArrow({ vertical = false }: { vertical?: boolean }) {
 }
 
 export function Process() {
+  const list = useRef<HTMLOListElement>(null);
+  useEffect(() => {
+    const element = list.current;
+    if (!element) return;
+    const query = window.matchMedia('(width < 768px)');
+    const cards = Array.from(
+      element.querySelectorAll<HTMLElement>('.process-step'),
+    );
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const baseTop = 72;
+      const stackGap = 112;
+      const last = cards.at(-1);
+      const exit =
+        query.matches && last
+          ? Math.min(
+              0,
+              element.getBoundingClientRect().bottom -
+                (baseTop + (cards.length - 1) * stackGap + last.offsetHeight),
+            )
+          : 0;
+      const positions = cards.map((card, index) => {
+        const previous = Number(
+          card.style.getPropertyValue('--stack-shift') || 0,
+        );
+        const top = card.getBoundingClientRect().top - previous;
+        const target = baseTop + index * stackGap;
+        const shift = query.matches && top <= target ? target + exit - top : 0;
+        card.style.setProperty('--stack-shift', String(shift));
+        return { top: top + shift, bottom: top + shift + card.offsetHeight };
+      });
+      cards.forEach((card, index) => {
+        card.dataset.covered = String(
+          query.matches &&
+            (positions[index + 1]?.top ?? Infinity) <
+              positions[index].bottom - 24,
+        );
+      });
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    query.addEventListener('change', schedule);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      query.removeEventListener('change', schedule);
+      cards.forEach((card) => {
+        delete card.dataset.covered;
+        card.style.removeProperty('--stack-shift');
+      });
+    };
+  }, []);
   const [expanded, setExpanded] = useState<ReadonlySet<string>>(
     () => new Set(processSteps.map((step) => step.id)),
   );
@@ -64,7 +122,7 @@ export function Process() {
           com a Fritz.
         </p>
       </div>
-      <ol className="process-steps-list tw:grid">
+      <ol ref={list} className="process-steps-list tw:grid">
         {processSteps.map((step, index) => {
           const open = compact || expanded.has(step.id);
           return (

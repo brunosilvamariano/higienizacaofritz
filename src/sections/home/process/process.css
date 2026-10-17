@@ -173,12 +173,29 @@
     grid-template-columns: 64px minmax(0, 1fr);
     gap: 20px;
     text-align: left;
-    padding-bottom: 36px;
+    padding: 24px 0 36px;
+    border-top: 1px solid var(--line-on-dark);
     background: var(--paper);
+    transition: opacity 180ms ease;
   }
-  .process-step:not(:last-child) {
+  .process-step {
+    --stack-index: 0;
+    translate: 0 calc(var(--stack-shift, 0) * 1px);
     position: sticky;
-    top: 72px;
+    top: calc(72px + var(--stack-index) * 112px);
+  }
+  .process-step:nth-child(2) {
+    --stack-index: 1;
+  }
+  .process-step:nth-child(3) {
+    --stack-index: 2;
+  }
+  .process-step:nth-child(4) {
+    --stack-index: 3;
+  }
+  .process-step-description,
+  .process-step-arrow-vertical {
+    transition: opacity 180ms ease;
   }
   .process-step:last-child {
     padding-bottom: 0;
@@ -210,14 +227,21 @@
   }
   .process-step-arrow-vertical {
     display: block;
-    top: 76px;
+    top: 100px;
     left: 14px;
     width: 36px;
     height: calc(100% - 92px);
     transform: none;
   }
+  .process-step[data-covered='true'] .process-step-description,
+  .process-step[data-covered='true'] .process-step-arrow-vertical {
+    opacity: 0;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
+  .process-step,
+  .process-step-copy,
+  .process-step-arrow-vertical,
   .process-step-description,
   .process-step-toggle svg {
     transition: none;

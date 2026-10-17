@@ -1,13 +1,6 @@
 'use client';
 
-import { useRef, useState, type CSSProperties } from 'react';
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-  type MotionStyle,
-} from 'framer-motion';
+import { useState, type CSSProperties } from 'react';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
 import { TitleReveal } from '@/animations/title-reveal';
 import { HoverLabel } from '@/components/ui/hover-label';
@@ -22,21 +15,12 @@ const cities = map.cities.map((point) => ({
 }));
 
 export function ServiceArea() {
-  const section = useRef<HTMLElement>(null);
-  const mapFrame = useRef<HTMLFieldSetElement>(null);
   const [selected, setSelected] = useState(cities[0].id);
   const city = cities.find((item) => item.id === selected) ?? cities[0];
-  const reduced = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: mapFrame,
-    offset: ['start end', 'end start'],
-  });
-  const shift = useTransform(scrollYProgress, [0, 1], ['84px', '-84px']);
   const served = new Set(cities.map((item) => item.id));
 
   return (
     <section
-      ref={section}
       id="onde-atendemos"
       className="service-area section"
       aria-labelledby="service-area-title"
@@ -55,11 +39,9 @@ export function ServiceArea() {
           </p>
         </div>
 
-        <motion.fieldset
-          ref={mapFrame}
+        <fieldset
           className="service-area-map"
           aria-label="Mapa das cidades atendidas pela Fritz no litoral de Santa Catarina"
-          style={{ '--area-map-shift': reduced ? '0px' : shift } as MotionStyle}
         >
           <div className="service-area-water-plane" aria-hidden="true" />
           <div className="service-area-compass" aria-hidden="true">
@@ -121,7 +103,7 @@ export function ServiceArea() {
               Clique em um ponto
             </span>
           </div>
-        </motion.fieldset>
+        </fieldset>
 
         <div className="service-area-details">
           <a

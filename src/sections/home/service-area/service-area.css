@@ -67,12 +67,6 @@ main.page-content .service-area.section {
   margin-left: -290px;
   top: -80px;
   aspect-ratio: 800/900;
-  transform: translate3d(
-    calc(var(--area-map-shift, 0px) * 0.45),
-    calc(var(--area-map-shift, 0px) * 0.16),
-    0
-  );
-  will-change: transform;
 }
 .service-area-water-plane {
   position: absolute;
@@ -86,12 +80,6 @@ main.page-content .service-area.section {
     ),
     radial-gradient(ellipse at 68% 76%, var(--blue-soft), transparent 66%);
   opacity: 0.8;
-  transform: translate3d(
-    calc(var(--area-map-shift, 0px) * -0.65),
-    calc(var(--area-map-shift, 0px) * -1.5),
-    0
-  );
-  will-change: transform;
 }
 .service-area-geography {
   width: 100%;
@@ -298,11 +286,6 @@ main.page-content .service-area.section {
     top: 0;
     left: 50%;
     margin-left: -220px;
-    transform: translate3d(
-      calc(var(--area-map-shift, 0px) * 0.12),
-      calc(var(--area-map-shift, 0px) * 0.55),
-      0
-    );
   }
   .service-area-point-label {
     display: none;
@@ -340,11 +323,6 @@ main.page-content .service-area.section {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .service-area-map-layer,
-  .service-area-water-plane {
-    transform: none;
-    will-change: auto;
-  }
   .service-area-territory,
   .service-area-dot {
     transition: none;
