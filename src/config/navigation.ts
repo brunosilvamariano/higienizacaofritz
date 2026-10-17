@@ -11,7 +11,7 @@ export const navigation = [
   { label: 'Como funciona', href: '/#processo' },
   { label: 'Antes e depois', href: '/#antes-e-depois' },
   { label: 'Avaliações', href: '/#avaliacoes' },
-  { label: 'Sobre a Fritz', href: '/#sobre-a-fritz' },
+  { label: 'Sobre o Fritz', href: '/#sobre-a-fritz' },
   { label: 'Onde atendemos', href: '/#onde-atendemos' },
   { label: 'Perguntas frequentes', href: '/#duvidas' },
   { label: 'Contato', href: '/#contato' },

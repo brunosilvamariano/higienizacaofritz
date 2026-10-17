@@ -78,7 +78,7 @@ export function MobileNavigation({
         <div className="mobile-menu-inner">
           <div className="mobile-menu-top">
             <p id="mobile-menu-title">
-              Fritz
+              Fritz.
               <small className="menu-brand-subtitle">
                 Higienização e impermeabilização
               </small>

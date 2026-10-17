@@ -3,7 +3,7 @@ const assert = require('node:assert/strict');
 const { loadTs } = require('./helpers/load-ts.cjs');
 const { legacyRedirects } = loadTs('src/config/legacy-redirects.ts');
 const { routes } = loadTs('src/config/routes.ts');
-test('redirecionamentos antigos apontam para páginas existentes da Fritz', () => {
+test('redirecionamentos antigos apontam para páginas existentes do Fritz', () => {
   const paths = new Set(routes.map((r) => r.path));
   const expectedSources = [
     '/sobre',

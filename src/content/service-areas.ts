@@ -1,4 +1,4 @@
-/** Cidades confirmadas pela Fritz; IDs IBGE também ligam os pontos ao mapa. */
+/** Cidades confirmadas pelo Fritz; IDs IBGE também ligam os pontos ao mapa. */
 export const serviceAreas = [
   { id: '4209102', name: 'Joinville' },
   { id: '4208450', name: 'Itapoá' },

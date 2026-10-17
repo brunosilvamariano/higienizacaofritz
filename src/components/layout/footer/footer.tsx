@@ -6,7 +6,6 @@ import { contact } from '@/config/contact';
 import { googleReviews } from '@/content/google-reviews';
 import { developer } from '@/config/developer';
 import vbgLogo from '@/assets/images/shared/vbg/logo.webp';
-import { QuoteForm } from './quote-form';
 import { FooterReveal } from './footer-reveal';
 import './footer.css';
 import './footer-typography.css';
@@ -23,9 +22,6 @@ export function Footer() {
               <br />
               Cuidado com estofados em Joinville e região.
             </p>
-            <a href={`tel:+${contact.whatsappNumber}`}>
-              {contact.whatsappDisplay}
-            </a>
           </div>
           <nav aria-label="Páginas principais">
             <h2>Navegue</h2>
@@ -76,7 +72,7 @@ export function Footer() {
               href={contact.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram da Fritz — abrir em nova aba"
+              aria-label="Instagram do Fritz — abrir em nova aba"
             >
               <span className="footer-instagram-icon" aria-hidden="true">
                 <svg
@@ -97,7 +93,7 @@ export function Footer() {
                   />
                 </svg>
               </span>
-              Instagram da Fritz
+              Instagram do Fritz
             </a>
             <a
               href={googleReviews.profile}
@@ -121,12 +117,11 @@ export function Footer() {
             <PrivacyPreferences />
           </div>
         </div>
-        <QuoteForm />
       </div>
 
       <div className="footer-bottom">
         <Link className="footer-wordmark" href="/">
-          {'FRITZ'}
+          {'Fritz.'}
           <small className="footer-brand-subtitle">
             Higienização e impermeabilização
           </small>

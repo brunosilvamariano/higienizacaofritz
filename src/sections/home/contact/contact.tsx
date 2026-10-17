@@ -32,7 +32,7 @@ export function Contact() {
         className="contact-button"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Solicitar orçamento pelo WhatsApp da Fritz — abrir em nova aba"
+        aria-label="Solicitar orçamento pelo WhatsApp do Fritz — abrir em nova aba"
         data-track-contact="orçamento home"
       >
         <span className="contact-button-gaps" aria-hidden="true">

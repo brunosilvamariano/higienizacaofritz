@@ -44,12 +44,15 @@ main.page-content .service-area.section {
   margin-top: 0;
   max-width: 100%;
 }
+.service-area-map-group {
+  grid-area: map;
+  min-width: 0;
+}
 .service-area-map {
   min-width: 0;
   margin: 0;
   padding: 0;
   border: 0;
-  grid-area: map;
   position: relative;
   width: 100%;
   max-width: none;
@@ -202,10 +205,8 @@ main.page-content .service-area.section {
   pointer-events: none;
 }
 .service-area-map-caption {
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  right: 20px;
+  margin-top: 16px;
+  padding-right: var(--gutter);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -307,11 +308,6 @@ main.page-content .service-area.section {
   .service-area-ocean {
     right: 12px;
     font-size: 10px;
-  }
-  .service-area-map-caption {
-    left: 16px;
-    right: 16px;
-    bottom: 12px;
   }
   .service-area-details {
     padding-right: var(--gutter);

@@ -17,7 +17,7 @@ export function Benefits() {
     >
       <div className="benefits-heading">
         <SectionEyebrow className="benefits-eyebrow">
-          Por que escolher a Fritz
+          Por que escolher o Fritz
         </SectionEyebrow>
         <TitleReveal id="benefits-title" text={benefitsContent.title} />
       </div>

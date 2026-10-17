@@ -187,7 +187,7 @@ export function AboutFritz() {
       <div className="about-fritz-scroll">
         <div className="about-fritz-scene">
           <div className="about-fritz-heading tw:mx-auto tw:text-center">
-            <SectionEyebrow align="center">Sobre a Fritz</SectionEyebrow>
+            <SectionEyebrow align="center">Sobre o Fritz</SectionEyebrow>
             <h2 id="about-fritz-title" data-title-anim="">
               Por trás de cada cuidado <CareSymbol /> existe alguém que respeita{' '}
               <span
@@ -223,7 +223,7 @@ export function AboutFritz() {
                 <div className="about-fritz-photo">
                   <Image
                     src={professional}
-                    alt="Profissional da Fritz com uniforme, luvas e equipamento de higienização."
+                    alt="Profissional do Fritz com uniforme, luvas e equipamento de higienização."
                     sizes="(max-width: 559px) 90vw, 460px"
                     className="tw:h-full tw:w-full"
                   />
@@ -236,7 +236,7 @@ export function AboutFritz() {
           </div>
           <div className="about-fritz-copy tw:mx-auto tw:flex tw:flex-col tw:items-center tw:text-center">
             <p data-text-anim="">
-              O cuidado começa na conversa. Pelo WhatsApp, você fala com a
+              O cuidado começa na conversa. Pelo WhatsApp, você fala com o
               Fritz, envia fotos e recebe orientação sobre higienização ou
               proteção. Depois, combina o atendimento e conhece os cuidados após
               o serviço.
@@ -246,10 +246,10 @@ export function AboutFritz() {
               className="pill-link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Conversar com a Fritz pelo WhatsApp — abrir em nova aba"
+              aria-label="Conversar com o Fritz pelo WhatsApp — abrir em nova aba"
               data-track-contact="sobre a fritz home"
             >
-              <HoverLabel variant="primary">Conversar com a Fritz</HoverLabel>
+              <HoverLabel variant="primary">Conversar com o Fritz</HoverLabel>
             </a>
           </div>
         </div>

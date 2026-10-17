@@ -95,20 +95,6 @@ body:has(.home-palette)
 body:has(.home-palette) .footer-links a:hover {
   color: var(--white);
 }
-body:has(.home-palette) .footer-newsletter input {
-  background: color-mix(in srgb, var(--ink) 90%, var(--brand));
-  border-color: var(--line-on-dark);
-}
-body:has(.home-palette) .footer-newsletter input::placeholder {
-  color: var(--on-dark-muted);
-}
-body:has(.home-palette) .footer-newsletter input:focus {
-  outline-color: var(--blue-panel-strong);
-}
-body:has(.home-palette) .footer-newsletter button {
-  background: var(--brand);
-  color: var(--white);
-}
 body:has(.home-palette) .footer-wordmark {
   background-image: linear-gradient(var(--white), var(--ink) 80%);
 }

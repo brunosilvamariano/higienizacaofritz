@@ -15,7 +15,7 @@ export function Brand() {
         className="brand-logo"
       />
       <span className="brand-copy">
-        <strong>FRITZ</strong>
+        <strong>Fritz.</strong>
         <small>Higienização e impermeabilização</small>
       </span>
     </a>

@@ -5,18 +5,18 @@ export const faqItems = [
     id: 'orcamento',
     question: 'Como pedir um orçamento?',
     answer:
-      'Envie fotos dos estofados e informe o serviço desejado, seu bairro e sua cidade pelo WhatsApp. Assim, a Fritz pode orientar o orçamento e consultar a disponibilidade.',
+      'Envie fotos dos estofados e informe o serviço desejado, seu bairro e sua cidade pelo WhatsApp. Assim, o Fritz pode orientar o orçamento e consultar a disponibilidade.',
   },
   {
     id: 'atendimento',
-    question: 'Onde a Fritz atende?',
+    question: 'Onde o Fritz atende?',
     answer: `${serviceAreaNames.slice(0, -1).join(', ')} e ${serviceAreaNames.at(-1)}. Informe seu bairro para consultar a disponibilidade de atendimento.`,
   },
   {
     id: 'tecido',
     question: 'Qual serviço é indicado para meu estofado?',
     answer:
-      'Envie fotos e conte o que deseja limpar ou proteger. Se souber o tipo de tecido, inclua essa informação. A Fritz orienta a escolha entre higienização e impermeabilização.',
+      'Envie fotos e conte o que deseja limpar ou proteger. Se souber o tipo de tecido, inclua essa informação. O Fritz orienta a escolha entre higienização e impermeabilização.',
   },
   {
     id: 'impermeabilizacao',
@@ -28,7 +28,7 @@ export const faqItems = [
     id: 'cuidados',
     question: 'Quais são os cuidados após o atendimento?',
     answer:
-      'Siga as orientações de ventilação, conservação e retorno ao uso fornecidas no atendimento. Se ficar com alguma dúvida, converse com a Fritz antes de utilizar o estofado.',
+      'Siga as orientações de ventilação, conservação e retorno ao uso fornecidas no atendimento. Se ficar com alguma dúvida, converse com o Fritz antes de utilizar o estofado.',
   },
   {
     id: 'secagem',

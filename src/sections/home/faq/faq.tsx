@@ -28,10 +28,10 @@ export function Faq() {
         </p>
         <a
           className="pill-link"
-          href={whatsappUrl('uma dúvida sobre os serviços da Fritz')}
+          href={whatsappUrl('uma dúvida sobre os serviços do Fritz')}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Tirar uma dúvida com a Fritz pelo WhatsApp — abrir em nova aba"
+          aria-label="Tirar uma dúvida com o Fritz pelo WhatsApp — abrir em nova aba"
         >
           <HoverLabel variant="primary">Tirar uma dúvida</HoverLabel>
         </a>

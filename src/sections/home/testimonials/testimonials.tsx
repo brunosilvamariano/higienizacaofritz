@@ -242,7 +242,7 @@ export function Testimonials() {
         </div>
         <ul
           className="review-reading-list"
-          aria-label="Avaliações de clientes da Fritz"
+          aria-label="Avaliações de clientes do Fritz"
         >
           {googleReviews.items.map((item) => (
             <li key={item.name}>

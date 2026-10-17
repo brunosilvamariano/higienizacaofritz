@@ -5,7 +5,7 @@ export function ReviewStrip() {
   return (
     <section
       className="review-strip section"
-      aria-label="Resumo das avaliações da Fritz no Google"
+      aria-label="Resumo das avaliações do Fritz no Google"
     >
       <div className="review-strip-inner">
         <div className="review-strip-label tw:flex tw:items-center">
@@ -68,7 +68,7 @@ export function ReviewStrip() {
           href={googleReviews.profile}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Ver avaliações da Fritz no Google — abrir em nova aba"
+          aria-label="Ver avaliações do Fritz no Google — abrir em nova aba"
         >
           <span>Ver avaliações no Google</span>
           <span aria-hidden="true">↗</span>

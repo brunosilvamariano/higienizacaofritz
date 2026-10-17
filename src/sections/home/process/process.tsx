@@ -119,7 +119,7 @@ export function Process() {
         <TitleReveal id="process-title" text="Do orçamento ao cuidado final" />
         <p className="process-steps-intro" data-text-anim="">
           Saiba como solicitar higienização ou impermeabilização de estofados
-          com a Fritz.
+          com o Fritz.
         </p>
       </div>
       <ol ref={list} className="process-steps-list tw:grid">

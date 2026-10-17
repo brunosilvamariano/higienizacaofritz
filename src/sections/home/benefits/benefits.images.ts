@@ -25,6 +25,6 @@ export const benefitImages = {
     desktop: profissionalDesktop,
     tablet: profissionalTablet,
     mobile: profissionalMobile,
-    alt: 'Profissional da Fritz cuidando de um estofado.',
+    alt: 'Profissional do Fritz cuidando de um estofado.',
   },
 } as const;

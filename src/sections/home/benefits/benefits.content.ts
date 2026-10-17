@@ -16,7 +16,7 @@ export const benefitsContent = {
     {
       id: 'conversa',
       icon: 'whatsapp',
-      title: 'Conversa direta com a Fritz',
+      title: 'Conversa direta com o Fritz',
       text: 'Envie fotos, tire dúvidas e combine o atendimento pelo WhatsApp.',
     },
   ],

@@ -5,7 +5,7 @@ export const contact = {
 } as const;
 export function whatsappUrl(context?: string) {
   const message = context
-    ? 'Olá! Conheci a Fritz pelo site e gostaria de conversar sobre ' +
+    ? 'Olá! Conheci o Fritz pelo site e gostaria de conversar sobre ' +
       context +
       '.'
     : 'Olá, equipe Fritz! Vim pelo site e gostaria de solicitar um orçamento para higienização ou impermeabilização. Posso enviar fotos do estofado e informar meu bairro e cidade?';
@@ -34,8 +34,8 @@ export function contactFormUrl(data: FormData, intent: 'hello' | 'quote') {
   ];
   const message = [
     intent === 'quote'
-      ? 'Olá! Gostaria de solicitar um orçamento à Fritz.'
-      : 'Olá! Gostaria de conversar com a Fritz.',
+      ? 'Olá! Gostaria de solicitar um orçamento ao Fritz.'
+      : 'Olá! Gostaria de conversar com o Fritz.',
     '',
     ...fields
       .filter(([, value]) => value)

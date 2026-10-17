@@ -7,12 +7,12 @@ export const processSteps = [
   {
     id: 'projeto',
     title: 'Combine o atendimento',
-    text: 'Confira o orçamento e os horários disponíveis. Combine o local e os preparativos com a Fritz.',
+    text: 'Confira o orçamento e os horários disponíveis. Combine o local e os preparativos com o Fritz.',
   },
   {
     id: 'escolhas',
     title: 'Realização do serviço',
-    text: 'Prepare o ambiente conforme as orientações recebidas. A Fritz realiza o serviço combinado.',
+    text: 'Prepare o ambiente conforme as orientações recebidas. O Fritz realiza o serviço combinado.',
   },
   {
     id: 'montagem',

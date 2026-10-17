@@ -57,7 +57,7 @@ export function ProcessBanner() {
           href={whatsappUrl('orçamento para cuidar do meu estofado')}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Solicitar orçamento pelo WhatsApp da Fritz — abrir em nova aba"
+          aria-label="Solicitar orçamento pelo WhatsApp do Fritz — abrir em nova aba"
           data-track-contact="banner como funciona"
         >
           <HoverLabel variant="primary">Solicitar orçamento</HoverLabel>

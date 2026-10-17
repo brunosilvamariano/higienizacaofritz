@@ -20,7 +20,7 @@ test('contexto entra na mensagem e é codificado na URL', () => {
   assert.equal(url.includes('&'), false);
   assert.equal(
     text(url),
-    'Olá! Conheci a Fritz pelo site e gostaria de conversar sobre sofás & cadeiras.',
+    'Olá! Conheci o Fritz pelo site e gostaria de conversar sobre sofás & cadeiras.',
   );
 });
 
@@ -46,7 +46,7 @@ test('orçamento envia todas as escolhas e preserva acentos e quebras de linha',
   assert.equal(url.pathname, '/5547999051278');
   assert.equal(
     text(url),
-    'Olá! Gostaria de solicitar um orçamento à Fritz.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nEmpresa: Casa & Lar\nServiço desejado: Higienização de estofados\nQuantidade de peças: 2 a 4 peças\nMensagem: Sofá & cadeiras\nTecido',
+    'Olá! Gostaria de solicitar um orçamento ao Fritz.\n\nNome: Ana\nE-mail: ana@example.com\nTelefone: 47999990000\nEmpresa: Casa & Lar\nServiço desejado: Higienização de estofados\nQuantidade de peças: 2 a 4 peças\nMensagem: Sofá & cadeiras\nTecido',
   );
 });
 test('contato geral omite campos vazios e escolhas exclusivas de orçamento', () => {
@@ -57,6 +57,6 @@ test('contato geral omite campos vazios e escolhas exclusivas de orçamento', ()
   data.set('company', '  ');
   assert.equal(
     text(contactFormUrl(data, 'hello')),
-    'Olá! Gostaria de conversar com a Fritz.\n\nNome: Ana\nMensagem: Olá',
+    'Olá! Gostaria de conversar com o Fritz.\n\nNome: Ana\nMensagem: Olá',
   );
 });
