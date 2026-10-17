@@ -323,24 +323,24 @@ main.page-content > .process-steps .section-eyebrow,
   opacity: 0.6;
 }
 .home-palette > .contact {
-  --paper: #13213d;
+  --paper: #f3f3f3;
   background-color: var(--paper);
-  color: var(--white);
+  color: var(--ink);
   box-shadow: 0 40px 0 var(--paper);
 }
 .home-palette > .contact .contact-marquee[data-stroke='true'] span {
-  -webkit-text-stroke-color: var(--white);
+  -webkit-text-stroke-color: var(--ink);
 }
 .home-palette > .contact .contact-button-icon {
-  background: #f3f3f3;
-  color: var(--brand);
+  background: var(--ink);
+  color: var(--white);
 }
 .home-palette > .contact .contact-button:is(:hover, :focus-visible) {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
 }
 .home-palette > .contact .contact-button:focus-visible {
-  outline: 2px solid var(--white);
+  outline: 2px solid var(--ink);
   outline-offset: 5px;
 }
 @media (max-width: 767px) {
@@ -359,11 +359,11 @@ main.page-content > .process-steps .section-eyebrow,
   }
 }
 
-/* O divisor acompanha o marinho sem competir com o CTA final. */
+/* Recupera o ritmo original das cinco faixas na paleta Fritz. */
 body:has(.home-palette) .reference-divider-footer {
-  background: color-mix(in srgb, var(--ink) 88%, var(--on-dark-muted));
-  gap: 2px;
-  padding-top: 2px;
+  background: var(--paper);
+  gap: 4px;
+  padding-top: 4px;
 }
 
 /* Ritmo por função: prova visual, presença humana, região e esclarecimento. */
