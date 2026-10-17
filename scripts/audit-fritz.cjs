@@ -3,7 +3,12 @@ const { loadTs } = require('../tests/unit/helpers/load-ts.cjs');
 const { routes } = loadTs('src/config/routes.ts');
 const { legacyRedirects } = loadTs('src/config/legacy-redirects.ts');
 const base = process.argv[2] || 'http://localhost:3901';
-const canonicalBase = 'https://higienizacaofritz.vercel.app';
+const { site } = loadTs('src/config/site.ts', { globals: { process } });
+const { serviceAreaNames } = loadTs('src/content/service-areas.ts');
+const { servicesContent } = loadTs(
+  'src/sections/home/services/services.content.ts',
+);
+const canonicalBase = site.url;
 const get = (html, name) =>
   html.match(
     new RegExp(`<meta (?:name|property)="${name}" content="([^"]+)"`),
@@ -21,7 +26,7 @@ const get = (html, name) =>
     assert.equal(
       canonical,
       canonicalBase + (path === '/' ? '' : path),
-      path + ' canonical',
+      `${path} canonical`,
     );
     assert.match(
       get(html, 'description'),
@@ -29,10 +34,8 @@ const get = (html, name) =>
     );
     assert.equal(get(html, 'og:image:width'), '1200');
     assert.equal(get(html, 'og:image:height'), '630');
-    assert.match(
-      get(html, 'og:image'),
-      /^https:\/\/higienizacaofritz\.vercel\.app\/.*social-share/,
-    );
+    assert.equal(new URL(get(html, 'og:image')).origin, canonicalBase);
+    assert.match(get(html, 'og:image'), /social-share/);
     assert.equal(get(html, 'twitter:card'), 'summary_large_image');
     assert.doesNotMatch(get(html, 'robots') || '', /noindex/);
     const visible = html
@@ -43,41 +46,56 @@ const get = (html, name) =>
       /móveis planejados|marcenaria|carvalho|travertino|estudo conceitual|cozinha planejada|Ariyana/i,
       path,
     );
-    for (const match of html.matchAll(/<img\b[^>]*src="([^"]+)"/g))
-      images.add(match[1].replaceAll('&amp;', '&'));
+    for (const match of html.matchAll(/<img\b[^>]*>/g)) {
+      assert.match(match[0], /\balt="[^"]*"/, 'imagem sem alt');
+      images.add(match[0].match(/\bsrc="([^"]+)"/)[1].replaceAll('&amp;', '&'));
+    }
+    const ids = new Set(
+      Array.from(html.matchAll(/\bid="([^"]+)"/g), (m) => m[1]),
+    );
+    for (const redirect of legacyRedirects) {
+      const target = new URL(redirect.destination, base);
+      if (target.hash) assert.ok(ids.has(target.hash.slice(1)), target.hash);
+    }
     pages++;
   }
   for (const redirect of legacyRedirects) {
-    const r = await fetch(base + redirect.source, { redirect: 'manual' });
+    const source = redirect.source.replace('/:path*', '/auditoria-fritz');
+    const r = await fetch(new URL(source, base), { redirect: 'manual' });
     assert.equal(r.status, 308, redirect.source);
     assert.equal(
-      new URL(r.headers.get('location'), base).pathname,
-      redirect.destination,
+      new URL(r.headers.get('location'), base).href,
+      new URL(redirect.destination, base).href,
     );
   }
-  const robots = await (await fetch(base + '/robots.txt')).text();
-  assert.match(
-    robots,
-    /Sitemap: https:\/\/higienizacaofritz\.vercel\.app\/sitemap.xml/,
-  );
-  const sitemap = await (await fetch(base + '/sitemap.xml')).text();
+  const robots = await (await fetch(`${base}/robots.txt`)).text();
+  assert.ok(robots.includes(`Sitemap: ${canonicalBase}/sitemap.xml`));
+  const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
   assert.doesNotMatch(sitemap, /traco|cozinha|noindex|informacoes/);
   assert.equal([...sitemap.matchAll(/<loc>/g)].length, pages);
   for (const src of images) {
     const r = await fetch(new URL(src, base));
     assert.equal(r.status, 200, src);
   }
-  const video = await fetch(base + '/videos/fritz-showreel.mp4', {
-    headers: { Range: 'bytes=0-1023' },
-  });
-  assert.ok([200, 206].includes(video.status));
-  assert.match(video.headers.get('content-type'), /video\/mp4/);
+  for (const { id } of servicesContent.items) {
+    const video = await fetch(`${base}/videos/services/${id}.mp4`, {
+      headers: { Range: 'bytes=0-1023' },
+    });
+    assert.ok([200, 206].includes(video.status));
+    assert.match(video.headers.get('content-type'), /video\/mp4/);
+    await video.body.cancel();
+  }
   const home = await (await fetch(base)).text();
   const schema = JSON.parse(
     home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1],
   );
   assert.equal(schema.url, canonicalBase);
-  assert.equal(schema.areaServed.length, 7);
+  assert.equal(schema.areaServed.length, serviceAreaNames.length);
+  assert.deepEqual(
+    schema.areaServed.map((a) => a.name).sort(),
+    Array.from(serviceAreaNames).sort(),
+  );
+  assert.equal(new URL(schema.logo).origin, canonicalBase);
   console.log(
     JSON.stringify(
       {

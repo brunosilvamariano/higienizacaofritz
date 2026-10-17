@@ -7,7 +7,7 @@ const load = (env) =>
 
 test('sem SITE_URL usa o domínio Fritz e permite indexação', () => {
   const site = load({});
-  assert.equal(site.url, 'https://higienizacaofritz.vercel.app');
+  assert.equal(site.url, 'https://higienizacaofritz.com.br');
   assert.equal(site.indexable, true);
 });
 

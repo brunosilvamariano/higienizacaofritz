@@ -1,137 +1,48 @@
-# Organização e responsabilidades
+# Organização vigente — Fritz
 
-| Pasta                      | Conteúdo                                                                                                            |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `src/app`                  | Rotas, layouts e metadados do Next.js. Cada `page.tsx` compõe as seções da página.                                  |
-| `src/components/ui`        | Elementos reutilizáveis: botões, badges, cards e campos.                                                            |
-| `src/components/layout`    | Header, navegação, footer e containers compartilhados.                                                              |
-| `src/components/media`     | Componentes para imagens responsivas e outros recursos de mídia.                                                    |
-| `src/sections`             | Uma pasta por página e por seção, como `home/hero/`. Cada seção reúne sua implementação e seus arquivos exclusivos. |
-| `src/config`               | Configurações públicas compartilhadas, como nome do site e navegação.                                               |
-| `src/animations`           | Presets e componentes de animação compartilhados, com respeito à redução de movimento.                              |
-| `src/lib`                  | Utilitários e integrações compartilhadas.                                                                           |
-| `src/styles`               | Estilos globais, Tailwind e tokens de design.                                                                       |
-| `src/content`              | Conteúdo usado por várias seções ou páginas. Conteúdo exclusivo fica na própria seção.                              |
-| `src/assets/images/pages`  | Imagens específicas de cada página.                                                                                 |
-| `src/assets/images/shared` | Imagens usadas em várias páginas, como marcas e retratos.                                                           |
-| `src/assets/fonts`         | Fontes locais, quando utilizadas.                                                                                   |
-| `tests/unit`               | Testes unitários de configuração, utilitários e medição.                                                            |
-| `docs`                     | Guias, briefs por seção e auditorias. Índice em `docs/README.md`.                                                   |
+Atualizado em 17/10/2026. A página pública é a home; páginas antigas foram retiradas. Não foi criada uma arquitetura nova.
 
-Pastas como `providers`, `hooks` e `types` só devem ser criadas quando houver o
-primeiro arquivo real para elas.
+| Pasta existente              | Responsabilidade                                                                  |
+| ---------------------------- | --------------------------------------------------------------------------------- |
+| src/app                      | Home, layout, páginas de sistema, favicon, robots e sitemap                       |
+| src/sections/home            | Onze seções ativas e home.css, sem as antigas páginas About/Blog/Projects/Contact |
+| src/components/layout        | Header, navegação por âncoras, transição e rodapé                                 |
+| src/components/layout/footer | Rodapé, revelação e QuoteForm para WhatsApp                                       |
+| src/components/ui            | Controles reutilizáveis e ícones locais                                           |
+| src/components/media         | ResponsiveImage                                                                   |
+| src/components/analytics     | Consentimento e eventos de contato                                                |
+| src/content                  | Avaliações reais, imagens do hero e cadastro único das sete cidades               |
+| src/config                   | Site, metadados, navegação, contato, rotas e redirecionamentos                    |
+| src/animations               | Entradas compartilhadas e títulos; movimentos específicos continuam na seção      |
+| src/assets/images/pages/home | Recursos exclusivos da home                                                       |
+| src/assets/images/shared     | Fotos de serviços, profissional, marcas e avatares                                |
+| src/assets/fonts             | Bebas Neue, DM Sans e Poppins WOFF2 e licenças                                    |
+| src/assets/icons/tabler      | Fontes SVG de referência e licença; componente renderizado em components/ui       |
+| src/styles                   | Tokens, Tailwind, resets e tipografia compartilhada                               |
+| public/videos/services       | Quatro vídeos efetivamente usados                                                 |
+| tests/unit                   | Testes de contato, consentimento, configuração, rotas e cidades                   |
+| scripts                      | Auditoria HTTP e geração da geometria do mapa                                     |
+| docs                         | Guias vigentes, registros por seção e auditorias históricas                       |
+| work                         | Artefatos locais ignorados; inclui cópia recuperável da limpeza                   |
 
-## Convenções
+A listagem completa dos arquivos existentes fica em [estrutura-completa.txt](estrutura-completa.txt). Não há diretórios planejados ou vazios nesta proposta.
 
-- Arquivos e pastas em `kebab-case`; componentes e tipos em `PascalCase`.
-- Respeitar os nomes especiais do Next.js: `page.tsx`, `layout.tsx`, `loading.tsx`, `error.tsx` e `not-found.tsx`.
-- Criar páginas e seções somente quando o escopo delas estiver definido.
-- Manter componentes de servidor como padrão; usar componentes de cliente quando houver interação ou animação que exija isso.
-- Centralizar cores, espaçamentos e tipografia em tokens de estilo.
-- Guardar segredos em variáveis de ambiente, nunca em `public` ou no conteúdo editorial.
-- Evitar arquivos de reexportação e camadas extras sem necessidade concreta.
+## Regras
 
-## Organização por seção
+app compõe sections; sections utiliza componentes, conteúdo e utilitários compartilhados. Componentes compartilhados não importam detalhes de seções. Recursos locais são importados como módulos. Código de cliente é limitado às interações; fontes, ícones e mídia são locais.
 
-A unidade de manutenção é a seção. Consulte [o modelo de seção](secao-modelo.md).
-Cada seção possui um componente principal e, conforme a necessidade, conteúdo,
-animações, estilos, tipos, hooks e componentes internos na mesma pasta.
+CSS de seção mantém geometria, responsividade e animações. home.css concentra os ajustes contextuais já aprovados e mantém sua cascata; o rodapé tem tipografia exclusiva junto do componente. Tailwind tw: atende layouts simples. Tokens continuam em styles/tokens.css.
 
-As páginas em `app` cuidam de rotas, metadados, obtenção de dados e composição.
-Os componentes de apresentação e seus detalhes ficam em `sections`.
-Recursos em `src/assets` são importados pelo código, sem URLs escritas manualmente.
-Fontes e bibliotecas seguem [dependencias.md](dependencias.md).
+service-areas.ts é a fonte única dos nomes e IDs das cidades. service-area-map.json contém somente geometria e coordenadas. A regeneração usa os dados locais documentados pelo script e não deve alterar pontos manualmente.
 
-Direção das dependências: `app` usa `sections`, que usa componentes e utilitários
-compartilhados. Componentes compartilhados não importam seções. Uma seção não
-importa detalhes internos de outra; elementos comuns são extraídos para a pasta
-compartilhada apropriada quando houver uso real.
+Eventos traco:* e a chave traco-consent-v1 são identificadores de compatibilidade internos. Foram mantidos para não perder escolhas de consentimento nem quebrar a comunicação das animações.
 
-Header e footer seguem o mesmo princípio: cada um terá sua pasta dentro de
-`components/layout`, reunindo seus arquivos exclusivos.
+## Verificações
 
-Estilos globais servem à base visual do site. A organização é híbrida: Tailwind
-com prefixo `tw:` nos componentes para layout simples, alinhamento, dimensões e
-espaçamentos fixos; CSS por seção para composição fluida, tipografia editorial,
-seletores contextuais, estados e animações. Tokens ficam em `styles/tokens.css`
-e são expostos ao Tailwind por `styles/tailwind-theme.css`. Os resets globais
-ficam na camada `base`, para não bloquear as utilidades. Consulte
-[o guia de estilos](tailwind-e-css.md). Animações exclusivas ficam na seção;
-presets reutilizados ficam em `animations`. Não duplicar conteúdo ou caminhos de
-imagens entre registros globais e locais.
+npm run check, npm test e npm run build são as verificações da CI. Biome exclui dependências, saídas .next*, work e os SVGs originais de referência; os componentes de ícones realmente renderizados continuam sob lint de acessibilidade. Não confundir os SVGs de acervo com a interface.
 
-Testes de comportamento, quando necessários, ficam próximos do código testado.
-Testes de jornadas completas poderão ficar em `tests/e2e` quando essas jornadas
-existirem. Não criar arquivos vazios para cada possibilidade.
+## Limpeza de 17/10/2026
 
-## Arquivos de configuração instalados
+Retirados arquivos sem uso nas páginas, preservadas as dependências reais e as regras de redirecionamento do next.config.ts. Fotos antes guardadas em Leaders/About foram reunidas em shared/services e shared/professional. Newsletter virou QuoteForm; classes CSS foram mantidas para conservar a apresentação.
 
-Na raiz estão `package.json`, `package-lock.json`, `tsconfig.json`, `next-env.d.ts`,
-`next.config.ts`, `postcss.config.mjs`, `biome.json` e as configurações de
-formatação. A CI executa lint, checagem de tipos e formatação.
-
-Os arquivos `src/app/layout.tsx` e `src/app/page.tsx` compõem a Home já implementada.
-`src/styles/globals.css` e `src/styles/fonts.ts` definem os estilos e a fonte local.
-O alias `@/*` aponta para `src/*`.
-
-Antes de implementar a interface, documentar em `docs/guias/design-brief.md` o nome do
-projeto, nicho, referências, paleta, tipografia, animações, seções e diferencial visual.
-As decisões vigentes estão registradas no Design Brief.
-
-## Estado após auditoria de 2026-10-03
-
-A tabela de responsabilidades inclui possibilidades futuras. `providers`, `hooks`,
-`types` compartilhados e `assets/icons` não são pastas necessárias ao build atual;
-não foram mantidos marcadores vazios para elas. Hooks exclusivos permanecem na
-seção. Ícones da UI são SVGs locais nos componentes; favicon está em `app`.
-`components/analytics` reúne consentimento e medição. `lib/focus-anchor.ts` controla
-o foco de links internos dos menus. A estrutura existente completa está em
-`estrutura-completa.txt`. Não foram criadas novas páginas nem alterada a ordem das seções.
-
-O projeto usa folhas CSS por seção e componentes, com tokens compartilhados.
-CSS Modules podem ser adotados em componentes futuros se houver necessidade;
-não houve migração geral durante a auditoria para preservar o comportamento atual.
-
-## Página Sobre — 2026-10-06
-
-`src/app/sobre/page.tsx` compõe `sections/about/opening` e `sections/about/story`.
-O movimento exclusivo da abertura está em `opening-motion.tsx`, com filhos
-renderizados no servidor. O registro `sections/about/about.images.ts` é
-compartilhado pelas duas seções. Os nove WebP ficam em
-`assets/images/pages/about/{kitchen,living,detail}`. Header e footer continuam
-compartilhados; navegação e sitemap incluem a nova rota. Detalhes em `../secoes/sobre.md`.
-
-`components/layout/page-transition` controla a cortina compartilhada entre Home
-e Sobre. A navegação mantém o layout montado, prepara a seção de destino antes
-de revelar a página e atualiza os componentes que dependem da rota.
-
-## FAQ e paleta — 2026-10-06
-
-`src/sections/home/faq` reúne `faq.tsx`, `faq.content.ts` e `faq.css`.
-Substitui o FAQ que ficava no header e ocupa a Home entre Estúdio e Contato.
-Ambientes passa a links diretos; Dúvidas aponta para `/#duvidas` no header e
-footer. O título usa sticky limitado à seção, sem listener de scroll.
-Tokens globais concentram marfim, branco de apoio, bege, marrom e azul-ardósia;
-overlays, aberturas, menus, footer e transição de página usam a mesma paleta.
-Marfim predomina nas aberturas e áreas de leitura; FAQ mantém branco.
-
-## Auditoria de estrutura e código — 2026-10-07
-
-`config/routes.ts` é a fonte única das rotas de página, usada pelo sitemap e pela
-transição entre páginas. `lib/plain-click.ts` e `lib/media-queries.ts` concentram
-a checagem de clique e as consultas de mídia antes repetidas nos componentes.
-`app/not-found.tsx` e `app/error.tsx` usam `.status-page` em `globals.css`.
-`.env.example` lista as variáveis sem valores. A logo original da VBG saiu de
-`src` para `docs/marca`. Testes unitários ficam em `tests/unit`, compartilham
-`helpers/load-ts.cjs` e rodam com `npm test`.
-
-A transição Serviços → Processo, exclusiva da Home, fica em
-`sections/home/services-process-transition`. `styles/tokens.css` define a escala
-`--z-*` das camadas globais (conteúdo, header, botão flutuante, consentimento,
-transição de página e link de pular conteúdo); empilhamentos internos de uma
-seção continuam locais. Breakpoints permanecem escritos no CSS, porque variáveis
-não funcionam em `@media`; os valores usados no JavaScript estão em
-`lib/media-queries.ts`.
-
-A documentação está dividida em `docs/guias`, `docs/secoes` e `docs/auditorias`.
-Achados, correções e pendências em `../auditorias/auditoria-2026-10-07.md`.
+Nenhuma exclusão foi baseada só no nome de uma pasta: referências, testes e build validam os limites. A cópia local em work/cleanup-2026-10-17 permite recuperar os arquivos retirados. Documentos anteriores são históricos e podem citar estruturas já removidas.

@@ -348,10 +348,86 @@
   .footer-contact p {
     max-width: none;
   }
-  .footer-contact > a {
+  .footer-links .footer-contact > a {
     white-space: nowrap;
   }
   .footer-newsletter form {
     max-width: 580px;
+  }
+}
+
+/* Compactar o rodapé no celular sem retirar conteúdo ou alvos de toque. */
+@media (max-width: 767px) {
+  .site-footer {
+    padding-block: 40px 28px;
+  }
+  .footer-top {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .footer-links {
+    gap: 20px 24px;
+  }
+  .footer-top h2 {
+    margin-bottom: 8px;
+  }
+  .footer-links nav {
+    gap: 0;
+  }
+  .footer-links nav a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-contact {
+    gap: 8px;
+    padding-bottom: 20px;
+  }
+  .footer-contact p {
+    margin-bottom: 0;
+  }
+  .footer-links .footer-contact > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-information {
+    padding-top: 20px;
+    gap: 8px;
+  }
+  .footer-links .footer-information > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-newsletter {
+    padding-top: 20px;
+  }
+  .footer-newsletter h2 {
+    margin-bottom: 12px;
+  }
+  .footer-newsletter form {
+    gap: 8px;
+  }
+  .footer-newsletter input {
+    height: 52px;
+    padding-block: 12px;
+  }
+  .footer-newsletter button {
+    min-height: 48px;
+  }
+  .footer-newsletter .demo-note {
+    display: block;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .footer-bottom {
+    gap: 12px;
+  }
+  .footer-brand-subtitle {
+    margin-top: 12px;
+  }
+  .footer-credits {
+    gap: 8px;
   }
 }

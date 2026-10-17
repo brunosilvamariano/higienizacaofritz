@@ -11,3 +11,4 @@
 - Não instalar dependências especulativas. Consultar `docs/guias/dependencias.md` e confirmar compatibilidade na inicialização.
 - Criar Design Brief antes da implementação visual. Não inventar marca ou nicho.
 - Não afirmar que a aplicação executa, que foi testada ou que atingiu metas Lighthouse sem verificação real.
+- Referências visuais externas devem ser adaptadas à identidade Fritz: Bebas Neue nos títulos, Poppins nos textos e botões, paleta e escala tipográfica compartilhada em src/styles/tokens.css. Reutilizar os papéis de título de seção, título de card, corpo e ação; não importar tamanhos de fonte da referência isoladamente. Sempre validar quebras, alturas, espaçamentos e responsividade em conjunto. Preservar hero/header e funcionalidades salvo pedido explícito.

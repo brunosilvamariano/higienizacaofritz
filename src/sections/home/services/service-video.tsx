@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import './service-video.css';
 
 export function ServiceVideo({
   id,
@@ -55,10 +56,14 @@ export function ServiceVideo({
   return (
     <video
       ref={video}
+      className="service-autoplay-video"
       src={loaded ? `/videos/services/${id}.mp4` : undefined}
       poster={poster}
       aria-label={title}
-      controls
+      autoPlay
+      tabIndex={-1}
+      disablePictureInPicture
+      disableRemotePlayback
       muted
       loop
       playsInline

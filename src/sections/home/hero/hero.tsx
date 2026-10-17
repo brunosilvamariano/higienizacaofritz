@@ -33,7 +33,11 @@ export function Hero() {
       <div className="hero-background" aria-hidden="true">
         <ResponsiveImage {...heroSlides[0].images} alt="" eager sizes="100vw" />
       </div>
-      <h1 id="hero-title" className="hero-wordmark" aria-label="Higienização">
+      <h1
+        id="hero-title"
+        className="hero-wordmark"
+        aria-label="Higienização de estofados em Joinville e região"
+      >
         <EntranceText text="Higienização" />
       </h1>
       <div className="hero-content tw:relative tw:flex">

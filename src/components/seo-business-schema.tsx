@@ -1,6 +1,9 @@
 import { site } from '@/config/site';
 import { contact } from '@/config/contact';
 import socialImage from '@/assets/images/shared/fritz/social-share.jpg';
+import logo from '@/assets/images/shared/fritz/fritz-mark.png';
+import { serviceAreaNames } from '@/content/service-areas';
+import { googleReviews } from '@/content/google-reviews';
 
 export function BusinessSchema() {
   const data = {
@@ -11,17 +14,14 @@ export function BusinessSchema() {
     description: site.description,
     url: site.url,
     image: new URL(socialImage.src, site.url).href,
+    logo: new URL(logo.src, site.url).href,
     telephone: `+${contact.whatsappNumber}`,
-    sameAs: [contact.instagram],
-    areaServed: [
-      'Joinville',
-      'Itapoá',
-      'São Francisco do Sul',
-      'Balneário Camboriú',
-      'Balneário Piçarras',
-      'Balneário Barra do Sul',
-      'Barra Velha',
-    ].map((name) => ({ '@type': 'City', name })),
+    sameAs: [contact.instagram, googleReviews.profile],
+    areaServed: serviceAreaNames.map((name) => ({
+      '@type': 'City',
+      name,
+      containedInPlace: { '@type': 'State', name: 'Santa Catarina' },
+    })),
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Serviços Fritz',

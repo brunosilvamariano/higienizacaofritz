@@ -1,0 +1,191 @@
+.services-projects {
+  padding-block: clamp(56px, 6.5vw, 104px);
+  background: var(--paper);
+}
+.services-projects:focus {
+  outline: none;
+}
+.service-projects-tag {
+  padding-block: 0;
+}
+.service-projects-runway {
+  position: relative;
+}
+.service-projects-runway[data-pinned='true'] {
+  height: 200vh;
+}
+.service-projects-sticky {
+  top: 20px;
+  overflow: hidden;
+}
+.service-projects-runway[data-pinned='true'] .service-projects-sticky {
+  position: sticky;
+}
+.service-projects-content {
+  padding-block: 0;
+}
+.service-projects-heading {
+  margin-bottom: var(--service-heading-gap, 60px);
+}
+.service-projects-heading h2 {
+  font-family: var(--font-display), sans-serif;
+  font-size: var(--type-section-title);
+  font-weight: 400;
+  line-height: var(--type-heading-leading);
+  text-transform: uppercase;
+  text-wrap: balance;
+  margin-bottom: 12px;
+}
+.service-projects-heading p {
+  max-width: 56ch;
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: var(--muted);
+}
+.service-projects-frame {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue-panel-strong) transparent;
+  padding-bottom: 12px;
+}
+.service-projects-runway[data-pinned='true'] .service-projects-frame {
+  overflow: visible;
+  scroll-snap-type: none;
+}
+.service-projects-track {
+  width: max-content;
+  gap: 40px;
+  position: relative;
+}
+.service-project-card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(300px, 32vw, 460px);
+  flex: none;
+  scroll-snap-align: start;
+}
+.service-project-media {
+  position: relative;
+  isolation: isolate;
+  --service-icon-size: 64px;
+  --service-pocket-size: calc(var(--service-icon-size) + 12px);
+  flex-shrink: 0;
+  --service-media-preferred: clamp(240px, calc(100svh - 360px), 480px);
+  height: min(
+    var(--service-media-preferred),
+    var(--service-media-limit, 9999px)
+  );
+  /* O recorte da mídia não deve atingir o encaixe e o círculo do ícone. */
+  background: var(--paper);
+  border-radius: 24px;
+}
+.service-project-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.service-project-media video:fullscreen {
+  border-radius: 0;
+}
+.service-project-card h3 {
+  white-space: nowrap;
+  margin-top: var(--card-copy-gap);
+  font-size: var(--type-card-title);
+  line-height: var(--type-heading-leading);
+  text-transform: uppercase;
+}
+.service-project-description {
+  flex-grow: 1;
+  max-width: 36ch;
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: var(--muted);
+  margin-top: var(--card-title-gap);
+}
+main.page-content
+  > .services-projects
+  .service-project-contact.pill-link:has(.hover-label-primary) {
+  align-self: flex-start;
+  margin-top: 16px;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 14px 20px;
+  gap: 10px;
+  font-size: var(--type-action-compact);
+  font-weight: 600;
+  line-height: 1.2;
+  --button-surface: var(--paper);
+}
+.service-project-contact .hover-button-line {
+  width: 18px;
+}
+@media (max-width: 767px) {
+  .service-projects-track {
+    gap: 32px;
+  }
+  .service-project-card {
+    width: min(82vw, 360px);
+  }
+  .service-project-media {
+    --service-media-preferred: clamp(220px, 36svh, 360px);
+  }
+}
+.service-project-badge-pocket {
+  position: absolute;
+  /* Cobertura extra evita emendas ao mover o vídeo por frações de pixel.
+     O padding mantém o círculo na posição original. */
+  right: -2px;
+  bottom: -2px;
+  width: calc(var(--service-pocket-size) + 2px);
+  height: calc(var(--service-pocket-size) + 2px);
+  padding: 0 2px 2px 0;
+  border-top-left-radius: calc(var(--service-pocket-size) / 2);
+  background: var(--paper);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+.service-project-badge-pocket::before,
+.service-project-badge-pocket::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-bottom-right-radius: 22px;
+  box-shadow: 6px 6px 0 6px var(--paper);
+}
+.service-project-badge-pocket::before {
+  right: 2px;
+  bottom: 100%;
+}
+.service-project-badge-pocket::after {
+  right: 100%;
+  bottom: 2px;
+}
+.service-project-badge {
+  position: relative;
+  width: var(--service-icon-size);
+  height: var(--service-icon-size);
+  border-radius: 50%;
+  background: var(--brand);
+  color: var(--white);
+}
+.service-project-badge svg {
+  width: 36px;
+  height: 36px;
+}
+@media (max-width: 767px) {
+  .service-project-media {
+    --service-icon-size: 56px;
+  }
+  .service-project-badge svg {
+    width: 32px;
+    height: 32px;
+  }
+}

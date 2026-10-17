@@ -1,5 +1,5 @@
 const configuredUrl =
-  process.env.SITE_URL || 'https://higienizacaofritz.vercel.app';
+  process.env.SITE_URL || 'https://higienizacaofritz.com.br';
 const url = new URL(configuredUrl);
 if (
   url.protocol !== 'https:' ||
@@ -19,7 +19,7 @@ export const site = {
   url: url.origin,
   title: 'Higienização de estofados em Joinville | Fritz',
   description:
-    'Higienização de sofás, colchões, cadeiras e tapetes em Joinville e região. Consulte a impermeabilização de estofados e solicite orçamento à Fritz.',
+    'Higienização e impermeabilização de estofados em Joinville e litoral norte de SC. Sofás, colchões e tapetes: peça seu orçamento pelo WhatsApp.',
   indexable:
     process.env.VERCEL_ENV !== 'preview' &&
     (!process.env.SITE_INDEXABLE || process.env.SITE_INDEXABLE === 'true'),

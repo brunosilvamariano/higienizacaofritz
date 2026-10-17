@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
-/** Published Ariyana IX3 timelines: t-d5649a58, t-acc0a7cb, t-f0abf957. */
+/** Entradas compartilhadas; cada seção mantém seus movimentos de rolagem. */
 export function SectionEntrances() {
   const pathname = usePathname();
   useEffect(() => {
@@ -27,6 +27,9 @@ export function SectionEntrances() {
           .querySelectorAll<HTMLElement>('[data-title-anim], [data-text-anim]')
           .forEach((element) => {
             const title = element.hasAttribute('data-title-anim');
+            const refined =
+              Boolean(element.closest('.home-refined')) &&
+              !element.closest('.hero');
             const split = SplitText.create(element, {
               type: 'words,chars',
               mask: 'chars',
@@ -38,9 +41,15 @@ export function SectionEntrances() {
               split.chars,
               {
                 yPercent: 0,
-                duration: title ? 1 : 0.8,
-                stagger: { amount: title ? 0.5 : 0.4 },
-                ease: title ? 'back.inOut' : 'power3.out',
+                duration: refined ? (title ? 0.7 : 0.55) : title ? 1 : 0.8,
+                stagger: {
+                  amount: refined ? (title ? 0.2 : 0.12) : title ? 0.5 : 0.4,
+                },
+                ease: refined
+                  ? 'power3.out'
+                  : title
+                    ? 'back.inOut'
+                    : 'power3.out',
               },
               title ? 0 : 0.2,
             );

@@ -6,9 +6,10 @@ import { contact } from '@/config/contact';
 import { googleReviews } from '@/content/google-reviews';
 import { developer } from '@/config/developer';
 import vbgLogo from '@/assets/images/shared/vbg/logo.webp';
-import { Newsletter } from './newsletter';
+import { QuoteForm } from './quote-form';
 import { FooterReveal } from './footer-reveal';
 import './footer.css';
+import './footer-typography.css';
 
 export function Footer() {
   return (
@@ -28,43 +29,43 @@ export function Footer() {
           </div>
           <nav aria-label="Páginas principais">
             <h2>Navegue</h2>
-            <Link href="/">
+            <a href="/#inicio">
               <HoverLabel>Início</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
                 Início
               </span>
-            </Link>
-            <Link href="/sobre">
+            </a>
+            <Link href="/#sobre-a-fritz">
               <HoverLabel>Sobre</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
                 Sobre
               </span>
             </Link>
-            <Link href="/servicos">
+            <Link href="/#servicos">
               <HoverLabel>Serviços</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
                 Serviços
               </span>
             </Link>
-            <Link href="/contato">
+            <Link href="/#contato">
               <HoverLabel>Contato</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
                 Contato
               </span>
             </Link>
           </nav>
-          <nav aria-label="Galeria e artigos">
-            <h2>Galeria e artigos</h2>
-            <Link href="/projetos">
+          <nav aria-label="Resultados e dúvidas">
+            <h2>Resultados e dúvidas</h2>
+            <Link href="/#antes-e-depois">
               <HoverLabel>Galeria</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
                 Galeria
               </span>
             </Link>
-            <Link href="/blog">
-              <HoverLabel>Blog</HoverLabel>
+            <Link href="/#duvidas">
+              <HoverLabel>Dúvidas</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
-                Blog
+                Dúvidas
               </span>
             </Link>
           </nav>
@@ -120,7 +121,7 @@ export function Footer() {
             <PrivacyPreferences />
           </div>
         </div>
-        <Newsletter />
+        <QuoteForm />
       </div>
 
       <div className="footer-bottom">

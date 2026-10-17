@@ -5,9 +5,24 @@ const { legacyRedirects } = loadTs('src/config/legacy-redirects.ts');
 const { routes } = loadTs('src/config/routes.ts');
 test('redirecionamentos antigos apontam para páginas existentes da Fritz', () => {
   const paths = new Set(routes.map((r) => r.path));
-  assert.equal(legacyRedirects.length, 10);
+  const expectedSources = [
+    '/sobre',
+    '/servicos',
+    '/projetos/:path*',
+    '/contato',
+    '/blog/:path*',
+    '/informacoes/:path*',
+  ];
+  assert.deepEqual(
+    Array.from(legacyRedirects, (r) => r.source),
+    expectedSources,
+  );
   for (const redirect of legacyRedirects) {
-    assert.ok(paths.has(redirect.destination));
+    const destination = new URL(
+      redirect.destination,
+      'https://higienizacaofritz.com.br',
+    );
+    assert.ok(paths.has(destination.pathname));
     assert.equal(redirect.permanent, true);
     assert.notEqual(redirect.source, redirect.destination);
   }

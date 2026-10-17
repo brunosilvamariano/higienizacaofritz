@@ -70,3 +70,27 @@
     --section-space: 64px;
   }
 }
+
+/* Escala compartilhada de conteúdo: referências externas preservam estes papéis. */
+:root {
+  --type-section-title: clamp(36px, 4.5vw, 64px);
+  --type-card-title: clamp(28px, 2.3vw, 34px);
+  --type-banner-title: clamp(32px, 4.2vw, 60px);
+  --type-body: clamp(16px, 1.2vw, 18px);
+  --type-eyebrow: 12px;
+  --type-action-compact: 14px;
+  --type-heading-leading: 1.05;
+  --type-body-leading: 1.55;
+  --card-copy-gap: 24px;
+  --card-title-gap: 12px;
+}
+@media (max-width: 359px) {
+  :root {
+    --type-banner-title: 30px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --card-copy-gap: 20px;
+  }
+}

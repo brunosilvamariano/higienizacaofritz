@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { navigation } from '@/config/navigation';
 import { contact, whatsappUrl } from '@/config/contact';
 import { InstagramIcon } from '@/components/ui/social-icons';
@@ -11,7 +10,6 @@ export function MobileNavigation({
 }: {
   onOpenChange?: (open: boolean) => void;
 }) {
-  const pathname = usePathname();
   const dialog = useRef<HTMLDialogElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -89,12 +87,7 @@ export function MobileNavigation({
           </div>
           <nav className="mobile-links" aria-label="Menu completo">
             {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={pathname === item.href ? 'page' : undefined}
-                onClick={close}
-              >
+              <Link key={item.href} href={item.href} onClick={close}>
                 <span className="mobile-link-label">
                   <span>{item.label}</span>
                   <span aria-hidden="true">{item.label}</span>

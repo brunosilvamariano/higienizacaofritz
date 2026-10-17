@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return legacyRedirects;
   },
-  experimental: { workerThreads: true, cpus: 2, useTypeScriptCli: false },
+  experimental: { workerThreads: true, cpus: 1, useTypeScriptCli: false },
   images: { remotePatterns: [], qualities: [75, 85] },
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }];

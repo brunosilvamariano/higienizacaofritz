@@ -380,3 +380,17 @@
     line-height: 1;
   }
 }
+
+/* Somente os links: composição original preservada. */
+.mobile-links a {
+  font-size: clamp(28px, 4dvh, 42px);
+  line-height: 1;
+  padding-block: 5px;
+}
+@media (max-width: 991px) {
+  .mobile-links a {
+    font-size: clamp(24px, 3.2dvh, 30px);
+    line-height: 1;
+    padding-block: 2px;
+  }
+}

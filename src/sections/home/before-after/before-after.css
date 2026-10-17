@@ -1,0 +1,306 @@
+.before-after {
+  padding-block: clamp(56px, 6.5vw, 104px);
+  background: var(--paper);
+}
+.before-after:focus {
+  outline: none;
+}
+.before-after-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: clamp(32px, 3vw, 48px);
+}
+.before-after-heading h2 {
+  max-width: 22ch;
+  font-size: var(--type-section-title);
+  line-height: var(--type-heading-leading);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.before-after-heading > p {
+  max-width: 32ch;
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: var(--muted);
+}
+.before-after-cards {
+  gap: 20px;
+}
+.before-after-mobile-hint {
+  display: none;
+}
+.before-after-card {
+  position: relative;
+  isolation: isolate;
+  flex: 1 1 0;
+  min-width: 0;
+  height: clamp(380px, 33vw, 460px);
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--mist);
+  transition: flex-grow 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.before-after-card[data-active='true'] {
+  flex-grow: 2.2;
+}
+.before-after-photo {
+  object-fit: cover;
+  object-position: center;
+}
+.before-after-card::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 0;
+  height: 48%;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgb(19 33 61 / 18%) 32%,
+    rgb(19 33 61 / 82%) 100%
+  );
+}
+.before-after-divider {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 20%),
+    rgb(255 255 255 / 70%) 35%,
+    rgb(255 255 255 / 70%) 65%,
+    rgb(255 255 255 / 10%)
+  );
+  pointer-events: none;
+}
+.before-after-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 60% 60% 60% 0;
+  background: var(--white);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.before-after-labels {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  gap: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 0.3s,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.before-after-labels span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 100px;
+  background: rgb(244 247 251 / 92%);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+.before-after-labels span:last-child::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.before-after-card[data-active='true'] .before-after-labels {
+  opacity: 1;
+  transform: none;
+}
+.before-after-card[data-active='true'] .before-after-divider::after {
+  opacity: 1;
+}
+.before-after-copy {
+  position: absolute;
+  z-index: 2;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  color: var(--white);
+  pointer-events: none;
+  text-shadow: 0 1px 8px rgb(19 33 61 / 20%);
+}
+.before-after-copy h3 {
+  font-size: var(--type-card-title);
+  line-height: var(--type-heading-leading);
+  text-transform: uppercase;
+}
+.before-after-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s;
+}
+.before-after-detail p {
+  overflow: hidden;
+  min-height: 0;
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: rgb(255 255 255 / 92%);
+  text-wrap: pretty;
+}
+.before-after-detail p::before {
+  content: '';
+  display: block;
+  height: var(--card-title-gap);
+}
+.before-after-card[data-active='true'] .before-after-detail {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.before-after-trigger {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: transparent;
+}
+.before-after-trigger:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: -6px;
+}
+.before-after-footer {
+  gap: 24px;
+  margin-top: 24px;
+}
+.before-after-footer > p {
+  font-size: var(--type-eyebrow);
+  line-height: 1.5;
+  color: var(--muted);
+}
+@media (min-width: 992px) {
+  .before-after-copy {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .before-after-copy h3 {
+    flex: none;
+  }
+  .before-after-detail {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: min(56%, 29ch);
+    grid-template-rows: 1fr;
+    transform: translateY(8px);
+    transition:
+      opacity 0.3s,
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .before-after-detail p::before {
+    display: none;
+  }
+  .before-after-card[data-active='true'] .before-after-detail {
+    transform: none;
+  }
+}
+@media (max-width: 991px) {
+  .before-after-card::after {
+    height: 60%;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgb(19 33 61 / 32%) 25%,
+      rgb(19 33 61 / 86%) 100%
+    );
+  }
+  .before-after-heading {
+    display: block;
+  }
+  .before-after-heading > p {
+    margin-top: 16px;
+    max-width: 40ch;
+  }
+  .before-after-cards {
+    gap: 12px;
+  }
+  .before-after-copy {
+    left: 16px;
+    right: 16px;
+    bottom: 20px;
+  }
+  .before-after-footer {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 767px) {
+  .before-after-card::after {
+    height: 68%;
+  }
+  .before-after-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .before-after-card,
+  .before-after-card[data-active='true'] {
+    flex: none;
+    width: 100%;
+    height: 250px;
+    transition: none;
+  }
+  .before-after-card:not(:last-child) {
+    position: sticky;
+    top: 43px;
+  }
+  .before-after-card .before-after-labels {
+    opacity: 1;
+    transform: none;
+  }
+  .before-after-card .before-after-divider::after {
+    opacity: 1;
+  }
+  .before-after-card .before-after-detail {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .before-after-copy {
+    left: 20px;
+    right: 20px;
+  }
+  .before-after-trigger,
+  .before-after-desktop-hint {
+    display: none;
+  }
+  .before-after-mobile-hint {
+    display: inline;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .before-after-card,
+  .before-after-detail,
+  .before-after-labels {
+    transition: none;
+  }
+  .before-after-divider::after {
+    transition: none;
+  }
+}

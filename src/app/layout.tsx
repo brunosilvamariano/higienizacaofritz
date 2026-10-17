@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { bebasNeue, dmSans } from '@/styles/fonts';
+import { bebasNeue, dmSans, poppins } from '@/styles/fonts';
 import { Header } from '@/components/layout/header/header';
 import { Footer } from '@/components/layout/footer/footer';
 import { ConsentManager } from '@/components/analytics/consent';
@@ -11,12 +11,17 @@ import { PageTransition } from '@/components/layout/page-transition/page-transit
 import { SectionEntrances } from '@/animations/section-entrances';
 import { FloatingContact } from '@/components/ui/floating-contact';
 import '@/styles/globals.css';
+import '@/styles/content-width.css';
+import '@/styles/content-typography.css';
 
 export const viewport: Viewport = { themeColor: '#13213d' };
 export const metadata: Metadata = siteMetadata;
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${bebasNeue.variable} ${dmSans.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${bebasNeue.variable} ${dmSans.variable} ${poppins.variable}`}
+    >
       <body>
         <BusinessSchema />
         <PageTransition />

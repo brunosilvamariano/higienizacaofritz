@@ -72,3 +72,9 @@ interface serão servidos pela própria aplicação, sem dependências de CDN em
 ## Reprodução da animação de serviços do Ariyana
 
 GSAP 3.15.0 instalado pelo npm e fixado no lockfile. GSAP e ScrollTrigger são importados dinamicamente apenas na variante de serviços do vídeo. Necessidade concreta: reproduzir o scrub de 1,2 s e o cálculo do gatilho no elemento transformado usados pela referência, que uma mola do Framer Motion não reproduziu. Nenhum script de CDN é carregado pela aplicação. Next/React/TypeScript permanecem na stack existente. MatchMedia remove e restaura a animação no tablet, celular e na preferência por movimento reduzido; o efeito desfaz seus recursos ao desmontar.
+
+## Estado vigente das fontes — 17/10/2026
+
+Bebas Neue, DM Sans e Poppins continuam visíveis. As mesmas fontes foram comprimidas para WOFF2 com fontTools 4.67.0, sem subset nem alteração de glifos, cmap, métricas hmtx/hhea/OS/2 ou eixos variáveis. Licenças OFL preservadas. Plus Jakarta sem uso foi retirada. Poppins usa preload:false e carrega pela necessidade real do conteúdo; Bebas e DM Sans continuam priorizadas no hero/header. Ferramenta de conversão apenas em work, sem dependência nova de runtime ou mudança no lockfile.
+
+Build no Windows: um worker de geração estática (cpus:1), mantendo workerThreads, após EPERM intermitente com dois workers ao criar a saída de 404. O build final e a auditoria HTTP passaram nessa configuração; isso não altera as animações no navegador.

@@ -1,5 +1,7 @@
 node_modules/
 .next/
+.next-*/
+work/
 package-lock.json
 next-env.d.ts
 coverage/
