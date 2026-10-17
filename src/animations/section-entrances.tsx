@@ -19,6 +19,7 @@ export function SectionEntrances() {
       ]);
       if (disposed) return;
       gsap.registerPlugin(ScrollTrigger, SplitText);
+      ScrollTrigger.config({ ignoreMobileResize: true });
       const media = gsap.matchMedia();
       cleanup = () => media.revert();
       media.add('(prefers-reduced-motion: no-preference)', () => {

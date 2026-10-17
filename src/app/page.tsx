@@ -2,7 +2,7 @@ import '@/sections/home/home.css';
 import { Contact } from '@/sections/home/contact/contact';
 import { Hero } from '@/sections/home/hero/hero';
 import { Benefits } from '@/sections/home/benefits/benefits';
-import { ReviewStrip } from '@/sections/home/review-strip/review-strip';
+import { ServiceMarquee } from '@/sections/home/service-marquee/service-marquee';
 import { ServicesProjects } from '@/sections/home/services/services-projects';
 import { Process } from '@/sections/home/process/process';
 import { BeforeAfter } from '@/sections/home/before-after/before-after';
@@ -20,7 +20,7 @@ export default function Home() {
     >
       <Hero />
       <Benefits />
-      <ReviewStrip />
+      <ServiceMarquee />
       <ServicesProjects />
       <Process />
       <BeforeAfter />

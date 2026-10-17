@@ -47,8 +47,18 @@ export function ServicesProjects() {
     if (!media || !heading) return;
     let disposed = false;
     let measurement = 0;
+    let layoutWidth = window.innerWidth;
+    let layoutHeight = window.innerHeight;
     const measure = () => {
       if (disposed) return;
+      if (window.innerWidth !== layoutWidth || window.innerWidth >= 768) {
+        layoutWidth = window.innerWidth;
+        layoutHeight = window.innerHeight;
+      }
+      runway.current?.style.setProperty(
+        '--service-viewport-height',
+        `${layoutHeight}px`,
+      );
       // Budget the video after measuring real text wrapping, rather than
       // disabling the reference animation when the typography needs more room.
       const copyHeight =
@@ -56,9 +66,7 @@ export function ServicesProjects() {
         media.getBoundingClientRect().height -
         Number.parseFloat(getComputedStyle(heading).marginBottom) +
         60;
-      const preferredMediaHeight = Math.floor(
-        window.innerHeight - 42 - copyHeight,
-      );
+      const preferredMediaHeight = Math.floor(layoutHeight - 42 - copyHeight);
       const gapReduction = Math.min(
         32,
         Math.max(0, 180 - preferredMediaHeight),
@@ -93,6 +101,7 @@ export function ServicesProjects() {
       cancelAnimationFrame(measurement);
       observer.disconnect();
       window.removeEventListener('resize', scheduleMeasure);
+      runway.current?.style.removeProperty('--service-viewport-height');
       content.style.removeProperty('--service-media-limit');
       content.style.removeProperty('--service-heading-gap');
     };

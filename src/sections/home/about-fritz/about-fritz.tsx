@@ -154,7 +154,11 @@ export function AboutFritz() {
       };
       setup();
       let refresh = 0;
+      let layoutWidth = window.innerWidth;
       const onResize = () => {
+        if (window.innerWidth < 768 && window.innerWidth === layoutWidth)
+          return;
+        layoutWidth = window.innerWidth;
         cancelAnimationFrame(refresh);
         refresh = requestAnimationFrame(() => {
           setup();

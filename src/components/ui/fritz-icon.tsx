@@ -22,6 +22,9 @@ const drawings = {
     'M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3 M12 7.5c-1.2 1.8-3 3.6-3 5.2a3 3 0 0 0 6 0c0-1.6-1.8-3.4-3-5.2z',
 } as const;
 export type FritzIconName = keyof typeof drawings;
+export function FritzIconPath({ name }: { name: FritzIconName }) {
+  return <path d={drawings[name]} />;
+}
 export function FritzIcon({ name }: { name: FritzIconName }) {
   return (
     <svg
@@ -34,7 +37,7 @@ export function FritzIcon({ name }: { name: FritzIconName }) {
       aria-hidden="true"
       focusable="false"
     >
-      <path d={drawings[name]} />
+      <FritzIconPath name={name} />
     </svg>
   );
 }

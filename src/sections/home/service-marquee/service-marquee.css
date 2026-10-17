@@ -1,0 +1,28 @@
+.service-marquee {
+  overflow: clip;
+  background: var(--paper);
+  color: var(--ink);
+}
+.service-marquee-scene {
+  display: block;
+  width: max(100%, 1440px);
+  height: 200px;
+  overflow: hidden;
+}
+.service-marquee-ribbon {
+  fill: var(--blue-soft);
+}
+.service-marquee-text {
+  font-family: var(--font-display), sans-serif;
+  font-size: 32px;
+  text-transform: uppercase;
+  fill: var(--ink);
+}
+.service-marquee-icon {
+  color: var(--brand);
+}
+@media (max-width: 767px) {
+  .service-marquee-scene {
+    height: 160px;
+  }
+}

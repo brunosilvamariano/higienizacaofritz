@@ -253,7 +253,8 @@ export function Testimonials() {
       </div>
       <div className="review-wall-actions">
         <p>
-          Experiências compartilhadas por clientes no <GoogleWord />.
+          {googleReviews.rating} de 5 · {googleReviews.count} avaliações no{' '}
+          <GoogleWord />.
         </p>
         <a
           className="pill-link review-google-cta"

@@ -12,7 +12,7 @@
   position: relative;
 }
 .service-projects-runway[data-pinned='true'] {
-  height: 200vh;
+  height: calc(var(--service-viewport-height, 100svh) * 2);
 }
 .service-projects-sticky {
   top: 20px;
