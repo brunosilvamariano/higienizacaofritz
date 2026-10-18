@@ -1,0 +1,145 @@
+/* [project]/src/components/layout/page-transition/page-transition.css [app-client] (css) */
+.page-transition {
+  z-index: var(--z-page-transition);
+  border-top: 1px solid var(--line);
+  visibility: hidden;
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  transform: translateY(100%);
+}
+
+.page-transition[data-phase="covering"] {
+  visibility: visible;
+  pointer-events: auto;
+  transition: transform .35s cubic-bezier(.65, 0, .35, 1);
+  transform: translateY(0);
+}
+
+.page-transition[data-phase="covered"] {
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.page-transition[data-phase="initial"] {
+  visibility: visible;
+  pointer-events: auto;
+  animation: 0s 2s forwards page-transition-release;
+  transform: translateY(0);
+}
+
+.page-transition[data-phase="revealing"] {
+  visibility: visible;
+  pointer-events: auto;
+  transition: transform .52s cubic-bezier(.65, 0, .35, 1);
+  transform: translateY(-100%);
+}
+
+.page-transition {
+  color: #fff;
+  background: #121212;
+  border: 0;
+}
+
+.page-transition-wordmark {
+  font-family: var(--font-display), sans-serif;
+  font-size: var(--heading-small);
+  line-height: 1;
+}
+
+.page-transition-border {
+  top: 100%;
+  gap: 5px;
+  display: grid;
+  position: absolute;
+  inset-inline: 0;
+}
+
+.page-transition-border i {
+  background: #121212;
+  height: 12px;
+  display: block;
+}
+
+.page-transition-border i:nth-child(2) {
+  height: 9px;
+}
+
+.page-transition-border i:nth-child(3) {
+  height: 6px;
+}
+
+.page-transition-border i:nth-child(4) {
+  height: 4px;
+}
+
+.page-transition-border i:nth-child(5) {
+  height: 3px;
+}
+
+@keyframes page-transition-release {
+  to {
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition {
+    display: none;
+  }
+}
+
+.preloader-letter-mask {
+  display: inline-block;
+  overflow: clip;
+}
+
+.page-transition[data-phase="initial"] .preloader-letter-mask > span {
+  animation: 1s cubic-bezier(.87, 0, .13, 1) both preloader-letter;
+  display: inline-block;
+}
+
+.page-transition[data-home="true"][data-phase="initial"] {
+  animation-delay: 1s;
+}
+
+.page-transition[data-home="true"][data-phase="revealing"] {
+  transition: transform 1s cubic-bezier(.65, 0, .35, 1);
+  transform: translateY(-120%);
+}
+
+@keyframes preloader-letter {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preloader-letter-mask > span {
+    animation: none;
+  }
+}
+
+.preloader-brand-subtitle {
+  text-align: center;
+  font: 400 clamp(10px, 1.2vw, 14px)/1.35 var(--font-body),
+    sans-serif;
+  white-space: nowrap;
+  margin-top: 14px;
+  display: block;
+}
+
+.page-transition-logo {
+  object-fit: contain;
+  width: clamp(88px, 16vw, 112px);
+  height: auto;
+}
+
+/*# sourceMappingURL=src_components_layout_page-transition_page-transition_css_1igg3k2._.single.css.map*/

@@ -1,0 +1,11 @@
+{
+  "app": {
+    "[project]/src/app/page": [
+      "static/media/BebasNeue_Regular-s.p.3b437onhezyjj.woff2",
+      "static/media/DMSans_Variable-s.p.1tm3hirutdj9q.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

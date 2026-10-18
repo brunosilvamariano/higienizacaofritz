@@ -1,0 +1,208 @@
+/* [project]/src/sections/home/faq/faq.css [app-client] (css) */
+.faq {
+  background: var(--paper);
+  color: var(--ink);
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  align-items: start;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.faq:focus {
+  outline: none;
+}
+
+.faq-introduction {
+  max-width: 440px;
+  padding-block: 8px;
+  position: sticky;
+  top: 96px;
+}
+
+.faq-introduction h2 {
+  font-size: var(--type-section-title);
+  line-height: var(--type-heading-leading);
+  text-transform: uppercase;
+  text-wrap: balance;
+  max-width: 14ch;
+}
+
+.faq-introduction h2 > span {
+  color: var(--brand);
+  display: block;
+}
+
+.faq-introduction > p {
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: var(--muted);
+  max-width: 33ch;
+  margin-top: 20px;
+}
+
+.faq-introduction .pill-link {
+  margin-top: 24px;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  transition: background-color .32s;
+  position: relative;
+}
+
+.faq-item[data-open="true"] {
+  background: linear-gradient(100deg, #2850c30d, #0000 88%);
+}
+
+.faq-item:before {
+  content: "";
+  background: var(--brand);
+  transform-origin: top;
+  width: 2px;
+  transition: transform .32s;
+  position: absolute;
+  inset: 24px auto 24px 0;
+  transform: scaleY(0);
+}
+
+.faq-item[data-open="true"]:before {
+  transform: scaleY(1);
+}
+
+.faq-trigger {
+  min-height: 104px;
+  color: var(--ink);
+  font-family: var(--font-body), sans-serif;
+  font-size: var(--type-body);
+  background: none;
+  border: 0;
+  grid-template-columns: 24px minmax(0, 1fr) 36px;
+  gap: 16px;
+  padding: 24px 20px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color .2s;
+}
+
+.faq-index {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.faq-trigger:hover, .faq-item[data-open="true"] .faq-trigger {
+  color: var(--brand);
+}
+
+.faq-trigger:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -3px;
+}
+
+.faq-mark {
+  border: 1px solid var(--line);
+  width: 36px;
+  height: 36px;
+  color: var(--ink);
+  border-radius: 8px;
+  transition: background-color .26s, color .26s, border-color .26s;
+}
+
+.faq-item[data-open="true"] .faq-mark {
+  background: var(--brand);
+  color: var(--white);
+  border-color: var(--brand);
+}
+
+.faq-mark i {
+  background: currentColor;
+  width: 14px;
+  height: 1px;
+  position: absolute;
+  top: 16px;
+  left: 10px;
+}
+
+.faq-mark i:last-child {
+  transition: transform .26s;
+  transform: rotate(90deg);
+}
+
+.faq-item[data-open="true"] .faq-mark i:last-child {
+  transform: rotate(0);
+}
+
+.faq-answer {
+  visibility: hidden;
+  opacity: 0;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .36s cubic-bezier(.2, .65, .3, 1), opacity .24s, visibility .36s;
+}
+
+.faq-item[data-open="true"] .faq-answer {
+  visibility: visible;
+  opacity: 1;
+  grid-template-rows: 1fr;
+}
+
+.faq-answer-clip {
+  min-height: 0;
+}
+
+.faq-answer p {
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: var(--muted);
+  max-width: 60ch;
+  padding: 0 72px 28px 60px;
+}
+
+@media not (min-width: 992px) {
+  .faq {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .faq-introduction {
+    max-width: 600px;
+    position: static;
+  }
+
+  .faq-introduction h2 {
+    max-width: 20ch;
+  }
+
+  .faq-trigger {
+    grid-template-columns: 20px minmax(0, 1fr) 36px;
+    gap: 12px;
+    min-height: 88px;
+    padding: 22px 12px;
+  }
+
+  .faq-answer p {
+    padding: 0 24px 24px 44px;
+  }
+}
+
+@media not (min-width: 768px) {
+  .faq-introduction .pill-link {
+    display: none;
+  }
+}
+
+@media (max-height: 650px) {
+  .faq-introduction {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer, .faq-mark, .faq-mark i:last-child, .faq-trigger, .faq-item, .faq-item:before {
+    transition: none;
+  }
+}
+
+/*# sourceMappingURL=src_sections_home_faq_faq_css_1igg3k2._.single.css.map*/

@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\n  \"app\": {\n    \"[project]/src/app/page\": [\n      \"static/media/BebasNeue_Regular-s.p.3b437onhezyjj.woff2\",\n      \"static/media/DMSans_Variable-s.p.1tm3hirutdj9q.woff2\"\n    ]\n  },\n  \"appUsingSizeAdjust\": true,\n  \"pages\": {},\n  \"pagesUsingSizeAdjust\": false\n}"

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/components/ui/section-eyebrow.css"],"sourcesContent":[".section-eyebrow {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n}\n.section-eyebrow-centered {\n  justify-content: center;\n}\n.section-eyebrow-text {\n  min-width: 0;\n}\n.section-eyebrow-rule {\n  display: block;\n  flex: 0 0 64px;\n  width: 64px;\n  height: 18px;\n}\n.section-eyebrow-rule svg {\n  display: block;\n  width: 100%;\n  height: 100%;\n}\n.section-eyebrow-rule-after {\n  transform: scaleX(-1);\n}\n@media (max-width: 359px) {\n  .section-eyebrow {\n    gap: 10px;\n  }\n  .section-eyebrow-rule {\n    flex-basis: 48px;\n    width: 48px;\n  }\n}\n"],"names":[],"mappings":"AAAA;;;;;;AAKA;;;;AAGA;;;;AAGA;;;;;;;AAMA;;;;;;AAKA;;;;AAGA;EACE;;;;EAGA"}}]
+}

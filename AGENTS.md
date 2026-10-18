@@ -12,3 +12,13 @@
 - Criar Design Brief antes da implementação visual. Não inventar marca ou nicho.
 - Não afirmar que a aplicação executa, que foi testada ou que atingiu metas Lighthouse sem verificação real.
 - Referências visuais externas devem ser adaptadas à identidade Fritz: Bebas Neue nos títulos, Poppins nos textos e botões, paleta e escala tipográfica compartilhada em src/styles/tokens.css. Reutilizar os papéis de título de seção, título de card, corpo e ação; não importar tamanhos de fonte da referência isoladamente. Sempre validar quebras, alturas, espaçamentos e responsividade em conjunto. Preservar hero/header e funcionalidades salvo pedido explícito.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

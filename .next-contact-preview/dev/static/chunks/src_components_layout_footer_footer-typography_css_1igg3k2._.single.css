@@ -1,0 +1,30 @@
+/* [project]/src/components/layout/footer/footer-typography.css [app-client] (css) */
+.site-footer {
+  --font-body: var(--font-poppins);
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.site-footer :is(h1, h2, h3, h4) {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 400;
+}
+
+.site-footer :is(p, blockquote, input, select, textarea, button) {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.site-footer .pill-link {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 500;
+}
+
+.site-footer .pill-link:has(.hover-label-primary) {
+  text-transform: none;
+  min-height: 56px;
+  padding: 18px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/*# sourceMappingURL=src_components_layout_footer_footer-typography_css_1igg3k2._.single.css.map*/

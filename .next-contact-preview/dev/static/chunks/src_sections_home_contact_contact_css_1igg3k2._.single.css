@@ -1,0 +1,187 @@
+/* [project]/src/sections/home/contact/contact.css [app-client] (css) */
+.contact {
+  margin-bottom: 40px;
+  position: relative;
+  overflow: clip;
+}
+
+.contact-accessible {
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+}
+
+.contact-marquee {
+  display: flex;
+}
+
+.contact-marquee > div {
+  width: max-content;
+  animation: 35s linear infinite contact-run;
+  display: flex;
+}
+
+.contact-marquee span {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  opacity: .5;
+  flex: none;
+  margin-right: 40px;
+  font-size: clamp(48px, 11.107px + 9.8382vw, 200px);
+  line-height: 1;
+}
+
+.contact-marquee[data-stroke="true"] span {
+  color: #0000;
+  -webkit-text-stroke: 1px #000;
+}
+
+.contact-marquee[data-stroke="true"] > div {
+  animation-direction: reverse;
+}
+
+.contact-button {
+  white-space: nowrap;
+  background: #eaffb1;
+  border: 2px solid #000;
+  border-radius: 999px;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 60px;
+  transition: background .3s, transform .31s cubic-bezier(.215, .61, .355, 1);
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.contact-button:is(:hover, :focus-visible) {
+  background: #fdbc53;
+  transform: translate(-50%, -50%)scale(.9);
+}
+
+.contact-button-text {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  font-size: 60px;
+  line-height: 1;
+}
+
+.contact-button-icon {
+  color: #fff;
+  background: #000;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  font-size: 40px;
+  font-style: normal;
+  display: flex;
+}
+
+@keyframes contact-run {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-button {
+    padding: 16px 40px;
+  }
+
+  .contact-button-text {
+    font-size: 32px;
+  }
+
+  .contact-button-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-button {
+    gap: 12px;
+    padding: 12px 12px 12px 28px;
+  }
+
+  .contact-button-text {
+    font-size: 28px;
+  }
+
+  .contact-button-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 479px) {
+  .contact-button {
+    gap: 4px;
+    padding: 8px 8px 8px 16px;
+  }
+
+  .contact-button-text {
+    font-size: 22px;
+  }
+
+  .contact-button-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-button {
+    transition: none;
+  }
+
+  .contact-button:is(:hover, :focus-visible) {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.contact-button-gaps {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.contact-button-gap {
+  background: #fff;
+  width: 48px;
+  height: 2px;
+  position: absolute;
+  top: -2px;
+  left: 81px;
+}
+
+.contact-button-gap:nth-child(2) {
+  inset: auto 116px -2px auto;
+}
+
+.contact-button-gap:nth-child(3) {
+  width: 20px;
+  inset: auto 73px -2px auto;
+}
+
+.contact-guidance {
+  max-width: 48ch;
+  font-size: var(--type-body);
+  line-height: var(--type-body-leading);
+  color: var(--muted);
+  text-align: center;
+  text-wrap: pretty;
+  margin: 0 auto clamp(24px, 3vw, 40px);
+  padding: clamp(24px, 3vw, 40px) 24px 0;
+}
+
+/*# sourceMappingURL=src_sections_home_contact_contact_css_1igg3k2._.single.css.map*/

@@ -1,0 +1,36 @@
+/* [project]/src/sections/home/service-marquee/service-marquee.css [app-client] (css) */
+.service-marquee {
+  background: var(--paper);
+  color: var(--ink);
+  overflow: clip;
+}
+
+.service-marquee-scene {
+  width: max(100%, 1440px);
+  height: 200px;
+  display: block;
+  overflow: hidden;
+}
+
+.service-marquee-ribbon {
+  fill: var(--blue-soft);
+}
+
+.service-marquee-text {
+  font-family: var(--font-display), sans-serif;
+  text-transform: uppercase;
+  fill: var(--ink);
+  font-size: 32px;
+}
+
+.service-marquee-icon {
+  color: var(--brand);
+}
+
+@media (max-width: 767px) {
+  .service-marquee-scene {
+    height: 160px;
+  }
+}
+
+/*# sourceMappingURL=src_sections_home_service-marquee_service-marquee_css_1igg3k2._.single.css.map*/

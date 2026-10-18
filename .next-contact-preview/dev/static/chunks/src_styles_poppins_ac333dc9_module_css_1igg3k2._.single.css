@@ -1,0 +1,59 @@
+/* [project]/src/styles/poppins_ac333dc9.module.css [app-client] (css) */
+@font-face {
+  font-family: poppins;
+  src: url("../media/Poppins_Regular-s.3n8w0t69rwufq.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("../media/Poppins_Medium-s.3g5ag9k-0gp18.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("../media/Poppins_SemiBold-s.2pi_r6w6h8ybx.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("../media/Poppins_Bold-s.26o2wrw_vdpv-.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: poppins;
+  src: url("../media/Poppins_Italic-s.2pry_shzf-jzd.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: poppins Fallback;
+  src: local(Arial);
+  ascent-override: 92.83%;
+  descent-override: 30.94%;
+  line-gap-override: 8.84%;
+  size-adjust: 113.11%;
+}
+
+.poppins_ac333dc9-module__swz4Oq__className {
+  font-family: poppins, poppins Fallback;
+}
+
+.poppins_ac333dc9-module__swz4Oq__variable {
+  --font-poppins: "poppins", "poppins Fallback";
+}
+
+/*# sourceMappingURL=src_styles_poppins_ac333dc9_module_css_1igg3k2._.single.css.map*/

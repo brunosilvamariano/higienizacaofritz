@@ -163,6 +163,11 @@
     padding: 0 24px 24px 44px;
   }
 }
+@media (width < 768px) {
+  .faq-introduction .pill-link {
+    display: none;
+  }
+}
 @media (max-height: 650px) {
   .faq-introduction {
     position: static;
