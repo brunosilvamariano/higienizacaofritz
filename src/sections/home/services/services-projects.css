@@ -233,3 +233,11 @@ main.page-content
     height: 32px;
   }
 }
+
+@media (width < 768px) {
+  .service-projects-runway[data-pinned='true'] {
+    height: calc(
+      var(--service-content-height, 560px) + var(--service-mobile-travel, 680px)
+    );
+  }
+}

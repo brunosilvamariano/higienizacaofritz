@@ -83,6 +83,14 @@ export function ServicesProjects() {
         content.style.getPropertyValue('--service-media-limit') !== mediaLimit
       )
         content.style.setProperty('--service-media-limit', mediaLimit);
+      runway.current?.style.setProperty(
+        '--service-content-height',
+        `${content.offsetHeight}px`,
+      );
+      runway.current?.style.setProperty(
+        '--service-mobile-travel',
+        `${Math.max(420, getTrackTravel(row, viewport) * 0.65)}px`,
+      );
       setPinned(!reduced && fits && row.scrollWidth > viewport.clientWidth + 1);
     };
     const scheduleMeasure = () => {
@@ -102,6 +110,8 @@ export function ServicesProjects() {
       observer.disconnect();
       window.removeEventListener('resize', scheduleMeasure);
       runway.current?.style.removeProperty('--service-viewport-height');
+      runway.current?.style.removeProperty('--service-content-height');
+      runway.current?.style.removeProperty('--service-mobile-travel');
       content.style.removeProperty('--service-media-limit');
       content.style.removeProperty('--service-heading-gap');
     };
@@ -119,33 +129,40 @@ export function ServicesProjects() {
       ([{ gsap }, { ScrollTrigger }]) => {
         if (disposed) return;
         gsap.registerPlugin(ScrollTrigger);
-        const context = gsap.context(() => {
-          // Preserve the reference timing; stop at the shared content boundary.
-          const timeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: region,
-              start: 'clamp(top bottom)',
-              end: 'clamp(bottom top)',
-              scrub: 0.8,
-              invalidateOnRefresh: true,
-            },
-          });
-          timeline.to({}, { duration: 1 }, 0);
-          timeline.fromTo(
-            row,
-            { x: 0, xPercent: 0 },
-            {
-              x: () => -getTrackTravel(row, viewport),
-              duration: 0.25,
-              ease: 'none',
-            },
-            0.35,
-          );
-          seek.current = (value) => timeline.progress(value);
-        }, region);
+        const media = gsap.matchMedia(region);
+        media.add(
+          { mobile: '(width < 768px)', desktop: '(width >= 768px)' },
+          (context) => {
+            const mobile = Boolean(context.conditions?.mobile);
+            const timeline = gsap.timeline({
+              scrollTrigger: {
+                trigger: region,
+                start: mobile ? 'clamp(top 20px)' : 'clamp(top bottom)',
+                end: mobile
+                  ? () =>
+                      `clamp(bottom ${(sticky.current?.offsetHeight ?? 0) + 20}px)`
+                  : 'clamp(bottom top)',
+                scrub: 0.8,
+                invalidateOnRefresh: true,
+              },
+            });
+            timeline.to({}, { duration: 1 }, 0);
+            timeline.fromTo(
+              row,
+              { x: 0, xPercent: 0 },
+              {
+                x: () => -getTrackTravel(row, viewport),
+                duration: mobile ? 0.88 : 0.25,
+                ease: 'none',
+              },
+              mobile ? 0.06 : 0.35,
+            );
+            seek.current = (value) => timeline.progress(value);
+          },
+        );
         cleanup = () => {
           seek.current = null;
-          context.revert();
+          media.revert();
         };
         ScrollTrigger.refresh();
       },
@@ -170,12 +187,19 @@ export function ServicesProjects() {
     const distance = getTrackTravel(track.current, frame.current);
     if (!distance) return;
     const travel = Math.min(distance, card.offsetLeft);
-    const progress = 0.35 + (0.25 * travel) / distance;
+    const mobile = window.innerWidth < 768;
+    const progress = mobile
+      ? 0.06 + (0.88 * travel) / distance
+      : 0.35 + (0.25 * travel) / distance;
     const top = runway.current.getBoundingClientRect().top + window.scrollY;
-    const scrollTop =
-      top -
-      window.innerHeight +
-      progress * (runway.current.offsetHeight + window.innerHeight);
+    const scrollTop = mobile
+      ? top -
+        20 +
+        progress *
+          (runway.current.offsetHeight - (sticky.current?.offsetHeight ?? 0))
+      : top -
+        window.innerHeight +
+        progress * (runway.current.offsetHeight + window.innerHeight);
     window.scrollTo({
       // Enter the final hold fully, even when browser scroll coordinates round.
       top: travel === distance ? Math.ceil(scrollTop) : scrollTop,
