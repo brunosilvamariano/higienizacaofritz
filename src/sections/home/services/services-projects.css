@@ -246,3 +246,474 @@ main.page-content
     height: var(--service-media-limit);
   }
 }
+
+/* Grade ampla: os quatro serviços visíveis, sem fixação ou rolagem lateral. */
+main.page-content.home-palette
+  > .services-projects
+  :is(.service-projects-tag, .service-projects-content) {
+  padding-inline: clamp(16px, 1.4vw, 28px);
+}
+.service-projects-runway {
+  height: auto;
+}
+.service-projects-sticky {
+  position: static;
+  overflow: visible;
+}
+.service-projects-heading {
+  margin-bottom: 36px;
+}
+.service-projects-frame {
+  overflow: visible;
+  scroll-snap-type: none;
+  padding-bottom: 0;
+}
+.service-projects-track {
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 1.4vw, 28px);
+}
+.service-project-card {
+  width: auto;
+  min-width: 0;
+}
+.service-project-media {
+  height: clamp(420px, 32vw, 560px);
+}
+.service-project-copy {
+  inset-inline: 24px;
+  bottom: 102px;
+}
+.service-project-card h3 {
+  max-width: 20ch;
+}
+@media (width < 1200px) {
+  .service-projects-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+  .service-project-media {
+    height: 460px;
+  }
+}
+@media (width < 768px) {
+  .service-projects-track {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .service-project-media {
+    height: 420px;
+  }
+  .service-project-copy {
+    inset-inline: 24px;
+    bottom: 100px;
+  }
+  .service-projects-heading {
+    margin-bottom: 28px;
+  }
+}
+
+/* Cabeçalho no eixo da página; apenas os cards usam a largura ampliada. */
+main.page-content.home-palette
+  > .services-projects
+  :is(.service-projects-tag, .service-projects-content) {
+  padding-inline: max(
+    var(--gutter),
+    calc((100% - var(--content-max-width)) / 2)
+  );
+}
+.service-projects-heading {
+  max-width: 760px;
+}
+.service-project-card {
+  --service-tint: 20 56 61;
+  border-radius: 24px;
+  overflow: hidden;
+}
+.service-project-card:nth-child(2) {
+  --service-tint: 28 64 112;
+}
+.service-project-card:nth-child(3) {
+  --service-tint: 0 71 171;
+}
+.service-project-card:nth-child(4) {
+  --service-tint: 32 42 56;
+}
+.service-project-media {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  border-radius: 24px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, rgb(var(--service-tint)) 95%, white),
+    rgb(var(--service-tint)) 78%
+  );
+}
+.service-project-media video {
+  height: clamp(280px, 23vw, 390px);
+  border-radius: 0;
+  flex: none;
+}
+main.home-palette.home-refined
+  > .services-projects
+  .service-project-media::before {
+  inset: 0 0 auto;
+  height: clamp(280px, 23vw, 390px);
+  border-radius: 24px 24px 0 0;
+  background: linear-gradient(
+    180deg,
+    transparent 32%,
+    rgb(20 26 34 / 10%) 52%,
+    rgb(20 26 34 / 76%) 100%
+  );
+}
+.service-project-copy {
+  position: relative;
+  inset: auto;
+  padding: 24px;
+  flex: 1;
+}
+.service-project-copy h3 {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 24px;
+  right: 24px;
+  max-width: 20ch;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 28%);
+}
+.service-project-description {
+  margin: 0;
+  color: #f1f3f5;
+}
+.service-project-badge-pocket {
+  top: 16px;
+  right: 16px;
+  width: auto;
+  height: auto;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+}
+.service-project-badge {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(255 255 255 / 25%);
+}
+.service-project-badge svg {
+  width: 28px;
+  height: 28px;
+}
+.service-project-action-pocket {
+  position: static;
+  padding: 0 24px 24px;
+  background: none;
+  border-radius: 0;
+  justify-content: flex-start;
+}
+.service-project-badge-pocket::before,
+.service-project-badge-pocket::after,
+.service-project-action-pocket::before,
+.service-project-action-pocket::after {
+  display: none;
+}
+main.page-content
+  > .services-projects
+  .service-project-contact.pill-link:has(.hover-label-primary) {
+  --button-surface: rgb(var(--service-tint));
+}
+@media (width >= 768px) {
+  .service-projects-frame {
+    position: relative;
+    width: calc(100vw - 2 * clamp(24px, 2vw, 40px));
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (width < 768px) {
+  .service-project-media video,
+  main.home-palette.home-refined
+    > .services-projects
+    .service-project-media::before {
+    height: 300px;
+  }
+  .service-project-copy {
+    inset: auto;
+  }
+}
+
+/* Cards unidos no desktop, com os ícones contornados pelo tom da seção. */
+.service-project-badge {
+  width: 58px;
+  height: 58px;
+  border: 5px solid var(--paper);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 25%),
+    0 2px 5px rgb(32 42 56 / 9%);
+}
+@media (width >= 768px) {
+  .service-projects-track {
+    gap: 0;
+  }
+  .service-projects-frame {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 3px 8px rgb(32 42 56 / 4%),
+      0 18px 32px -24px rgb(32 42 56 / 24%);
+  }
+  .service-project-card,
+  .service-project-media {
+    border-radius: 0;
+  }
+  main.home-palette.home-refined
+    > .services-projects
+    .service-project-media::before {
+    border-radius: 0;
+  }
+}
+
+/* Grade de ponta a ponta; o texto permanece no eixo de conteúdo. */
+@media (width >= 768px) {
+  .service-projects-frame {
+    width: 100cqw;
+    max-width: none;
+    border-radius: 0;
+  }
+  .service-projects-track {
+    gap: 0;
+  }
+  .service-project-card:nth-child(2) {
+    --service-tint: 25 55 90;
+  }
+  .service-project-card:nth-child(3) {
+    --service-tint: 13 63 126;
+  }
+  .service-project-card:nth-child(4) {
+    --service-tint: 32 42 56;
+  }
+}
+@media (width < 768px) {
+  .service-projects-frame {
+    position: relative;
+    width: 100cqw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .service-project-card,
+  .service-project-media {
+    border-radius: 0;
+  }
+  main.home-palette.home-refined
+    > .services-projects
+    .service-project-media::before {
+    border-radius: 0;
+  }
+  .service-projects-track {
+    gap: 0;
+  }
+}
+.service-project-card:nth-child(2) {
+  --service-tint: 25 55 90;
+}
+.service-project-card:nth-child(3) {
+  --service-tint: 13 63 126;
+}
+
+.services-projects {
+  container-type: inline-size;
+}
+
+/* No celular, cada serviço volta a ser uma superfície independente. */
+@media (width < 768px) {
+  .service-projects-frame {
+    width: 100%;
+    left: auto;
+    transform: none;
+    overflow: visible;
+  }
+  .service-projects-track {
+    gap: 30px;
+    padding-bottom: 12px;
+  }
+  .service-project-card {
+    border-radius: 24px;
+    overflow: hidden;
+    outline: 1px solid rgb(255 255 255 / 65%);
+    outline-offset: -1px;
+    box-shadow:
+      0 2px 5px rgb(32 42 56 / 7%),
+      0 14px 24px -12px rgb(32 42 56 / 22%);
+  }
+  .service-project-media {
+    border-radius: 24px;
+  }
+  main.home-palette.home-refined > .services-projects .service-project-media {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%);
+    outline: none;
+  }
+  main.home-palette.home-refined
+    > .services-projects
+    .service-project-media::before {
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+/* Divisórias delicadas e profundidade nas superfícies dos serviços. */
+.service-project-card {
+  position: relative;
+}
+.service-project-card::after {
+  content: '';
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+}
+@media (width >= 768px) {
+  .service-project-card:not(:first-child)::after {
+    inset: 20px auto 20px 0;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgb(255 255 255 / 38%) 16%,
+      rgb(255 255 255 / 24%) 84%,
+      transparent
+    );
+  }
+  .service-projects-frame {
+    box-shadow:
+      0 2px 5px rgb(32 42 56 / 5%),
+      0 14px 28px -18px rgb(32 42 56 / 20%);
+  }
+  .service-project-media {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%);
+  }
+}
+@media (width < 768px) {
+  .service-project-card {
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 30%),
+      0 2px 4px rgb(32 42 56 / 6%),
+      0 15px 28px -15px rgb(32 42 56 / 25%);
+  }
+  .service-project-card::after {
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 72%) 24%,
+      rgb(255 255 255 / 72%) 76%,
+      transparent
+    );
+  }
+}
+
+/* Mobile: conjunto contínuo com divisória superior visível entre serviços. */
+@media (width < 768px) {
+  .service-projects-frame {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+      0 2px 5px rgb(32 42 56 / 6%),
+      0 16px 28px -18px rgb(32 42 56 / 24%);
+  }
+  .service-projects-track {
+    gap: 0;
+    padding-bottom: 0;
+  }
+  .service-project-card,
+  .service-project-media {
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+  }
+  main.home-palette.home-refined > .services-projects .service-project-media {
+    box-shadow: none;
+  }
+  main.home-palette.home-refined
+    > .services-projects
+    .service-project-media::before {
+    border-radius: 0;
+  }
+  .service-project-card::after {
+    display: none;
+  }
+  .service-project-card:not(:first-child)::after {
+    display: block;
+    inset: 0 0 auto;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 90%) 0 1px,
+      rgb(32 42 56 / 24%) 1px 3px
+    );
+    box-shadow: 0 3px 8px rgb(0 0 0 / 12%);
+  }
+}
+
+/* Divisórias legíveis e conjunto de ponta a ponta em todas as telas. */
+@media (width >= 768px) {
+  .service-project-card:not(:first-child)::after {
+    inset: 0 auto 0 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgb(255 255 255 / 85%) 0 1px,
+      rgb(32 42 56 / 35%) 1px 3px
+    );
+    box-shadow: 3px 0 8px rgb(0 0 0 / 12%);
+  }
+}
+@media (width < 768px) {
+  .service-projects-frame {
+    width: 100cqw;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0;
+  }
+  .service-project-card:not(:first-child)::after {
+    height: 4px;
+    background: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 95%) 0 2px,
+      rgb(32 42 56 / 35%) 2px 4px
+    );
+    box-shadow: 0 3px 8px rgb(0 0 0 / 15%);
+  }
+}
+@media (width >= 768px) {
+  .service-project-card:not(:first-child)::after {
+    background: #f3f3f3;
+    box-shadow: 1px 0 3px rgb(0 0 0 / 16%);
+  }
+}
+
+/* Arredondamento apenas nas extremidades superiores do conjunto. */
+@media (width >= 1200px) {
+  .service-project-card:first-child {
+    border-top-left-radius: 24px;
+  }
+  .service-project-card:last-child {
+    border-top-right-radius: 24px;
+  }
+}
+@media (width >= 768px) and (width < 1200px) {
+  .service-project-card:first-child {
+    border-top-left-radius: 24px;
+  }
+  .service-project-card:nth-child(2) {
+    border-top-right-radius: 24px;
+  }
+}
+@media (width < 768px) {
+  .service-project-card:first-child {
+    border-radius: 24px 24px 0 0;
+  }
+}

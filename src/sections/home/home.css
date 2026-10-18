@@ -465,3 +465,800 @@ body:has(.home-palette) footer.site-footer {
   );
   background-size: 22px 22px;
 }
+
+/* Paleta aprovada: grafite, azul de ação e superfícies neutras.
+   Escopo na Home e no footer; o header mantém seus tokens originais. */
+.home-palette.home-refined,
+body:has(.home-palette) footer.site-footer {
+  --ink: #222222;
+  --brand: #0047ab;
+  --brand-hover: #003c91;
+  --palette-ice: #f3f3f3;
+  --mist: #ededed;
+  --sand: #ededed;
+  --blue-soft: #dce4ee;
+  --blue-panel: #e7ebf0;
+  --blue-panel-strong: #d3dce8;
+  --muted: #686868;
+  --line: #dedede;
+  --line-on-dark: rgb(255 255 255 / 24%);
+  --on-dark-muted: #e1e5eb;
+  --midnight: #222222;
+}
+.home-palette.home-refined {
+  background-color: var(--palette-ice);
+}
+.home-palette.home-refined > :not(.hero) {
+  --paper: var(--palette-ice);
+}
+.home-palette.home-refined > :is(.process-steps, .review-testimonials) {
+  --paper: var(--mist);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+.home-palette.home-refined
+  > :is(
+    .before-after,
+    .benefits,
+    .services-projects,
+    .service-area,
+    .faq,
+    .contact,
+    .service-marquee
+  ) {
+  --paper: var(--palette-ice);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+.home-palette.home-refined > .service-marquee {
+  --blue-soft: var(--mist);
+}
+.home-palette.home-refined > .about-fritz {
+  --paper: var(--ink);
+  color: var(--white);
+}
+.home-palette.home-refined
+  > .process-steps
+  :is(.process-steps-heading h2, .process-step-copy h3) {
+  color: var(--ink);
+}
+.home-palette.home-refined
+  > .process-steps
+  :is(.process-steps-intro, .process-step-description p) {
+  color: var(--muted);
+}
+main.page-content.home-palette.home-refined > .process-steps .section-eyebrow,
+.home-palette.home-refined > .process-steps .process-step-label {
+  color: var(--brand);
+}
+.home-palette.home-refined > .process-steps .process-step-icon {
+  background: var(--white);
+  color: var(--brand);
+  border-color: var(--line);
+  box-shadow: 0 12px 28px -16px rgb(0 71 171 / 12%);
+}
+.home-palette.home-refined > .process-steps .process-step-icon::before {
+  background: var(--blue-panel);
+}
+.home-palette.home-refined > .process-steps .process-step-toggle {
+  background: var(--blue-panel);
+  color: var(--ink);
+}
+.home-palette.home-refined > .process-steps .process-step {
+  border-color: var(--line);
+}
+.home-palette.home-refined > .process-steps .process-step-toggle:focus-visible {
+  outline-color: var(--ink);
+}
+.home-palette.home-refined > .process-steps .process-step-arrow {
+  color: #7b9bc8;
+}
+.home-palette.home-refined > .contact .contact-marquee span {
+  opacity: 1;
+}
+.home-palette.home-refined
+  > .contact
+  .contact-marquee[data-stroke='true']
+  span {
+  -webkit-text-stroke-color: rgb(32 42 56 / 35%);
+}
+body:has(.home-palette) footer.site-footer {
+  background-color: var(--ink);
+}
+body:has(.home-palette)
+  footer.site-footer
+  :is(
+    .footer-links a,
+    .footer-links button,
+    .footer-contact p,
+    .footer-information p,
+    .footer-brand-subtitle
+  ) {
+  color: var(--on-dark-muted);
+}
+body:has(.home-palette) footer.site-footer .footer-wordmark {
+  background-image: linear-gradient(var(--white), rgb(255 255 255 / 20%) 90%);
+}
+body:has(.home-palette) footer.site-footer {
+  background-image: radial-gradient(
+    circle,
+    rgb(255 255 255 / 6%) 0.8px,
+    transparent 1px
+  );
+}
+.home-palette.home-refined > .services-projects .service-project-media::before {
+  background: linear-gradient(
+    180deg,
+    transparent 20%,
+    rgb(32 42 56 / 20%) 40%,
+    rgb(32 42 56 / 94%) 88%
+  );
+}
+main.page-content.home-palette.home-refined > .about-fritz {
+  --paper: var(--ink);
+  background: var(--ink);
+}
+main.page-content.home-palette.home-refined
+  > .about-fritz
+  .pill-link:has(.hover-label-primary) {
+  --button-surface: var(--ink);
+  background: var(--brand);
+  color: var(--white);
+  border-color: var(--brand);
+}
+main.page-content.home-palette.home-refined
+  > .about-fritz
+  .pill-link:has(.hover-label-primary):is(:hover, :focus-visible) {
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
+}
+.home-palette.home-refined .hero-background::after {
+  background: linear-gradient(
+    180deg,
+    rgb(32 42 56 / 52%) 0%,
+    rgb(32 42 56 / 40%) 45%,
+    rgb(32 42 56 / 56%) 100%
+  );
+}
+
+/* Acabamento tátil dos CTAs: preserva recortes, tipografia e cores de base. */
+main.page-content.home-palette :is(.pill-link, .contact-button) {
+  background-image: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 13%),
+    transparent 52%,
+    rgb(0 0 0 / 5%)
+  );
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 26%),
+    inset 0 -1px 0 rgb(0 0 0 / 9%),
+    0 2px 4px rgb(32 42 56 / 9%),
+    0 8px 18px -7px rgb(37 99 235 / 28%);
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    translate 220ms ease,
+    transform 310ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+main.page-content.home-palette :is(.pill-link, .contact-button):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 5px;
+}
+@media (hover: hover) and (pointer: fine) {
+  main.page-content.home-palette :is(.pill-link, .contact-button):hover {
+    background-image: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 17%),
+      transparent 56%,
+      rgb(0 0 0 / 4%)
+    );
+    translate: 0 -2px;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 30%),
+      inset 0 -1px 0 rgb(0 0 0 / 8%),
+      0 3px 6px rgb(32 42 56 / 10%),
+      0 12px 24px -9px rgb(37 99 235 / 30%);
+  }
+}
+main.page-content.home-palette :is(.pill-link, .contact-button):active {
+  translate: 0 1px;
+  box-shadow:
+    inset 0 2px 4px rgb(0 0 0 / 12%),
+    0 1px 3px rgb(32 42 56 / 10%);
+}
+@media (prefers-reduced-motion: reduce) {
+  main.page-content.home-palette :is(.pill-link, .contact-button) {
+    transition: none;
+  }
+  main.page-content.home-palette
+    :is(.pill-link, .contact-button):is(:hover, :active) {
+    translate: none;
+  }
+}
+
+/* Superfícies porcelana: profundidade óptica sem alterar a composição. */
+.home-palette.home-refined {
+  --surface-edge: rgb(32 42 56 / 9%);
+  --surface-shadow:
+    0 2px 5px rgb(32 42 56 / 3%), 0 16px 34px -20px rgb(32 42 56 / 18%);
+}
+.home-palette.home-refined > :is(.benefits, .before-after, .faq) {
+  background-image: radial-gradient(
+    ellipse at 45% 0%,
+    rgb(255 255 255 / 90%),
+    transparent 72%
+  );
+}
+.home-palette.home-refined > :is(.process-steps, .review-testimonials) {
+  background-image: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 45%),
+    transparent 40%,
+    rgb(255 255 255 / 20%)
+  );
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 85%);
+}
+.home-palette.home-refined
+  :is(.benefit-photo, .service-project-media, .before-after-card) {
+  outline: 1px solid var(--surface-edge);
+  outline-offset: -1px;
+  box-shadow: var(--surface-shadow);
+}
+.home-palette.home-refined :is(.service-project-badge, .benefit-action) {
+  background-image: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 16%),
+    transparent 65%,
+    rgb(0 0 0 / 5%)
+  );
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 32%),
+    0 3px 8px rgb(32 42 56 / 9%);
+}
+.home-palette.home-refined .review-wall-card {
+  background: linear-gradient(155deg, #fff, #fdfefe);
+  border-color: var(--surface-edge);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    var(--surface-shadow);
+}
+.home-palette.home-refined > .process-steps .process-step-icon {
+  background: linear-gradient(145deg, #fff 25%, #f4f6f9);
+  border-color: rgb(255 255 255 / 95%);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 1px 3px rgb(32 42 56 / 5%),
+    0 10px 20px -12px rgb(32 42 56 / 20%);
+}
+.home-palette.home-refined > .process-steps .process-step-icon::before {
+  background: linear-gradient(145deg, #fff, var(--blue-panel));
+}
+.home-palette.home-refined .faq-item[data-open='true'] {
+  background: linear-gradient(145deg, #fff, #f8fafc);
+  border-bottom-color: var(--surface-edge);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 10px 26px -18px rgb(32 42 56 / 20%);
+}
+.home-palette.home-refined .faq-mark {
+  background-image: linear-gradient(
+    145deg,
+    rgb(255 255 255 / 20%),
+    transparent
+  );
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 35%),
+    0 2px 4px rgb(32 42 56 / 5%);
+}
+.home-palette.home-refined > .service-area {
+  background-image: radial-gradient(
+    circle,
+    rgb(32 42 56 / 5%) 0.8px,
+    transparent 1px
+  );
+}
+.home-palette.home-refined > .service-area .service-area-map {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 85%),
+    0 12px 30px -26px rgb(32 42 56 / 30%);
+}
+main.page-content.home-palette.home-refined > .about-fritz {
+  background-image: radial-gradient(
+    ellipse at 48% 20%,
+    rgb(255 255 255 / 5%),
+    transparent 68%
+  );
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 9%);
+}
+body:has(.home-palette) footer.site-footer {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 13%),
+    0 -5px 24px -16px rgb(32 42 56 / 20%);
+  background-image:
+    radial-gradient(circle, rgb(255 255 255 / 3%) 0.8px, transparent 1px),
+    linear-gradient(145deg, rgb(255 255 255 / 3%), transparent 60%);
+  background-size:
+    22px 22px,
+    auto;
+}
+
+/* Acabamento integral: tipografia, ícones, fundos e estados de interação. */
+.home-palette.home-refined,
+body:has(.home-palette) :is(.site-header, .site-footer, .mobile-dialog) {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.home-palette.home-refined > :not(.hero) :is(h2, h3),
+body:has(.home-palette) .site-footer h2 {
+  letter-spacing: -0.015em;
+  font-kerning: normal;
+}
+.home-palette.home-refined > :not(.hero) :is(p, blockquote) {
+  font-kerning: normal;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
+}
+main.page-content.home-palette.home-refined > :not(.hero) .section-eyebrow {
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+.home-palette.home-refined .section-eyebrow-rule {
+  opacity: 0.75;
+}
+.home-palette.home-refined
+  > :is(.services-projects, .contact, .service-marquee) {
+  background-image: radial-gradient(ellipse at 50% 0%, #fff, transparent 75%);
+}
+.home-palette.home-refined .service-marquee-ribbon {
+  stroke: rgb(255 255 255 / 70%);
+  stroke-width: 1;
+}
+.home-palette.home-refined
+  :is(.service-project-badge, .process-step-icon, .benefit-action)
+  svg {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.home-palette.home-refined
+  :is(.service-project-description, .before-after-caption) {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+}
+.home-palette.home-refined .service-project-media::before {
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%);
+}
+.home-palette.home-refined .before-after-divider {
+  box-shadow: 0 0 8px rgb(255 255 255 / 12%);
+}
+.home-palette.home-refined .review-wall-author img {
+  outline: 1px solid rgb(32 42 56 / 8%);
+  outline-offset: 3px;
+}
+.home-palette.home-refined
+  .service-area-point[data-active='true']
+  .service-area-dot {
+  box-shadow:
+    0 0 0 5px rgb(37 99 235 / 9%),
+    0 2px 5px rgb(32 42 56 / 12%);
+}
+.home-palette.home-refined
+  .service-area-point[data-active='true']
+  .service-area-point-label {
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 3px 10px rgb(32 42 56 / 7%);
+}
+.home-palette.home-refined .hero {
+  box-shadow:
+    inset 0 -1px 0 rgb(255 255 255 / 18%),
+    0 12px 30px -24px rgb(32 42 56 / 35%);
+}
+.home-palette.home-refined
+  .hero
+  :is(.hero-description, .hero-stat, .hero-social) {
+  text-shadow: 0 1px 4px rgb(0 0 0 / 18%);
+}
+body:has(.home-palette) .site-header[data-solid='true'] {
+  box-shadow:
+    inset 0 -1px 0 rgb(255 255 255 / 10%),
+    0 6px 22px -12px rgb(32 42 56 / 24%);
+}
+body:has(.home-palette) .site-header :is(.brand, .desktop-nav > a) {
+  border-bottom-color: rgb(255 255 255 / 28%);
+}
+body:has(.home-palette)
+  .site-footer
+  :is(.footer-credits, .footer-brand-subtitle) {
+  color: #e1e5eb;
+}
+body:has(.home-palette) .site-footer .footer-links a {
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  transition:
+    color 180ms ease,
+    text-decoration-color 180ms ease;
+}
+body:has(.home-palette) .site-footer .footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color: rgb(255 255 255 / 45%);
+}
+body:has(.home-palette) :is(.floating-top, .mobile-menu-button) {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 20%),
+    0 3px 10px rgb(32 42 56 / 10%);
+}
+body:has(.home-palette) .mobile-dialog {
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
+}
+.home-palette.home-refined :is(a, button):focus-visible,
+body:has(.home-palette)
+  :is(.site-header, .site-footer, .mobile-dialog)
+  :is(a, button):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+@media (prefers-reduced-motion: reduce) {
+  body:has(.home-palette) .site-footer .footer-links a {
+    transition: none;
+  }
+}
+
+/* Benefícios: fotografia e faixa dobrada, com ação direta no WhatsApp. */
+.home-palette.home-refined .benefits-grid {
+  align-items: start;
+}
+.home-palette.home-refined .benefit-card {
+  position: relative;
+  padding-left: 16px;
+  --benefit-accent: var(--brand);
+}
+.home-palette.home-refined .benefit-photo {
+  aspect-ratio: 1;
+  border-radius: 20px 20px 0 0;
+  outline: 1px solid rgb(32 42 56 / 8%);
+}
+.home-palette.home-refined .benefit-copy {
+  position: relative;
+  z-index: 2;
+  margin: -16px 0 0 -16px;
+  padding: 22px 24px 24px;
+  min-height: 186px;
+  background: linear-gradient(145deg, #303b4a, var(--ink) 72%);
+  border-radius: 0 0 18px 18px;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 12%),
+    0 3px 6px rgb(32 42 56 / 8%),
+    0 16px 28px -20px rgb(32 42 56 / 32%);
+}
+.home-palette.home-refined .benefit-copy::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  background: #101923;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+.home-palette.home-refined .benefit-copy h3 {
+  color: var(--white);
+  max-width: 22ch;
+  min-height: 0;
+  margin-bottom: 12px;
+}
+.home-palette.home-refined .benefit-copy p {
+  color: #e1e5eb;
+  max-width: 36ch;
+}
+.home-palette.home-refined .benefit-action-pocket {
+  top: 16px;
+  right: 16px;
+  bottom: auto;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: transparent;
+  z-index: 3;
+}
+.home-palette.home-refined .benefit-action-pocket::before,
+.home-palette.home-refined .benefit-action-pocket::after {
+  display: none;
+}
+.home-palette.home-refined .benefit-action {
+  width: 58px;
+  height: 58px;
+  border: 4px solid rgb(255 255 255 / 94%);
+  border-radius: 50%;
+  background: linear-gradient(180deg, #3976f4, var(--brand) 65%, #2056cf);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 30%),
+    0 3px 6px rgb(32 42 56 / 16%),
+    0 10px 20px -8px rgb(32 42 56 / 26%);
+}
+.home-palette.home-refined .benefit-action svg {
+  width: 26px;
+  height: 26px;
+}
+.home-palette.home-refined .benefit-action:hover {
+  background: linear-gradient(180deg, #326beb, var(--brand-hover));
+  transform: translateY(-2px);
+}
+.home-palette.home-refined .benefit-action:active {
+  transform: translateY(1px);
+}
+@media (width < 992px) and (width >= 768px) {
+  .home-palette.home-refined .benefit-copy {
+    padding: 20px 16px;
+    min-height: 238px;
+  }
+}
+@media (width < 768px) {
+  .home-palette.home-refined .benefit-copy {
+    min-height: 0;
+  }
+  .home-palette.home-refined .benefit-photo {
+    aspect-ratio: 1.12;
+  }
+  .home-palette.home-refined .benefits-grid {
+    gap: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-palette.home-refined .benefit-action:is(:hover, :active) {
+    transform: none;
+  }
+}
+
+/* Benefícios com conteúdo sobre a foto e tonalidades individuais. */
+.home-palette.home-refined .benefit-card {
+  padding-left: 0;
+  --benefit-tint: 20 56 61;
+}
+.home-palette.home-refined .benefit-card:nth-child(2) {
+  --benefit-tint: 28 64 112;
+}
+.home-palette.home-refined .benefit-card:nth-child(3) {
+  --benefit-tint: 0 71 171;
+}
+.home-palette.home-refined .benefit-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 24px;
+}
+.home-palette.home-refined .benefit-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--benefit-tint) / 12%) 0%,
+    rgb(var(--benefit-tint) / 22%) 34%,
+    rgb(var(--benefit-tint) / 92%) 76%,
+    rgb(var(--benefit-tint) / 98%) 100%
+  );
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%);
+  border-radius: inherit;
+}
+.home-palette.home-refined .benefit-copy {
+  position: absolute;
+  inset: auto 0 0;
+  margin: 0;
+  padding: 28px;
+  min-height: 0;
+  background: none;
+  border-radius: 0 0 24px 24px;
+  box-shadow: none;
+  pointer-events: none;
+}
+.home-palette.home-refined .benefit-copy::before {
+  display: none;
+}
+.home-palette.home-refined .benefit-copy h3 {
+  color: #fff;
+  min-height: 0;
+  max-width: 20ch;
+}
+.home-palette.home-refined .benefit-copy p {
+  color: #fff;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+}
+.home-palette.home-refined .benefit-action {
+  background: linear-gradient(180deg, #28d76b, #128c46 75%, #107d3e);
+  color: #fff;
+  border-color: rgb(255 255 255 / 94%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 32%),
+    0 3px 6px rgb(0 0 0 / 15%),
+    0 10px 20px -8px rgb(18 140 70 / 35%);
+}
+.home-palette.home-refined .benefit-action:hover {
+  background: linear-gradient(180deg, #22c65e, #107d3e);
+}
+@media (width < 992px) and (width >= 768px) {
+  .home-palette.home-refined .benefit-photo {
+    aspect-ratio: auto;
+    height: 420px;
+  }
+  .home-palette.home-refined .benefit-copy {
+    padding: 20px;
+  }
+}
+@media (width < 768px) {
+  .home-palette.home-refined .benefit-photo {
+    aspect-ratio: 4 / 5;
+    min-height: 380px;
+  }
+  .home-palette.home-refined .benefit-copy {
+    padding: 24px;
+  }
+}
+
+/* Título na fotografia; descrição na faixa dobrada da referência. */
+.home-palette.home-refined .benefit-card {
+  padding-left: 16px;
+}
+.home-palette.home-refined .benefit-photo {
+  aspect-ratio: 1;
+  min-height: 0;
+  height: auto;
+  border-radius: 20px 20px 0 0;
+}
+.home-palette.home-refined .benefit-photo::after {
+  background: linear-gradient(
+    180deg,
+    transparent 32%,
+    rgb(20 26 34 / 10%) 52%,
+    rgb(20 26 34 / 76%) 100%
+  );
+}
+.home-palette.home-refined .benefit-copy {
+  position: relative;
+  inset: auto;
+  margin: -16px 0 0 -16px;
+  padding: 24px;
+  min-height: 112px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, rgb(var(--benefit-tint)) 95%, white),
+    rgb(var(--benefit-tint)) 78%
+  );
+  border-radius: 0 0 18px 18px;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 13%),
+    0 3px 6px rgb(32 42 56 / 8%),
+    0 16px 28px -20px rgb(32 42 56 / 32%);
+  pointer-events: auto;
+}
+.home-palette.home-refined .benefit-copy::before {
+  display: block;
+  background: color-mix(in srgb, rgb(var(--benefit-tint)) 65%, black);
+}
+.home-palette.home-refined .benefit-copy h3 {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  left: 40px;
+  right: 24px;
+  max-width: 20ch;
+  min-height: 0;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 18%);
+}
+.home-palette.home-refined .benefit-copy p {
+  margin: 0;
+  color: #fff;
+  text-shadow: none;
+}
+@media (width < 992px) and (width >= 768px) {
+  .home-palette.home-refined .benefit-photo {
+    aspect-ratio: auto;
+    height: 280px;
+  }
+  .home-palette.home-refined .benefit-copy {
+    padding: 20px;
+    min-height: 160px;
+  }
+  .home-palette.home-refined .benefit-copy h3 {
+    left: 36px;
+    right: 20px;
+  }
+}
+@media (width < 768px) {
+  .home-palette.home-refined .benefit-photo {
+    aspect-ratio: 1.08;
+    height: auto;
+  }
+  .home-palette.home-refined .benefit-copy {
+    min-height: 0;
+  }
+}
+
+/* Refinamento exclusivo de Por que escolher o Fritz. */
+.home-palette.home-refined > .benefits {
+  background-color: #f3f3f3;
+  background-image: radial-gradient(
+    ellipse at 50% 0%,
+    rgb(255 255 255 / 38%),
+    transparent 72%
+  );
+}
+.home-palette.home-refined .benefit-photo {
+  box-shadow:
+    0 2px 4px rgb(32 42 56 / 3%),
+    0 12px 28px -20px rgb(32 42 56 / 20%);
+}
+.home-palette.home-refined .benefit-copy p {
+  color: #f1f3f5;
+}
+.home-palette.home-refined .benefit-copy h3 {
+  text-shadow: 0 1px 4px rgb(0 0 0 / 28%);
+}
+.home-palette.home-refined .benefit-action {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 38%),
+    inset 0 -1px 0 rgb(0 0 0 / 8%),
+    0 2px 5px rgb(0 0 0 / 13%),
+    0 8px 16px -8px rgb(18 140 70 / 30%);
+}
+
+/* Uma única base neutra na passagem benefícios → faixa → serviços. */
+.home-palette.home-refined {
+  background-color: #f3f3f3;
+}
+main.home-palette.home-refined
+  > :is(.benefits, .service-marquee, .services-projects) {
+  --paper: #f3f3f3;
+  background: #f3f3f3;
+}
+.home-palette.home-refined > .benefits::before {
+  background: none;
+}
+main.home-palette.home-refined > .services-projects {
+  overflow-x: clip;
+}
+
+/* Como funciona: cantos arredondados e relevo discreto. */
+main.home-palette.home-refined > .process-steps {
+  border: 0;
+  border-radius: 24px 24px 0 0;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 90%),
+    0 -2px 5px rgb(32 42 56 / 2%),
+    0 -12px 28px -20px rgb(32 42 56 / 16%);
+}
+
+/* Passagem de superfícies no desktop: Como funciona cobre os serviços. */
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
+  main.home-palette.home-refined > .services-projects[data-overlap='true'] {
+    position: sticky;
+    top: var(--service-overlap-top, 0px);
+    clip-path: inset(0 0 var(--service-overlap-clip, 0px));
+    z-index: 0;
+  }
+  main.home-palette.home-refined
+    > .services-projects:has(a:focus-visible, button:focus-visible) {
+    position: relative;
+    top: auto;
+  }
+  main.home-palette.home-refined > .process-steps {
+    position: relative;
+    z-index: 2;
+    background-color: var(--paper);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 90%),
+      0 -4px 8px rgb(32 42 56 / 3%),
+      0 -18px 38px -22px rgb(32 42 56 / 22%);
+  }
+}
+
+/* Fundo gelo exclusivo de Como funciona. */
+main.home-palette.home-refined > .process-steps {
+  --paper: #f4f6f8;
+  background-color: var(--paper);
+}

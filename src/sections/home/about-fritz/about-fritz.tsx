@@ -6,170 +6,90 @@ import { useReducedMotion } from 'framer-motion';
 import professional from '@/assets/images/pages/home/about-fritz/profissional.webp';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
 import { HoverLabel } from '@/components/ui/hover-label';
-import { whatsappUrl } from '@/config/contact';
+import { FritzIcon } from '@/components/ui/fritz-icon';
+import { contact, whatsappUrl } from '@/config/contact';
+import { googleReviews } from '@/content/google-reviews';
+import { WhatsAppIcon } from '@/components/ui/social-icons';
 import './about-fritz.css';
 
-function CareSymbol() {
+function AboutGoogleIcon() {
   return (
-    <span className="about-fritz-symbol" aria-hidden="true">
-      <svg viewBox="0 0 48 48" fill="none" focusable="false" aria-hidden="true">
-        <path
-          d="M24 5c-4 7-14 17-14 25a14 14 0 0 0 28 0C38 22 28 12 24 5Z"
-          fill="currentColor"
-        />
-        <path
-          d="M16 29c0 5 3 8 7 9"
-          stroke="white"
-          strokeOpacity=".8"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    </span>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path
+        fill="#4285F4"
+        d="M21.6 12.23c0-.71-.06-1.39-.18-2.05H12v3.88h5.38a4.6 4.6 0 0 1-2 3.02v2.51h3.24c1.9-1.75 2.98-4.33 2.98-7.36Z"
+      />
+      <path
+        fill="#34A853"
+        d="M12 22c2.7 0 4.96-.9 6.62-2.41l-3.24-2.51c-.9.6-2.04.96-3.38.96-2.6 0-4.8-1.76-5.59-4.12H3.07v2.59A10 10 0 0 0 12 22Z"
+      />
+      <path
+        fill="#FBBC05"
+        d="M6.41 13.92a6 6 0 0 1 0-3.84V7.49H3.07a10 10 0 0 0 0 9.02l3.34-2.59Z"
+      />
+      <path
+        fill="#EA4335"
+        d="M12 5.96c1.47 0 2.79.51 3.83 1.51l2.87-2.87A9.63 9.63 0 0 0 12 2a10 10 0 0 0-8.93 5.49l3.34 2.59A5.98 5.98 0 0 1 12 5.96Z"
+      />
+    </svg>
   );
 }
+
+const aboutTitle =
+  'Por trás de cada cuidado existe alguém que respeita a sua casa.';
+
 export function AboutFritz() {
   const reduced = useReducedMotion();
   const region = useRef<HTMLElement>(null);
-
   useEffect(() => {
     const element = region.current;
     if (!element || reduced) return;
     let disposed = false;
     let cleanup: (() => void) | undefined;
-    void Promise.all([
-      import('gsap'),
-      import('gsap/ScrollTrigger'),
-      document.fonts.ready,
-    ]).then(([{ gsap }, { ScrollTrigger }]) => {
-      if (disposed) return;
-      gsap.registerPlugin(ScrollTrigger);
-      const heading = element.querySelector<HTMLElement>(
-        '.about-fritz-heading',
-      );
-      const runway = element.querySelector<HTMLElement>('.about-fritz-scroll');
-      const scene = element.querySelector<HTMLElement>('.about-fritz-scene');
-      const stage = element.querySelector<HTMLElement>(
-        '.about-fritz-visual-stage',
-      );
-      const slot = element.querySelector<HTMLElement>(
-        '.about-fritz-photo-slot',
-      );
-      const photo = element.querySelector<HTMLElement>('.about-fritz-photo');
-      const image = photo?.querySelector('img');
-      if (!heading || !runway || !scene || !stage || !slot || !photo || !image)
-        return;
-      let context: ReturnType<typeof gsap.context> | undefined;
-      const setup = () => {
-        context?.revert();
-        stage.style.removeProperty('--about-photo-height');
-        const anchor = element.querySelector<HTMLElement>(
-          '.about-fritz-portrait-anchor',
-        );
-        if (!anchor) return;
-        const preferredHeight = stage.offsetHeight;
-        const otherContentHeight = scene.offsetHeight - preferredHeight;
-        const stickyTop = window.innerWidth < 768 ? 72 : 80;
-        const availableHeight =
-          window.innerHeight - stickyTop - otherContentHeight - 16;
-        stage.style.setProperty(
-          '--about-photo-height',
-          `${Math.min(preferredHeight, Math.max(180, availableHeight))}px`,
-        );
-        const from = anchor.getBoundingClientRect();
-        const to = slot.getBoundingClientRect();
-        const headingHeight = heading.offsetHeight;
-        const stageHeight = stage.offsetHeight;
-        context = gsap.context(() => {
-          gsap.set(heading, { minHeight: headingHeight });
-          const timeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: runway,
-              start: 'top 65%',
-              end: () => `top ${window.innerWidth < 768 ? 72 : 80}px`,
-              scrub: 0.65,
-            },
-          });
-          timeline.fromTo(
-            photo,
+    void Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(
+      ([{ gsap }, { ScrollTrigger }]) => {
+        if (disposed) return;
+        gsap.registerPlugin(ScrollTrigger);
+        const context = gsap.context(() => {
+          gsap.fromTo(
+            '.about-fritz-word',
+            { color: '#a2a9b1' },
             {
-              x: from.left - to.left,
-              y: from.top - to.top,
-              scale: from.width / to.width,
-              borderRadius: '45%',
+              color: '#222222',
+              stagger: 0.12,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: element.querySelector('.about-fritz-heading'),
+                start: 'top 85%',
+                end: 'bottom 40%',
+                scrub: 0.5,
+              },
             },
-            { y: 0, duration: 0.32, ease: 'sine.inOut' },
-            0,
           );
-          timeline.to(
-            photo,
+          gsap.fromTo(
+            '.about-fritz-photo',
+            { y: 0, scale: 0.96 },
             {
-              x: 0,
+              y: 0,
               scale: 1,
-              borderRadius: '0%',
-              duration: 0.88,
-              ease: 'sine.inOut',
+              ease: 'none',
+              scrollTrigger: {
+                trigger: element,
+                start: 'top 85%',
+                end: 'center 55%',
+                scrub: 0.65,
+              },
             },
-            0.12,
-          );
-          timeline.fromTo(
-            image,
-            { scale: 3.1 },
-            {
-              scale: 1,
-              duration: 0.88,
-              ease: 'sine.inOut',
-            },
-            0.12,
-          );
-          timeline.fromTo(
-            anchor,
-            { width: from.width, marginLeft: '0.07em', marginRight: '0.07em' },
-            {
-              width: 0,
-              marginLeft: 0,
-              marginRight: 0,
-              duration: 0.4,
-              ease: 'sine.inOut',
-            },
-            0.12,
-          );
-          timeline.fromTo(
-            stage,
-            { height: 0 },
-            { height: stageHeight, duration: 1, ease: 'sine.inOut' },
-            0,
           );
         }, element);
-      };
-      setup();
-      let refresh = 0;
-      let layoutWidth = window.innerWidth;
-      const onResize = () => {
-        if (window.innerWidth < 768 && window.innerWidth === layoutWidth)
-          return;
-        layoutWidth = window.innerWidth;
-        cancelAnimationFrame(refresh);
-        refresh = requestAnimationFrame(() => {
-          setup();
-          ScrollTrigger.refresh();
-        });
-      };
-      window.addEventListener('resize', onResize);
-      cleanup = () => {
-        cancelAnimationFrame(refresh);
-        window.removeEventListener('resize', onResize);
-        context?.revert();
-        stage.style.removeProperty('--about-photo-height');
-      };
-      ScrollTrigger.refresh();
-    });
+        cleanup = () => context.revert();
+      },
+    );
     return () => {
       disposed = true;
       cleanup?.();
     };
   }, [reduced]);
-
   return (
     <section
       ref={region}
@@ -178,57 +98,108 @@ export function AboutFritz() {
       aria-labelledby="about-fritz-title"
       tabIndex={-1}
     >
-      <div className="about-fritz-bubbles" aria-hidden="true">
-        {[0, 1, 2, 3, 4, 5, 6, 7].map((bubble) => (
-          <span key={bubble} className="about-fritz-bubble" />
-        ))}
-      </div>
-      <div className="about-fritz-scroll">
-        <div className="about-fritz-scene">
-          <div className="about-fritz-heading tw:mx-auto tw:text-center">
-            <SectionEyebrow align="center">Sobre o Fritz</SectionEyebrow>
-            <h2 id="about-fritz-title" data-title-anim="">
-              Por trás de cada cuidado <CareSymbol /> existe alguém que respeita{' '}
-              <span
-                className="about-fritz-portrait-anchor"
-                aria-hidden="true"
-              />{' '}
-              a sua casa.
-            </h2>
-          </div>
-
-          <div className="about-fritz-visual-stage tw:relative">
-            <figure className="about-fritz-visual tw:relative tw:mx-auto">
-              <div className="about-fritz-photo-slot tw:relative tw:mx-auto">
-                <div className="about-fritz-photo">
-                  <Image
-                    src={professional}
-                    alt="Profissional do Fritz com uniforme, luvas e equipamento de higienização."
-                    sizes="(max-width: 559px) 90vw, 460px"
-                    className="tw:h-full tw:w-full"
-                  />
-                </div>
-              </div>
-            </figure>
-          </div>
-          <div className="about-fritz-copy tw:mx-auto tw:flex tw:flex-col tw:items-center tw:text-center">
-            <p data-text-anim="">
-              O cuidado começa na conversa. Pelo WhatsApp, você fala com o
-              Fritz, envia fotos e recebe orientação sobre higienização ou
-              proteção. Depois, combina o atendimento e conhece os cuidados após
-              o serviço.
+      <div className="about-fritz-editorial">
+        <div className="about-fritz-kicker">
+          <SectionEyebrow align="center">Sobre o Fritz</SectionEyebrow>
+        </div>
+        <div className="about-fritz-heading">
+          <h2 id="about-fritz-title" aria-label={aboutTitle}>
+            {aboutTitle.split(' ').map((word) => (
+              <span className="about-fritz-word" key={word} aria-hidden="true">
+                {word}{' '}
+              </span>
+            ))}
+          </h2>
+        </div>
+        <aside className="about-fritz-note" aria-label="Atendimento Fritz">
+          <div className="about-fritz-note-text">
+            <h3>Mais de 3 anos de experiência.</h3>
+            <p>
+              Somos especialistas em higienização de estofados. Nossa missão é
+              devolver a vida aos seus móveis.
             </p>
+          </div>
+          <span className="about-fritz-note-rule" aria-hidden="true" />
+          <nav
+            className="about-fritz-socials"
+            aria-label="Redes e contato do Fritz"
+          >
+            <span className="about-fritz-note-icon" aria-hidden="true">
+              <FritzIcon name="shield-check" />
+            </span>
             <a
-              href={whatsappUrl('higienização e proteção dos meus estofados')}
-              className="pill-link"
+              href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Conversar com o Fritz pelo WhatsApp — abrir em nova aba"
-              data-track-contact="sobre a fritz home"
+              aria-label="WhatsApp do Fritz — abrir em nova aba"
+              data-track-contact="sobre whatsapp"
             >
-              <HoverLabel variant="primary">Conversar com o Fritz</HoverLabel>
+              <span className="tw:sr-only">WhatsApp</span>
+              <WhatsAppIcon />
             </a>
+            <a
+              href={contact.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do Fritz — abrir em nova aba"
+            >
+              <span className="tw:sr-only">Instagram</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  fill="currentColor"
+                  stroke="none"
+                />
+              </svg>
+            </a>
+            <a
+              href={googleReviews.profile}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Perfil do Fritz no Google — abrir em nova aba"
+            >
+              <span className="tw:sr-only">Google</span>
+              <AboutGoogleIcon />
+            </a>
+          </nav>
+        </aside>
+        <figure className="about-fritz-portrait">
+          <div className="about-fritz-photo">
+            <Image
+              src={professional}
+              alt="Fritz com uniforme, luvas e equipamento de higienização."
+              sizes="(max-width: 767px) 85vw, (max-width: 1100px) 45vw, 460px"
+            />
           </div>
+        </figure>
+        <div className="about-fritz-copy">
+          <h3>Técnica e cuidado em cada detalhe.</h3>
+          <p>
+            Aliamos técnicas avançadas, equipamentos de última geração e
+            produtos biodegradáveis para cuidar dos seus móveis e da saúde da
+            sua família.
+          </p>
+          <a
+            href={whatsappUrl('higienização e proteção dos meus estofados')}
+            className="pill-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Conversar com o Fritz pelo WhatsApp — abrir em nova aba"
+            data-track-contact="sobre a fritz home"
+          >
+            <HoverLabel variant="primary">Conversar com o Fritz</HoverLabel>
+          </a>
         </div>
       </div>
     </section>

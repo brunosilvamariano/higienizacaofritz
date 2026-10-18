@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState, type FocusEvent } from 'react';
-import { useReducedMotion } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
 import { TitleReveal } from '@/animations/title-reveal';
 import { HoverLabel } from '@/components/ui/hover-label';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
@@ -19,197 +19,64 @@ const serviceIcons = {
   impermeabilizacao: 'shield-droplet',
 } as const;
 
-function getTrackTravel(row: HTMLElement, viewport: HTMLElement) {
-  return Math.max(
-    0,
-    row.getBoundingClientRect().width - viewport.getBoundingClientRect().width,
-  );
-}
-
 export function ServicesProjects() {
-  const runway = useRef<HTMLDivElement>(null);
-  const sticky = useRef<HTMLDivElement>(null);
-  const frame = useRef<HTMLElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-  const seek = useRef<((progress: number) => void) | null>(null);
-  const reduced = useReducedMotion();
-  const [pinned, setPinned] = useState(false);
-
+  const section = useRef<HTMLElement>(null);
   useEffect(() => {
-    const viewport = frame.current;
-    const row = track.current;
-    const content = sticky.current;
-    if (!viewport || !row || !content) return;
-    const media = row.querySelector<HTMLElement>('.service-project-media');
-    const heading = content.querySelector<HTMLElement>(
-      '.service-projects-heading',
+    const element = section.current;
+    const next = document.getElementById('processo');
+    if (!element || !next) return;
+    const query = window.matchMedia(
+      '(min-width: 1200px) and (prefers-reduced-motion: no-preference)',
     );
-    if (!media || !heading) return;
-    let disposed = false;
-    let measurement = 0;
-    let layoutWidth = window.innerWidth;
-    let layoutHeight = window.innerHeight;
+    let frame = 0;
     const measure = () => {
-      if (disposed) return;
-      if (window.innerWidth !== layoutWidth || window.innerWidth >= 768) {
-        layoutWidth = window.innerWidth;
-        layoutHeight = window.innerHeight;
-      }
-      runway.current?.style.setProperty(
-        '--service-viewport-height',
-        `${layoutHeight}px`,
+      const headerHeight =
+        document.querySelector('.site-header')?.getBoundingClientRect()
+          .height ?? 67;
+      element.style.setProperty(
+        '--service-overlap-top',
+        `${Math.min(headerHeight, window.innerHeight - element.offsetHeight)}px`,
       );
-      // Budget the video after measuring real text wrapping, rather than
-      // disabling the reference animation when the typography needs more room.
-      const copyHeight =
-        content.scrollHeight -
-        media.getBoundingClientRect().height -
-        Number.parseFloat(getComputedStyle(heading).marginBottom) +
-        60;
-      const preferredMediaHeight = Math.floor(layoutHeight - 42 - copyHeight);
-      const gapReduction = Math.min(
-        32,
-        Math.max(0, 320 - preferredMediaHeight),
-      );
-      const headingGap = `${60 - gapReduction}px`;
-      if (
-        content.style.getPropertyValue('--service-heading-gap') !== headingGap
-      )
-        content.style.setProperty('--service-heading-gap', headingGap);
-      const availableMediaHeight = preferredMediaHeight + gapReduction;
-      const fits = availableMediaHeight >= 320;
-      const mediaLimit = fits ? `${availableMediaHeight}px` : '9999px';
-      if (
-        content.style.getPropertyValue('--service-media-limit') !== mediaLimit
-      )
-        content.style.setProperty('--service-media-limit', mediaLimit);
-      runway.current?.style.setProperty(
-        '--service-content-height',
-        `${content.offsetHeight}px`,
-      );
-      runway.current?.style.setProperty(
-        '--service-mobile-travel',
-        `${Math.max(420, getTrackTravel(row, viewport) * 0.65)}px`,
-      );
-      setPinned(!reduced && fits && row.scrollWidth > viewport.clientWidth + 1);
     };
-    const scheduleMeasure = () => {
-      cancelAnimationFrame(measurement);
-      measurement = requestAnimationFrame(measure);
+    const update = () => {
+      frame = 0;
+      const nextBottom = next.getBoundingClientRect().bottom;
+      const serviceBottom = element.getBoundingClientRect().bottom;
+      const enabled = query.matches && nextBottom > 0;
+      element.style.setProperty(
+        '--service-overlap-clip',
+        `${Math.max(0, serviceBottom - nextBottom)}px`,
+      );
+      element.dataset.overlap = String(enabled);
     };
-    const observer = new ResizeObserver(scheduleMeasure);
-    observer.observe(viewport);
-    observer.observe(content);
-    observer.observe(row);
-    window.addEventListener('resize', scheduleMeasure);
-    void document.fonts.ready.then(scheduleMeasure);
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    const resize = () => {
+      measure();
+      schedule();
+    };
+    const observer = new ResizeObserver(resize);
+    observer.observe(element);
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', resize);
+    query.addEventListener('change', resize);
     measure();
+    update();
     return () => {
-      disposed = true;
-      cancelAnimationFrame(measurement);
+      cancelAnimationFrame(frame);
       observer.disconnect();
-      window.removeEventListener('resize', scheduleMeasure);
-      runway.current?.style.removeProperty('--service-viewport-height');
-      runway.current?.style.removeProperty('--service-content-height');
-      runway.current?.style.removeProperty('--service-mobile-travel');
-      content.style.removeProperty('--service-media-limit');
-      content.style.removeProperty('--service-heading-gap');
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', resize);
+      query.removeEventListener('change', resize);
+      delete element.dataset.overlap;
+      element.style.removeProperty('--service-overlap-top');
+      element.style.removeProperty('--service-overlap-clip');
     };
-  }, [reduced]);
-
-  useEffect(() => {
-    const region = runway.current;
-    const row = track.current;
-    const viewport = frame.current;
-    if (!region || !row || !viewport || !pinned) return;
-    let disposed = false;
-    let cleanup: (() => void) | undefined;
-    if (frame.current) frame.current.scrollLeft = 0;
-    void Promise.all([import('gsap'), import('gsap/ScrollTrigger')]).then(
-      ([{ gsap }, { ScrollTrigger }]) => {
-        if (disposed) return;
-        gsap.registerPlugin(ScrollTrigger);
-        const media = gsap.matchMedia(region);
-        media.add(
-          { mobile: '(width < 768px)', desktop: '(width >= 768px)' },
-          (context) => {
-            const mobile = Boolean(context.conditions?.mobile);
-            const timeline = gsap.timeline({
-              scrollTrigger: {
-                trigger: region,
-                start: mobile ? 'clamp(top 20px)' : 'clamp(top bottom)',
-                end: mobile
-                  ? () =>
-                      `clamp(bottom ${(sticky.current?.offsetHeight ?? 0) + 20}px)`
-                  : 'clamp(bottom top)',
-                scrub: 0.8,
-                invalidateOnRefresh: true,
-              },
-            });
-            timeline.to({}, { duration: 1 }, 0);
-            timeline.fromTo(
-              row,
-              { x: 0, xPercent: 0 },
-              {
-                x: () => -getTrackTravel(row, viewport),
-                duration: mobile ? 0.88 : 0.25,
-                ease: 'none',
-              },
-              mobile ? 0.06 : 0.35,
-            );
-            seek.current = (value) => timeline.progress(value);
-          },
-        );
-        cleanup = () => {
-          seek.current = null;
-          media.revert();
-        };
-        ScrollTrigger.refresh();
-      },
-    );
-    return () => {
-      disposed = true;
-      cleanup?.();
-    };
-  }, [pinned]);
-
-  function revealFocusedCard(event: FocusEvent<HTMLElement>) {
-    if (!pinned || !runway.current || !frame.current || !track.current) return;
-    const card = (event.target as HTMLElement).closest<HTMLElement>(
-      '.service-project-card',
-    );
-    if (!card) return;
-    frame.current.scrollLeft = 0;
-    const bounds = card.getBoundingClientRect();
-    const viewport = frame.current.getBoundingClientRect();
-    if (bounds.left >= viewport.left - 2 && bounds.right <= viewport.right + 2)
-      return;
-    const distance = getTrackTravel(track.current, frame.current);
-    if (!distance) return;
-    const travel = Math.min(distance, card.offsetLeft);
-    const mobile = window.innerWidth < 768;
-    const progress = mobile
-      ? 0.06 + (0.88 * travel) / distance
-      : 0.35 + (0.25 * travel) / distance;
-    const top = runway.current.getBoundingClientRect().top + window.scrollY;
-    const scrollTop = mobile
-      ? top -
-        20 +
-        progress *
-          (runway.current.offsetHeight - (sticky.current?.offsetHeight ?? 0))
-      : top -
-        window.innerHeight +
-        progress * (runway.current.offsetHeight + window.innerHeight);
-    window.scrollTo({
-      // Enter the final hold fully, even when browser scroll coordinates round.
-      top: travel === distance ? Math.ceil(scrollTop) : scrollTop,
-      behavior: 'instant',
-    });
-    seek.current?.(progress);
-  }
-
+  }, []);
   return (
     <section
+      ref={section}
       id="servicos"
       className="services-projects"
       aria-labelledby="services-title"
@@ -218,28 +85,18 @@ export function ServicesProjects() {
       <SectionEyebrow className="service-projects-tag section">
         Higienização e proteção
       </SectionEyebrow>
-      <div
-        ref={runway}
-        className="service-projects-runway"
-        data-pinned={pinned}
-      >
-        <div ref={sticky} className="service-projects-sticky">
+      <div className="service-projects-runway">
+        <div className="service-projects-sticky">
           <div className="service-projects-content section">
             <div className="service-projects-heading">
               <TitleReveal id="services-title" text={servicesContent.title} />
               <p>{servicesContent.introduction}</p>
             </div>
             <section
-              ref={frame}
               className="service-projects-frame"
               aria-label="Serviços de higienização e impermeabilização"
-              onFocusCapture={revealFocusedCard}
-              onScroll={() => {
-                if (pinned && frame.current && frame.current.scrollLeft !== 0)
-                  frame.current.scrollLeft = 0;
-              }}
             >
-              <div ref={track} className="service-projects-track tw:flex">
+              <div className="service-projects-track tw:grid">
                 {servicesContent.items.map((item) => (
                   <article className="service-project-card" key={item.id}>
                     <div className="service-project-media">
