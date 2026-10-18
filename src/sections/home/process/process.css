@@ -189,15 +189,16 @@
     padding: 24px 0 36px;
     border-top: 1px solid var(--line-on-dark);
     background: var(--paper);
-    transition: opacity 180ms ease;
+    transition: none;
   }
   .process-step {
     position: relative;
     translate: 0 calc(var(--stack-shift, 0) * 1px);
+    will-change: translate;
   }
   .process-step-description,
   .process-step-arrow-vertical {
-    transition: opacity 180ms ease;
+    transition: none;
   }
   .process-step:last-child {
     padding-bottom: 0;
@@ -235,9 +236,9 @@
     height: calc(100% - 92px);
     transform: none;
   }
-  .process-step[data-covered='true'] .process-step-description,
-  .process-step[data-covered='true'] .process-step-arrow-vertical {
-    opacity: 0;
+  .process-step .process-step-description,
+  .process-step .process-step-arrow-vertical {
+    opacity: var(--step-copy-opacity, 1);
   }
 }
 @media (prefers-reduced-motion: reduce) {

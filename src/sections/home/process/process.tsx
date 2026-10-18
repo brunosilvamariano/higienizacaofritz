@@ -49,22 +49,31 @@ export function Process() {
                 (baseTop + (cards.length - 1) * stackGap + last.offsetHeight),
             )
           : 0;
-      const positions = cards.map((card, index) => {
-        const previous = Number(
-          card.style.getPropertyValue('--stack-shift') || 0,
-        );
-        const top = card.getBoundingClientRect().top - previous;
-        const target = baseTop + index * stackGap;
-        const shift = query.matches ? Math.max(0, target + exit - top) : 0;
-        card.style.setProperty('--stack-shift', String(shift));
-        return { top: top + shift, bottom: top + shift + card.offsetHeight };
-      });
+      // Read every card before writing transforms to avoid forced layouts
+      // between cards during mobile scrolling.
+      const geometry = cards.map((card) => ({
+        top:
+          card.getBoundingClientRect().top -
+          Number(card.style.getPropertyValue('--stack-shift') || 0),
+        height: card.offsetHeight,
+      }));
+      const shifts = geometry.map(({ top }, index) =>
+        query.matches
+          ? Math.max(0, baseTop + index * stackGap + exit - top)
+          : 0,
+      );
+      const positions = geometry.map(({ top, height }, index) => ({
+        top: top + shifts[index],
+        bottom: top + shifts[index] + height,
+      }));
       cards.forEach((card, index) => {
-        card.dataset.covered = String(
-          query.matches &&
-            (positions[index + 1]?.top ?? Infinity) <
-              positions[index].bottom - 24,
-        );
+        const nextTop = positions[index + 1]?.top ?? Infinity;
+        const remaining = nextTop - (positions[index].bottom - 36);
+        const opacity = query.matches
+          ? Math.min(1, Math.max(0, remaining / 36))
+          : 1;
+        card.style.setProperty('--stack-shift', String(shifts[index]));
+        card.style.setProperty('--step-copy-opacity', String(opacity));
       });
     };
     const schedule = () => {
@@ -82,6 +91,7 @@ export function Process() {
       cards.forEach((card) => {
         delete card.dataset.covered;
         card.style.removeProperty('--stack-shift');
+        card.style.removeProperty('--step-copy-opacity');
       });
     };
   }, []);

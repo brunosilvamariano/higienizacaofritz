@@ -241,3 +241,8 @@ main.page-content
     );
   }
 }
+@media (width < 768px) {
+  .service-projects-runway[data-pinned='true'] .service-project-media {
+    height: var(--service-media-limit);
+  }
+}
