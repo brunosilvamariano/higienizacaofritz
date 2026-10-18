@@ -140,16 +140,6 @@ export function AboutFritz() {
             { height: stageHeight, duration: 1, ease: 'sine.inOut' },
             0,
           );
-          timeline.fromTo(
-            '.about-fritz-backdrop, .about-fritz-caption',
-            { opacity: 0 },
-            {
-              opacity: 1,
-              duration: 0.65,
-              ease: 'none',
-            },
-            0.35,
-          );
         }, element);
       };
       setup();
@@ -188,6 +178,11 @@ export function AboutFritz() {
       aria-labelledby="about-fritz-title"
       tabIndex={-1}
     >
+      <div className="about-fritz-bubbles" aria-hidden="true">
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((bubble) => (
+          <span key={bubble} className="about-fritz-bubble" />
+        ))}
+      </div>
       <div className="about-fritz-scroll">
         <div className="about-fritz-scene">
           <div className="about-fritz-heading tw:mx-auto tw:text-center">
@@ -204,25 +199,6 @@ export function AboutFritz() {
 
           <div className="about-fritz-visual-stage tw:relative">
             <figure className="about-fritz-visual tw:relative tw:mx-auto">
-              <div className="about-fritz-backdrop" aria-hidden="true">
-                <svg
-                  className="about-fritz-waterlines"
-                  viewBox="0 0 1440 500"
-                  fill="none"
-                  preserveAspectRatio="xMidYMid slice"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  {[0, 1, 2, 3].map((line) => (
-                    <path
-                      key={line}
-                      d={`M-160 ${80 + line * 70}C180 ${-140 + line * 90} 220 ${600 - line * 35} 720 ${260 + line * 45}S1200 ${-100 + line * 95} 1620 ${190 + line * 80}`}
-                      stroke="currentColor"
-                      strokeWidth="1"
-                    />
-                  ))}
-                </svg>
-              </div>
               <div className="about-fritz-photo-slot tw:relative tw:mx-auto">
                 <div className="about-fritz-photo">
                   <Image
@@ -233,9 +209,6 @@ export function AboutFritz() {
                   />
                 </div>
               </div>
-              <figcaption className="about-fritz-caption">
-                Fritz em ação
-              </figcaption>
             </figure>
           </div>
           <div className="about-fritz-copy tw:mx-auto tw:flex tw:flex-col tw:items-center tw:text-center">

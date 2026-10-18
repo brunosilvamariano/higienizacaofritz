@@ -69,7 +69,7 @@ export function ServicesProjects() {
       const preferredMediaHeight = Math.floor(layoutHeight - 42 - copyHeight);
       const gapReduction = Math.min(
         32,
-        Math.max(0, 180 - preferredMediaHeight),
+        Math.max(0, 320 - preferredMediaHeight),
       );
       const headingGap = `${60 - gapReduction}px`;
       if (
@@ -77,7 +77,7 @@ export function ServicesProjects() {
       )
         content.style.setProperty('--service-heading-gap', headingGap);
       const availableMediaHeight = preferredMediaHeight + gapReduction;
-      const fits = availableMediaHeight >= 180;
+      const fits = availableMediaHeight >= 320;
       const mediaLimit = fits ? `${availableMediaHeight}px` : '9999px';
       if (
         content.style.getPropertyValue('--service-media-limit') !== mediaLimit
@@ -232,23 +232,27 @@ export function ServicesProjects() {
                           <FritzIcon name={serviceIcons[item.id]} />
                         </span>
                       </div>
+                      <div className="service-project-copy">
+                        <h3>{item.cardTitle}</h3>
+                        <p className="service-project-description">
+                          {item.cardText}
+                        </p>
+                      </div>
+                      <div className="service-project-action-pocket">
+                        <a
+                          className="service-project-contact pill-link"
+                          href={whatsappUrl(item.title.toLowerCase())}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Consultar ${item.title.toLowerCase()} pelo WhatsApp — abrir em nova aba`}
+                          data-track-contact={`servicos ${item.id}`}
+                        >
+                          <HoverLabel variant="primary">
+                            Pedir orçamento
+                          </HoverLabel>
+                        </a>
+                      </div>
                     </div>
-                    <h3>{item.cardTitle}</h3>
-                    <p className="service-project-description">
-                      {item.cardText}
-                    </p>
-                    <a
-                      className="service-project-contact pill-link"
-                      href={whatsappUrl(item.title.toLowerCase())}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`Consultar ${item.title.toLowerCase()} pelo WhatsApp — abrir em nova aba`}
-                      data-track-contact={`servicos ${item.id}`}
-                    >
-                      <HoverLabel variant="primary">
-                        Consultar atendimento
-                      </HoverLabel>
-                    </a>
                   </article>
                 ))}
               </div>

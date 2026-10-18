@@ -4,7 +4,6 @@ import { TitleReveal } from '@/animations/title-reveal';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
 import { useState, useEffect, useRef } from 'react';
 import { processSteps } from './process.content';
-import { ProcessBanner } from './process-banner';
 import './process.css';
 
 const stepIcons = ['photo', 'calendar-check', 'spray', 'shield-check'] as const;
@@ -178,7 +177,6 @@ export function Process() {
           );
         })}
       </ol>
-      <ProcessBanner />
     </section>
   );
 }

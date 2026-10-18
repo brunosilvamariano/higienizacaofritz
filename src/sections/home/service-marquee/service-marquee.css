@@ -6,7 +6,7 @@
 .service-marquee-scene {
   display: block;
   width: max(100%, 1440px);
-  height: 200px;
+  height: 160px;
   overflow: hidden;
 }
 .service-marquee-ribbon {
@@ -23,6 +23,6 @@
 }
 @media (max-width: 767px) {
   .service-marquee-scene {
-    height: 160px;
+    height: 136px;
   }
 }

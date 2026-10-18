@@ -15,15 +15,15 @@ const repeatedServices = [0, 1, 2].flatMap((copy) =>
 function wave(y: number) {
   let d = `M-1440 ${y}`;
   for (let x = -1440; x < 4320; x += 1440) {
-    d += ` C${x + 240} ${y - 46} ${x + 480} ${y - 46} ${x + 720} ${y} C${x + 960} ${y + 46} ${x + 1200} ${y + 46} ${x + 1440} ${y}`;
+    d += ` C${x + 240} ${y - 30} ${x + 480} ${y - 30} ${x + 720} ${y} C${x + 960} ${y + 30} ${x + 1200} ${y + 30} ${x + 1440} ${y}`;
   }
   return d;
 }
-const centerline = wave(100);
+const centerline = wave(80);
 function ribbon() {
-  let d = `${wave(46)} L4320 154`;
+  let d = `${wave(36)} L4320 124`;
   for (let x = 4320; x > -1440; x -= 1440) {
-    d += ` C${x - 240} 200 ${x - 480} 200 ${x - 720} 154 C${x - 960} 108 ${x - 1200} 108 ${x - 1440} 154`;
+    d += ` C${x - 240} 154 ${x - 480} 154 ${x - 720} 124 C${x - 960} 94 ${x - 1200} 94 ${x - 1440} 124`;
   }
   return `${d} Z`;
 }
@@ -66,7 +66,7 @@ export function ServiceMarquee() {
         return;
       }
       if (previous && visible && !document.hidden && !reduced.matches)
-        progress = (progress + Math.min(time - previous, 64) * 0.032) % period;
+        progress = (progress + Math.min(time - previous, 64) * 0.022) % period;
       previous = time;
       render();
       frame = requestAnimationFrame(tick);
@@ -101,7 +101,7 @@ export function ServiceMarquee() {
       <svg
         ref={scene}
         className="service-marquee-scene"
-        viewBox="0 0 1440 200"
+        viewBox="0 0 1440 160"
         aria-hidden="true"
         focusable="false"
       >
