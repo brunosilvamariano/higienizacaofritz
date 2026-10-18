@@ -44,63 +44,80 @@ export function ServiceArea() {
             className="service-area-map"
             aria-label="Mapa das cidades atendidas pelo Fritz no litoral de Santa Catarina"
           >
-            <div className="service-area-water-plane" aria-hidden="true" />
-            <div className="service-area-compass" aria-hidden="true">
-              <span>N</span>
-              <i />
-            </div>
-            <span className="service-area-ocean" aria-hidden="true">
-              Oceano
-              <br />
-              Atlântico
-            </span>
-            <div className="service-area-map-layer">
-              <svg
-                className="service-area-geography"
-                viewBox={`0 0 ${map.width} ${map.height}`}
-                aria-hidden="true"
-                focusable="false"
-              >
-                <g>
-                  {map.paths.map((area) => (
-                    <path
-                      key={area.id}
-                      d={area.d}
-                      className="service-area-territory"
-                      data-served={served.has(area.id)}
-                      data-active={area.id === selected}
-                    />
-                  ))}
-                </g>
-              </svg>
-              {cities.map((item) => (
-                <button
-                  key={item.id}
-                  className="service-area-point tw:flex tw:items-center tw:justify-center"
-                  type="button"
-                  aria-label={`Selecionar ${item.name}`}
-                  aria-pressed={item.id === selected}
-                  data-active={item.id === selected}
-                  data-west={item.id === cities[0].id}
-                  style={
-                    {
-                      '--point-x': `${(item.x / map.width) * 100}%`,
-                      '--point-y': `${(item.y / map.height) * 100}%`,
-                    } as CSSProperties
-                  }
-                  onClick={() => setSelected(item.id)}
+            <div className="service-area-coast-detail">
+              <span className="service-area-detail-title">
+                Cidades atendidas · SC
+              </span>
+              <div className="service-area-map-layer">
+                <svg
+                  className="service-area-geography"
+                  viewBox={`0 0 ${map.width} ${map.height}`}
+                  aria-hidden="true"
+                  focusable="false"
                 >
-                  <span className="service-area-dot" aria-hidden="true" />
-                  <span className="service-area-point-label" aria-hidden="true">
-                    {item.name}
-                  </span>
-                </button>
-              ))}
+                  <defs>
+                    <pattern
+                      id="service-area-coast-dots"
+                      width="7"
+                      height="7"
+                      patternUnits="userSpaceOnUse"
+                    >
+                      <circle cx="2" cy="2" r="1.2" fill="#aeb8c5" />
+                    </pattern>
+                  </defs>
+                  <g>
+                    {map.paths.map((area) => (
+                      <path
+                        key={area.id}
+                        d={area.d}
+                        className="service-area-territory"
+                        data-served={served.has(area.id)}
+                        data-active={area.id === selected}
+                      />
+                    ))}
+                  </g>
+                </svg>
+                {cities.map((item) => (
+                  <button
+                    key={item.id}
+                    className="service-area-point tw:flex tw:items-center tw:justify-center"
+                    type="button"
+                    aria-label={`Selecionar ${item.name}`}
+                    aria-pressed={item.id === selected}
+                    data-active={item.id === selected}
+                    data-west={item.id === cities[0].id}
+                    style={
+                      {
+                        '--point-x': `${(item.x / map.width) * 100}%`,
+                        '--point-y': `${(item.y / map.height) * 100}%`,
+                      } as CSSProperties
+                    }
+                    onClick={() => setSelected(item.id)}
+                  >
+                    <span className="service-area-dot" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        focusable="false"
+                      >
+                        <path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                      </svg>
+                    </span>
+                    <span
+                      className="service-area-point-label"
+                      aria-hidden="true"
+                    >
+                      {item.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </fieldset>
           <div className="service-area-map-caption">
             <span className="service-area-caption-hint">
-              Clique em um ponto
+              Selecione uma cidade no mapa
             </span>
           </div>
         </div>
