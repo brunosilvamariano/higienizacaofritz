@@ -190,8 +190,6 @@ main.home-palette
 }
 .comparison-project-contact.pill-link > svg {
   display: block;
-  width: 22px;
-  height: 22px;
   flex: none;
   padding: 0;
   border: 0;
@@ -263,9 +261,6 @@ main.home-palette
   }
   .comparison-project-photo {
     --photo-radius: 16px;
-  }
-  .comparison-project-action {
-    padding: 10px 0 0 12px;
   }
   .comparison-project-labels {
     inset: 10px 10px auto;

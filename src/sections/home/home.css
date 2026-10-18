@@ -22,20 +22,10 @@
     color-mix(in srgb, var(--ink) 60%, transparent) 100%
   );
 }
-.home-palette :is(.studio-card-heading::after, .process-marker) {
-  background: var(--brand);
-}
-.home-palette :is(.process-heading > p, .process-description p) {
-  color: var(--muted);
-}
-.home-palette :is(.trust-ticker, .trust-quote, .trust-logo) {
-  background: color-mix(in srgb, var(--ink) 80%, transparent);
-  border-color: var(--line-on-dark);
-}
-.home-palette :is(.services, .service-row) {
+.home-palette :is(.services) {
   background: var(--sand);
 }
-.home-palette :is(.leaders-copy .pill-link, .pill-link) {
+.home-palette :is(.pill-link) {
   border-color: var(--ink);
 }
 .home-palette .pill-link:has(.hover-label-primary) {
@@ -72,20 +62,7 @@ body:has(.home-palette) .mobile-menu-top > span {
 .home-palette .contact-button-gap {
   background: var(--paper);
 }
-.home-palette :is(.showreel h2, .showreel-track[data-reduced='true'] h2) {
-  color: var(--ink);
-}
-.home-palette :is(.showreel-prev, .showreel-next) {
-  color: var(--ink);
-}
-body:has(.home-palette)
-  :is(
-    .site-footer,
-    .mobile-dialog,
-    .mobile-menu-faq,
-    .page-transition,
-    .page-transition-border i
-  ) {
+body:has(.home-palette) :is(.site-footer, .mobile-dialog, .page-transition) {
   background: var(--ink);
 }
 body:has(.home-palette)
@@ -116,9 +93,6 @@ body:has(.home-palette) .floating-top:hover {
 body:has(.home-palette) .reference-divider {
   background: var(--paper);
 }
-body:has(.home-palette) .reference-divider-linen {
-  color: var(--services-ending-background, var(--sand));
-}
 body:has(.home-palette) .reference-divider-footer {
   color: var(--ink);
 }
@@ -129,12 +103,8 @@ body:has(.home-palette) .reference-divider-footer {
   --services-ending-background: var(--sand);
 }
 .home-palette,
-.home-palette :is(.studio, .showreel, .leaders, .testimonials, .contact) {
+.home-palette :is(.testimonials, .contact) {
   background-color: var(--paper);
-}
-.home-palette :is(.showreel h2, .showreel-track[data-reduced='true'] h2) {
-  color: var(--ink);
-  text-shadow: none;
 }
 
 /* Respiro mais compacto nas áreas estáticas da Home no celular. */
@@ -157,17 +127,8 @@ body:has(.home-palette) .reference-divider-footer {
   --home-body-md: 18px;
   --home-body-xl: 24px;
 }
-.home-palette :is(.studio, .environments) {
+.home-palette :is(.environments) {
   padding-block: var(--section-space);
-}
-.home-palette :is(.reference-heading, .process-heading) {
-  margin-bottom: var(--home-space-8xl);
-}
-.home-palette :is(.studio-card-image, .service-image) {
-  border-radius: var(--home-radius-lg);
-}
-.home-palette :is(.environment-panel, .environment-photo picture) {
-  border-radius: var(--home-radius-sm);
 }
 @media (max-width: 991px) {
   .home-palette {
@@ -217,17 +178,11 @@ body:has(.home-palette) .reference-divider-footer {
   --home-space-7xl: 36px;
   --home-space-3xl: 24px;
 }
-.home-refined.home-palette :is(.reference-heading, .process-heading) {
-  margin-bottom: clamp(28px, 3vw, 48px);
-}
 .home-refined .testimonials {
   padding-top: clamp(48px, 5vw, 72px);
 }
 
 /* Fundos da home; hero, header e tokens globais permanecem intactos. */
-.home-palette.home-refined {
-  background-color: var(--palette-ice);
-}
 .home-palette > :not(.hero) {
   --paper: var(--palette-ice);
 }
@@ -271,9 +226,6 @@ main.page-content > .process-steps .section-eyebrow,
   outline: 2px solid var(--white);
   outline-offset: 3px;
 }
-.home-palette > .process-steps .process-banner {
-  --paper: var(--palette-ice);
-}
 
 /* Luz mais neutra nos grandes planos; o azul permanece nos detalhes. */
 .home-palette > .benefits::before {
@@ -283,17 +235,6 @@ main.page-content > .process-steps .section-eyebrow,
     rgb(212 224 242 / 8%) 45%,
     transparent 80%
   );
-}
-.home-palette > .about-fritz .about-fritz-backdrop {
-  background: radial-gradient(
-    ellipse at 50% 50%,
-    var(--mist),
-    #efefef 52%,
-    var(--paper) 100%
-  );
-}
-.home-palette > .about-fritz .about-fritz-waterlines {
-  opacity: 0.07;
 }
 .home-palette > .service-area .service-area-map {
   background: radial-gradient(ellipse at 65% 45%, #e4efff, var(--paper) 75%);
@@ -362,20 +303,11 @@ body:has(.home-palette) .reference-divider-footer {
 .home-palette > .about-fritz .about-fritz-heading h2 {
   color: var(--white);
 }
-.home-palette > .about-fritz .about-fritz-copy > p,
-.home-palette > .about-fritz .about-fritz-caption {
+.home-palette > .about-fritz .about-fritz-copy > p {
   color: var(--on-dark-muted);
 }
-main.page-content > .about-fritz .section-eyebrow,
-.home-palette > .about-fritz .about-fritz-symbol {
+main.page-content > .about-fritz .section-eyebrow {
   color: var(--blue-panel-strong);
-}
-.home-palette > .about-fritz .about-fritz-backdrop {
-  background: #173b65;
-}
-.home-palette > .about-fritz .about-fritz-waterlines {
-  color: var(--blue-panel-strong);
-  opacity: 0.07;
 }
 .home-palette > .about-fritz .pill-link:is(:hover, :focus-visible) {
   background: var(--brand-hover);
@@ -444,9 +376,6 @@ main.page-content > .about-fritz .section-eyebrow,
   .home-refined .benefits-grid {
     gap: 36px;
   }
-  .home-refined .before-after-footer {
-    gap: 16px;
-  }
   .home-refined .review-wall-actions {
     margin-top: 24px;
   }
@@ -455,15 +384,6 @@ main.page-content > .about-fritz .section-eyebrow,
   .home-refined .contact-button:is(:hover, :focus-visible) {
     transform: translate(-50%, -50%);
   }
-}
-
-body:has(.home-palette) footer.site-footer {
-  background-image: radial-gradient(
-    circle,
-    rgb(255 255 255 / 9%) 0.8px,
-    transparent 1px
-  );
-  background-size: 22px 22px;
 }
 
 /* Paleta aprovada: grafite, azul de ação e superfícies neutras.
@@ -484,9 +404,6 @@ body:has(.home-palette) footer.site-footer {
   --line-on-dark: rgb(255 255 255 / 24%);
   --on-dark-muted: #e1e5eb;
   --midnight: #222222;
-}
-.home-palette.home-refined {
-  background-color: var(--palette-ice);
 }
 .home-palette.home-refined > :not(.hero) {
   --paper: var(--palette-ice);
@@ -532,13 +449,7 @@ main.page-content.home-palette.home-refined > .process-steps .section-eyebrow,
   color: var(--brand);
 }
 .home-palette.home-refined > .process-steps .process-step-icon {
-  background: var(--white);
   color: var(--brand);
-  border-color: var(--line);
-  box-shadow: 0 12px 28px -16px rgb(0 71 171 / 12%);
-}
-.home-palette.home-refined > .process-steps .process-step-icon::before {
-  background: var(--blue-panel);
 }
 .home-palette.home-refined > .process-steps .process-step-toggle {
   background: var(--blue-panel);
@@ -578,13 +489,6 @@ body:has(.home-palette)
 }
 body:has(.home-palette) footer.site-footer .footer-wordmark {
   background-image: linear-gradient(var(--white), rgb(255 255 255 / 20%) 90%);
-}
-body:has(.home-palette) footer.site-footer {
-  background-image: radial-gradient(
-    circle,
-    rgb(255 255 255 / 6%) 0.8px,
-    transparent 1px
-  );
 }
 .home-palette.home-refined > .services-projects .service-project-media::before {
   background: linear-gradient(
@@ -700,8 +604,7 @@ main.page-content.home-palette :is(.pill-link, .contact-button):active {
   );
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 85%);
 }
-.home-palette.home-refined
-  :is(.benefit-photo, .service-project-media, .before-after-card) {
+.home-palette.home-refined :is(.benefit-photo, .service-project-media) {
   outline: 1px solid var(--surface-edge);
   outline-offset: -1px;
   box-shadow: var(--surface-shadow);
@@ -792,7 +695,10 @@ body:has(.home-palette) :is(.site-header, .site-footer, .mobile-dialog) {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.home-palette.home-refined > :not(.hero) :is(h2, h3),
+.home-palette.home-refined > :not(.hero) :is(h2, h3) {
+  letter-spacing: -0.015em;
+  font-kerning: normal;
+} /* biome-ignore lint/style/noDescendingSpecificity: Footer headings and main headings belong to disjoint subtrees. */
 body:has(.home-palette) .site-footer h2 {
   letter-spacing: -0.015em;
   font-kerning: normal;
@@ -813,25 +719,17 @@ main.page-content.home-palette.home-refined > :not(.hero) .section-eyebrow {
   > :is(.services-projects, .contact, .service-marquee) {
   background-image: radial-gradient(ellipse at 50% 0%, #fff, transparent 75%);
 }
-.home-palette.home-refined .service-marquee-ribbon {
-  stroke: rgb(255 255 255 / 70%);
-  stroke-width: 1;
-}
 .home-palette.home-refined
   :is(.service-project-badge, .process-step-icon, .benefit-action)
   svg {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.home-palette.home-refined
-  :is(.service-project-description, .before-after-caption) {
+.home-palette.home-refined :is(.service-project-description) {
   text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
 }
-.home-palette.home-refined .service-project-media::before {
+.home-palette.home-refined > .services-projects .service-project-media::before {
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 18%);
-}
-.home-palette.home-refined .before-after-divider {
-  box-shadow: 0 0 8px rgb(255 255 255 / 12%);
 }
 .home-palette.home-refined .review-wall-author img {
   outline: 1px solid rgb(32 42 56 / 8%);
@@ -886,7 +784,7 @@ body:has(.home-palette) .site-footer .footer-links a:hover {
   text-decoration: underline;
   text-decoration-color: rgb(255 255 255 / 45%);
 }
-body:has(.home-palette) :is(.floating-top, .mobile-menu-button) {
+body:has(.home-palette) :is(.floating-top) {
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 20%),
     0 3px 10px rgb(32 42 56 / 10%);
@@ -913,26 +811,13 @@ body:has(.home-palette)
 }
 .home-palette.home-refined .benefit-card {
   position: relative;
-  padding-left: 16px;
   --benefit-accent: var(--brand);
 }
 .home-palette.home-refined .benefit-photo {
-  aspect-ratio: 1;
-  border-radius: 20px 20px 0 0;
   outline: 1px solid rgb(32 42 56 / 8%);
 }
 .home-palette.home-refined .benefit-copy {
-  position: relative;
   z-index: 2;
-  margin: -16px 0 0 -16px;
-  padding: 22px 24px 24px;
-  min-height: 186px;
-  background: linear-gradient(145deg, #303b4a, var(--ink) 72%);
-  border-radius: 0 0 18px 18px;
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 12%),
-    0 3px 6px rgb(32 42 56 / 8%),
-    0 16px 28px -20px rgb(32 42 56 / 32%);
 }
 .home-palette.home-refined .benefit-copy::before {
   content: '';
@@ -941,17 +826,12 @@ body:has(.home-palette)
   left: 0;
   width: 16px;
   height: 16px;
-  background: #101923;
   clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 .home-palette.home-refined .benefit-copy h3 {
-  color: var(--white);
-  max-width: 22ch;
-  min-height: 0;
   margin-bottom: 12px;
 }
 .home-palette.home-refined .benefit-copy p {
-  color: #e1e5eb;
   max-width: 36ch;
 }
 .home-palette.home-refined .benefit-action-pocket {
@@ -973,37 +853,18 @@ body:has(.home-palette)
   height: 58px;
   border: 4px solid rgb(255 255 255 / 94%);
   border-radius: 50%;
-  background: linear-gradient(180deg, #3976f4, var(--brand) 65%, #2056cf);
-  color: #fff;
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 30%),
-    0 3px 6px rgb(32 42 56 / 16%),
-    0 10px 20px -8px rgb(32 42 56 / 26%);
 }
 .home-palette.home-refined .benefit-action svg {
   width: 26px;
   height: 26px;
 }
 .home-palette.home-refined .benefit-action:hover {
-  background: linear-gradient(180deg, #326beb, var(--brand-hover));
   transform: translateY(-2px);
 }
 .home-palette.home-refined .benefit-action:active {
   transform: translateY(1px);
 }
-@media (width < 992px) and (width >= 768px) {
-  .home-palette.home-refined .benefit-copy {
-    padding: 20px 16px;
-    min-height: 238px;
-  }
-}
 @media (width < 768px) {
-  .home-palette.home-refined .benefit-copy {
-    min-height: 0;
-  }
-  .home-palette.home-refined .benefit-photo {
-    aspect-ratio: 1.12;
-  }
   .home-palette.home-refined .benefits-grid {
     gap: 32px;
   }
@@ -1016,7 +877,6 @@ body:has(.home-palette)
 
 /* Benefícios com conteúdo sobre a foto e tonalidades individuais. */
 .home-palette.home-refined .benefit-card {
-  padding-left: 0;
   --benefit-tint: 20 56 61;
 }
 .home-palette.home-refined .benefit-card:nth-child(2) {
@@ -1027,71 +887,25 @@ body:has(.home-palette)
 }
 .home-palette.home-refined .benefit-photo {
   position: relative;
-  aspect-ratio: 4 / 5;
-  border-radius: 24px;
 }
 .home-palette.home-refined .benefit-photo::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgb(var(--benefit-tint) / 12%) 0%,
-    rgb(var(--benefit-tint) / 22%) 34%,
-    rgb(var(--benefit-tint) / 92%) 76%,
-    rgb(var(--benefit-tint) / 98%) 100%
-  );
   box-shadow: inset 0 1px 0 rgb(255 255 255 / 16%);
   border-radius: inherit;
-}
-.home-palette.home-refined .benefit-copy {
-  position: absolute;
-  inset: auto 0 0;
-  margin: 0;
-  padding: 28px;
-  min-height: 0;
-  background: none;
-  border-radius: 0 0 24px 24px;
-  box-shadow: none;
-  pointer-events: none;
-}
-.home-palette.home-refined .benefit-copy::before {
-  display: none;
-}
-.home-palette.home-refined .benefit-copy h3 {
-  color: #fff;
-  min-height: 0;
-  max-width: 20ch;
-}
-.home-palette.home-refined .benefit-copy p {
-  color: #fff;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 12%);
 }
 .home-palette.home-refined .benefit-action {
   background: linear-gradient(180deg, #28d76b, #128c46 75%, #107d3e);
   color: #fff;
   border-color: rgb(255 255 255 / 94%);
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 32%),
-    0 3px 6px rgb(0 0 0 / 15%),
-    0 10px 20px -8px rgb(18 140 70 / 35%);
 }
 .home-palette.home-refined .benefit-action:hover {
   background: linear-gradient(180deg, #22c65e, #107d3e);
 }
-@media (width < 992px) and (width >= 768px) {
-  .home-palette.home-refined .benefit-photo {
-    aspect-ratio: auto;
-    height: 420px;
-  }
-  .home-palette.home-refined .benefit-copy {
-    padding: 20px;
-  }
-}
 @media (width < 768px) {
   .home-palette.home-refined .benefit-photo {
-    aspect-ratio: 4 / 5;
     min-height: 380px;
   }
   .home-palette.home-refined .benefit-copy {
@@ -1148,11 +962,9 @@ body:has(.home-palette)
   min-height: 0;
   margin: 0;
   color: #fff;
-  text-shadow: 0 1px 3px rgb(0 0 0 / 18%);
 }
 .home-palette.home-refined .benefit-copy p {
   margin: 0;
-  color: #fff;
   text-shadow: none;
 }
 @media (width < 992px) and (width >= 768px) {

@@ -11,21 +11,11 @@
 .service-projects-runway {
   position: relative;
 }
-.service-projects-runway[data-pinned='true'] {
-  height: calc(var(--service-viewport-height, 100svh) * 2);
-}
 .service-projects-sticky {
   top: 20px;
-  overflow: hidden;
-}
-.service-projects-runway[data-pinned='true'] .service-projects-sticky {
-  position: sticky;
 }
 .service-projects-content {
   padding-block: 0;
-}
-.service-projects-heading {
-  margin-bottom: var(--service-heading-gap, 60px);
 }
 .service-projects-heading h2 {
   font-family: var(--font-display), sans-serif;
@@ -45,24 +35,15 @@
 .service-projects-frame {
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: var(--blue-panel-strong) transparent;
-  padding-bottom: 12px;
-}
-.service-projects-runway[data-pinned='true'] .service-projects-frame {
-  overflow: visible;
-  scroll-snap-type: none;
 }
 .service-projects-track {
-  width: max-content;
-  gap: 40px;
   position: relative;
 }
 .service-project-card {
   display: flex;
   flex-direction: column;
-  width: clamp(300px, 32vw, 460px);
   flex: none;
   scroll-snap-align: start;
 }
@@ -73,20 +54,12 @@
   --service-pocket-size: calc(var(--service-icon-size) + 12px);
   flex-shrink: 0;
   --service-media-preferred: clamp(340px, calc(100svh - 280px), 560px);
-  height: min(
-    var(--service-media-preferred),
-    var(--service-media-limit, 9999px)
-  );
   /* O recorte da mídia não deve atingir o encaixe e o círculo do ícone. */
-  background: var(--paper);
-  border-radius: 24px;
 }
 .service-project-media video {
   display: block;
   width: 100%;
-  height: 100%;
   object-fit: cover;
-  border-radius: inherit;
 }
 .service-project-media video:fullscreen {
   border-radius: 0;
@@ -106,14 +79,11 @@
   pointer-events: none;
 }
 .service-project-copy {
-  position: absolute;
   z-index: 2;
-  inset: auto 24px 96px;
   pointer-events: none;
 }
 .service-project-card h3 {
   margin: 0;
-  max-width: 20ch;
   font-size: var(--type-card-title);
   line-height: var(--type-heading-leading);
   text-transform: uppercase;
@@ -125,7 +95,6 @@
   margin-top: var(--card-title-gap);
   font-size: var(--type-body);
   line-height: var(--type-body-leading);
-  color: var(--white);
 }
 main.page-content
   > .services-projects
@@ -137,7 +106,6 @@ main.page-content
   font-size: var(--type-action-compact);
   font-weight: 600;
   line-height: 1.2;
-  --button-surface: var(--paper);
 }
 .service-project-contact .hover-button-line {
   width: 18px;
@@ -152,10 +120,6 @@ main.page-content
   justify-content: flex-end;
 }
 .service-project-badge-pocket {
-  top: -2px;
-  width: calc(var(--service-pocket-size) + 2px);
-  height: calc(var(--service-pocket-size) + 2px);
-  padding: 2px 2px 0 0;
   align-items: flex-start;
   border-bottom-left-radius: calc(var(--service-pocket-size) / 2);
   pointer-events: none;
@@ -185,7 +149,6 @@ main.page-content
 }
 .service-project-action-pocket {
   bottom: -2px;
-  padding: 12px 2px 2px 12px;
   border-top-left-radius: 36px;
 }
 .service-project-action-pocket::before,
@@ -203,15 +166,9 @@ main.page-content
 }
 .service-project-badge {
   position: relative;
-  width: var(--service-icon-size);
-  height: var(--service-icon-size);
   border-radius: 50%;
   background: var(--brand);
   color: var(--white);
-}
-.service-project-badge svg {
-  width: 36px;
-  height: 36px;
 }
 @media (max-width: 767px) {
   .service-projects-track {
@@ -234,25 +191,7 @@ main.page-content
   }
 }
 
-@media (width < 768px) {
-  .service-projects-runway[data-pinned='true'] {
-    height: calc(
-      var(--service-content-height, 560px) + var(--service-mobile-travel, 680px)
-    );
-  }
-}
-@media (width < 768px) {
-  .service-projects-runway[data-pinned='true'] .service-project-media {
-    height: var(--service-media-limit);
-  }
-}
-
 /* Grade ampla: os quatro serviços visíveis, sem fixação ou rolagem lateral. */
-main.page-content.home-palette
-  > .services-projects
-  :is(.service-projects-tag, .service-projects-content) {
-  padding-inline: clamp(16px, 1.4vw, 28px);
-}
 .service-projects-runway {
   height: auto;
 }
@@ -277,9 +216,6 @@ main.page-content.home-palette
   width: auto;
   min-width: 0;
 }
-.service-project-media {
-  height: clamp(420px, 32vw, 560px);
-}
 .service-project-copy {
   inset-inline: 24px;
   bottom: 102px;
@@ -299,7 +235,6 @@ main.page-content.home-palette
 @media (width < 768px) {
   .service-projects-track {
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
   }
   .service-project-media {
     height: 420px;
@@ -329,12 +264,6 @@ main.page-content.home-palette
   --service-tint: 20 56 61;
   border-radius: 24px;
   overflow: hidden;
-}
-.service-project-card:nth-child(2) {
-  --service-tint: 28 64 112;
-}
-.service-project-card:nth-child(3) {
-  --service-tint: 0 71 171;
 }
 .service-project-card:nth-child(4) {
   --service-tint: 32 42 56;
@@ -396,11 +325,6 @@ main.home-palette.home-refined
   background: none;
   border-radius: 0;
 }
-.service-project-badge {
-  width: 48px;
-  height: 48px;
-  border: 1px solid rgb(255 255 255 / 25%);
-}
 .service-project-badge svg {
   width: 28px;
   height: 28px;
@@ -426,7 +350,6 @@ main.page-content
 @media (width >= 768px) {
   .service-projects-frame {
     position: relative;
-    width: calc(100vw - 2 * clamp(24px, 2vw, 40px));
     left: 50%;
     transform: translateX(-50%);
   }
@@ -453,15 +376,8 @@ main.page-content
     0 2px 5px rgb(32 42 56 / 9%);
 }
 @media (width >= 768px) {
-  .service-projects-track {
-    gap: 0;
-  }
   .service-projects-frame {
-    border-radius: 24px;
     overflow: hidden;
-    box-shadow:
-      0 3px 8px rgb(32 42 56 / 4%),
-      0 18px 32px -24px rgb(32 42 56 / 24%);
   }
   .service-project-card,
   .service-project-media {
@@ -497,21 +413,6 @@ main.page-content
 @media (width < 768px) {
   .service-projects-frame {
     position: relative;
-    width: 100cqw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .service-project-card,
-  .service-project-media {
-    border-radius: 0;
-  }
-  main.home-palette.home-refined
-    > .services-projects
-    .service-project-media::before {
-    border-radius: 0;
-  }
-  .service-projects-track {
-    gap: 0;
   }
 }
 .service-project-card:nth-child(2) {
@@ -527,36 +428,17 @@ main.page-content
 
 /* No celular, cada serviço volta a ser uma superfície independente. */
 @media (width < 768px) {
-  .service-projects-frame {
-    width: 100%;
-    left: auto;
-    transform: none;
-    overflow: visible;
-  }
-  .service-projects-track {
-    gap: 30px;
-    padding-bottom: 12px;
-  }
   .service-project-card {
     border-radius: 24px;
     overflow: hidden;
     outline: 1px solid rgb(255 255 255 / 65%);
     outline-offset: -1px;
-    box-shadow:
-      0 2px 5px rgb(32 42 56 / 7%),
-      0 14px 24px -12px rgb(32 42 56 / 22%);
   }
   .service-project-media {
     border-radius: 24px;
   }
   main.home-palette.home-refined > .services-projects .service-project-media {
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%);
     outline: none;
-  }
-  main.home-palette.home-refined
-    > .services-projects
-    .service-project-media::before {
-    border-radius: 24px 24px 0 0;
   }
 }
 
@@ -571,17 +453,6 @@ main.page-content
   pointer-events: none;
 }
 @media (width >= 768px) {
-  .service-project-card:not(:first-child)::after {
-    inset: 20px auto 20px 0;
-    width: 1px;
-    background: linear-gradient(
-      180deg,
-      transparent,
-      rgb(255 255 255 / 38%) 16%,
-      rgb(255 255 255 / 24%) 84%,
-      transparent
-    );
-  }
   .service-projects-frame {
     box-shadow:
       0 2px 5px rgb(32 42 56 / 5%),
@@ -616,7 +487,6 @@ main.page-content
 /* Mobile: conjunto contínuo com divisória superior visível entre serviços. */
 @media (width < 768px) {
   .service-projects-frame {
-    border-radius: 24px;
     overflow: hidden;
     box-shadow:
       0 2px 5px rgb(32 42 56 / 6%),
@@ -647,13 +517,6 @@ main.page-content
     display: block;
     inset: 0 0 auto;
     width: 100%;
-    height: 3px;
-    background: linear-gradient(
-      180deg,
-      rgb(255 255 255 / 90%) 0 1px,
-      rgb(32 42 56 / 24%) 1px 3px
-    );
-    box-shadow: 0 3px 8px rgb(0 0 0 / 12%);
   }
 }
 
@@ -663,12 +526,6 @@ main.page-content
     inset: 0 auto 0 0;
     width: 3px;
     height: 100%;
-    background: linear-gradient(
-      90deg,
-      rgb(255 255 255 / 85%) 0 1px,
-      rgb(32 42 56 / 35%) 1px 3px
-    );
-    box-shadow: 3px 0 8px rgb(0 0 0 / 12%);
   }
 }
 @media (width < 768px) {
