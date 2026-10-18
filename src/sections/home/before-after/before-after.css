@@ -1,4 +1,5 @@
 .before-after {
+  position: relative;
   padding-block: clamp(56px, 6.5vw, 104px);
   background: var(--paper);
 }
@@ -303,4 +304,16 @@
   .before-after-divider::after {
     transition: none;
   }
+}
+
+.before-after-wave {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 16px;
+  color: var(--brand);
+  opacity: 0.65;
+  pointer-events: none;
 }

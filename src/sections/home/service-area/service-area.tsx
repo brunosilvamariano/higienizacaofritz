@@ -99,8 +99,6 @@ export function ServiceArea() {
             </div>
           </fieldset>
           <div className="service-area-map-caption">
-            <span />
-            Cidades atendidas
             <span className="service-area-caption-hint">
               Clique em um ponto
             </span>

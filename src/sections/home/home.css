@@ -226,16 +226,16 @@ body:has(.home-palette) .reference-divider-footer {
 
 /* Fundos da home; hero, header e tokens globais permanecem intactos. */
 .home-palette.home-refined {
-  background-color: #f3f3f3;
+  background-color: var(--palette-ice);
 }
 .home-palette > :not(.hero) {
-  --paper: #f3f3f3;
+  --paper: var(--palette-ice);
 }
 .home-palette > :is(.before-after, .review-testimonials) {
-  --paper: #e7e9ed;
+  --paper: var(--mist);
 }
 .home-palette > .process-steps {
-  --paper: #13213d;
+  --paper: var(--ink);
   background: var(--paper);
   color: var(--white);
 }
@@ -254,8 +254,8 @@ main.page-content > .process-steps .section-eyebrow,
   color: var(--blue-panel-strong);
 }
 .home-palette > .process-steps .process-step-icon {
-  border-color: #385173;
-  background: linear-gradient(145deg, #2b4164, #1b2d4b);
+  border-color: #31598b;
+  background: linear-gradient(145deg, #244e81, #173b65);
   color: #d4e0f2;
   box-shadow: 0 12px 28px -16px rgb(0 0 0 / 30%);
 }
@@ -264,7 +264,7 @@ main.page-content > .process-steps .section-eyebrow,
   opacity: 0.25;
 }
 .home-palette > .process-steps .process-step-toggle {
-  background: #263e72;
+  background: var(--midnight);
   color: var(--white);
 }
 .home-palette > .process-steps .process-step-toggle:focus-visible {
@@ -272,7 +272,7 @@ main.page-content > .process-steps .section-eyebrow,
   outline-offset: 3px;
 }
 .home-palette > .process-steps .process-banner {
-  --paper: #f3f3f3;
+  --paper: var(--palette-ice);
 }
 
 /* Luz mais neutra nos grandes planos; o azul permanece nos detalhes. */
@@ -287,7 +287,7 @@ main.page-content > .process-steps .section-eyebrow,
 .home-palette > .about-fritz .about-fritz-backdrop {
   background: radial-gradient(
     ellipse at 50% 50%,
-    #e7e9ed,
+    var(--mist),
     #efefef 52%,
     var(--paper) 100%
   );
@@ -296,7 +296,7 @@ main.page-content > .process-steps .section-eyebrow,
   opacity: 0.07;
 }
 .home-palette > .service-area .service-area-map {
-  background: radial-gradient(ellipse at 65% 45%, #e5e8ee, var(--paper) 75%);
+  background: radial-gradient(ellipse at 65% 45%, #e4efff, var(--paper) 75%);
 }
 .home-palette > .service-area .service-area-water-plane {
   background:
@@ -309,10 +309,10 @@ main.page-content > .process-steps .section-eyebrow,
   opacity: 0.6;
 }
 .home-palette > .contact {
-  --paper: #f3f3f3;
+  --paper: var(--palette-ice);
   background-color: var(--paper);
   color: var(--ink);
-  box-shadow: 0 40px 0 var(--paper);
+  box-shadow: none;
 }
 .home-palette > .contact .contact-marquee[data-stroke='true'] span {
   -webkit-text-stroke-color: var(--ink);
@@ -350,11 +350,12 @@ body:has(.home-palette) .reference-divider-footer {
   background: var(--paper);
   gap: 4px;
   padding-top: 4px;
+  display: none;
 }
 
 /* Ritmo por função: prova visual, presença humana, região e esclarecimento. */
 .home-palette > .about-fritz {
-  --paper: #13213d;
+  --paper: var(--ink);
   background: var(--paper);
   color: var(--white);
 }
@@ -370,7 +371,7 @@ main.page-content > .about-fritz .section-eyebrow,
   color: var(--blue-panel-strong);
 }
 .home-palette > .about-fritz .about-fritz-backdrop {
-  background: #1b2d4b;
+  background: #173b65;
 }
 .home-palette > .about-fritz .about-fritz-waterlines {
   color: var(--blue-panel-strong);
@@ -385,7 +386,7 @@ main.page-content > .about-fritz .section-eyebrow,
   outline-color: var(--white);
 }
 .home-palette > .faq {
-  --paper: #e7e9ed;
+  --paper: var(--mist);
 }
 .home-palette.home-refined > .faq {
   padding-top: clamp(56px, 6vw, 88px);
@@ -454,4 +455,13 @@ main.page-content > .about-fritz .section-eyebrow,
   .home-refined .contact-button:is(:hover, :focus-visible) {
     transform: translate(-50%, -50%);
   }
+}
+
+body:has(.home-palette) footer.site-footer {
+  background-image: radial-gradient(
+    circle,
+    rgb(255 255 255 / 9%) 0.8px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
 }

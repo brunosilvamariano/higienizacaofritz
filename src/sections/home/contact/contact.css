@@ -3,6 +3,9 @@
   overflow: clip;
   margin-bottom: 40px;
 }
+.contact:focus {
+  outline: none;
+}
 .contact-accessible {
   position: absolute;
   width: 1px;

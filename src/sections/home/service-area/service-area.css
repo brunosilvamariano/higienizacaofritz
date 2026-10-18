@@ -1,5 +1,11 @@
 .service-area {
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--brand) 13%, transparent) 0.8px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
   color: var(--ink);
   overflow: clip;
 }
@@ -213,13 +219,6 @@ main.page-content .service-area.section {
   font-size: 11px;
   color: var(--muted);
   pointer-events: none;
-}
-.service-area-map-caption > span:first-child {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--brand);
-  flex: none;
 }
 .service-area-caption-hint {
   margin-left: auto;

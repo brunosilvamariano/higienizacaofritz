@@ -110,6 +110,29 @@ export function BeforeAfter() {
           <HoverLabel variant="primary">Consultar atendimento</HoverLabel>
         </a>
       </div>
+      <svg
+        className="before-after-wave"
+        aria-hidden="true"
+        focusable="false"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern
+            id="before-after-wave-pattern"
+            width="60"
+            height="16"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M0 8Q15 -1 30 8T60 8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="16" fill="url(#before-after-wave-pattern)" />
+      </svg>
     </section>
   );
 }
