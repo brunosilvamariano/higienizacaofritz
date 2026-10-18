@@ -11,9 +11,8 @@ jobs:
         with:
           node-version-file: .node-version
           cache: npm
-      - run: npm install --global npm@11.15.0
-      - run: npm ci
-      - run: npm run check
-      - run: npm test
-      - run: npm run build
-      - run: npm audit
+      - run: npx --yes npm@11.15.0 ci
+      - run: npx --yes npm@11.15.0 run check
+      - run: npx --yes npm@11.15.0 test
+      - run: npx --yes npm@11.15.0 run build
+      - run: npx --yes npm@11.15.0 audit

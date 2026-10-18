@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/components/layout/footer/footer-typography.css"],"sourcesContent":[".site-footer {\n  --font-body: var(--font-poppins);\n  font-family: var(--font-poppins), sans-serif;\n}\n.site-footer :is(h1, h2, h3, h4) {\n  font-family: var(--font-display), sans-serif;\n  font-weight: 400;\n}\n.site-footer :is(p, blockquote, input, select, textarea, button) {\n  font-family: var(--font-poppins), sans-serif;\n}\n.site-footer .pill-link {\n  font-family: var(--font-poppins), sans-serif;\n  font-weight: 500;\n}\n.site-footer .pill-link:has(.hover-label-primary) {\n  font-size: 16px;\n  font-weight: 600;\n  line-height: 1.2;\n  text-transform: none;\n  min-height: 56px;\n  padding: 18px 28px;\n}\n"],"names":[],"mappings":"AAAA;;;;;AAIA;;;;;AAIA;;;;AAGA;;;;;AAIA"}}]
-}
