@@ -5,7 +5,7 @@ import { PrivacyPreferences } from '@/components/analytics/consent';
 import { contact } from '@/config/contact';
 import { googleReviews } from '@/content/google-reviews';
 import { developer } from '@/config/developer';
-import vbgLogo from '@/assets/images/shared/vbg/logo.webp';
+import developerSignature from '@/assets/images/shared/bruno-mariano/assinatura-branca.png';
 import { FooterReveal } from './footer-reveal';
 import './footer.css';
 import './footer-typography.css';
@@ -135,10 +135,13 @@ export function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             className="footer-developer"
-            aria-label="Criado por VBG Agency — abrir site"
+            aria-label="Desenvolvido por Bruno Mariano — abrir site em nova aba"
           >
-            <span>Criado por</span>
-            <Image src={vbgLogo} alt="VBG Agency" width={112} height={42} />
+            <Image
+              src={developerSignature}
+              alt="Desenvolvido por Bruno Mariano"
+              sizes="(max-width: 1100px) 200px, 240px"
+            />
           </a>
         </div>
       </div>

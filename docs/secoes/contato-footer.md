@@ -11,3 +11,7 @@ Atualizados: footer.tsx, src/app/page.tsx, src/styles/globals.css, src/config/co
 Main opaco em camada superior; footer sticky bottom em telas com altura suficiente. Sem JavaScript para scroll. Fallback de fluxo normal em telas baixas, redução de movimento e foco no rodapé, para não esconder links. Links e disclosure de projeto conceitual sempre presentes.
 
 Revelação adaptativa: FooterReveal mede rodapé e header com ResizeObserver, atualizando somente em mudanças de tamanho. O deslocamento inferior negativo permite percorrer rodapés maiores que a tela; rodapés menores ficam presos à base. Sem interceptar scroll. Foco dentro do rodapé e movimento reduzido usam fluxo normal para manter os links acessíveis. Sem JavaScript, o rodapé permanece no fluxo.
+
+## Crédito do desenvolvedor — 19/10/2026
+
+Substituir o crédito anterior pela assinatura branca oficial fornecida por Bruno Mariano, sem repetir “Criado por”, pois a imagem já contém “Desenvolvido por”. Preservar branco e cinza do arquivo, fundo transparente e proporção original; largura responsiva entre 200 e 240px, sem modificar o restante do footer. Destino: https://brunomarianosilva.com.br/ em nova aba, com identificação acessível.
