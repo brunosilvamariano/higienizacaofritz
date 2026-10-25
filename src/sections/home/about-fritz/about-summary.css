@@ -2,6 +2,8 @@
   --about-columns: minmax(0, 0.65fr) repeat(2, minmax(0, 1.05fr));
   --about-gap: clamp(24px, 3.2vw, 52px);
   background: var(--white);
+  /* Contain the horizontal entrance without creating a scroll container. */
+  overflow-x: clip;
 }
 .about-summary:focus {
   outline: none;
@@ -81,6 +83,7 @@
 }
 .about-summary-copy {
   grid-area: copy;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
