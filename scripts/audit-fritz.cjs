@@ -15,6 +15,8 @@ const get = (html, name) =>
   )?.[1];
 (async () => {
   const images = new Set();
+  const pageIds = new Map();
+  const internalLinks = [];
   let pages = 0;
   for (const { path } of routes.filter(
     (r) => !r.path.startsWith('/informacoes/'),
@@ -53,11 +55,28 @@ const get = (html, name) =>
     const ids = new Set(
       Array.from(html.matchAll(/\bid="([^"]+)"/g), (m) => m[1]),
     );
-    for (const redirect of legacyRedirects) {
-      const target = new URL(redirect.destination, base);
-      if (target.hash) assert.ok(ids.has(target.hash.slice(1)), target.hash);
+    pageIds.set(path, ids);
+    for (const match of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+      const target = new URL(match[1].replaceAll('&amp;', '&'), base + path);
+      if (target.origin === new URL(base).origin) internalLinks.push(target);
     }
     pages++;
+  }
+  for (const target of [
+    ...internalLinks,
+    ...legacyRedirects.map((redirect) => new URL(redirect.destination, base)),
+  ]) {
+    assert.ok(
+      pageIds.has(target.pathname),
+      `página ausente: ${target.pathname}`,
+    );
+    if (target.hash)
+      assert.ok(
+        pageIds
+          .get(target.pathname)
+          .has(decodeURIComponent(target.hash.slice(1))),
+        `âncora ausente: ${target.pathname}${target.hash}`,
+      );
   }
   for (const redirect of legacyRedirects) {
     const source = redirect.source.replace('/:path*', '/auditoria-fritz');

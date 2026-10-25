@@ -1,49 +1,47 @@
 import localFont from 'next/font/local';
 
-export const bebasNeue = localFont({
-  src: '../assets/fonts/bebas-neue/BebasNeue-Regular.woff2',
-  variable: '--font-display',
+export const bricolage = localFont({
+  src: '../assets/fonts/bricolage-grotesque/BricolageGrotesque-Variable.woff2',
+  variable: '--font-hero',
   display: 'swap',
-  weight: '400',
+  weight: '200 800',
 });
 
-export const dmSans = localFont({
-  src: '../assets/fonts/dm-sans/DMSans-Variable.woff2',
-  variable: '--font-body',
-  display: 'swap',
-  weight: '100 1000',
-});
-
-export const poppins = localFont({
+export const nohemi = localFont({
   src: [
     {
-      path: '../assets/fonts/poppins/Poppins-Regular.woff2',
+      path: '../assets/fonts/nohemi/Nohemi-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
     {
-      path: '../assets/fonts/poppins/Poppins-Medium.woff2',
+      path: '../assets/fonts/nohemi/Nohemi-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../assets/fonts/poppins/Poppins-SemiBold.woff2',
+      path: '../assets/fonts/nohemi/Nohemi-SemiBold.woff2',
       weight: '600',
       style: 'normal',
     },
+  ],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+export const switzer = localFont({
+  src: [
     {
-      path: '../assets/fonts/poppins/Poppins-Bold.woff2',
-      weight: '700',
+      path: '../assets/fonts/switzer/Switzer-Variable.woff2',
+      weight: '100 900',
       style: 'normal',
     },
     {
-      path: '../assets/fonts/poppins/Poppins-Italic.woff2',
-      weight: '400',
+      path: '../assets/fonts/switzer/Switzer-VariableItalic.woff2',
+      weight: '100 900',
       style: 'italic',
     },
   ],
-  variable: '--font-poppins',
-  // Hero/header use Bebas Neue and DM Sans; Poppins loads when content needs it.
-  preload: false,
+  variable: '--font-body',
   display: 'swap',
 });

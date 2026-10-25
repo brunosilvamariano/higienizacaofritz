@@ -1,3 +1,6 @@
+.footer-backdrop {
+  display: flow-root;
+}
 .site-footer {
   margin: 5px;
   border-radius: 30px;
@@ -58,21 +61,6 @@
   width: 24px;
   height: 24px;
 }
-.footer-google {
-  font-weight: 600;
-}
-.google-blue {
-  color: #4285f4;
-}
-.google-red {
-  color: #ea4335;
-}
-.google-yellow {
-  color: #fbbc05;
-}
-.google-green {
-  color: #34a853;
-}
 .footer-top h2 {
   font:
     700 20px/1.5 var(--font-body),
@@ -106,9 +94,10 @@
 }
 .footer-wordmark {
   font-family: var(--font-display), sans-serif;
-  font-size: var(--heading-large);
+  font-size: clamp(64px, 12vw, 176px);
+  font-weight: 600;
   letter-spacing: -0.03em;
-  line-height: 0.8;
+  line-height: 1;
   color: transparent;
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(#fff, #000 80%);

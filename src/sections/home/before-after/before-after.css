@@ -51,7 +51,7 @@
   max-width: 24ch;
   font-size: var(--type-section-title);
   line-height: var(--type-heading-leading);
-  text-transform: uppercase;
+  text-transform: none;
   text-wrap: balance;
 }
 .before-after-heading > p {
@@ -87,7 +87,7 @@
 .comparison-project-heading h3 {
   font-size: var(--type-card-title);
   line-height: var(--type-heading-leading);
-  text-transform: uppercase;
+  text-transform: none;
 }
 .comparison-project-heading > span {
   font-size: 10px;

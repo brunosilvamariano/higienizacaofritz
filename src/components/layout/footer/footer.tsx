@@ -1,3 +1,4 @@
+import { GoogleWord } from '@/components/ui/social-icons';
 import { HoverLabel } from '@/components/ui/hover-label';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -37,7 +38,7 @@ export function Footer() {
                 Sobre
               </span>
             </Link>
-            <Link href="/#servicos">
+            <Link href="/servicos">
               <HoverLabel>Serviços</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
                 Serviços
@@ -50,12 +51,12 @@ export function Footer() {
               </span>
             </Link>
           </nav>
-          <nav aria-label="Resultados e dúvidas">
-            <h2>Resultados e dúvidas</h2>
-            <Link href="/#antes-e-depois">
-              <HoverLabel>Galeria</HoverLabel>
+          <nav aria-label="Serviços e dúvidas">
+            <h2>Serviços e dúvidas</h2>
+            <Link href="/servicos#processo">
+              <HoverLabel>Como funciona</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">
-                Galeria
+                Como funciona
               </span>
             </Link>
             <Link href="/#duvidas">
@@ -100,18 +101,7 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Ver perfil no{' '}
-              <span className="footer-google">
-                <span className="tw:sr-only">Google</span>
-                <span aria-hidden="true">
-                  <span className="google-blue">G</span>
-                  <span className="google-red">o</span>
-                  <span className="google-yellow">o</span>
-                  <span className="google-blue">g</span>
-                  <span className="google-green">l</span>
-                  <span className="google-red">e</span>
-                </span>
-              </span>
+              Ver perfil no <GoogleWord />
             </a>
             <p>Cuidados com seus estofados</p>
             <PrivacyPreferences />

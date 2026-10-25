@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
   distDir: process.env.FRITZ_BUILD_DIR || '.next',
   poweredByHeader: false,
   async redirects() {
+    // /servicos é uma página canônica, sem redirecionamento para a home.
     return legacyRedirects;
   },
   experimental: { workerThreads: true, cpus: 1, useTypeScriptCli: false },

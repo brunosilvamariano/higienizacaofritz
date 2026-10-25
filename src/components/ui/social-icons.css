@@ -11,3 +11,8 @@
     #833ab4 90%
   );
 }
+.google-word {
+  display: inline-block;
+  white-space: nowrap;
+  font-weight: 600;
+}

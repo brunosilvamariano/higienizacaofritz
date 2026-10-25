@@ -18,7 +18,7 @@
   max-width: 17ch;
   font-size: var(--type-section-title);
   line-height: var(--type-heading-leading);
-  text-transform: uppercase;
+  text-transform: none;
   text-wrap: balance;
 }
 .service-area-heading > p {

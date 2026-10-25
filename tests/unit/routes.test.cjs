@@ -7,7 +7,6 @@ test('redirecionamentos antigos apontam para páginas existentes do Fritz', () =
   const paths = new Set(routes.map((r) => r.path));
   const expectedSources = [
     '/sobre',
-    '/servicos',
     '/projetos/:path*',
     '/contato',
     '/blog/:path*',
@@ -34,4 +33,12 @@ test('rotas canônicas não mantêm o nicho antigo e não se repetem', () => {
       r.path,
       /cozinha|quarto|banheiro|office|fwa|holographik/,
     );
+});
+
+test('a página de serviços é canônica e não é capturada por redirects antigos', () => {
+  assert.ok(routes.some((route) => route.path === '/servicos'));
+  const canonicalPaths = new Set(routes.map((route) => route.path));
+  for (const redirect of legacyRedirects) {
+    assert.ok(!canonicalPaths.has(redirect.source), redirect.source);
+  }
 });

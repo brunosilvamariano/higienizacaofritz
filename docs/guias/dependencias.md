@@ -78,3 +78,11 @@ GSAP 3.15.0 instalado pelo npm e fixado no lockfile. GSAP e ScrollTrigger são i
 Bebas Neue, DM Sans e Poppins continuam visíveis. As mesmas fontes foram comprimidas para WOFF2 com fontTools 4.67.0, sem subset nem alteração de glifos, cmap, métricas hmtx/hhea/OS/2 ou eixos variáveis. Licenças OFL preservadas. Plus Jakarta sem uso foi retirada. Poppins usa preload:false e carrega pela necessidade real do conteúdo; Bebas e DM Sans continuam priorizadas no hero/header. Ferramenta de conversão apenas em work, sem dependência nova de runtime ou mudança no lockfile.
 
 Build no Windows: um worker de geração estática (cpus:1), mantendo workerThreads, após EPERM intermitente com dois workers ao criar a saída de 404. O build final e a auditoria HTTP passaram nessa configuração; isso não altera as animações no navegador.
+
+## Estado vigente das fontes — 23/10/2026
+
+Por solicitação explícita do usuário, Clash Display variável (200–700) substitui Bebas Neue nos títulos e Switzer variável (100–900, normal e itálico) substitui DM Sans/Poppins nos textos e ações. Pacotes oficiais Fontshare obtidos em 23/10/2026; WOFF2 originais e FFL.txt preservados em src/assets/fonts/clash-display e src/assets/fonts/switzer. Carregamento por next/font/local, sem fonte remota ou CDN. As famílias anteriores permanecem no acervo, mas não são carregadas pelo layout. Nenhuma dependência adicionada. Brief e critérios de escala em docs/secoes/tipografia-clash-switzer.md; este registro substitui a configuração tipográfica anterior.
+
+## Estado vigente das fontes — 24/10/2026
+
+Por solicitação explícita: Bricolage Grotesque variável (200–800) no hero, Nohemi Regular/Medium/SemiBold (400/500/600) nos títulos e Switzer nos textos e botões. Bricolage WOFF2 original do repositório ateliertriay/bricolage, com OFL.txt e AUTHORS.txt. Nohemi obtida gratuitamente no Gumroad do autor Rajesh Rajput, WOFF2 originais Web-TT, com EULA.pdf original preservada. Sem conversão dos arquivos Nohemi. next/font/local e recursos locais, sem CDN ou pacotes adicionais. Clash Display permanece no acervo, sem carregamento. Brief e validação em docs/secoes/tipografia-bricolage-nohemi.md.

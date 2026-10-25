@@ -27,7 +27,7 @@
   max-width: 24ch;
   font-size: var(--type-section-title);
   line-height: var(--type-heading-leading);
-  text-transform: uppercase;
+  text-transform: none;
   text-wrap: balance;
 }
 .review-google-word {
@@ -128,7 +128,7 @@
 .review-wall-author h3 {
   font-size: var(--type-card-title);
   line-height: var(--type-heading-leading);
-  text-transform: uppercase;
+  text-transform: none;
   overflow-wrap: anywhere;
 }
 .review-wall-author p {

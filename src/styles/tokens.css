@@ -4,6 +4,7 @@
   --white: #ffffff;
   --brand: #2563eb;
   --brand-hover: #1d4ed8;
+  --whatsapp: #25d366;
   --brand-logo: var(--brand);
   --brand-deep: var(--ink);
   --mist: #eaf2ff;
@@ -73,14 +74,17 @@
 
 /* Escala compartilhada de conteúdo: referências externas preservam estes papéis. */
 :root {
-  --type-section-title: clamp(36px, 4.5vw, 64px);
-  --type-card-title: clamp(28px, 2.3vw, 34px);
-  --type-banner-title: clamp(32px, 4.2vw, 60px);
+  --type-section-title: clamp(30px, 3.6vw, 52px);
+  --type-card-title: clamp(22px, 1.75vw, 26px);
+  --type-banner-title: clamp(30px, 4.2vw, 60px);
+  --type-hero-wordmark: clamp(32px, 11.5vw, 220px);
+  --type-hero-title: clamp(40px, 6vw, 96px);
+  --type-heading-weight: 500;
   --type-body: clamp(16px, 1.2vw, 18px);
   --type-eyebrow: 12px;
   --type-action-compact: 14px;
-  --type-heading-leading: 1.05;
-  --type-body-leading: 1.55;
+  --type-heading-leading: 1.15;
+  --type-body-leading: 1.6;
   --card-copy-gap: 24px;
   --card-title-gap: 12px;
 }
@@ -91,6 +95,28 @@
 }
 @media (max-width: 767px) {
   :root {
+    --type-hero-title: clamp(34px, 9vw, 52px);
     --card-copy-gap: 20px;
   }
+}
+
+/* Paleta semântica da home clara; ativada apenas por home-colors.css. */
+:root {
+  --home-color-hero-cobalt: #0047ab;
+  --home-color-hero-cobalt-hover: #003c91;
+  --home-color-hero-shadow: #222222;
+  --home-color-canvas: #f7f8f5;
+  --home-color-surface: #ffffff;
+  --home-color-fog: #ecf1ef;
+  --home-color-air: #dcecf1;
+  --home-color-action: #2377a3;
+  --home-color-action-hover: #1c668b;
+  --home-color-ink: #29332f;
+  --home-color-muted: #596861;
+  --home-color-line: #d6dfda;
+  --home-color-charcoal: #303a37;
+  --home-color-on-charcoal: #dce5df;
+  --home-color-contact-start: #d7eaf0;
+  --home-color-contact-seam: #e8f1ef;
+  --home-color-contact-end: #f1f5f0;
 }

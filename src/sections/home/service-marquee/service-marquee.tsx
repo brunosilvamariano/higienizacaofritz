@@ -1,43 +1,73 @@
-import { FritzIcon, type FritzIconName } from '@/components/ui/fritz-icon';
+import { GoogleIcon, GoogleWord } from '@/components/ui/social-icons';
+import { googleReviews } from '@/content/google-reviews';
 import './service-marquee.css';
 
-const services: { label: string; icon: FritzIconName }[] = [
-  { label: 'Higienização de estofados', icon: 'sofa' },
-  { label: 'Higienização de colchões', icon: 'bed-flat' },
-  { label: 'Higienização de tapetes', icon: 'rug' },
-  { label: 'Impermeabilização', icon: 'shield-droplet' },
-];
+const featuredReviewers = googleReviews.items.filter((review) =>
+  ['Bia Marina', 'Anne Karoline', 'Aline Grasso', 'Bruna Sena'].includes(
+    review.name,
+  ),
+);
 
 export function ServiceMarquee() {
   return (
-    <section className="service-marquee" aria-label="Serviços do Fritz">
-      <div className="service-marquee-crossing">
+    <section
+      className="service-marquee service-trust-strip"
+      aria-label="Reputação do Fritz no Google"
+    >
+      <div className="service-marquee-band">
         <div
-          className="service-marquee-window"
-          data-lane="0"
-          aria-hidden="true"
-        />
-        <div className="service-marquee-window" data-lane="1">
-          <div className="service-marquee-track">
-            {[0, 1].map((copy) => (
-              <div
-                className="service-marquee-group"
-                key={copy}
-                aria-hidden={copy === 1 ? true : undefined}
-              >
-                {services.map((item) => (
-                  <span key={item.icon} className="service-marquee-item">
-                    <span className="service-marquee-symbol" aria-hidden="true">
-                      <FritzIcon name={item.icon} />
-                    </span>
-                    <span className="service-marquee-name">{item.label}</span>
-                  </span>
-                ))}
-              </div>
-            ))}
+          className="service-marquee-metrics"
+          title={`Dados conferidos em ${googleReviews.checkedAt}`}
+        >
+          <div className="service-marquee-trust-heading">
+            <GoogleIcon />
+            <span>
+              Reputação no <GoogleWord />
+            </span>
           </div>
+          <a
+            href={googleReviews.profile}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Nota ${googleReviews.rating} de 5 no Google — abrir perfil do Fritz em nova aba`}
+          >
+            <span className="service-marquee-number">
+              {googleReviews.rating}
+              <span className="service-marquee-score-scale">/5</span>
+            </span>
+            <span className="service-marquee-caption">Nota dos clientes</span>
+            <span className="service-marquee-stars" aria-hidden="true">
+              ★★★★★
+            </span>
+          </a>
+          <a
+            href={googleReviews.profile}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${googleReviews.count} avaliações no Google — abrir perfil do Fritz em nova aba`}
+          >
+            <span className="service-marquee-number">
+              {googleReviews.count}
+            </span>
+            <span className="service-marquee-caption">
+              Avaliações publicadas
+            </span>
+            <span className="service-marquee-reviewers">
+              {featuredReviewers.map((review) => (
+                <Image
+                  key={review.name}
+                  src={review.image}
+                  width={36}
+                  height={36}
+                  alt={`Foto de perfil de ${review.name}`}
+                  title={review.name}
+                />
+              ))}
+            </span>
+          </a>
         </div>
       </div>
     </section>
   );
 }
+import Image from 'next/image';

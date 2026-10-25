@@ -1,5 +1,7 @@
 export const contact = {
   instagram: 'https://www.instagram.com/higienizacaofritz/',
+  facebook: 'https://www.facebook.com/profile.php?id=61556979120747',
+  linktree: 'https://linktr.ee/higienizacao.fritz',
   whatsappNumber: '5547999051278',
   whatsappDisplay: '+55 47 99905-1278',
 } as const;

@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { bebasNeue, dmSans, poppins } from '@/styles/fonts';
+import { bricolage, nohemi, switzer } from '@/styles/fonts';
 import { Header } from '@/components/layout/header/header';
 import { Footer } from '@/components/layout/footer/footer';
 import { ConsentManager } from '@/components/analytics/consent';
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="pt-BR"
-      className={`${bebasNeue.variable} ${dmSans.variable} ${poppins.variable}`}
+      className={`${bricolage.variable} ${nohemi.variable} ${switzer.variable}`}
     >
       <body>
         <BusinessSchema />

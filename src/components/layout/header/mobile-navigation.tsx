@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { navigation } from '@/config/navigation';
 import { contact, whatsappUrl } from '@/config/contact';
 import { InstagramIcon } from '@/components/ui/social-icons';
+import { RoundLink } from '@/components/ui/round-link';
 import { navigateAnchor } from '@/lib/navigate-anchor';
 import { isPlainClick } from '@/lib/plain-click';
 import { prefersReducedMotion } from '@/lib/media-queries';
@@ -25,7 +26,7 @@ export function MobileNavigation({
       return;
     }
     element.dataset.state = 'closing';
-    timer.current = setTimeout(() => element.close(), 1000);
+    timer.current = setTimeout(() => element.close(), 400);
   }
   function open() {
     const element = dialog.current;
@@ -89,10 +90,9 @@ export function MobileNavigation({
                 Higienização e impermeabilização
               </small>
             </p>
-            <span>Higienização e impermeabilização</span>
           </div>
           <nav className="mobile-links" aria-label="Menu completo">
-            {navigation.map((item) => (
+            {navigation.map((item, index) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -109,6 +109,9 @@ export function MobileNavigation({
                   close();
                 }}
               >
+                <span className="mobile-link-index" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
                 <span className="mobile-link-label">
                   <span>{item.label}</span>
                   <span aria-hidden="true">{item.label}</span>
@@ -117,9 +120,22 @@ export function MobileNavigation({
             ))}
           </nav>
           <div className="mobile-menu-contact">
-            <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
+            <p className="mobile-contact-title">
+              Cuidado com
+              <br />a sua casa.
+            </p>
+            <p className="mobile-contact-description">
+              Higienização e impermeabilização em Joinville e região.
+            </p>
+            <RoundLink
+              href={whatsappUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Conversar pelo WhatsApp — abrir em nova aba"
+              data-track-contact="menu completo whatsapp"
+            >
               Vamos conversar
-            </a>
+            </RoundLink>
             <a
               className="mobile-menu-social"
               href={contact.instagram}

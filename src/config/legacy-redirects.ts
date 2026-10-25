@@ -1,10 +1,9 @@
-/** URLs antigas encaminham para a seção correspondente da home. */
+/** URLs antigas encaminham para os conteúdos atuais do Fritz. */
 export const legacyRedirects = [
   { source: '/sobre', destination: '/#sobre-a-fritz', permanent: true },
-  { source: '/servicos', destination: '/#servicos', permanent: true },
   {
     source: '/projetos/:path*',
-    destination: '/#antes-e-depois',
+    destination: '/servicos',
     permanent: true,
   },
   { source: '/contato', destination: '/#contato', permanent: true },

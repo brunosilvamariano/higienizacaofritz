@@ -38,6 +38,7 @@ export function PageTransition() {
     let frame = 0;
     let deadline: ReturnType<typeof setTimeout> | undefined;
     let finish: ReturnType<typeof setTimeout> | undefined;
+    let releasePreparation: (() => void) | undefined;
     frame = requestAnimationFrame(() => {
       frame = requestAnimationFrame(async () => {
         const image = document.querySelector<HTMLImageElement>('main img');
@@ -55,12 +56,27 @@ export function PageTransition() {
         clearTimeout(deadline);
         const introduction = currentPath.current === '/';
         if (introduction) {
+          if (
+            !document.querySelector<HTMLElement>('.hero')?.dataset
+              .entrancePrepared
+          ) {
+            await new Promise<void>((resolve) => {
+              const prepared = () => {
+                clearTimeout(deadline);
+                window.removeEventListener('traco:hero-prepared', prepared);
+                resolve();
+              };
+              releasePreparation = prepared;
+              window.addEventListener('traco:hero-prepared', prepared);
+              deadline = setTimeout(prepared, 1000);
+            });
+          }
+          if (cancelled) return;
           if (!location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
-          const curtain =
-            document.querySelector<HTMLElement>('.page-transition');
-          if (curtain)
-            curtain.dataset.entranceStart = String(performance.now() - 1440);
+          setPhase('idle');
+          busy.current = false;
           window.dispatchEvent(new Event('traco:entrance-ready'));
+          return;
         }
         setPhase('revealing');
         finish = setTimeout(
@@ -77,6 +93,7 @@ export function PageTransition() {
       cancelAnimationFrame(frame);
       clearTimeout(deadline);
       clearTimeout(finish);
+      releasePreparation?.();
     };
   }, []);
 

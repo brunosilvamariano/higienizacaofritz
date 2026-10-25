@@ -1,0 +1,109 @@
+/* Tema exclusivo da primeira página; os recursos reais mantêm suas cores. */
+.home-palette.home-refined.home-concise,
+body:has(main.home-palette.home-concise)
+  :is(
+    .site-header,
+    .mobile-dialog,
+    .page-transition,
+    footer.site-footer,
+    .footer-backdrop
+  ) {
+  --palette-ice: var(--home-color-canvas);
+  --paper: var(--home-color-canvas);
+  --white: var(--home-color-surface);
+  --brand: var(--home-color-action);
+  --brand-hover: var(--home-color-action-hover);
+  --brand-logo: var(--home-color-action);
+  --ink: var(--home-color-ink);
+  --muted: var(--home-color-muted);
+  --line: var(--home-color-line);
+  --mist: var(--home-color-fog);
+  --sand: var(--home-color-fog);
+  --surface: var(--home-color-fog);
+  --blue-soft: var(--home-color-air);
+  --blue-panel: var(--home-color-air);
+  --blue-panel-strong: var(--home-color-line);
+  --midnight: var(--home-color-charcoal);
+  --on-dark-muted: var(--home-color-on-charcoal);
+}
+body:has(main.home-palette.home-concise) .site-header[data-home='true'] {
+  color: var(--white);
+}
+/* O hero preserva o cobalto, o contraste e os overlays originais da marca. */
+.home-concise > .hero {
+  --brand: var(--home-color-hero-cobalt);
+  --brand-hover: var(--home-color-hero-cobalt-hover);
+  --ink: var(--home-color-hero-shadow);
+  --midnight: var(--home-color-hero-shadow);
+}
+main.page-content.home-palette.home-refined.home-concise,
+main.page-content.home-palette.home-refined.home-concise
+  > :is(.services-projects, .faq) {
+  background-color: var(--home-color-canvas);
+}
+.home-concise .service-project-photo::before {
+  background: linear-gradient(
+    180deg,
+    rgb(48 58 55 / 8%) 0%,
+    rgb(48 58 55 / 26%) 30%,
+    rgb(48 58 55 / 78%) 65%,
+    rgb(48 58 55 / 94%) 100%
+  );
+}
+.home-concise .service-project-photo p {
+  color: var(--home-color-on-charcoal);
+}
+.home-concise > .review-selection {
+  --review-deep: var(--home-color-charcoal);
+}
+.home-concise .review-dialog-quote {
+  color: var(--home-color-air);
+}
+main.page-content.home-palette.home-refined.home-concise > .contact {
+  --contact-seam-blue: var(--home-color-contact-seam);
+  background:
+    radial-gradient(
+      ellipse 90% 28% at 50% 72%,
+      rgb(255 255 255 / 32%),
+      transparent 100%
+    ),
+    linear-gradient(
+      180deg,
+      var(--home-color-contact-start) 20%,
+      var(--contact-seam-blue)
+    );
+}
+.home-concise .contact-panel,
+.home-concise .contact-introduction h2 {
+  color: var(--ink);
+}
+main.page-content.home-concise > .contact .section-eyebrow {
+  color: var(--brand);
+}
+.home-concise .contact-guidance,
+.home-concise .contact-details {
+  color: var(--muted);
+}
+.home-concise .contact-details {
+  border-color: var(--line);
+}
+.home-concise .contact-cta:focus-visible {
+  outline-color: var(--brand);
+}
+body:has(main.page-content.home-palette.home-concise) .footer-backdrop {
+  --contact-seam-blue: var(--home-color-contact-seam);
+  background: linear-gradient(
+    180deg,
+    var(--contact-seam-blue),
+    var(--home-color-contact-end)
+  );
+}
+body:has(main.home-palette.home-concise) footer.site-footer {
+  background-color: var(--home-color-charcoal);
+}
+body:has(main.home-palette.home-concise) .mobile-dialog {
+  background: var(--home-color-charcoal);
+}
+body:has(main.home-palette.home-concise) .mobile-dialog::backdrop {
+  background: rgb(48 58 55 / 35%);
+}

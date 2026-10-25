@@ -25,6 +25,8 @@ export const googleReviews = {
   count: 291,
   checkedAt: '16/10/2026',
   profile: 'https://www.google.com/maps?cid=4180201816637624609',
+  readReviewsUrl:
+    'https://www.google.com/maps/place/Higieniza%C3%A7%C3%A3o+e+Impermeabiliza%C3%A7%C3%A3o+Fritz/@-26.3387519,-48.7977186,770m/data=!3m1!1e3!4m8!3m7!1s0x44c89b26548d5ffb:0x3a030f679220d121!8m2!3d-26.3387519!4d-48.7977186!9m1!1b1!16s%2Fg%2F11sdwkl53r',
   reviewUrl:
     'https://search.google.com/local/writereview?placeid=ChIJ-1-NVCabyEQRIdEgkmcPAzo',
   items: [

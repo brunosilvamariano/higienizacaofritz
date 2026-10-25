@@ -1,0 +1,29 @@
+# Design brief — cards de serviços Fritz / referência Zelora
+
+Correção do empilhamento em 24/10/2026: a saída do contêiner sticky alinha os topos dos cards e reduz a foto de trás a uma faixa fina. Compensar apenas essa liberação no fim do percurso, preservando os 12 px entre camadas enquanto o conjunto sai da tela. Manter redução de 4,5%, escurecimento de 5,5%, interpolação, entrada, conteúdo, grade desktop e acessibilidade. Sem novo espaço artificial, mudança de arquitetura ou dependência.
+
+Ajuste solicitado em 24/10/2026: retirar o efeito em que Como funciona cobre Serviços no desktop. Remover o pin de Serviços, o recorte e o observador exclusivo dessa passagem; manter ambas no fluxo normal. Preservar relevo, cores, parallax interno, etapas, entradas e empilhamento dos cards no celular. Sem mudança de arquitetura ou dependências.
+
+Acabamento solicitado: contorno externo de 1 px em azul acinzentado suave para definir melhor as superfícies brancas. Remover a sombra interna difusa que produz aparência fosca, mantendo sombra externa discreta no estado normal e no hover. Não adicionar contorno interno duplicado; preservar empilhamento, escala e escurecimento progressivo do card de trás.
+
+Último refinamento: escurecimento de até 5,5% no card que recua, usando o mesmo progresso suavizado do empilhamento e desfazendo ao voltar. Foco restaura luminosidade integral. Substituir os marcadores decorativos por SVGs locais coerentes: sofá para o conjunto de serviços, colchão para higienização de colchões e escudo com gota para impermeabilização. Preservar a foto, a disposição e os efeitos existentes; nenhum recurso externo.
+
+Profundidade refinada: conforme o próximo card cobre o anterior, reduzir o card de trás gradualmente até 95,5%, com origem no topo e recuo vertical de até 4 px. Progresso derivado da posição natural dos cards, sem usar a geometria já transformada para evitar oscilações. Suavizar por interpolação em requestAnimationFrame, retomando o tamanho original ao rolar para cima. Desktop, tela baixa e movimento reduzido não recebem essa transformação. Foco mantém tamanho integral e camada acessível.
+
+Empilhamento responsivo solicitado: em coluna única no celular, os quatro cards ficam sticky e o próximo desliza por cima do anterior. Reservar espaço para o header, variar o topo em 12 px por camada, manter cantos e adicionar sombra de contato suave. Usar o fluxo natural dos cards como percurso, sem scroll artificial ou biblioteca adicional. Tela baixa ou movimento reduzido usa lista normal para garantir leitura integral. Desktop/tablet em grade e sobreposição da seção Como funciona preservados.
+
+Conteúdo solicitado pelo usuário: fonte consultada em https://higienizacaofritz.com.br/, seção Serviços, em 24/10/2026. Confirmados estofados (sofás, poltronas e cadeiras), colchões (limpeza e cuidados com secagem), tapetes (orçamento por material e medidas) e impermeabilização (proteção contra líquidos conforme tecido). Card 1 apresenta os três tipos de higienização; card 2 detalha colchões; card 3 destaca estofados sobre a foto existente com texto branco e degradê escuro; card 4 apresenta impermeabilização. Manter a composição, máscara, relevo e marcadores aprovados. Sem alegações de eliminação de ácaros, eficácia, prazo ou secagem não informados pela fonte.
+
+Correção explícita do usuário: seguir literalmente a composição da referência, com terceiro card exclusivamente de imagem. Resultado: card 1 Técnica em cada etapa com três etapas e ícones; card 2 Limpeza profunda com texto e contato; card 3 foto local de extração em sofá, preenchendo toda a superfície; card 4 Sua casa bem cuidada com texto e contato. Retirar vídeos desta composição sem excluir arquivos. Manter as fontes e cores Fritz, máscara de entrada, marcador esfera/losango e sombra da referência. Esta orientação substitui a adaptação inicial abaixo.
+
+Referência inspecionada: https://zelorahigienizacao.vercel.app/, seção Higienização empresarial. Quatro superfícies independentes, fundo branco, raio de 24 px, relevo difuso com luz interna, cabeçalho alto e marcador azul que alterna entre esfera e losango no hover. Entrada com cobertura clara cuja altura se recolhe para cima, em sequência. Mídia amplia suavemente na interação.
+
+Adaptar apenas os cards de Serviços Fritz. Manter título e introdução da seção, os quatro serviços e descrições reais, vídeos locais, destinos e tracking do WhatsApp. Cada card terá cabeçalho Nohemi com marcador, vídeo em janela arredondada, texto Switzer e CTA RoundLink já usado no hero. Não transportar textos empresariais, foto de IA, marca ou fontes da referência.
+
+Entrada com máscara clara recolhendo de baixo para cima, 1,1 s e atraso progressivo de 120 ms; observação individual para funcionar na grade mobile. Hover/foco: profundidade de sombra, esfera vira losango e vídeo amplia discretamente. Paleta Fritz. Movimento reduzido elimina máscara, zoom e transições. Conteúdo permanece visível sem JavaScript; foco expõe o card imediatamente.
+
+Grade de quatro colunas no desktop, duas em tablet e uma no celular, com vãos e cantos próprios. Remover somente as regras antigas dos cards unidos e bolsões recortados da folha de serviços, preservando a sobreposição existente da seção Como funciona. Nenhuma dependência ou arquitetura nova.
+
+Arquivos existentes: src/sections/home/services/services-projects.tsx e services-projects.css. Conteúdo, service-video.tsx, services.videos.ts, header/hero e demais seções preservados. Novo arquivo: este registro.
+
+Validação da composição corrigida: npm run check e build de produção aprovados. Desktop 1440 px: quatro cards de 400 px, com fotografia exclusivamente no terceiro e CTAs completos. Celular 320 px: coluna única, sem overflow horizontal e botões dentro das superfícies. Capturas em work/benefits-preview/zelora-cards-desktop.jpg e zelora-cards-mobile.jpg.

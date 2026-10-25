@@ -1,0 +1,148 @@
+.round-link {
+  flex: none;
+  gap: 14px;
+  min-height: 52px;
+  padding: 6px 6px 6px 24px;
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--round-link-surface, var(--white)) 84%,
+      var(--brand)
+    );
+  border-radius: 100px;
+  background: var(--round-link-surface, var(--white));
+  color: var(--round-link-ink, var(--ink));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 30%),
+    0 4px 12px -8px rgb(0 30 75 / 40%);
+  font:
+    500 var(--type-action-compact)/1.4 var(--font-body),
+    sans-serif;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+.round-link-text,
+.round-link-arrows {
+  position: relative;
+  display: block;
+  overflow: clip;
+}
+.round-link-text > span {
+  display: block;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.round-link-text > span:last-child {
+  position: absolute;
+  inset: 120% 0 auto;
+}
+.round-link-circle {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--round-link-circle-surface, var(--brand));
+  color: var(--round-link-circle-ink, var(--white));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 24%),
+    0 2px 4px rgb(0 30 75 / 10%);
+}
+.round-link-arrows {
+  width: 18px;
+  height: 18px;
+}
+.round-link-arrows svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.round-link-arrows svg:last-child {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%);
+}
+.round-link:is([data-icon='whatsapp'], [data-icon='google'])
+  :is(.round-link-arrows, .round-link-arrows svg) {
+  width: 20px;
+  height: 20px;
+}
+.round-link:is(:hover, :focus-visible) {
+  background: var(--round-link-hover-surface, var(--mist));
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 40%),
+    0 6px 14px -8px rgb(0 30 75 / 40%);
+}
+.round-link:is(:hover, :focus-visible) .round-link-text > span {
+  transform: translateY(-120%);
+}
+.round-link:is(:hover, :focus-visible) .round-link-arrows svg:first-child {
+  transform: translateX(120%);
+}
+.round-link:is(:hover, :focus-visible) .round-link-arrows svg:last-child {
+  transform: translateX(0);
+}
+.round-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+.round-link[data-icon='whatsapp'] .round-link-circle {
+  background: var(--whatsapp);
+  color: var(--white);
+}
+.round-link[data-icon='google'] .round-link-circle {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--white), var(--white)) padding-box,
+    conic-gradient(
+        from -45deg,
+        #ea4335 0 25%,
+        #fbbc05 0 50%,
+        #34a853 0 75%,
+        #4285f4 0
+      )
+      border-box;
+}
+.round-link[data-separated='true'] {
+  gap: 10px;
+  min-height: 46px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.round-link[data-separated='true'] .round-link-label {
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 13px 15px;
+  border: 0;
+  border-radius: 100px;
+  background: var(--round-link-surface);
+  box-shadow: 0 4px 12px -8px rgb(0 30 75 / 30%);
+  transition:
+    background-color 200ms ease,
+    box-shadow 200ms ease;
+}
+.round-link[data-separated='true'] .round-link-circle {
+  width: 46px;
+  height: 46px;
+}
+.round-link[data-separated='true']:is(:hover, :focus-visible) {
+  background: transparent;
+  box-shadow: none;
+}
+.round-link[data-separated='true']:is(:hover, :focus-visible)
+  .round-link-label {
+  background: var(--round-link-hover-surface);
+  box-shadow: 0 6px 14px -8px rgb(0 30 75 / 30%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .round-link,
+  .round-link-label,
+  .round-link-text > span,
+  .round-link-arrows svg {
+    transition: none;
+  }
+}

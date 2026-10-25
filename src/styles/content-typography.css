@@ -1,8 +1,8 @@
-/* O body original mantém hero e header intactos. */
+/* Nohemi e Switzer: os papéis tipográficos compartilham a mesma escala. */
 main.page-content > :not(.hero) .section-eyebrow {
   color: var(--brand);
   font-size: var(--type-eyebrow);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -10,20 +10,29 @@ main.page-content > :not(.hero) .section-eyebrow {
 }
 
 main.page-content > :not(.hero) {
-  --font-body: var(--font-poppins);
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-body), sans-serif;
 }
 main.page-content > :not(.hero) :is(h1, h2, h3, h4) {
   font-family: var(--font-display), sans-serif;
-  font-weight: 400;
+  font-weight: var(--type-heading-weight);
+  letter-spacing: -0.025em;
+  overflow-wrap: break-word;
+}
+main.page-content > .review-testimonials .review-wall-author h3 {
+  font-family: var(--font-body), sans-serif;
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
 }
 main.page-content
   > :not(.hero)
   :is(p, blockquote, input, select, textarea, button) {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-body), sans-serif;
 }
 main.page-content > :not(.hero) .pill-link {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-weight: 500;
 }
 main.page-content > :not(.hero) .pill-link:has(.hover-label-primary) {
@@ -35,7 +44,7 @@ main.page-content > :not(.hero) .pill-link:has(.hover-label-primary) {
   padding: 18px 28px;
 }
 main.page-content > :not(.hero) .contact-button-text {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(16px, 2vw, 28px);
   font-weight: 600;
   text-transform: none;
@@ -79,7 +88,7 @@ main.page-content > :not(.hero) .contact-button-icon {
 }
 
 main.page-content > :not(.hero) .studio-conclusion-title {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-body), sans-serif;
   font-size: clamp(24px, 2.5vw, 36px);
   font-weight: 600;
   line-height: 1.15;

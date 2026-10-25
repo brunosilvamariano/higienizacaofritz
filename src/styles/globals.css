@@ -104,8 +104,8 @@
   font-size: clamp(52px, 6vw, 100px);
   line-height: 1;
   letter-spacing: -0.015em;
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: var(--type-heading-weight);
+  text-transform: none;
   margin-top: 20px;
 }
 .section-heading p {
@@ -236,8 +236,8 @@
 .reference-heading h2 {
   font-family: var(--font-display), sans-serif;
   font-size: var(--heading-large);
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: var(--type-heading-weight);
+  text-transform: none;
   letter-spacing: -0.03em;
   line-height: 1;
 }

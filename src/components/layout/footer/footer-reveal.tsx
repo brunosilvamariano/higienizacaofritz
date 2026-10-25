@@ -28,11 +28,13 @@ export function FooterReveal({ children }: { children: ReactNode }) {
     };
   }, []);
   return (
-    <footer
-      ref={footer}
-      className="site-footer tw:relative tw:bg-ink tw:text-on-dark-muted"
-    >
-      {children}
-    </footer>
+    <div className="footer-backdrop">
+      <footer
+        ref={footer}
+        className="site-footer tw:relative tw:bg-ink tw:text-on-dark-muted"
+      >
+        {children}
+      </footer>
+    </div>
   );
 }

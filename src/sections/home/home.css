@@ -11,17 +11,6 @@
   text-wrap: pretty;
 }
 /* Somente cores da Home; geometria, tipografia e movimento preservados. */
-.home-palette .hero-background {
-  background: var(--ink);
-}
-.home-palette .hero-background::after {
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--ink) 60%, transparent) 0%,
-    color-mix(in srgb, var(--ink) 48%, transparent) 45%,
-    color-mix(in srgb, var(--ink) 60%, transparent) 100%
-  );
-}
 .home-palette :is(.services) {
   background: var(--sand);
 }
@@ -37,10 +26,6 @@
   background: var(--ink);
   color: var(--white);
   border-color: var(--ink);
-}
-body:has(.home-palette) .mobile-menu-top > span {
-  background: var(--blue-panel-strong);
-  color: var(--ink);
 }
 .home-palette .contact-marquee[data-stroke='true'] span {
   -webkit-text-stroke-color: var(--ink);
@@ -75,14 +60,8 @@ body:has(.home-palette) .footer-links a:hover {
 body:has(.home-palette) .footer-wordmark {
   background-image: linear-gradient(var(--white), var(--ink) 80%);
 }
-body:has(.home-palette) .mobile-menu-top > p {
-  background-image: linear-gradient(var(--white) 32%, var(--ink) 90%);
-}
 body:has(.home-palette) .mobile-links a {
   color: var(--on-dark-muted);
-}
-body:has(.home-palette) .mobile-links a::before {
-  background: var(--brand);
 }
 body:has(.home-palette) .floating-top {
   background: var(--brand);
@@ -376,7 +355,7 @@ main.page-content > .about-fritz .section-eyebrow {
 /* Paleta aprovada: grafite, azul de ação e superfícies neutras.
    Escopo na Home e no footer; o header mantém seus tokens originais. */
 .home-palette.home-refined,
-body:has(.home-palette) footer.site-footer {
+body:has(.home-palette) :is(footer.site-footer, .footer-backdrop) {
   --ink: #222222;
   --brand: #0047ab;
   --brand-hover: #003c91;
@@ -439,8 +418,8 @@ main.page-content.home-palette.home-refined > .process-steps .section-eyebrow,
   color: var(--brand);
 }
 .home-palette.home-refined > .process-steps .process-step-toggle {
-  background: var(--blue-panel);
-  color: var(--ink);
+  background: none;
+  color: inherit;
 }
 .home-palette.home-refined > .process-steps .process-step {
   border-color: var(--line);
@@ -502,14 +481,6 @@ main.page-content.home-palette.home-refined
   .pill-link:has(.hover-label-primary):is(:hover, :focus-visible) {
   background: var(--brand-hover);
   border-color: var(--brand-hover);
-}
-.home-palette.home-refined .hero-background::after {
-  background: linear-gradient(
-    180deg,
-    rgb(32 42 56 / 52%) 0%,
-    rgb(32 42 56 / 40%) 45%,
-    rgb(32 42 56 / 56%) 100%
-  );
 }
 
 /* Acabamento tátil dos CTAs: preserva recortes, tipografia e cores de base. */
@@ -691,24 +662,6 @@ main.page-content.home-palette.home-refined > :not(.hero) .section-eyebrow {
 .home-palette.home-refined .review-wall-author img {
   outline: 1px solid rgb(32 42 56 / 8%);
   outline-offset: 3px;
-}
-.home-palette.home-refined .hero {
-  box-shadow:
-    inset 0 -1px 0 rgb(255 255 255 / 18%),
-    0 12px 30px -24px rgb(32 42 56 / 35%);
-}
-.home-palette.home-refined
-  .hero
-  :is(.hero-description, .hero-stat, .hero-social) {
-  text-shadow: 0 1px 4px rgb(0 0 0 / 18%);
-}
-body:has(.home-palette) .site-header[data-solid='true'] {
-  box-shadow:
-    inset 0 -1px 0 rgb(255 255 255 / 10%),
-    0 6px 22px -12px rgb(32 42 56 / 24%);
-}
-body:has(.home-palette) .site-header :is(.brand, .desktop-nav > a) {
-  border-bottom-color: rgb(255 255 255 / 28%);
 }
 body:has(.home-palette)
   .site-footer
@@ -988,30 +941,6 @@ main.home-palette.home-refined > .process-steps {
     0 -12px 28px -20px rgb(32 42 56 / 16%);
 }
 
-/* Passagem de superfícies no desktop: Como funciona cobre os serviços. */
-@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
-  main.home-palette.home-refined > .services-projects[data-overlap='true'] {
-    position: sticky;
-    top: var(--service-overlap-top, 0px);
-    clip-path: inset(0 0 var(--service-overlap-clip, 0px));
-    z-index: 0;
-  }
-  main.home-palette.home-refined
-    > .services-projects:has(a:focus-visible, button:focus-visible) {
-    position: relative;
-    top: auto;
-  }
-  main.home-palette.home-refined > .process-steps {
-    position: relative;
-    z-index: 2;
-    background-color: var(--paper);
-    box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 90%),
-      0 -4px 8px rgb(32 42 56 / 3%),
-      0 -18px 38px -22px rgb(32 42 56 / 22%);
-  }
-}
-
 /* Fundo gelo exclusivo de Como funciona. */
 main.home-palette.home-refined > .process-steps {
   --paper: #f4f6f8;
@@ -1035,7 +964,7 @@ main.home-palette.home-refined > .process-steps {
     justify-self: center;
     width: 100%;
   }
-  .home-palette :is(.about-fritz-heading, .process-steps-heading) {
+  .home-palette .about-fritz-heading {
     text-align: center;
   }
 }
