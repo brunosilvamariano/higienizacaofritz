@@ -26,7 +26,8 @@ body:has(main.home-palette)
   --midnight: var(--home-color-charcoal);
   --on-dark-muted: var(--home-color-on-charcoal);
 }
-body:has(main.home-palette) .site-header[data-home='true'] {
+body:has(main.home-palette)
+  .site-header[data-home='true']:not([data-floating='true']) {
   color: var(--white);
 }
 /* O hero preserva o cobalto, o contraste e os overlays originais da marca. */
@@ -124,11 +125,4 @@ body:has(main.home-palette) footer.site-footer {
     ),
     var(--home-color-charcoal);
   box-shadow: 0 14px 30px -20px rgb(22 39 55 / 24%);
-}
-body:has(main.home-palette) .mobile-dialog {
-  --round-link-focus: var(--white);
-  background: var(--home-color-charcoal);
-}
-body:has(main.home-palette) .mobile-dialog::backdrop {
-  background: color-mix(in srgb, var(--home-color-charcoal) 35%, transparent);
 }

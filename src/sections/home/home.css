@@ -47,7 +47,7 @@
 .home-palette .contact-button-gap {
   background: var(--paper);
 }
-body:has(.home-palette) :is(.site-footer, .mobile-dialog) {
+body:has(.home-palette) .site-footer {
   background: var(--ink);
 }
 body:has(.home-palette)
@@ -59,9 +59,6 @@ body:has(.home-palette) .footer-links a:hover {
 }
 body:has(.home-palette) .footer-wordmark {
   background-image: linear-gradient(var(--white), var(--ink) 80%);
-}
-body:has(.home-palette) .mobile-links a {
-  color: var(--on-dark-muted);
 }
 body:has(.home-palette) .floating-top {
   background: var(--brand);
@@ -683,9 +680,6 @@ body:has(.home-palette) :is(.floating-top) {
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / 20%),
     0 3px 10px rgb(32 42 56 / 10%);
-}
-body:has(.home-palette) .mobile-dialog {
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%);
 }
 .home-palette.home-refined :is(a, button):focus-visible,
 body:has(.home-palette)

@@ -2,6 +2,14 @@
  * rug adapts the existing Fritz carpet drawing; shield-droplet combines Tabler shield with a local drop.
  */
 const drawings = {
+  // Local navigation drawings share the service icons' rounded stroke system.
+  home: 'M3 10l9-7 9 7 M5 9v12h14V9 M9 21v-7h6v7',
+  star: 'm12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9z',
+  user: 'M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0 M5 21v-2a7 7 0 0 1 14 0v2',
+  help: 'M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0 M9.5 9a2.5 2.5 0 1 1 4 2c-1 .6-1.5 1-1.5 2 M12 16h.01',
+  phone:
+    'M5 3h4l2 5-3 2a14 14 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A18 18 0 0 1 3 5a2 2 0 0 1 2-2',
+
   sofa: 'M4 11a2 2 0 0 1 2 2v1h12v-1a2 2 0 1 1 4 0v5a1 1 0 0 1 -1 1h-18a1 1 0 0 1 -1 -1v-5a2 2 0 0 1 2 -2 M4 11v-3a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v3 M12 5v9',
   'bed-flat':
     'M3 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M10 13h11v-2a3 3 0 0 0 -3 -3h-8v5 M3 16h18',
