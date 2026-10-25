@@ -233,6 +233,7 @@ export function ServicesProjects() {
                 id="services-title"
                 text={servicesContent.title}
                 accent="Fritz"
+                leadAccent="Serviços"
               />
               <p>{servicesContent.introduction}</p>
             </div>
@@ -300,12 +301,14 @@ export function ServicesProjects() {
                   <span className="service-project-reveal" aria-hidden="true" />
                 </article>
                 <figure className="service-project-card service-project-photo">
-                  <Image
-                    src={cleaningImage}
-                    alt="Extração durante a higienização de um sofá."
-                    fill
-                    sizes="(max-width: 767px) 90vw, (max-width: 1199px) 45vw, 24vw"
-                  />
+                  <div className="service-project-photo-media tw:absolute tw:inset-0">
+                    <Image
+                      src={cleaningImage}
+                      alt="Extração durante a higienização de um sofá."
+                      fill
+                      sizes="(max-width: 767px) 90vw, (max-width: 1199px) 45vw, 24vw"
+                    />
+                  </div>
                   <figcaption className="service-project-photo-copy">
                     <span className="service-project-photo-label">
                       Cuidado com o tecido
@@ -322,7 +325,7 @@ export function ServicesProjects() {
                   </figcaption>
                   <span className="service-project-reveal" aria-hidden="true" />
                 </figure>
-                <article className="service-project-card">
+                <article className="service-project-card service-project-protection">
                   <header className="service-project-card-heading tw:flex tw:justify-between">
                     <h3>
                       Mais proteção

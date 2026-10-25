@@ -1,6 +1,6 @@
-/* Tema exclusivo da primeira página; os recursos reais mantêm suas cores. */
-.home-palette.home-refined.home-concise,
-body:has(main.home-palette.home-concise)
+/* Identidade compartilhada entre home e Serviços; recursos reais mantêm suas cores. */
+.home-palette.home-refined,
+body:has(main.home-palette)
   :is(
     .site-header,
     .mobile-dialog,
@@ -26,7 +26,7 @@ body:has(main.home-palette.home-concise)
   --midnight: var(--home-color-charcoal);
   --on-dark-muted: var(--home-color-on-charcoal);
 }
-body:has(main.home-palette.home-concise) .site-header[data-home='true'] {
+body:has(main.home-palette) .site-header[data-home='true'] {
   color: var(--white);
 }
 /* O hero preserva o cobalto, o contraste e os overlays originais da marca. */
@@ -36,18 +36,17 @@ body:has(main.home-palette.home-concise) .site-header[data-home='true'] {
   --ink: var(--home-color-hero-shadow);
   --midnight: var(--home-color-hero-shadow);
 }
-main.page-content.home-palette.home-refined.home-concise,
-main.page-content.home-palette.home-refined.home-concise
-  > :is(.services-projects, .faq) {
+main.page-content.home-palette.home-refined,
+main.page-content.home-palette.home-refined > .services-projects {
   background-color: var(--home-color-canvas);
 }
 .home-concise .service-project-photo::before {
   background: linear-gradient(
     180deg,
-    rgb(48 58 55 / 8%) 0%,
-    rgb(48 58 55 / 26%) 30%,
-    rgb(48 58 55 / 78%) 65%,
-    rgb(48 58 55 / 94%) 100%
+    color-mix(in srgb, var(--home-color-charcoal) 8%, transparent) 0%,
+    color-mix(in srgb, var(--home-color-charcoal) 26%, transparent) 30%,
+    color-mix(in srgb, var(--home-color-charcoal) 78%, transparent) 65%,
+    color-mix(in srgb, var(--home-color-charcoal) 94%, transparent) 100%
   );
 }
 .home-concise .service-project-photo p {
@@ -59,51 +58,77 @@ main.page-content.home-palette.home-refined.home-concise
 .home-concise .review-dialog-quote {
   color: var(--home-color-air);
 }
-main.page-content.home-palette.home-refined.home-concise > .contact {
-  --contact-seam-blue: var(--home-color-contact-seam);
-  background:
-    radial-gradient(
-      ellipse 90% 28% at 50% 72%,
-      rgb(255 255 255 / 32%),
-      transparent 100%
-    ),
-    linear-gradient(
-      180deg,
-      var(--home-color-contact-start) 20%,
-      var(--contact-seam-blue)
-    );
-}
-.home-concise .contact-panel,
-.home-concise .contact-introduction h2 {
+.home-palette .contact-panel,
+.home-palette .contact-introduction h2 {
   color: var(--ink);
 }
-main.page-content.home-concise > .contact .section-eyebrow {
-  color: var(--brand);
+main.page-content.home-palette > .contact .section-eyebrow {
+  color: var(--ink);
 }
-.home-concise .contact-guidance,
-.home-concise .contact-details {
+/* Rótulos neutros e dois acentos editoriais da mesma família do hero. */
+main.page-content.home-palette.home-refined
+  > :not(.hero, .services-introduction, .fritz-differentials)
+  .section-eyebrow,
+.home-concise .about-fritz-word[data-accent='true'],
+.home-concise .faq-item[data-open='true'] :is(.faq-trigger, .faq-index) {
+  color: var(--ink);
+}
+.home-palette.home-refined .section-title-lead-accent,
+.home-concise .about-summary-word[data-title-tone='lead'] {
+  color: var(--home-color-title-lead);
+}
+.home-palette.home-refined .section-title-accent,
+.home-concise .about-summary-word[data-title-tone='end'] {
+  color: var(--home-color-title-end);
+}
+.home-concise > .review-selection + .faq {
+  position: relative;
+}
+.home-concise > .review-selection + .faq::before {
+  content: '';
+  position: absolute;
+  inset: 0 max(var(--gutter), calc((100% - var(--content-max-width)) / 2)) auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--line) 16%,
+    color-mix(in srgb, var(--ink) 32%, var(--paper)) 50%,
+    var(--line) 84%,
+    transparent
+  );
+  pointer-events: none;
+}
+.home-palette .contact-guidance,
+.home-palette .contact-details {
   color: var(--muted);
 }
-.home-concise .contact-details {
+.home-palette .contact-details {
   border-color: var(--line);
 }
-.home-concise .contact-cta:focus-visible {
+.home-palette .contact-cta:focus-visible {
   outline-color: var(--brand);
 }
-body:has(main.page-content.home-palette.home-concise) .footer-backdrop {
-  --contact-seam-blue: var(--home-color-contact-seam);
-  background: linear-gradient(
-    180deg,
-    var(--contact-seam-blue),
-    var(--home-color-contact-end)
-  );
+body:has(main.home-palette) footer.site-footer {
+  --round-link-focus: var(--white);
+  background:
+    radial-gradient(
+      ellipse 70% 95% at 0% 0%,
+      rgb(0 71 171 / 13%),
+      transparent 75%
+    ),
+    radial-gradient(
+      ellipse 38% 50% at 100% 100%,
+      rgb(119 177 74 / 4%),
+      transparent 85%
+    ),
+    var(--home-color-charcoal);
+  box-shadow: 0 14px 30px -20px rgb(22 39 55 / 24%);
 }
-body:has(main.home-palette.home-concise) footer.site-footer {
-  background-color: var(--home-color-charcoal);
-}
-body:has(main.home-palette.home-concise) .mobile-dialog {
+body:has(main.home-palette) .mobile-dialog {
+  --round-link-focus: var(--white);
   background: var(--home-color-charcoal);
 }
-body:has(main.home-palette.home-concise) .mobile-dialog::backdrop {
-  background: rgb(48 58 55 / 35%);
+body:has(main.home-palette) .mobile-dialog::backdrop {
+  background: color-mix(in srgb, var(--home-color-charcoal) 35%, transparent);
 }

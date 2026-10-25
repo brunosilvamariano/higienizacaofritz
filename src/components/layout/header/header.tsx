@@ -11,8 +11,16 @@ import './mobile-navigation.css';
 export function Header() {
   const pathname = usePathname();
   return (
-    <div className="site-header-slot" data-home={pathname === '/'}>
-      <header className="site-header" data-home={pathname === '/'}>
+    <div
+      className="site-header-slot"
+      data-home={pathname === '/'}
+      data-banner={pathname === '/servicos'}
+    >
+      <header
+        className="site-header"
+        data-home={pathname === '/'}
+        data-banner={pathname === '/servicos'}
+      >
         <div className="header-inner tw:flex tw:items-center tw:justify-between">
           <Brand />
           <DesktopNavigation />

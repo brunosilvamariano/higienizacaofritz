@@ -4,23 +4,33 @@
   margin-bottom: 0;
 }
 .contact {
-  --contact-seam-blue: color-mix(in srgb, var(--brand) 88%, var(--white));
+  --contact-seam-blue: var(--home-color-contact-seam);
 }
 main.page-content.home-palette.home-refined > .contact {
   background:
     radial-gradient(
-      ellipse 90% 28% at 50% 72%,
-      rgb(255 255 255 / 6%),
-      transparent 100%
+      ellipse 80% 110% at 95% 0%,
+      rgb(0 71 171 / 10%),
+      rgb(0 71 171 / 3%) 48%,
+      transparent 80%
     ),
-    linear-gradient(180deg, var(--brand) 20%, var(--contact-seam-blue) 100%);
+    radial-gradient(
+      ellipse 45% 85% at 0% 100%,
+      rgb(119 177 74 / 5%),
+      transparent 85%
+    ),
+    linear-gradient(
+      180deg,
+      var(--home-color-contact-start),
+      var(--contact-seam-blue)
+    );
 }
 body:has(main.page-content > .contact) .footer-backdrop {
-  --contact-seam-blue: color-mix(in srgb, var(--brand) 88%, var(--white));
+  --contact-seam-blue: var(--home-color-contact-seam);
   background: linear-gradient(
     180deg,
     var(--contact-seam-blue),
-    color-mix(in srgb, var(--brand) 84%, var(--white))
+    var(--home-color-contact-end)
   );
 }
 .contact:focus {
@@ -57,9 +67,9 @@ main.page-content > .contact .section-eyebrow {
   text-wrap: pretty;
 }
 .contact-cta {
-  --round-link-surface: var(--white);
-  --round-link-ink: var(--brand);
-  --round-link-hover-surface: #f2f7ff;
+  --round-link-surface: var(--brand);
+  --round-link-ink: var(--white);
+  --round-link-hover-surface: var(--brand-hover);
   max-width: 100%;
 }
 .contact-cta:focus-visible {

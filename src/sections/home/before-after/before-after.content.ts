@@ -7,25 +7,29 @@ export const comparisonCases = [
   {
     id: 'sofas',
     title: 'Sofás',
-    detail: 'Do assento aos braços, observe o tecido.',
+    detail:
+      'Higienização de sofás, dos assentos aos braços e encostos. Envie fotos para consultar o serviço indicado e os cuidados com o tecido.',
     image: sofa,
   },
   {
     id: 'colchoes',
     title: 'Colchões',
-    detail: 'Compare as marcas na superfície clara.',
+    detail:
+      'Limpeza de colchões com orientação sobre secagem e uso após o serviço. Informe as medidas e envie fotos para consultar o atendimento.',
     image: colchao,
   },
   {
     id: 'tapetes',
     title: 'Tapetes',
-    detail: 'Veja a textura e o contorno das fibras.',
+    detail:
+      'Cada material pede um cuidado próprio. Envie as medidas, fotos e a etiqueta do tapete, se disponível, para consultar a higienização.',
     image: tapete,
   },
   {
     id: 'cadeiras',
     title: 'Cadeiras',
-    detail: 'Confira o assento e a trama do encosto.',
+    detail:
+      'Higienização de cadeiras com atenção ao assento, encosto e tipo de tecido. Envie fotos e a quantidade de peças para pedir seu orçamento.',
     image: cadeira,
   },
 ] as const;

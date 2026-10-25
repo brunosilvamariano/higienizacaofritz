@@ -7,10 +7,8 @@ export const primaryNavigation = [
 export const navigation = [
   { label: 'Início', href: '/#inicio' },
   { label: 'Serviços', href: '/servicos' },
-  { label: 'Como funciona', href: '/servicos#processo' },
   { label: 'Avaliações', href: '/#avaliacoes' },
   { label: 'Sobre o Fritz', href: '/#sobre-a-fritz' },
-  { label: 'Onde atendemos', href: '/servicos#onde-atendemos' },
   { label: 'Dúvidas', href: '/#duvidas' },
   { label: 'Contato', href: '/#contato' },
 ] as const;

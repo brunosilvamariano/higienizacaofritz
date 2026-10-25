@@ -47,7 +47,7 @@
 .home-palette .contact-button-gap {
   background: var(--paper);
 }
-body:has(.home-palette) :is(.site-footer, .mobile-dialog, .page-transition) {
+body:has(.home-palette) :is(.site-footer, .mobile-dialog) {
   background: var(--ink);
 }
 body:has(.home-palette)
@@ -352,24 +352,23 @@ main.page-content > .about-fritz .section-eyebrow {
   }
 }
 
-/* Paleta aprovada: grafite, azul de ação e superfícies neutras.
-   Escopo na Home e no footer; o header mantém seus tokens originais. */
+/* Base compartilhada de identidade. */
 .home-palette.home-refined,
 body:has(.home-palette) :is(footer.site-footer, .footer-backdrop) {
-  --ink: #222222;
-  --brand: #0047ab;
-  --brand-hover: #003c91;
-  --palette-ice: #f3f3f3;
-  --mist: #ededed;
-  --sand: #ededed;
-  --blue-soft: #dce4ee;
-  --blue-panel: #e7ebf0;
-  --blue-panel-strong: #d3dce8;
-  --muted: #686868;
-  --line: #dedede;
-  --line-on-dark: rgb(255 255 255 / 24%);
-  --on-dark-muted: #e1e5eb;
-  --midnight: #222222;
+  --ink: var(--fritz-ink);
+  --brand: var(--fritz-cobalt);
+  --brand-hover: var(--fritz-cobalt-hover);
+  --palette-ice: var(--fritz-ice);
+  --mist: var(--fritz-fog);
+  --sand: var(--fritz-fog);
+  --blue-soft: var(--fritz-air);
+  --blue-panel: var(--fritz-air);
+  --blue-panel-strong: var(--fritz-line);
+  --muted: var(--fritz-muted);
+  --line: var(--fritz-line);
+  --line-on-dark: rgb(255 255 255 / 20%);
+  --on-dark-muted: var(--fritz-on-dark);
+  --midnight: var(--fritz-ink);
 }
 .home-palette.home-refined > :not(.hero) {
   --paper: var(--palette-ice);
@@ -692,7 +691,7 @@ body:has(.home-palette) .mobile-dialog {
 body:has(.home-palette)
   :is(.site-header, .site-footer, .mobile-dialog)
   :is(a, button):focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--round-link-focus, var(--brand));
   outline-offset: 5px;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -889,7 +888,7 @@ body:has(.home-palette)
 
 /* Refinamento exclusivo de Por que escolher o Fritz. */
 .home-palette.home-refined > .benefits {
-  background-color: #f3f3f3;
+  background-color: var(--fritz-ice);
   background-image: radial-gradient(
     ellipse at 50% 0%,
     rgb(255 255 255 / 38%),
@@ -917,12 +916,12 @@ body:has(.home-palette)
 
 /* Uma única base neutra na passagem benefícios → faixa → serviços. */
 .home-palette.home-refined {
-  background-color: #f3f3f3;
+  background-color: var(--fritz-ice);
 }
 main.home-palette.home-refined
   > :is(.benefits, .service-marquee, .services-projects) {
-  --paper: #f3f3f3;
-  background: #f3f3f3;
+  --paper: var(--fritz-ice);
+  background: var(--fritz-ice);
 }
 .home-palette.home-refined > .benefits::before {
   background: none;

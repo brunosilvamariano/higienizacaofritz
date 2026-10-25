@@ -4,6 +4,9 @@
 .site-header-slot[data-home='true'] {
   height: 0;
 }
+.site-header-slot[data-banner='true'] {
+  height: 0;
+}
 .site-header {
   position: absolute;
   inset: 20px 20px auto;
@@ -261,4 +264,13 @@
   .header-more > summary svg {
     transition: none;
   }
+}
+
+/* Sobreposição do header no banner da página de Serviços. */
+.site-header[data-banner='true'] {
+  color: #ffffff;
+}
+
+.site-header:is([data-home='true'], [data-banner='true']) {
+  --round-link-focus: var(--white);
 }

@@ -1,4 +1,5 @@
 .hero {
+  --round-link-focus: var(--white);
   --hero-frame: 20px;
   isolation: isolate;
   display: flex;

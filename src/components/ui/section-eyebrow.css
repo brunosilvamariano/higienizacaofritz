@@ -1,3 +1,6 @@
+.section-eyebrow-drop {
+  color: var(--fritz-green);
+}
 .section-eyebrow {
   display: flex;
   align-items: center;

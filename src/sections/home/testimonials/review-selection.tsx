@@ -94,6 +94,7 @@ export function ReviewSelection() {
           id="review-selection-title"
           text="Quem recebeu esse cuidado conta."
           accent="conta."
+          leadAccent="cuidado"
         />
         <p>
           Experiências de quem já chamou o Fritz, publicadas no <GoogleWord />.

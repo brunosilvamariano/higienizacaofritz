@@ -53,12 +53,6 @@ export function Footer() {
           </nav>
           <nav aria-label="Serviços e dúvidas">
             <h2>Serviços e dúvidas</h2>
-            <Link href="/servicos#processo">
-              <HoverLabel>Como funciona</HoverLabel>
-              <span className="footer-link-mobile" aria-hidden="true">
-                Como funciona
-              </span>
-            </Link>
             <Link href="/#duvidas">
               <HoverLabel>Dúvidas</HoverLabel>
               <span className="footer-link-mobile" aria-hidden="true">

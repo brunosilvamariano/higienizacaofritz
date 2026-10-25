@@ -53,3 +53,9 @@ Nenhuma exclusão foi baseada só no nome de uma pasta: referências, testes e b
 Home: Hero → reputação Google → Serviços com diferenciais integrados → Sobre resumido → três avaliações reais → quatro dúvidas essenciais → contato. /servicos: abertura e cobertura → catálogo dos quatro serviços → Como funciona com parallax interno → FAQ completo → contato. FAQ e contato existentes são reutilizados; nenhuma dependência nova.
 
 Menu e rodapé apontam apenas para destinos ativos. /servicos deixou de ser redirect e possui canonical próprio; sitemap usa o mesmo cadastro de rotas. Comparativos ilustrativos, mapa, mural e benefícios extensos ficam preservados no acervo, sem montagem na home.
+
+Atualização de 25/10/2026: /servicos passa a abrir com banner fotográfico real e cobertura; segue catálogo, FAQ completo e contato. Como funciona foi removido integralmente da composição por solicitação expressa do cliente. Seus arquivos permanecem no acervo sem montagem. Links para /servicos#processo foram retirados da abertura, menu e rodapé.
+
+Atualização da composição de Serviços: abertura com banner compacto → quatro comparativos existentes identificados como ilustrativos → três diferenciais inspirados no Simple Process Finanex, com coluna sticky e progresso por rolagem → FAQ → contato. ServiceCatalog e sua galeria editorial permanecem no acervo, sem montagem. Os comparativos reutilizam BeforeAfter com prop compact; differentials possui componente e CSS próprios na pasta services/differentials.
+
+Correção final solicitada: FAQ removido de /servicos e mantido apenas na home; comparativos usam o RoundLink compartilhado do site. Uso das imagens ilustrativas existentes confirmado pelo cliente para troca posterior.

@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import Image from 'next/image';
-import fritzMark from '@/assets/images/shared/fritz/fritz-mark.png';
 import { navigateAnchor } from '@/lib/navigate-anchor';
 import { focusAnchor } from '@/lib/focus-anchor';
 import { prefersReducedMotion } from '@/lib/media-queries';
@@ -16,17 +14,49 @@ type Destination = {
   reduced: boolean;
   restoreScroll?: number;
 };
+const WORDMARK = 'Fritz.';
+const TYPE_STEP = 80;
+const DOT_HOLD = 100;
+const REVEAL_DURATION = 420;
+
 type Phase = 'initial' | 'idle' | 'covering' | 'covered' | 'revealing';
 
 export function PageTransition() {
   const router = useRouter();
   const pathname = usePathname();
   const [phase, setPhase] = useState<Phase>('initial');
+  const [typedCount, setTypedCount] = useState(0);
+  const typingReady = useRef<Promise<void>>(Promise.resolve());
   const pending = useRef<Destination | null>(null);
   const busy = useRef(true);
   const currentPath = useRef(pathname);
   const positions = useRef(new Map<string, number>());
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    if (!['initial', 'covered'].includes(phase) || prefersReducedMotion())
+      return;
+    setTypedCount(0);
+    let count = 0;
+    let finish: ReturnType<typeof setTimeout> | undefined;
+    let release = () => {};
+    typingReady.current = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    const interval = setInterval(() => {
+      count += 1;
+      setTypedCount(count);
+      if (count === WORDMARK.length) {
+        clearInterval(interval);
+        finish = setTimeout(release, DOT_HOLD);
+      }
+    }, TYPE_STEP);
+    return () => {
+      clearInterval(interval);
+      clearTimeout(finish);
+      release();
+    };
+  }, [phase]);
 
   useEffect(() => {
     if (prefersReducedMotion()) {
@@ -73,19 +103,15 @@ export function PageTransition() {
           }
           if (cancelled) return;
           if (!location.hash) window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+        await typingReady.current;
+        if (cancelled) return;
+        setPhase('revealing');
+        window.dispatchEvent(new Event('traco:entrance-ready'));
+        finish = setTimeout(() => {
           setPhase('idle');
           busy.current = false;
-          window.dispatchEvent(new Event('traco:entrance-ready'));
-          return;
-        }
-        setPhase('revealing');
-        finish = setTimeout(
-          () => {
-            setPhase('idle');
-            busy.current = false;
-          },
-          currentPath.current === '/' ? 1000 : 540,
-        );
+        }, REVEAL_DURATION);
       });
     });
     return () => {
@@ -222,6 +248,7 @@ export function PageTransition() {
             }),
           ]);
         }
+        if (!target.reduced) await typingReady.current;
         if (cancelled || pending.current !== target) return;
         if (target.url.hash) navigateAnchor(target.url.hash, false, 'instant');
         else {
@@ -240,14 +267,12 @@ export function PageTransition() {
           return;
         }
         setPhase('revealing');
+        window.dispatchEvent(new Event('traco:entrance-ready'));
         timers.current.push(
-          setTimeout(
-            () => {
-              setPhase('idle');
-              busy.current = false;
-            },
-            pathname === '/' ? 1000 : 540,
-          ),
+          setTimeout(() => {
+            setPhase('idle');
+            busy.current = false;
+          }, REVEAL_DURATION),
         );
       });
     });
@@ -259,19 +284,21 @@ export function PageTransition() {
 
   return (
     <div
-      className="page-transition tw:grid tw:place-items-center tw:bg-taupe tw:text-ink"
+      className="page-transition tw:grid tw:place-items-center"
       data-phase={phase}
-      data-home={pathname === '/'}
-      aria-hidden={phase === 'idle'}
+      data-typed-count={typedCount}
+      aria-hidden="true"
     >
-      <Image
-        className="page-transition-logo"
-        src={fritzMark}
-        alt="Fritz"
-        width={112}
-        height={112}
-        priority
-      />
+      <span
+        className="page-transition-wordmark"
+        data-complete={typedCount === WORDMARK.length}
+      >
+        <span className="page-transition-measure">{WORDMARK}</span>
+        <span className="page-transition-writing">
+          {WORDMARK.slice(0, typedCount)}
+          <span className="page-transition-caret" />
+        </span>
+      </span>
     </div>
   );
 }

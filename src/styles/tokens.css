@@ -100,23 +100,55 @@
   }
 }
 
-/* Paleta semântica da home clara; ativada apenas por home-colors.css. */
+/* Identidade Fritz: home e Servicos. */
 :root {
-  --home-color-hero-cobalt: #0047ab;
-  --home-color-hero-cobalt-hover: #003c91;
+  --palette-ice: var(--fritz-ice);
+  --paper: var(--fritz-ice);
+  --white: var(--fritz-porcelain);
+  --ink: var(--fritz-ink);
+  --muted: var(--fritz-muted);
+  --brand: var(--fritz-cobalt);
+  --brand-hover: var(--fritz-cobalt-hover);
+  --line: var(--fritz-line);
+  --mist: var(--fritz-fog);
+  --surface: var(--fritz-fog);
+  --midnight: var(--fritz-ink);
+  --on-dark-muted: var(--fritz-on-dark);
+  --fritz-cobalt: #0047ab;
+  --fritz-cobalt-hover: #003c91;
+  --fritz-ice: #f1f5f8;
+  --fritz-porcelain: #ffffff;
+  --fritz-fog: #e7eef4;
+  --fritz-air: #dce8f3;
+  --fritz-ink: #20272c;
+  --fritz-muted: #58646e;
+  --fritz-line: #d6dfe6;
+  --fritz-blue: #326fac;
+  --fritz-green: #77b14a;
+  --fritz-green-soft: #e8efdf;
+  --fritz-green-light: #bfdb9d;
+  --fritz-on-dark: #e0e7ed;
+  --fritz-gallery-paper: #f7f7f2;
+  --fritz-shadow-control: 0 5px 14px -8px rgb(22 39 55 / 24%);
+  --fritz-shadow-card: 0 8px 24px -20px rgb(22 39 55 / 20%);
+  --fritz-shadow-card-hover: 0 16px 32px -22px rgb(22 39 55 / 24%);
+  --home-color-hero-cobalt: var(--fritz-cobalt);
+  --home-color-hero-cobalt-hover: var(--fritz-cobalt-hover);
   --home-color-hero-shadow: #222222;
-  --home-color-canvas: #f7f8f5;
-  --home-color-surface: #ffffff;
-  --home-color-fog: #ecf1ef;
-  --home-color-air: #dcecf1;
-  --home-color-action: #2377a3;
-  --home-color-action-hover: #1c668b;
-  --home-color-ink: #29332f;
-  --home-color-muted: #596861;
-  --home-color-line: #d6dfda;
-  --home-color-charcoal: #303a37;
-  --home-color-on-charcoal: #dce5df;
-  --home-color-contact-start: #d7eaf0;
-  --home-color-contact-seam: #e8f1ef;
-  --home-color-contact-end: #f1f5f0;
+  --home-color-canvas: var(--fritz-ice);
+  --home-color-surface: var(--fritz-porcelain);
+  --home-color-fog: var(--fritz-fog);
+  --home-color-air: var(--fritz-air);
+  --home-color-action: var(--fritz-cobalt);
+  --home-color-action-hover: var(--fritz-cobalt-hover);
+  --home-color-title-lead: var(--fritz-cobalt);
+  --home-color-title-end: var(--fritz-blue);
+  --home-color-ink: var(--fritz-ink);
+  --home-color-muted: var(--fritz-muted);
+  --home-color-line: var(--fritz-line);
+  --home-color-charcoal: var(--fritz-ink);
+  --home-color-on-charcoal: var(--fritz-on-dark);
+  --home-color-contact-start: #eef3f7;
+  --home-color-contact-seam: #e9eff4;
+  --home-color-contact-end: var(--fritz-ice);
 }

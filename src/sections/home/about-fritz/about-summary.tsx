@@ -114,6 +114,13 @@ export function AboutSummary() {
             >
               <span
                 className="about-summary-word"
+                data-title-tone={
+                  word === 'cuidado'
+                    ? 'lead'
+                    : word === 'casa.'
+                      ? 'end'
+                      : undefined
+                }
                 style={
                   { '--about-word-delay': `${index * 42}ms` } as CSSProperties
                 }

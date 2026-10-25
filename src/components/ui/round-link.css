@@ -3,18 +3,11 @@
   gap: 14px;
   min-height: 52px;
   padding: 6px 6px 6px 24px;
-  border: 1px solid
-    color-mix(
-      in srgb,
-      var(--round-link-surface, var(--white)) 84%,
-      var(--brand)
-    );
+  border: 1px solid var(--round-link-surface, var(--white));
   border-radius: 100px;
   background: var(--round-link-surface, var(--white));
   color: var(--round-link-ink, var(--ink));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 30%),
-    0 4px 12px -8px rgb(0 30 75 / 40%);
+  box-shadow: var(--fritz-shadow-control);
   font:
     500 var(--type-action-compact)/1.4 var(--font-body),
     sans-serif;
@@ -22,7 +15,9 @@
   white-space: nowrap;
   transition:
     background-color 200ms ease,
-    box-shadow 200ms ease;
+    border-color 200ms ease,
+    box-shadow 250ms ease,
+    translate 350ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .round-link-text,
 .round-link-arrows {
@@ -45,9 +40,7 @@
   border-radius: 50%;
   background: var(--round-link-circle-surface, var(--brand));
   color: var(--round-link-circle-ink, var(--white));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 24%),
-    0 2px 4px rgb(0 30 75 / 10%);
+  box-shadow: none;
 }
 .round-link-arrows {
   width: 18px;
@@ -69,10 +62,10 @@
   height: 20px;
 }
 .round-link:is(:hover, :focus-visible) {
+  border-color: var(--round-link-hover-surface, var(--mist));
   background: var(--round-link-hover-surface, var(--mist));
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 40%),
-    0 6px 14px -8px rgb(0 30 75 / 40%);
+  box-shadow: 0 8px 18px -9px rgb(22 39 55 / 28%);
+  translate: 0 -1px;
 }
 .round-link:is(:hover, :focus-visible) .round-link-text > span {
   transform: translateY(-120%);
@@ -84,7 +77,7 @@
   transform: translateX(0);
 }
 .round-link:focus-visible {
-  outline: 2px solid currentColor;
+  outline: 2px solid var(--round-link-focus, var(--brand));
   outline-offset: 5px;
 }
 .round-link[data-icon='whatsapp'] .round-link-circle {
@@ -144,5 +137,6 @@
   .round-link-text > span,
   .round-link-arrows svg {
     transition: none;
+    translate: none;
   }
 }

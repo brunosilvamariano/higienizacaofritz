@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { SectionEyebrow } from '@/components/ui/section-eyebrow';
 import { TitleReveal } from '@/animations/title-reveal';
+import { serviceAreas } from '@/content/service-areas';
 import { faqItems } from './faq.content';
 import './faq.css';
 
@@ -24,9 +25,8 @@ export function Faq({ compact = false }: { compact?: boolean }) {
       tabIndex={-1}
     >
       <div className="faq-inner">
-        <div className="faq-topline tw:flex tw:items-center tw:justify-between">
-          <SectionEyebrow>Perguntas frequentes</SectionEyebrow>
-          <span className="faq-topnote">Antes de agendar</span>
+        <div className="faq-topline tw:flex tw:items-center tw:justify-center">
+          <SectionEyebrow align="center">Perguntas frequentes</SectionEyebrow>
         </div>
         <div className="faq-introduction">
           <span className="faq-watermark" aria-hidden="true">
@@ -36,6 +36,7 @@ export function Faq({ compact = false }: { compact?: boolean }) {
             id="faq-title"
             text="Dúvidas antes de agendar?"
             accent="agendar?"
+            leadAccent="Dúvidas"
           />
           <p>
             Do orçamento aos cuidados após o atendimento, veja o que você
@@ -111,7 +112,26 @@ export function Faq({ compact = false }: { compact?: boolean }) {
                   inert={!expanded}
                 >
                   <div className="faq-answer-clip tw:overflow-hidden">
-                    <p>{item.answer}</p>
+                    <div className="faq-answer-content">
+                      {item.id === 'atendimento' ? (
+                        <>
+                          <ul
+                            className="faq-cities"
+                            aria-label="Cidades atendidas"
+                          >
+                            {serviceAreas.map((city) => (
+                              <li key={city.id}>{city.name}</li>
+                            ))}
+                          </ul>
+                          <p className="faq-area-note">
+                            <strong>Informe seu bairro</strong> para consultar a
+                            disponibilidade de atendimento.
+                          </p>
+                        </>
+                      ) : (
+                        <p>{item.answer}</p>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

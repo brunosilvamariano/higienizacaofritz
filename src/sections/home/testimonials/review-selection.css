@@ -1,5 +1,12 @@
 .review-selection {
-  --review-deep: color-mix(in srgb, var(--brand) 45%, #102747);
+  --review-deep: var(--fritz-ink);
+  background:
+    radial-gradient(
+      ellipse 90% 72% at 0% 55%,
+      rgb(0 71 171 / 4%),
+      transparent 85%
+    ),
+    var(--fritz-ice);
 }
 .review-selection-heading {
   max-width: 680px;
@@ -25,11 +32,7 @@
   padding-block: clamp(24px, 3vw, 40px);
   overflow: hidden;
   border-block: 1px solid color-mix(in srgb, var(--brand) 8%, transparent);
-  background: repeating-linear-gradient(
-    135deg,
-    transparent 0 5px,
-    color-mix(in srgb, var(--brand) 6%, transparent) 5px 6px
-  );
+  background: transparent;
   mask-image: linear-gradient(
     to right,
     transparent,
@@ -61,12 +64,12 @@
   gap: 14px;
   padding: 8px 22px 8px 8px;
   min-height: 74px;
-  border: 1px solid color-mix(in srgb, var(--brand) 15%, var(--white));
+  border: 1px solid var(--fritz-line);
   border-radius: 999px;
   background: var(--white);
   color: var(--ink);
   text-align: left;
-  box-shadow: 0 3px 6px -4px rgb(16 39 71 / 20%);
+  box-shadow: 0 4px 12px -9px rgb(22 39 55 / 18%);
   cursor: pointer;
   transition:
     border-color 350ms,
@@ -106,7 +109,7 @@
 }
 .review-capsule:hover {
   border-color: color-mix(in srgb, var(--brand) 60%, var(--white));
-  box-shadow: 0 6px 18px -10px rgb(16 39 71 / 30%);
+  box-shadow: 0 8px 18px -12px rgb(22 39 55 / 22%);
 }
 .review-capsule:hover .review-capsule-arrow {
   opacity: 1;
@@ -162,6 +165,7 @@
   height: 16px;
 }
 .review-dialog {
+  --round-link-focus: var(--white);
   width: min(580px, calc(100% - 32px));
   max-height: calc(100dvh - 40px);
   padding: 0;

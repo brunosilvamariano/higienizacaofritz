@@ -253,9 +253,11 @@ main.home-palette.home-refined > .service-marquee {
 }
 
 /* A home enxuta usa só a faixa de reputação; o restante do acervo é preservado. */
-main.home-palette.home-refined > .service-marquee.service-trust-strip {
+main.page-content.home-palette.home-refined
+  > .service-marquee.service-trust-strip {
   margin-top: clamp(24px, 3vw, 40px);
   padding-block: 0;
+  background: var(--white);
 }
 .service-trust-strip .service-marquee-band {
   display: block;

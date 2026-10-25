@@ -110,7 +110,12 @@ export function HeroEntrance() {
             if (timeline.progress() < 1) timeline.progress(1);
           });
           observer.observe(element);
-          if (ready || curtain?.dataset.phase !== 'initial') play();
+          if (
+            ready ||
+            !curtain ||
+            ['idle', 'revealing'].includes(curtain.dataset.phase ?? '')
+          )
+            play();
           gsap.to('.hero-portrait', {
             y: 100,
             ease: 'none',

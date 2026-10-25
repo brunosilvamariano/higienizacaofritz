@@ -10,6 +10,7 @@ function WaterRule({ trailing = false }: { trailing?: boolean }) {
       <svg viewBox="0 0 72 18" fill="none" aria-hidden="true">
         <path d="M1 9h49" stroke="currentColor" strokeWidth="1.5" />
         <path
+          className="section-eyebrow-drop"
           d="M63 1.5c-1.6 2.6-5 6.2-5 9a5 5 0 0 0 10 0c0-2.8-3.4-6.4-5-9Z"
           fill="currentColor"
         />
